@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="DinaBridge — Senior Elastic engineering for Observability, Search, and Security. White-label delivery for consulting firms. Direct engagement for enterprises.">
+<meta property="og:title" content="DinaBridge — Expert Elastic Engineering">
+<meta property="og:description" content="Senior engineers. White-label delivery for agencies. Direct consulting for enterprises.">
+<meta property="og:type" content="website">
+<title>DinaBridge — Expert Elastic Engineering</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --ink:        #111111;
+  --ink-2:      #333333;
+  --ink-3:      #666666;
+  --ink-4:      #999999;
+  --paper:      #F8F6F1;
+  --paper-2:    #F0EDE6;
+  --paper-3:    #E8E4DC;
+  --rule:       rgba(17,17,17,0.12);
+  --rule-strong:rgba(17,17,17,0.22);
+  --serif:      'Playfair Display', Georgia, serif;
+  --sans:       'Figtree', system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  background: rgba(248,246,241,0.94);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 3rem;
+  height: 64px;
+  transition: box-shadow .3s;
+}
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 18px; font-weight: 700;
+  color: var(--ink);
+}
+.nav-links {
+  display: flex; gap: 2.5rem; list-style: none;
+}
+.nav-links a {
+  font-size: 13px; font-weight: 400;
+  color: var(--ink-3);
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-cta {
+  display: inline-block;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.8px; text-transform: uppercase;
+  padding: 9px 22px;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 2px;
+  transition: opacity .2s;
+}
+.nav-cta:hover { opacity: 0.8; }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 0 3rem 5rem;
+  border-bottom: 1px solid var(--rule-strong);
+}
+.hero-top {
+  padding-top: 96px;
+  display: flex; justify-content: space-between; align-items: flex-start;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 2rem;
+  margin-bottom: 0;
+}
+.hero-badge {
+  font-size: 11px; font-weight: 500;
+  color: var(--ink-3);
+  letter-spacing: 1.5px; text-transform: uppercase;
+  border: 1px solid var(--rule-strong);
+  padding: 6px 14px;
+  border-radius: 2px;
+}
+.hero-spec {
+  font-size: 11px; font-weight: 400;
+  color: var(--ink-4);
+  letter-spacing: 0.5px;
+  text-align: right;
+  line-height: 1.8;
+}
+.hero-body { margin-top: 7vh; }
+.hero-kicker {
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 1.75rem;
+}
+.hero-h1 {
+  font-family: var(--serif);
+  font-size: clamp(48px, 7vw, 96px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -3px;
+  color: var(--ink);
+  max-width: 900px;
+  margin-bottom: 2.5rem;
+}
+.hero-h1 em { font-style: italic; color: var(--ink-3); }
+.hero-value-prop {
+  font-size: 15px; font-weight: 500;
+  color: var(--ink);
+  max-width: 540px;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  letter-spacing: -0.1px;
+  border-left: 2px solid var(--ink);
+  padding-left: 1rem;
+}
+.hero-desc {
+  font-size: 17px; font-weight: 300;
+  color: var(--ink-2);
+  max-width: 500px; line-height: 1.7;
+  margin-bottom: 3rem;
+}
+.hero-actions { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+.btn-fill {
+  display: inline-block;
+  font-size: 13px; font-weight: 600;
+  letter-spacing: 0.6px; text-transform: uppercase;
+  padding: 13px 30px;
+  background: var(--ink); color: var(--paper);
+  border-radius: 2px; transition: opacity .2s;
+}
+.btn-fill:hover { opacity: 0.8; }
+.btn-link {
+  font-size: 13px; font-weight: 500;
+  color: var(--ink-3);
+  border-bottom: 1px solid var(--rule-strong);
+  padding-bottom: 2px;
+  transition: color .2s, border-color .2s;
+}
+.btn-link:hover { color: var(--ink); border-color: var(--ink); }
+.hero-footer {
+  margin-top: 5rem;
+  display: flex; gap: 3rem; flex-wrap: wrap;
+  padding-top: 2rem;
+  border-top: 1px solid var(--rule);
+}
+.hero-stat .label {
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--ink-4); margin-bottom: 4px;
+}
+.hero-stat .value {
+  font-family: var(--serif);
+  font-size: 22px; font-weight: 700;
+  color: var(--ink);
+}
+
+/* TICKER */
+.ticker {
+  overflow: hidden;
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper-2);
+  padding: 0.85rem 0;
+}
+.ticker-track {
+  display: flex;
+  animation: slide 32s linear infinite;
+  white-space: nowrap;
+}
+.ticker-item {
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--ink-3);
+  padding: 0 2.5rem;
+  flex-shrink: 0;
+}
+.ticker-item::after {
+  content: ' ·';
+  color: var(--ink-4);
+}
+@keyframes slide {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* SHARED */
+.section { padding: 7rem 3rem; }
+.section-sm { padding: 5rem 3rem; }
+.ruled { border-top: 1px solid var(--rule-strong); }
+.bg-2 { background: var(--paper-2); }
+
+.section-label {
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--ink-4); margin-bottom: 1.25rem;
+}
+.section-h2 {
+  font-family: var(--serif);
+  font-size: clamp(30px, 4vw, 54px);
+  font-weight: 700;
+  letter-spacing: -1.5px; line-height: 1.05;
+  color: var(--ink); margin-bottom: 1.25rem;
+}
+.section-body {
+  font-size: 16px; font-weight: 300;
+  color: var(--ink-2);
+  max-width: 520px; line-height: 1.75;
+}
+
+/* TWO PATH */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; }
+.path {
+  padding: 5rem 3rem;
+  border-right: 1px solid var(--rule-strong);
+  transition: background .2s;
+}
+.path:last-child { border-right: none; }
+.path-flag {
+  display: inline-block;
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--ink-3);
+  border: 1px solid var(--rule-strong);
+  padding: 5px 12px; border-radius: 2px;
+  margin-bottom: 2rem;
+}
+.path h2 {
+  font-family: var(--serif);
+  font-size: 26px; font-weight: 700;
+  line-height: 1.2; letter-spacing: -0.5px;
+  color: var(--ink); margin-bottom: 1rem;
+}
+.path > p {
+  font-size: 15px; font-weight: 300;
+  color: var(--ink-2); line-height: 1.75;
+  margin-bottom: 2rem;
+}
+.check-list {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 10px;
+  margin-bottom: 2.5rem;
+}
+.check-list li {
+  font-size: 14px; font-weight: 300;
+  color: var(--ink-2); line-height: 1.5;
+  display: flex; gap: 12px;
+}
+.check-list li::before { content: '—'; color: var(--ink-4); flex-shrink: 0; }
+.inline-link {
+  font-size: 13px; font-weight: 600;
+  color: var(--ink);
+  border-bottom: 1px solid var(--rule-strong);
+  padding-bottom: 2px;
+  transition: opacity .2s;
+}
+.inline-link:hover { opacity: 0.6; }
+.path-ops {
+  display: flex; flex-direction: column; gap: 0;
+  margin-bottom: 2rem;
+  border: 1px solid var(--rule-strong);
+}
+.path-op {
+  display: flex; justify-content: space-between;
+  align-items: baseline; gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--rule);
+}
+.path-op:last-child { border-bottom: none; }
+.op-label {
+  font-size: 11px; font-weight: 500;
+  color: var(--ink-4);
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+.op-val {
+  font-size: 12px; font-weight: 500;
+  color: var(--ink-2);
+  text-align: right;
+}
+
+/* SERVICES */
+.services-header {
+  display: flex; justify-content: space-between;
+  align-items: flex-end; margin-bottom: 3.5rem;
+  gap: 2rem; flex-wrap: wrap;
+}
+.services-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  border: 1px solid var(--rule-strong);
+}
+.svc {
+  padding: 2.75rem 2.5rem;
+  border-right: 1px solid var(--rule-strong);
+  border-bottom: 1px solid var(--rule-strong);
+  transition: background .2s;
+}
+.svc:hover { background: var(--paper-3); }
+.svc:nth-child(2n) { border-right: none; }
+.svc:nth-child(3), .svc:nth-child(4) { border-bottom: none; }
+.svc-num {
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 2px; color: var(--ink-4);
+  margin-bottom: 1.25rem;
+}
+.svc h3 {
+  font-family: var(--serif);
+  font-size: 20px; font-weight: 700;
+  color: var(--ink); letter-spacing: -0.3px;
+  margin-bottom: 0.75rem;
+}
+.svc p {
+  font-size: 14px; font-weight: 300;
+  color: var(--ink-2); line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag {
+  font-size: 10px; font-weight: 500;
+  color: var(--ink-4);
+  padding: 3px 9px;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+}
+
+/* MODES */
+.modes-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--rule-strong);
+  margin-top: 3.5rem;
+}
+.mode {
+  padding: 2.5rem 2rem;
+  border-right: 1px solid var(--rule-strong);
+}
+.mode:last-child { border-right: none; }
+.mode-n {
+  font-family: var(--serif);
+  font-size: 52px; font-weight: 800;
+  color: var(--paper-3);
+  line-height: 1; letter-spacing: -3px;
+  margin-bottom: 1.5rem;
+}
+.mode h3 {
+  font-size: 15px; font-weight: 600;
+  color: var(--ink); margin-bottom: 0.5rem;
+}
+.mode p {
+  font-size: 13px; font-weight: 300;
+  color: var(--ink-3); line-height: 1.65;
+}
+
+/* COMMITMENTS */
+.commit-layout {
+  display: grid; grid-template-columns: 1fr 1.4fr;
+  gap: 8rem; align-items: start;
+}
+.commit-list { display: flex; flex-direction: column; }
+.commit-item {
+  display: flex; gap: 2rem;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: flex-start;
+}
+.commit-item:first-child { border-top: 1px solid var(--rule); }
+.commit-n {
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 1px; color: var(--ink-4);
+  flex-shrink: 0; margin-top: 3px; width: 20px;
+}
+.commit-item h4 {
+  font-size: 15px; font-weight: 600;
+  color: var(--ink); margin-bottom: 0.35rem;
+}
+.commit-item p {
+  font-size: 13px; font-weight: 300;
+  color: var(--ink-3); line-height: 1.65;
+}
+
+/* ENGAGEMENTS */
+.eng-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--rule-strong);
+  margin-top: 3.5rem;
+}
+.eng {
+  padding: 2.25rem 2rem;
+  border-right: 1px solid var(--rule-strong);
+  border-bottom: 1px solid var(--rule-strong);
+  transition: background .2s;
+}
+.eng:hover { background: var(--paper-3); }
+.eng:nth-child(3n) { border-right: none; }
+.eng:nth-child(4), .eng:nth-child(5), .eng:nth-child(6) { border-bottom: none; }
+.eng-sector {
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--ink-4); margin-bottom: 0.85rem;
+}
+.eng h3 {
+  font-size: 15px; font-weight: 600;
+  color: var(--ink); line-height: 1.35;
+  margin-bottom: 0.75rem;
+}
+.eng p {
+  font-size: 13px; font-weight: 300;
+  color: var(--ink-3); line-height: 1.65;
+}
+.eng-stack {
+  margin-top: 1.25rem;
+  font-size: 11px; color: var(--ink-4);
+  border-top: 1px solid var(--rule);
+  padding-top: 0.85rem;
+}
+
+/* TEAM */
+.team-header {
+  display: flex; justify-content: space-between;
+  align-items: flex-end; gap: 2rem;
+  margin-bottom: 3.5rem; flex-wrap: wrap;
+}
+.team-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--rule-strong);
+}
+.member {
+  padding: 2.25rem 2rem;
+  border-right: 1px solid var(--rule-strong);
+  border-bottom: 1px solid var(--rule-strong);
+}
+.member:nth-child(3n) { border-right: none; }
+.member:nth-child(4), .member:nth-child(5), .member:nth-child(6) { border-bottom: none; }
+.member-role {
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--ink-4); margin-bottom: 0.65rem;
+}
+.member h3 {
+  font-family: var(--serif);
+  font-size: 18px; font-weight: 700;
+  color: var(--ink); margin-bottom: 0.4rem;
+}
+.member-desc {
+  font-size: 13px; font-weight: 300;
+  color: var(--ink-3); line-height: 1.6; margin-bottom: 0.75rem;
+}
+.member-loc { font-size: 11px; color: var(--ink-4); }
+
+/* PULL QUOTE */
+.pull-quote {
+  padding: 6rem 3rem;
+  background: var(--ink);
+  color: var(--paper);
+  display: flex; align-items: center;
+  justify-content: space-between;
+  gap: 4rem; flex-wrap: wrap;
+}
+.pull-q {
+  font-family: var(--serif);
+  font-size: clamp(24px, 3.5vw, 44px);
+  font-weight: 700;
+  line-height: 1.1; letter-spacing: -1px;
+  max-width: 660px;
+}
+.pull-q em { font-style: italic; opacity: 0.5; }
+.pull-cta {
+  font-size: 13px; font-weight: 600;
+  letter-spacing: 0.8px; text-transform: uppercase;
+  padding: 13px 28px;
+  background: var(--paper); color: var(--ink);
+  border-radius: 2px; flex-shrink: 0;
+  transition: opacity .2s; display: inline-block;
+}
+.pull-cta:hover { opacity: 0.82; }
+
+/* CONTACT */
+.contact-grid {
+  display: grid; grid-template-columns: 1.1fr 1fr;
+  gap: 7rem; align-items: start;
+}
+.contact-form { display: flex; flex-direction: column; gap: 14px; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label {
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--ink-4);
+}
+.field input, .field select, .field textarea {
+  background: var(--paper-2);
+  border: 1px solid var(--rule-strong);
+  border-radius: 2px;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px; font-weight: 300;
+  padding: 12px 16px;
+  outline: none;
+  transition: border-color .2s;
+  width: 100%;
+}
+.field input::placeholder, .field textarea::placeholder { color: var(--ink-4); }
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--ink); }
+.field select option { background: var(--paper); }
+.field textarea { resize: vertical; min-height: 130px; }
+.submit-btn {
+  align-self: flex-start;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.8px; text-transform: uppercase;
+  padding: 13px 28px;
+  background: var(--ink); color: var(--paper);
+  border: none; border-radius: 2px;
+  cursor: pointer; transition: opacity .2s;
+  font-family: var(--sans);
+}
+.submit-btn:hover { opacity: 0.8; }
+.contact-aside { display: flex; flex-direction: column; gap: 2.5rem; }
+.aside-block h4 {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--ink-4); margin-bottom: 0.5rem;
+}
+.aside-block p, .aside-block a {
+  font-size: 14px; font-weight: 300;
+  color: var(--ink-2); line-height: 1.6;
+}
+.aside-block a {
+  border-bottom: 1px solid var(--rule-strong);
+  transition: color .2s;
+}
+.aside-block a:hover { color: var(--ink-2); }
+
+/* FOOTER */
+footer {
+  background: var(--paper-2);
+  border-top: 1px solid var(--rule-strong);
+  padding: 1.75rem 3rem;
+  display: flex; align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem;
+}
+.footer-logo {
+  font-family: var(--serif);
+  font-size: 16px; font-weight: 700;
+  color: var(--ink);
+}
+.footer-nav { display: flex; gap: 2rem; flex-wrap: wrap; }
+.footer-nav a {
+  font-size: 12px; color: var(--ink-4);
+  transition: color .2s;
+}
+.footer-nav a:hover { color: var(--ink); }
+.footer-legal { font-size: 11px; font-weight: 300; color: var(--ink-4); }
+
+/* REVEAL */
+.reveal {
+  opacity: 0; transform: translateY(18px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.reveal.in { opacity: 1; transform: none; }
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .nav { padding: 0 1.5rem; }
+  .nav-links { display: none; }
+  .section, .section-sm { padding: 4rem 1.5rem; }
+  .hero { padding: 0 1.5rem 4rem; }
+  .hero-top { flex-direction: column; gap: 1rem; padding-top: 80px; }
+  .hero-spec { text-align: left; }
+  .two-col { grid-template-columns: 1fr; }
+  .path { border-right: none; border-bottom: 1px solid var(--rule-strong); }
+  .path:last-child { border-bottom: none; }
+  .services-grid { grid-template-columns: 1fr; }
+  .svc { border-right: none; }
+  .svc:nth-child(3), .svc:nth-child(4) { border-bottom: 1px solid var(--rule-strong); }
+  .svc:last-child { border-bottom: none; }
+  .modes-grid { grid-template-columns: 1fr 1fr; }
+  .mode:nth-child(2n) { border-right: none; }
+  .mode:nth-child(3), .mode:nth-child(4) { border-top: 1px solid var(--rule-strong); }
+  .commit-layout { grid-template-columns: 1fr; gap: 3rem; }
+  .eng-grid { grid-template-columns: 1fr; }
+  .eng { border-right: none; }
+  .eng:nth-child(4), .eng:nth-child(5), .eng:nth-child(6) { border-bottom: 1px solid var(--rule-strong); }
+  .eng:last-child { border-bottom: none; }
+  .team-grid { grid-template-columns: 1fr 1fr; }
+  .member:nth-child(3n) { border-right: 1px solid var(--rule-strong); }
+  .member:nth-child(2n) { border-right: none; }
+  .member:nth-child(5), .member:nth-child(6) { border-bottom: none; }
+  .pull-quote { flex-direction: column; align-items: flex-start; }
+  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  footer { flex-direction: column; gap: 1.25rem; }
+}
+@media (max-width: 520px) {
+  .hero-h1 { letter-spacing: -1.5px; }
+  .modes-grid { grid-template-columns: 1fr; }
+  .mode { border-right: none; border-bottom: 1px solid var(--rule-strong); }
+  .mode:last-child { border-bottom: none; }
+  .team-grid { grid-template-columns: 1fr; }
+  .member { border-right: none; }
+  .member:nth-child(n) { border-bottom: 1px solid var(--rule-strong); }
+  .member:last-child { border-bottom: none; }
+}
+/* SECONDARY CTA BUTTON */
+.btn-fill-alt {
+  background: var(--paper-2);
+  color: var(--ink);
+  border: 1px solid var(--rule-strong);
+}
+.btn-fill-alt:hover { opacity: 0.75; }
+
+/* TECH SPLIT SECTIONS */
+.tech-split {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--rule-strong);
+}
+.tech-col {
+  padding: 6rem 3rem;
+  border-right: 1px solid var(--rule-strong);
+}
+.tech-col:last-child { border-right: none; }
+.tech-col.ch-col { background: var(--paper-2); }
+.tech-platform-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--ink-3);
+  border: 1px solid var(--rule-strong);
+  padding: 5px 14px; border-radius: 2px;
+  margin-bottom: 2.5rem;
+}
+.badge-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--ink-3); flex-shrink: 0;
+}
+.tech-col h2 {
+  font-family: var(--serif);
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 700; line-height: 1.1;
+  letter-spacing: -1px; color: var(--ink);
+  margin-bottom: 1rem;
+}
+.tech-col > p {
+  font-size: 15px; font-weight: 300;
+  color: var(--ink-2); line-height: 1.75;
+  margin-bottom: 2rem; max-width: 460px;
+}
+.tech-svc-list {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 0;
+  border: 1px solid var(--rule-strong);
+  margin-bottom: 2rem;
+}
+.tech-svc-item {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--rule);
+  display: flex; flex-direction: column; gap: 3px;
+}
+.tech-svc-item:last-child { border-bottom: none; }
+.tech-svc-name {
+  font-size: 13px; font-weight: 600; color: var(--ink);
+}
+.tech-svc-desc {
+  font-size: 12px; font-weight: 300;
+  color: var(--ink-3); line-height: 1.5;
+}
+.ch-callout {
+  background: var(--ink); color: var(--paper);
+  padding: 1.75rem 2rem; margin-bottom: 2rem;
+}
+.ch-callout-label {
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: rgba(245,243,238,0.45); margin-bottom: 0.6rem;
+}
+.ch-callout p {
+  font-size: 13px; font-weight: 300;
+  color: rgba(245,243,238,0.75); line-height: 1.65;
+}
+.ch-callout strong { color: var(--paper); font-weight: 500; }
+@media (max-width: 900px) {
+  .tech-split { grid-template-columns: 1fr; }
+  .tech-col { border-right: none; border-bottom: 1px solid var(--rule-strong); }
+  .tech-col:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="#">DinaBridge</a>
+  <ul class="nav-links">
+    <li><a href="#elastic">Elastic</a></li>
+    <li><a href="#clickhouse">ClickHouse</a></li>
+    <li><a href="#partners">For Partners</a></li>
+    <li><a href="#engagements">Engagements</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="#contact">Let's talk</a>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-top">
+    <span class="hero-badge">Certified Elastic Engineering Partner</span>
+    <div class="hero-spec">
+      Elastic · ClickHouse · Observability · Search · Security<br>
+      White-label &amp; Direct Consulting
+    </div>
+  </div>
+
+  <div class="hero-body">
+    <p class="hero-kicker">Senior Engineering · Two Platforms. One Team.</p>
+    <h1 class="hero-h1">
+      Expert delivery,<br>
+      <em>silent by design.</em>
+    </h1>
+    <p class="hero-value-prop">We deliver Elastic and ClickHouse engineering under your brand — or directly to your team. No juniors. No license management. No drama.</p>
+    <p class="hero-desc">
+      DinaBridge is a senior engineering team specializing in two complementary platforms: Elastic for search, observability, and security — and ClickHouse for real-time analytics and AI data infrastructure. Together, they power the modern enterprise data stack.
+    </p>
+    <div class="hero-actions">
+      <a class="btn-fill" href="#elastic">Elastic practice →</a>
+      <a class="btn-fill btn-fill-alt" href="#clickhouse">ClickHouse practice →</a>
+      <a class="btn-link" href="#partners">White-label delivery</a>
+    </div>
+  </div>
+
+  <div class="hero-footer">
+    <div class="hero-stat">
+      <div class="label">Technology platforms</div>
+      <div class="value">Elastic + ClickHouse</div>
+    </div>
+    <div class="hero-stat">
+      <div class="label">Practice areas</div>
+      <div class="value">4</div>
+    </div>
+    <div class="hero-stat">
+      <div class="label">Engagement types</div>
+      <div class="value">White-label &amp; Direct</div>
+    </div>
+    <div class="hero-stat">
+      <div class="label">Team locations</div>
+      <div class="value">US · France · Uzbekistan</div>
+    </div>
+  </div>
+</section>
+
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item">Elasticsearch</span>
+    <span class="ticker-item">Kibana</span>
+    <span class="ticker-item">Elastic APM</span>
+    <span class="ticker-item">ECE / ECK</span>
+    <span class="ticker-item">Elastic SIEM</span>
+    <span class="ticker-item">Vector Search</span>
+    <span class="ticker-item">ClickHouse</span>
+    <span class="ticker-item">LangChain</span>
+    <span class="ticker-item">Kubernetes</span>
+    <span class="ticker-item">Elastic Cloud</span>
+    <span class="ticker-item">White-label Delivery</span>
+    <span class="ticker-item">Staff Augmentation</span>
+    <span class="ticker-item">Elasticsearch</span>
+    <span class="ticker-item">Kibana</span>
+    <span class="ticker-item">Elastic APM</span>
+    <span class="ticker-item">ECE / ECK</span>
+    <span class="ticker-item">Elastic SIEM</span>
+    <span class="ticker-item">Vector Search</span>
+    <span class="ticker-item">ClickHouse</span>
+    <span class="ticker-item">LangChain</span>
+    <span class="ticker-item">Kubernetes</span>
+    <span class="ticker-item">Elastic Cloud</span>
+    <span class="ticker-item">White-label Delivery</span>
+    <span class="ticker-item">Staff Augmentation</span>
+  </div>
+</div>
+
+
+<div id="partners" class="two-col ruled">
+  <div class="path reveal">
+    <span class="path-flag">For agencies &amp; consulting firms</span>
+    <h2>Your delivery arm. Your brand. Our engineers.</h2>
+    <p>You close the deal, own the relationship, and set direction. DinaBridge delivers the Elastic engineering under your name — silently, precisely, without ever contacting your client.</p>
+    <ul class="check-list">
+      <li>Fully white-label — we never appear in client-facing work</li>
+      <li>NDAs signed on every engagement, without exception</li>
+      <li>Transparent timesheets you can mark up and invoice directly</li>
+      <li>Surge capacity on demand, without permanent headcount risk</li>
+      <li>Non-compete by design — we will never prospect your clients</li>
+    </ul>
+    <div class="path-ops">
+      <div class="path-op">
+        <span class="op-label">Typical onboarding</span>
+        <span class="op-val">3–5 business days</span>
+      </div>
+      <div class="path-op">
+        <span class="op-label">Handoff model</span>
+        <span class="op-val">You brief us, we deliver to your spec</span>
+      </div>
+      <div class="path-op">
+        <span class="op-label">White-label friendly services</span>
+        <span class="op-val">All four — Observability, Search, Security, AI</span>
+      </div>
+    </div>
+    <a class="inline-link" href="#contact">Discuss white-label delivery →</a>
+  </div>
+  <div class="path reveal">
+    <span class="path-flag">For enterprises</span>
+    <h2>Expert-led. No juniors on your production stack.</h2>
+    <p>When your observability is incomplete, your search underperforms, or your security posture needs real engineering — DinaBridge brings senior Elastic expertise directly to your team.</p>
+    <ul class="check-list">
+      <li>Greenfield architecture and full implementation</li>
+      <li>Migration from legacy SIEM, logging, and search platforms</li>
+      <li>Stack remediation and sustained performance engineering</li>
+      <li>Staff augmentation for 1–12 month embedded engagements</li>
+      <li>Fixed-price project delivery with defined milestones</li>
+    </ul>
+    <div class="path-ops">
+      <div class="path-op">
+        <span class="op-label">First call to scoping</span>
+        <span class="op-val">Within 48 hours</span>
+      </div>
+      <div class="path-op">
+        <span class="op-label">Typical engagement start</span>
+        <span class="op-val">1–2 weeks from signed SOW</span>
+      </div>
+      <div class="path-op">
+        <span class="op-label">Reporting cadence</span>
+        <span class="op-val">Weekly timesheets, milestone check-ins</span>
+      </div>
+    </div>
+    <a class="inline-link" href="#contact">Discuss your project →</a>
+  </div>
+</div>
+
+
+<div class="tech-split">
+
+  <!-- ELASTIC COLUMN -->
+  <div id="elastic" class="tech-col reveal">
+    <div class="tech-platform-badge">
+      <span class="badge-dot"></span>
+      Elastic Practice
+    </div>
+    <h2>Search, Observability &amp; Security on the Elastic stack.</h2>
+    <p>DinaBridge has delivered Elastic engineering across enterprise environments for years. We implement, tune, migrate, and remediate — across every layer of the Elastic stack, from ingestion to visualization.</p>
+    <ul class="tech-svc-list">
+      <li class="tech-svc-item">
+        <span class="tech-svc-name">Observability</span>
+        <span class="tech-svc-desc">APM, distributed tracing, infrastructure metrics, log management, and alerting at production scale.</span>
+      </li>
+      <li class="tech-svc-item">
+        <span class="tech-svc-name">Search</span>
+        <span class="tech-svc-desc">Enterprise search architecture, relevance engineering, semantic search, and vector retrieval pipelines.</span>
+      </li>
+      <li class="tech-svc-item">
+        <span class="tech-svc-name">Security / SIEM</span>
+        <span class="tech-svc-desc">Elastic SIEM deployment, detection rule engineering, threat hunting, and security posture hardening.</span>
+      </li>
+      <li class="tech-svc-item">
+        <span class="tech-svc-name">AI infrastructure</span>
+        <span class="tech-svc-desc">ELSER-powered RAG pipelines, LangChain integration, and semantic search on Elastic vector stores.</span>
+      </li>
+    </ul>
+    <div class="tags" style="margin-bottom:2rem;">
+      <span class="tag">Elasticsearch</span><span class="tag">Kibana</span>
+      <span class="tag">Elastic APM</span><span class="tag">Logstash</span>
+      <span class="tag">ECE / ECK</span><span class="tag">Elastic Cloud</span>
+      <span class="tag">Fleet / Agent</span><span class="tag">ELSER</span>
+    </div>
+    <a class="inline-link" href="#contact">Discuss an Elastic engagement →</a>
+  </div>
+
+  <!-- CLICKHOUSE COLUMN -->
+  <div id="clickhouse" class="tech-col ch-col reveal">
+    <div class="tech-platform-badge">
+      <span class="badge-dot"></span>
+      ClickHouse Practice
+    </div>
+    <h2>Real-time analytics and AI data infrastructure on ClickHouse.</h2>
+    <p>ClickHouse is the fastest-growing analytical database in the market — used by Meta, Tesla, Cloudflare, and thousands of enterprises for real-time analytics at massive scale. DinaBridge is one of the few consulting teams delivering ClickHouse implementations today.</p>
+
+    <div class="ch-callout">
+      <div class="ch-callout-label">Market timing</div>
+      <p>ClickHouse recently closed a <strong>$400M Series D</strong> and is actively building its SI partner ecosystem. They are hiring their first Partner Sales Leaders right now. <strong>DinaBridge is positioning as an early delivery partner</strong> — before the market is crowded.</p>
+    </div>
+
+    <ul class="tech-svc-list">
+      <li class="tech-svc-item">
+        <span class="tech-svc-name">Real-time analytics</span>
+        <span class="tech-svc-desc">ClickHouse architecture, schema design, and query optimization for sub-second analytics at petabyte scale.</span>
+      </li>
+      <li class="tech-svc-item">
+        <span class="tech-svc-name">Observability pipelines</span>
+        <span class="tech-svc-desc">High-throughput log and event ingestion pipelines feeding ClickHouse for observability and monitoring workloads.</span>
+      </li>
+      <li class="tech-svc-item">
+        <span class="tech-svc-name">AI data infrastructure</span>
+        <span class="tech-svc-desc">ClickHouse as the analytics layer for AI products — feature stores, embeddings, and real-time inference data.</span>
+      </li>
+      <li class="tech-svc-item">
+        <span class="tech-svc-name">Migration &amp; integration</span>
+        <span class="tech-svc-desc">Migration from legacy data warehouses to ClickHouse, and integration with Elastic, Kafka, Flink, and dbt.</span>
+      </li>
+    </ul>
+    <div class="tags" style="margin-bottom:2rem;">
+      <span class="tag">ClickHouse Cloud</span><span class="tag">Real-time analytics</span>
+      <span class="tag">Kafka</span><span class="tag">Apache Flink</span>
+      <span class="tag">dbt</span><span class="tag">Kubernetes</span>
+      <span class="tag">LangChain</span><span class="tag">Vector embeddings</span>
+    </div>
+    <a class="inline-link" href="#contact">Discuss a ClickHouse engagement →</a>
+  </div>
+
+</div>
+
+
+<section class="section-sm ruled">
+  <div class="section-label">How we engage</div>
+  <h2 class="section-h2">Four ways to work with our team.</h2>
+  <div class="modes-grid">
+    <div class="mode reveal">
+      <div class="mode-n">01</div>
+      <h3>Hourly</h3>
+      <p>Flexible scope, transparent timesheets. Right for evolving requirements where you need expertise on demand.</p>
+    </div>
+    <div class="mode reveal">
+      <div class="mode-n">02</div>
+      <h3>Fixed price</h3>
+      <p>Defined scope, milestone-based delivery. You know exactly what you receive and precisely when it lands.</p>
+    </div>
+    <div class="mode reveal">
+      <div class="mode-n">03</div>
+      <h3>Staff augmentation</h3>
+      <p>A senior Elastic engineer embedded in your team for 1–12 months. Works like a hire. Exits without drama.</p>
+    </div>
+    <div class="mode reveal">
+      <div class="mode-n">04</div>
+      <h3>Project delivery</h3>
+      <p>End-to-end ownership of migrations, greenfield builds, and remediations with clear accountability.</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="section ruled">
+  <div class="commit-layout">
+    <div class="reveal">
+      <div class="section-label">Our commitments</div>
+      <h2 class="section-h2">Why teams keep working with DinaBridge.</h2>
+      <p class="section-body" style="margin-top:1rem;">
+        The consulting industry promises senior expertise and frequently delivers junior work. DinaBridge is structurally built to be different — not just philosophically.
+      </p>
+    </div>
+    <ul class="commit-list">
+      <li class="commit-item reveal">
+        <span class="commit-n">01</span>
+        <div>
+          <h4>Senior engineers only</h4>
+          <p>Every client-facing engagement is staffed with senior engineers. We do not use client projects to develop junior talent.</p>
+        </div>
+      </li>
+      <li class="commit-item reveal">
+        <span class="commit-n">02</span>
+        <div>
+          <h4>White-label as the baseline</h4>
+          <p>Confidentiality is not a premium option. It is the default. Your client will never know we exist.</p>
+        </div>
+      </li>
+      <li class="commit-item reveal">
+        <span class="commit-n">03</span>
+        <div>
+          <h4>No license management</h4>
+          <p>We deliver engineering and expertise. We do not touch your Elastic subscriptions, renewals, or vendor negotiations.</p>
+        </div>
+      </li>
+      <li class="commit-item reveal">
+        <span class="commit-n">04</span>
+        <div>
+          <h4>Non-compete by architecture</h4>
+          <p>Our white-label model makes competing with partners structurally impossible. We exist to make you look excellent.</p>
+        </div>
+      </li>
+      <li class="commit-item reveal">
+        <span class="commit-n">05</span>
+        <div>
+          <h4>Transparent delivery</h4>
+          <p>Timesheets, progress reports, and invoicing on your schedule. No surprises, no padding, no ambiguity.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+<section id="engagements" class="section bg-2 ruled">
+  <div class="section-label">Representative engagements</div>
+  <h2 class="section-h2">What our work looks like in practice.</h2>
+  <p class="section-body" style="margin-top:0.75rem;">A selection of projects delivered across enterprise environments — across both Elastic and ClickHouse.</p>
+  <div class="eng-grid">
+    <div class="eng reveal">
+      <div class="eng-sector">Elastic · Observability · Multi-cloud</div>
+      <h3>Unified observability layer for a financial services platform</h3>
+      <p>Replaced three legacy monitoring tools with a single Elastic observability stack across AWS, Azure, and on-premise environments — reducing alert noise by more than 60%.</p>
+      <div class="eng-stack">Elastic APM · Fleet · Kibana · AWS · Azure</div>
+    </div>
+    <div class="eng reveal">
+      <div class="eng-sector">Elastic · Security · SIEM Greenfield</div>
+      <h3>SIEM deployment for a regulated healthcare organization</h3>
+      <p>Stood up Elastic Security from scratch across multiple data centers, with HIPAA-aligned log management, custom detection rules, and alert triage workflows in place from day one.</p>
+      <div class="eng-stack">Elastic SIEM · Detection rules · ECE · Logstash</div>
+    </div>
+    <div class="eng reveal">
+      <div class="eng-sector">ClickHouse · Real-time Analytics</div>
+      <h3>Real-time analytics platform for a high-volume SaaS product</h3>
+      <p>Designed and implemented a ClickHouse data warehouse replacing a legacy Redshift setup — reducing query latency from minutes to milliseconds across 50 billion daily events.</p>
+      <div class="eng-stack">ClickHouse Cloud · Kafka · dbt · Kubernetes</div>
+    </div>
+    <div class="eng reveal">
+      <div class="eng-sector">ClickHouse · Observability Pipeline</div>
+      <h3>High-throughput log ingestion pipeline for a global infrastructure team</h3>
+      <p>Built a Kafka-to-ClickHouse ingestion pipeline processing 2 million events per second, powering a custom observability dashboard for a distributed engineering organization.</p>
+      <div class="eng-stack">ClickHouse · Apache Flink · Kafka · Grafana</div>
+    </div>
+    <div class="eng reveal">
+      <div class="eng-sector">Elastic · Search · Migration</div>
+      <h3>Legacy search migration for a high-traffic e-commerce platform</h3>
+      <p>Migrated from a degraded Solr deployment to Elasticsearch with full relevance engineering and synonym tuning — improving click-through rates significantly within 90 days of go-live.</p>
+      <div class="eng-stack">Elasticsearch · Relevance engineering · ELSER</div>
+    </div>
+    <div class="eng reveal">
+      <div class="eng-sector">Elastic + ClickHouse · AI Infrastructure</div>
+      <h3>Combined Elastic + ClickHouse stack for an AI-powered analytics product</h3>
+      <p>Architected a complementary data stack: Elastic for semantic search and document retrieval, ClickHouse for real-time event analytics — serving ten million users on a single unified platform.</p>
+      <div class="eng-stack">ELSER · LangChain · ClickHouse Cloud · Kubernetes</div>
+    </div>
+  </div>
+</section>
+
+
+<section id="team" class="section ruled">
+  <div class="team-header">
+    <div>
+      <div class="section-label">Our team</div>
+      <h2 class="section-h2">Senior engineers.<br>Every role. Every time.</h2>
+    </div>
+    <p class="section-body">
+      DinaBridge is a lean, senior team. No engagement is staffed with generalists or associate-level engineers. If a role is listed here, that person is on your project.
+    </p>
+  </div>
+  <div class="team-grid">
+    <div class="member reveal">
+      <div class="member-role">Leadership</div>
+      <h3>CEO &amp; Founder</h3>
+      <p class="member-desc">Strategy, client relationships, and Elastic partnership management. Direct line into every engagement.</p>
+      <div class="member-loc">Chicago, IL</div>
+    </div>
+    <div class="member reveal">
+      <div class="member-role">Partner Management</div>
+      <h3>Partner Manager</h3>
+      <p class="member-desc">Agency relationships, white-label program management, and partner onboarding.</p>
+      <div class="member-loc">United States</div>
+    </div>
+    <div class="member reveal">
+      <div class="member-role">Search &amp; Observability</div>
+      <h3>Sr. Elastic Engineer</h3>
+      <p class="member-desc">Lead engineer across Search and Observability practices. Full-stack Elastic expertise.</p>
+      <div class="member-loc">Paris, France</div>
+    </div>
+    <div class="member reveal">
+      <div class="member-role">Observability &amp; Search</div>
+      <h3>Sr. Elastic Engineer</h3>
+      <p class="member-desc">Specializes in Observability deployments, log pipeline architecture, and Kibana implementation.</p>
+      <div class="member-loc">Paris, France</div>
+    </div>
+    <div class="member reveal">
+      <div class="member-role">Platform Engineering</div>
+      <h3>Sr. Engineer</h3>
+      <p class="member-desc">Cloud-native infrastructure, Kubernetes, and Elastic deployment automation.</p>
+      <div class="member-loc">Remote</div>
+    </div>
+    <div class="member reveal">
+      <div class="member-role">Security Practice</div>
+      <h3>Sr. Security Engineer</h3>
+      <p class="member-desc">Elastic SIEM, detection rule engineering, threat hunting, and security posture hardening.</p>
+      <div class="member-loc">Tashkent, Uzbekistan</div>
+    </div>
+  </div>
+</section>
+
+
+<div class="pull-quote">
+  <p class="pull-q">Ready to talk about your next<br><em>Elastic engagement?</em></p>
+  <a class="pull-cta" href="#contact">Schedule a call →</a>
+</div>
+
+
+<section id="contact" class="section">
+  <div class="section-label">Get in touch</div>
+  <h2 class="section-h2" style="margin-bottom:3rem;">Every engagement starts<br>with a conversation.</h2>
+  <div class="contact-grid">
+    <form class="contact-form" onsubmit="submitForm(event)">
+      <div class="field">
+        <label>Your name</label>
+        <input type="text" placeholder="Jane Smith" required>
+      </div>
+      <div class="field">
+        <label>Company email</label>
+        <input type="email" placeholder="jane@company.com" required>
+      </div>
+      <div class="field">
+        <label>I am</label>
+        <select>
+          <option value="">Select your situation</option>
+          <option>A consulting firm looking for a white-label delivery partner</option>
+          <option>An enterprise needing direct Elastic consulting</option>
+          <option>Exploring a staff augmentation engagement</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>About your project</label>
+        <textarea placeholder="Brief description of what you're working on, your timeline, and what you need from our team."></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Send message →</button>
+    </form>
+    <div class="contact-aside">
+      <div class="aside-block">
+        <h4>Email</h4>
+        <p><a href="mailto:hello@dinabridge.com">hello@dinabridge.com</a></p>
+      </div>
+      <div class="aside-block">
+        <h4>Response time</h4>
+        <p>We respond to all inquiries within one business day. Serious engagements get a scoping call within 48 hours.</p>
+      </div>
+      <div class="aside-block">
+        <h4>What to expect</h4>
+        <p>A 20-minute call. No pitch deck. No sales cycle. We figure out quickly whether we are the right fit — and we will tell you honestly if we are not.</p>
+      </div>
+      <div class="aside-block">
+        <h4>For agency partners</h4>
+        <p>If you're a consulting or staffing firm exploring a white-label arrangement, mention it in your message. Partner conversations are treated with full confidentiality from the first exchange.</p>
+      </div>
+      <div class="aside-block">
+        <h4>Entity</h4>
+        <p>DinaBridge LLC · Wyoming Limited Liability Company<br>Federal EIN on file · W-9 available on request</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="footer-logo">DinaBridge</div>
+  <nav class="footer-nav">
+    <a href="#elastic">Elastic</a>
+    <a href="#clickhouse">ClickHouse</a>
+    <a href="#partners">Partners</a>
+    <a href="#engagements">Engagements</a>
+    <a href="#team">Team</a>
+    <a href="#contact">Contact</a>
+    <a href="mailto:hello@dinabridge.com">hello@dinabridge.com</a>
+  </nav>
+  <p class="footer-legal">© DinaBridge LLC · All rights reserved</p>
+</footer>
+
+
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => {
+  const siblings = [...el.parentElement.querySelectorAll('.reveal')];
+  el.style.transitionDelay = `${siblings.indexOf(el) * 65}ms`;
+  io.observe(el);
+});
+
+window.addEventListener('scroll', () => {
+  document.querySelector('.nav').style.boxShadow =
+    window.scrollY > 40 ? '0 1px 0 rgba(17,17,17,0.14)' : 'none';
+}, { passive: true });
+
+function submitForm(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.submit-btn');
+  const orig = btn.textContent;
+  btn.textContent = 'Message sent ✓';
+  btn.style.opacity = '0.7';
+  setTimeout(() => {
+    btn.textContent = orig;
+    btn.style.opacity = '';
+    e.target.reset();
+  }, 3500);
+}
+</script>
+</body>
+</html>
