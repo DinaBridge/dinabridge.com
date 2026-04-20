@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Senior Elastic consulting for architecture, migrations, remediation, observability, SIEM, and search relevance engineering." />
+  <title>Elastic Consulting | DinaBridge</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #111111;
+      --ink-2: #333333;
+      --ink-3: #666666;
+      --ink-4: #999999;
+      --paper: #F8F6F1;
+      --paper-2: #F0EDE6;
+      --paper-3: #E8E4DC;
+      --rule: rgba(17,17,17,0.12);
+      --rule-strong: rgba(17,17,17,0.22);
+      --accent: #1e4b4a;
+      --accent-2: #274f7a;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'Figtree', system-ui, sans-serif;
+      --shadow: 0 10px 30px rgba(17,17,17,0.08);
+      --radius: 18px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(248, 246, 241, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--rule-strong);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-family: var(--serif);
+      font-size: 18px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--ink-2);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      background: var(--ink);
+      color: white;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .hero {
+      padding: 72px 0 36px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 8px 12px;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      color: var(--ink-2);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    h1 {
+      max-width: 10.5ch;
+      font-family: var(--serif);
+      font-size: clamp(44px, 8vw, 76px);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      margin-bottom: 20px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 28px;
+      align-items: end;
+    }
+
+    .hero-copy p {
+      max-width: 64ch;
+      font-size: 18px;
+      color: var(--ink-2);
+      margin-bottom: 26px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 15px;
+      border: 1px solid var(--rule-strong);
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: #fff;
+      border-color: var(--ink);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .hero-proof {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      color: var(--ink-2);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .hero-proof span {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--paper-2);
+      border: 1px solid var(--rule);
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, #efe9df 0%, #e7e2d8 100%);
+      border: 1px solid var(--rule);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card h2 {
+      font-family: var(--serif);
+      font-size: 30px;
+      line-height: 1.05;
+      margin-bottom: 14px;
+    }
+
+    .hero-card p {
+      color: var(--ink-2);
+      margin-bottom: 18px;
+    }
+
+    .hero-card ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      color: var(--ink-2);
+      font-size: 15px;
+    }
+
+    .hero-card li::before {
+      content: "— ";
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .section {
+      padding: 34px 0 72px;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+      gap: 28px;
+      margin-bottom: 28px;
+      padding-top: 18px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-3);
+    }
+
+    .section-head h2 {
+      font-family: var(--serif);
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+
+    .section-head p {
+      max-width: 64ch;
+      color: var(--ink-2);
+      font-size: 17px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.35);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      padding: 22px;
+      min-height: 100%;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      line-height: 1.2;
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .card p {
+      color: var(--ink-2);
+      font-size: 15px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .list li {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--rule);
+      color: var(--ink-2);
+    }
+
+    .list strong { color: var(--ink); }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .step {
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      padding: 20px;
+      background: var(--paper-2);
+    }
+
+    .step-number {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-3);
+      margin-bottom: 10px;
+    }
+
+    .step h3 {
+      margin-bottom: 8px;
+      font-size: 19px;
+      line-height: 1.2;
+    }
+
+    .step p {
+      color: var(--ink-2);
+      font-size: 15px;
+    }
+
+    .cta-panel {
+      background: var(--ink);
+      color: white;
+      border-radius: 28px;
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 26px;
+      align-items: center;
+    }
+
+    .cta-panel h2 {
+      font-family: var(--serif);
+      font-size: clamp(32px, 4vw, 50px);
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+
+    .cta-panel p {
+      color: rgba(255,255,255,0.8);
+      max-width: 52ch;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: flex-start;
+    }
+
+    .cta-panel .btn-primary {
+      background: white;
+      color: var(--ink);
+      border-color: white;
+    }
+
+    .cta-panel .btn-secondary {
+      color: white;
+      border-color: rgba(255,255,255,0.25);
+    }
+
+    footer {
+      padding: 30px 0 56px;
+      color: var(--ink-3);
+      font-size: 14px;
+    }
+
+    .footer-line {
+      border-top: 1px solid var(--rule);
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .section-head,
+      .split,
+      .cta-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-3,
+      .process {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding-top: 42px; }
+      .grid-3,
+      .process {
+        grid-template-columns: 1fr;
+      }
+
+      .container {
+        width: min(var(--max), calc(100% - 20px));
+      }
+
+      .hero-card,
+      .cta-panel {
+        padding: 22px;
+      }
+
+      .btn,
+      .nav-cta {
+        width: 100%;
+      }
+
+      .hero-actions,
+      .cta-actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="./index.html">
+        <span class="brand-mark">D</span>
+        <span>DinaBridge</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="./index.html">Home</a>
+        <a href="./elastic-consulting.html">Elastic Consulting</a>
+        <a href="./clickhouse-consulting.html">ClickHouse Consulting</a>
+        <a href="./white-label-delivery.html">White-Label Delivery</a>
+        <a href="./about.html">About</a>
+        <a href="./contact.html">Contact</a>
+      </nav>
+
+      <a class="nav-cta" href="./contact.html">Start a conversation</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Elastic Consulting</span>
+          <h1>Senior Elastic engineers. No juniors. No hand-holding.</h1>
+          <p>
+            DinaBridge helps agencies and enterprises implement, tune, migrate, and remediate across the Elastic stack. We stay focused on Elastic and ClickHouse so your project is delivered by people who have done this before.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="./contact.html">Book a scoping call</a>
+            <a class="btn btn-secondary" href="./white-label-delivery.html">Explore white-label delivery</a>
+          </div>
+
+          <div class="hero-proof">
+            <span>Observability</span>
+            <span>Search</span>
+            <span>SIEM</span>
+            <span>Migrations</span>
+            <span>Relevance Engineering</span>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <h2>What we handle</h2>
+          <p>From urgent remediation to long-range platform work, we embed where needed and deliver with senior ownership.</p>
+          <ul>
+            <li>Elastic architecture and implementation</li>
+            <li>Cluster tuning and performance remediation</li>
+            <li>Elastic SIEM and detection engineering</li>
+            <li>Log pipelines and observability deployments</li>
+            <li>Search relevance tuning and semantic search strategy</li>
+            <li>Managed delivery for agencies under your brand</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-label">Capabilities</div>
+          <div>
+            <h2>Where we create value</h2>
+            <p>
+              Your stack deserves engineers who already know the operational, architectural, and delivery realities of Elastic. We step in to reduce risk, shorten time to production, and clean up the work that should have been done right the first time.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <h3>Architecture & Deployment</h3>
+            <p>Greenfield Elastic deployments, multi-environment rollout planning, cloud and hybrid architecture, and delivery patterns built for long-term maintainability.</p>
+          </article>
+          <article class="card">
+            <h3>Migrations & Remediation</h3>
+            <p>Legacy stack replacement, cluster cleanup, version upgrades, mapping repairs, ingestion redesign, and incident-response support when systems are under stress.</p>
+          </article>
+          <article class="card">
+            <h3>Search & Security</h3>
+            <p>Search relevance engineering, semantic search implementation, Elastic SIEM workflows, custom detections, and threat-hunting support for demanding environments.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-label">Engagement model</div>
+          <div>
+            <h2>How we work</h2>
+            <p>
+              We support both agencies and enterprises. Some clients need a senior engineer embedded inside the team. Others need a partner who can scope, own, and deliver the whole project.
+            </p>
+          </div>
+        </div>
+
+        <div class="split">
+          <article class="card">
+            <h3>For agencies</h3>
+            <ul class="list">
+              <li><strong>White-label delivery:</strong> You win the client. We deliver behind the scenes.</li>
+              <li><strong>Senior-only staffing:</strong> No juniors on client work, no supervision burden on your team.</li>
+              <li><strong>Confidential by default:</strong> Your brand stays in front; our role stays invisible.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>For enterprises</h3>
+            <ul class="list">
+              <li><strong>Embedded engineers:</strong> A senior consultant works like a hire for 1–12 months.</li>
+              <li><strong>Outcome-based projects:</strong> We scope the work, own delivery, and execute start to finish.</li>
+              <li><strong>Flexible support:</strong> Hourly work is available when the scope is still evolving.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-label">Typical work</div>
+          <div>
+            <h2>Examples of Elastic support</h2>
+            <p>
+              The strongest engagements are usually not generic “consulting.” They are specific technical problems, platform transitions, or mission-critical systems that need a senior pair of hands.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <h3>Observability modernization</h3>
+            <p>Centralize logs, redesign ingestion pipelines, reduce alert noise, and move operations teams toward usable dashboards and better incident response.</p>
+          </article>
+          <article class="card">
+            <h3>Elastic SIEM rollout</h3>
+            <p>Deploy log management, implement detections, support threat hunting, and align technical delivery to internal security operations from day one.</p>
+          </article>
+          <article class="card">
+            <h3>Search platform improvement</h3>
+            <p>Improve search quality, tune relevance, redesign indexing strategy, and support semantic search use cases for customer-facing products.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-label">Process</div>
+          <div>
+            <h2>Simple, senior-led delivery</h2>
+            <p>
+              We keep the process tight so projects move quickly. Serious engagements get a fast scoping response, then the same level of seniority carries through into execution.
+            </p>
+          </div>
+        </div>
+
+        <div class="process">
+          <article class="step">
+            <div class="step-number">Step 01</div>
+            <h3>Scope the problem</h3>
+            <p>We review your stack, delivery goal, timeline, and risk profile.</p>
+          </article>
+          <article class="step">
+            <div class="step-number">Step 02</div>
+            <h3>Choose the model</h3>
+            <p>Hourly, fixed-scope, embedded, or white-label delivery based on the real need.</p>
+          </article>
+          <article class="step">
+            <div class="step-number">Step 03</div>
+            <h3>Start with senior engineers</h3>
+            <p>The people who understand the work are the people who do the work.</p>
+          </article>
+          <article class="step">
+            <div class="step-number">Step 04</div>
+            <h3>Deliver without drag</h3>
+            <p>Less management overhead, faster execution, and cleaner technical outcomes.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-panel">
+          <div>
+            <h2>If the Elastic work matters, put senior people on it.</h2>
+            <p>
+              DinaBridge supports agencies and enterprises across the Americas, EMEA, and Asia Pacific with specialized Elastic delivery and fast scoping for serious engagements.
+            </p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="./contact.html">Talk to DinaBridge</a>
+            <a class="btn btn-secondary" href="./index.html">Back to home</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-line">
+      <div>DinaBridge — Elastic and ClickHouse consulting for agencies and enterprises.</div>
+      <div>Americas, EMEA, and Asia Pacific.</div>
+    </div>
+  </footer>
+</body>
+</html>
