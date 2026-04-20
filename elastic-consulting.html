@@ -93,15 +93,17 @@
     .nav-links a:hover { color: var(--ink); }
 
     .nav-cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 18px;
-      background: var(--ink);
-      color: white;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 700;
+    .btn-primary {
+     background: var(--accent);
+     color: white;
+     border-color: var(--accent);
+}
+
+    .nav-cta:hover,
+    .btn-primary:hover {
+     background: var(--accent-2);
+     border-color: var(--accent-2);
+}
     }
 
     .hero {
@@ -190,11 +192,11 @@
     }
 
     .hero-card {
-      background: linear-gradient(180deg, #efe9df 0%, #e7e2d8 100%);
-      border: 1px solid var(--rule);
-      border-radius: 24px;
-      padding: 24px;
-      box-shadow: var(--shadow);
+  background: linear-gradient(180deg, #f3f8ff 0%, #e8f1ff 100%);
+  border: 1px solid var(--rule);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: var(--shadow);
     }
 
     .hero-card h2 {
