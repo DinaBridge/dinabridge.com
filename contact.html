@@ -225,18 +225,18 @@
         <h1>Every engagement starts with a conversation.</h1>
 
         <div class="contact-grid">
-          <form class="contact-form" onsubmit="submitForm(event)">
+          <form class="contact-form" action="https://formspree.io/f/mgornvaw" method="POST">
             <div class="field">
               <label>Your name</label>
-              <input type="text" placeholder="Jane Smith" required>
+              <input type="text" name="name" placeholder="Jane Smith" required>
             </div>
             <div class="field">
               <label>Company email</label>
-              <input type="email" placeholder="jane@company.com" required>
+              <input type="email" name="email" placeholder="jane@company.com" required>
             </div>
             <div class="field">
               <label>I am</label>
-              <select>
+              <select name="situation">
                 <option value="">Select your situation</option>
                 <option>A consulting firm looking for a delivery partner</option>
                 <option>Exploring a staff augmentation engagement</option>
@@ -246,7 +246,7 @@
             </div>
             <div class="field">
               <label>About your project</label>
-              <textarea placeholder="Brief description of what you're working on, your timeline, and what you need from our team."></textarea>
+              <textarea name="message" placeholder="Brief description of what you're working on, your timeline, and what you need from our team."></textarea>
             </div>
             <button type="submit" class="submit-btn">Send message →</button>
           </form>
@@ -290,11 +290,6 @@
     </div>
   </footer>
 
-  <script>
-    function submitForm(event) {
-      event.preventDefault();
-      alert('Message captured.');
-    }
-  </script>
+
 </body>
 </html>
