@@ -1,3 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DinaBridge — About</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#0d1b2a;
+  --ink:#1f2a35;
+  --ink-2:#2b2f33;
+  --ink-3:#556273;
+  --ink-4:#8391a3;
+  --paper:#f8fafc;
+  --paper-2:#f1f6fb;
+  --paper-3:#e6eef8;
+  --paper-4:#dce7f3;
+  --rule:rgba(0,0,0,0.06);
+  --rule-strong:rgba(0,0,0,0.12);
+  --blue:#2563eb;
+  --blue-2:#4f7ff0;
+  --blue-dark:#123b69;
+  --teal:#2bb3ad;
+  --teal-soft:#e3f6f5;
+  --serif:'Playfair Display', Georgia, serif;
+  --sans:'Figtree', system-ui, sans-serif;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --shadow-sm: 0 1px 2px rgba(16,42,67,0.10);
+  --shadow-md: 0 12px 28px rgba(16,42,67,0.14);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:linear-gradient(180deg,#f8fafc 0%,#eef4fa 100%);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.skip-link{position:absolute;left:-999px;top:0;background:var(--navy);color:#fff;padding:.75rem 1rem;z-index:1000}
+.skip-link:focus{left:1rem;top:1rem}
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(248,250,252,0.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;padding:0 3rem;height:64px}
+.nav-logo{font-family:var(--serif);font-size:1.15rem;font-weight:700;letter-spacing:-0.02em;color:var(--navy)}
+.nav-links{display:flex;gap:2.25rem;list-style:none;align-items:center}
+.nav-links a{font-size:13px;color:var(--ink-3);padding:.35rem 0;transition:color 180ms ease}
+.nav-links a:hover,.nav-links a:focus{color:var(--navy)}
+.nav-links a.is-active{color:var(--navy);font-weight:600;position:relative}
+.nav-links a.is-active::after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:2px;background:linear-gradient(90deg,var(--blue),var(--teal))}
+.nav-cta{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;padding:10px 20px;background:var(--blue);color:#fff;border-radius:999px;box-shadow:var(--shadow-sm);transition:transform 180ms ease,background 180ms ease,box-shadow 180ms ease,filter 180ms ease}
+.nav-cta:hover,.nav-cta:focus{background:var(--blue-2);transform:translateY(-1px);box-shadow:var(--shadow-md);filter:brightness(1.03)}
+.hero{padding:8.5rem 3rem 4.5rem;border-bottom:1px solid var(--rule-strong)}
+.hero-inner{max-width:980px;margin:0 auto}
+.eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);margin-bottom:1.1rem}
+.hero h1,.section-content h2,.cta-box h2,.hero-card h2{font-family:var(--serif);letter-spacing:-1px;line-height:1.02;color:var(--navy)}
+.hero h1{font-size:clamp(48px,7vw,88px);max-width:980px;margin-bottom:1.25rem}
+.hero-lead{font-size:17px;font-weight:400;color:var(--ink-2);max-width:760px;line-height:1.75}
+.section{padding:34px 3rem 76px;border-bottom:1px solid var(--rule)}
+.section.alt{background:linear-gradient(180deg,rgba(235,242,251,0.88) 0%,rgba(245,248,252,0.30) 100%);border-top:1px solid rgba(8,17,31,0.04);border-bottom:1px solid rgba(8,17,31,0.04)}
+.split-section{display:grid;grid-template-columns:220px minmax(0,1fr);gap:2rem;align-items:start;max-width:1240px;margin:0 auto}
+.section-head{display:grid;grid-template-columns:0.7fr 1.3fr;gap:28px;margin-bottom:30px;padding-top:18px;border-top:1px solid var(--rule)}
+.section-label{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--teal)}
+.section-content{max-width:720px}
+.section-content h2{font-size:clamp(30px,4vw,54px);margin-bottom:1rem}
+.section-content p{font-size:16px;color:var(--ink-2);line-height:1.8;max-width:720px}
+.cards-grid{grid-column:2 / -1;display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2rem}
+.cards-grid.two-up{grid-template-columns:repeat(2,1fr)}
+.info-card{position:relative;overflow:hidden;background:linear-gradient(180deg,#ffffff 0%,var(--paper-2) 100%);border:1px solid rgba(0,0,0,0.06);border-radius:18px;padding:2rem 1.8rem;box-shadow:0 10px 24px rgba(16,42,67,0.08);transition:transform 180ms ease,box-shadow 180ms ease,border-color 180ms ease,background 180ms ease}
+.info-card::before{content:"";position:absolute;left:0;top:0;height:4px;width:100%;background:linear-gradient(90deg,var(--blue),var(--teal));opacity:.98}
+.info-card h3{font-family:var(--serif);font-size:1.45rem;line-height:1.15;letter-spacing:-.3px;color:var(--navy);margin-bottom:.75rem;transition:color 180ms ease}
+.info-card p,.clean-list li{font-size:14px;color:var(--ink-2);line-height:1.75}
+.info-card:hover,.info-card:focus-within{transform:translateY(-3px);background:linear-gradient(180deg,#ffffff 0%,var(--paper-3) 100%);border-color:rgba(37,99,235,.22);box-shadow:0 18px 36px rgba(16,42,67,.12)}
+.info-card:hover h3,.info-card:focus-within h3{color:var(--blue-dark)}
+.clean-list{list-style:none;display:flex;flex-direction:column;gap:.7rem;margin-top:.25rem}
+.clean-list li{padding-left:1rem;position:relative}
+.clean-list li::before{content:"—";position:absolute;left:0;color:var(--teal)}
+.hero-card{background:linear-gradient(180deg,#f7fbff 0%,#e6f0fb 100%);border:1px solid rgba(37,99,235,0.16);border-radius:var(--radius-lg);padding:28px;box-shadow:var(--shadow-md);position:relative;overflow:hidden}
+.hero-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at top right, rgba(188,30,112,0.08), transparent 22%),radial-gradient(circle at bottom left, rgba(0,139,135,0.10), transparent 18%);pointer-events:none}
+.hero-card > *{position:relative;z-index:1}
+.hero-card h2{font-family:var(--serif);font-size:32px;line-height:1.02;margin-bottom:14px;color:var(--navy)}
+.hero-card p{color:var(--ink-2);margin-bottom:18px}
+.hero-card ul{list-style:none;display:grid;gap:12px;color:var(--ink-2);font-size:15px}
+.hero-card li{padding-left:16px;position:relative}
+.hero-card li::before{content:"";width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--teal));position:absolute;left:0;top:10px}
+.hero-proof{display:flex;flex-wrap:wrap;gap:10px;color:var(--ink-2);font-size:14px;font-weight:700;margin-bottom:1.25rem}
+.hero-proof span{padding:8px 12px;border-radius:999px;background:#fff;border:1px solid rgba(37,99,235,0.12);box-shadow:var(--shadow-sm)}
+.cta-section{border-bottom:none;padding-bottom:6rem}
+.cta-box{max-width:980px;margin:0 auto;background:linear-gradient(180deg,#eef4fb 0%,#e4eefb 100%);border:1px solid rgba(37,99,235,0.18);border-radius:22px;padding:3rem;box-shadow:0 12px 28px rgba(24,46,80,0.08)}
+.cta-box h2{font-size:clamp(28px,3.4vw,48px);margin-bottom:1rem}
+.cta-box p{font-size:16px;color:var(--ink-2);line-height:1.8;max-width:720px;margin-bottom:1.5rem}
+.primary-btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 24px;background:var(--blue);color:#fff;font-size:12px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;border-radius:999px;box-shadow:var(--shadow-sm);transition:transform 180ms ease,background 180ms ease,box-shadow 180ms ease,filter 180ms ease}
+.primary-btn:hover,.primary-btn:focus{background:var(--blue-2);transform:translateY(-1px);box-shadow:var(--shadow-md);filter:brightness(1.04)}
+footer{background:var(--paper-2);border-top:1px solid var(--rule-strong);padding:1.75rem 3rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.footer-logo{font-family:var(--serif);font-size:16px;font-weight:700;color:var(--navy)}
+.footer-nav{display:flex;gap:1.5rem;flex-wrap:wrap}
+.footer-nav a,.footer-legal{font-size:12px;color:var(--ink-4)}
+.footer-nav a:hover,.footer-nav a:focus{color:var(--navy)}
+.footer-legal{font-weight:300}
+@media (max-width: 980px){.nav{padding:0 1.5rem}.nav-links{display:none}.hero,.section{padding-left:1.5rem;padding-right:1.5rem}.split-section{grid-template-columns:1fr}.cards-grid,.cards-grid.two-up{grid-column:auto;grid-template-columns:1fr}.section-head{grid-template-columns:1fr}.cta-box{padding:2rem}.section-content{max-width:none}}
+@media (max-width: 520px){.hero h1{font-size:clamp(40px,14vw,56px)}.hero-lead,.section-content p,.cta-box p{font-size:16px}.nav-cta{padding:9px 14px}.footer-nav{gap:1rem}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav class="nav" aria-label="Primary">
+  <a class="nav-logo" href="./index.html" aria-label="DinaBridge home">DinaBridge</a>
+  <ul class="nav-links">
+    <li><a href="./index.html">Home</a></li>
+    <li><a href="./elastic-consulting.html">Elastic Consulting</a></li>
+    <li><a href="./clickhouse-consulting.html">ClickHouse Consulting</a></li>
+    <li><a href="./about.html" class="is-active">About</a></li>
+    <li><a href="./contact.html">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="./contact.html">Start a conversation</a>
+</nav>
+<main id="main">
 <section class="hero hero-about">
   <div class="hero-inner">
     <span class="eyebrow">About DinaBridge</span>
@@ -7,8 +122,7 @@
     </p>
   </div>
 </section>
-
-<section class="section split-section">
+<section class="section split-section alt">
   <div class="section-label">Our focus</div>
   <div class="section-content">
     <h2>Where DinaBridge creates leverage</h2>
@@ -16,25 +130,21 @@
       Today, DinaBridge supports companies across North America and Europe with engineering expertise in observability, search, and modern data systems. Our distributed team spans the USA, France, Spain, India, the UAE, and Brazil, allowing us to deliver with range, responsiveness, and an international perspective.
     </p>
   </div>
-
   <div class="cards-grid">
     <article class="info-card reading-card">
       <h3>Observability</h3>
       <p>Support for logs, metrics, traces, and production telemetry in modern cloud and hybrid environments.</p>
     </article>
-
     <article class="info-card reading-card">
       <h3>Search</h3>
       <p>Engineering for relevance, indexing, performance, and production-grade search experiences.</p>
     </article>
-
     <article class="info-card reading-card">
       <h3>Modern data systems</h3>
       <p>Practical work across Elastic, ClickHouse, and adjacent platforms that strengthen analytics and operational visibility.</p>
     </article>
   </div>
 </section>
-
 <section class="section split-section">
   <div class="section-label">How we work</div>
   <div class="section-content">
@@ -43,7 +153,6 @@
       DinaBridge is built for clients who want strong engineering without unnecessary layers. We focus on experienced delivery, direct communication, and work that performs in the real world.
     </p>
   </div>
-
   <div class="cards-grid two-up">
     <article class="info-card reading-card">
       <h3>For consulting partners</h3>
@@ -53,7 +162,6 @@
         <li>Reliable delivery support across observability and search projects</li>
       </ul>
     </article>
-
     <article class="info-card reading-card">
       <h3>For enterprises</h3>
       <ul class="clean-list">
@@ -64,8 +172,7 @@
     </article>
   </div>
 </section>
-
-<section class="section split-section">
+<section class="section split-section alt">
   <div class="section-label">Who we serve</div>
   <div class="section-content">
     <h2>Built for modern observability and search teams.</h2>
@@ -73,8 +180,25 @@
       We work in the same product and platform landscape as teams building developer monitoring, cloud-native observability, logs, metrics, traces, and modern search experiences. That is the environment DinaBridge is built to support.
     </p>
   </div>
+  <div class="hero-card">
+    <span class="eyebrow">Why this matters</span>
+    <h2>One partner for the systems that have to perform.</h2>
+    <p>In observability and search, the work is only useful if it is reliable, readable, and production-safe. That is the standard DinaBridge is built around.</p>
+    <div class="hero-proof">
+      <span>Elastic</span>
+      <span>ClickHouse</span>
+      <span>Observability</span>
+      <span>Search</span>
+      <span>North America</span>
+      <span>Europe</span>
+    </div>
+    <ul>
+      <li>Senior-led engineering and direct communication.</li>
+      <li>Distributed delivery across the USA, France, Spain, India, the UAE, and Brazil.</li>
+      <li>Built for clients who need clarity, speed, and dependable execution.</li>
+    </ul>
+  </div>
 </section>
-
 <section class="section cta-section">
   <div class="cta-box">
     <span class="eyebrow">Start a conversation</span>
@@ -83,3 +207,17 @@
     <a href="./contact.html" class="primary-btn">Start a conversation</a>
   </div>
 </section>
+</main>
+<footer>
+  <div class="footer-logo">DinaBridge</div>
+  <nav class="footer-nav" aria-label="Footer">
+    <a href="./index.html">Home</a>
+    <a href="./elastic-consulting.html">Elastic</a>
+    <a href="./clickhouse-consulting.html">ClickHouse</a>
+    <a href="./about.html">About</a>
+    <a href="./contact.html">Contact</a>
+  </nav>
+  <p class="footer-legal">© DinaBridge LLC · All rights reserved</p>
+</footer>
+</body>
+</html>
