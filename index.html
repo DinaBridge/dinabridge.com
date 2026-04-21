@@ -116,6 +116,14 @@ a{color:inherit;text-decoration:none}
   text-align:left;
 }
 
+.section-cards-offset{
+  display:grid;
+  grid-template-columns:220px 1fr;
+  gap:2rem;
+}
+.section-cards-offset > .cards-grid{
+  grid-column:2;
+}
 .cards-grid{
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
@@ -178,15 +186,16 @@ a{color:inherit;text-decoration:none}
 }
 .cta-section{border-bottom:none;padding-bottom:6rem}
 .cta-box{
-  max-width:980px;
-  margin:0 auto;
   background:linear-gradient(180deg,#eef4fb 0%,#e4eefb 100%);
   border:1px solid rgba(37,99,235,.18);
   border-radius:22px;
   padding:3rem;
   box-shadow:0 12px 28px rgba(24,46,80,.08);
-
-  text-align:left; /* ensures consistent alignment */
+  text-align:left;
+}
+.cta-box .section-label{
+  display:block;
+  margin-bottom:1rem;
 }
 .cta-box h2{
   font-size:clamp(28px,3.4vw,48px);margin-bottom:1rem
@@ -213,7 +222,7 @@ footer{
 @media (max-width:980px){
   .nav-links{display:none}
   .nav,.hero,.section{padding-left:1.5rem;padding-right:1.5rem}
-  .section-head,.cards-grid,.cards-grid.two-up{grid-template-columns:1fr}
+  .section-head,.section-cards-offset,.cards-grid,.cards-grid.two-up{grid-template-columns:1fr}
   .cta-box{padding:2rem}
 }
 @media (max-width:520px){
@@ -247,12 +256,10 @@ footer{
 
 <section class="section split-section alt">
   <div class="container">
-    <div class="section-head section-head-focus">
-      <div class="section-label">Our focus</div>
-      <div class="section-content section-content-focus">
-        <h2 class="section-h2">Where DinaBridge creates leverage</h2>
-        <p>We focus on observability, search, and modern data systems. That means practical engineering for logs, metrics, traces, relevance, indexing, analytics, and production visibility.</p>
-      </div>
+    <div style="margin-bottom:2rem;">
+      <div class="section-label" style="margin-bottom:1rem;">Our focus</div>
+      <h2 class="section-h2">Where DinaBridge creates leverage</h2>
+      <p style="font-size:16px;color:var(--ink-2);line-height:1.8;max-width:720px;margin-top:.75rem;">We focus on observability, search, and modern data systems. That means practical engineering for logs, metrics, traces, relevance, indexing, analytics, and production visibility.</p>
     </div>
 
     <div class="cards-grid">
@@ -282,6 +289,7 @@ footer{
   </div>
 
   <div class="container">
+    <div class="section-cards-offset">
     <div class="cards-grid two-up">
       <article class="info-card">
         <h3>For consulting partners</h3>
@@ -299,6 +307,7 @@ footer{
           <li>Clear ownership from architecture through implementation</li>
         </ul>
       </article>
+    </div>
     </div>
   </div>
 </section>
@@ -326,13 +335,11 @@ footer{
 <section class="section cta-section">
   <div class="container">
     <div class="cta-box">
+      <span class="section-label">Start a conversation</span>
+      <h2>If observability or search is becoming critical, we can help.</h2>
+      <p>Talk to DinaBridge about Elastic, ClickHouse, and the engineering systems that keep production environments understandable and reliable.</p>
+      <a href="./contact.html" class="primary-btn">Start a conversation</a>
     </div>
-  </div>
-</section>
-    <span class="section-label">Start a conversation</span>
-    <h2>If observability or search is becoming critical, we can help.</h2>
-    <p>Talk to DinaBridge about Elastic, ClickHouse, and the engineering systems that keep production environments understandable and reliable.</p>
-    <a href="./contact.html" class="primary-btn">Start a conversation</a>
   </div>
 </section>
 </main>
