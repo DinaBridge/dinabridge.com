@@ -85,12 +85,12 @@ a{color:inherit;text-decoration:none}
 .hero-inner{padding-top:0;border-top:none}
 .hero h1{
   font-family:var(--serif);
-  font-size:clamp(48px,7vw,88px);
-  line-height:1.02;letter-spacing:-1px;color:var(--navy);
-  max-width:980px;margin:1rem 0 1.25rem
+  font-size:clamp(40px,5vw,68px);
+  line-height:1.05;letter-spacing:-1px;color:var(--navy);
+  margin:1rem 0 1.25rem
 }
 .hero-lead{
-  font-size:17px;color:var(--ink-2);max-width:760px;line-height:1.75
+  font-size:17px;color:var(--ink-2);line-height:1.75
 }
   
 .section-head{
@@ -201,7 +201,7 @@ a{color:inherit;text-decoration:none}
   font-size:clamp(28px,3.4vw,48px);margin-bottom:1rem
 }
 .cta-box p{
-  font-size:16px;color:var(--ink-2);line-height:1.8;max-width:720px;margin-bottom:1.5rem
+  font-size:16px;color:var(--ink-2);line-height:1.8;margin-bottom:1.5rem
 }
 .primary-btn{
   display:inline-flex;align-items:center;justify-content:center;
@@ -215,7 +215,7 @@ footer{
   padding:1.75rem 3rem;
   display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap
 }
-.footer-logo{font-family:var(--serif);font-size:16px;font-weight:700;color:var(--navy)}
+.footer-logo{font-family:var(--sans);font-size:16px;font-weight:800;letter-spacing:-.02em;color:var(--navy)}
 .footer-nav{display:flex;gap:1.5rem;flex-wrap:wrap}
 .footer-nav a,.footer-legal{font-size:12px;color:var(--ink-3)}
 .footer-nav a:hover{color:var(--navy)}
@@ -249,7 +249,7 @@ footer{
 <section class="hero section">
   <div class="hero-inner container">
     <span class="section-label">About DinaBridge</span>
-    <h1>Built from Elastic roots.<br>Expanded for modern observability and search.</h1>
+    <h1>Built from Elastic roots. Expanded for modern observability and search.</h1>
     <p class="hero-lead">DinaBridge supports companies across North America and Europe with engineering expertise in observability, search, and modern data systems. Our distributed team spans the USA, France, Spain, India, the UAE, and Brazil, allowing us to deliver with range, responsiveness, and an international perspective.</p>
   </div>
 </section>
@@ -283,7 +283,7 @@ footer{
   <div class="container" style="margin-bottom:2rem;">
     <div class="section-label" style="margin-bottom:1rem;">How we work</div>
     <h2 class="section-h2">Senior-led delivery, structured for trust.</h2>
-    <p style="font-size:16px;color:var(--ink-2);line-height:1.8;max-width:720px;margin-top:.75rem;">DinaBridge is built for clients who want strong engineering without unnecessary layers. We focus on experienced delivery, direct communication, and work that performs in the real world.</p>
+    <p style="font-size:16px;color:var(--ink-2);line-height:1.8;margin-top:.75rem;">DinaBridge is built for clients who want strong engineering without unnecessary layers. We focus on experienced delivery, direct communication, and work that performs in the real world.</p>
   </div>
 
   <div class="container">
@@ -312,7 +312,7 @@ footer{
   <div class="container" style="margin-bottom:2rem;">
     <div class="section-label" style="margin-bottom:1rem;">Why this matters</div>
     <h2 class="section-h2">One partner for the systems that have to perform.</h2>
-    <p style="font-size:16px;color:var(--ink-2);line-height:1.8;max-width:720px;margin-top:.75rem;">In observability and search, the work is only useful if it is reliable, readable, and production-safe. That is the standard DinaBridge is built around.</p>
+    <p style="font-size:16px;color:var(--ink-2);line-height:1.8;margin-top:.75rem;">In observability and search, the work is only useful if it is reliable, readable, and production-safe. That is the standard DinaBridge is built around.</p>
   </div>
   <div class="container">
     <div class="hero-card" style="max-width:none;">
@@ -331,7 +331,7 @@ footer{
     <div class="cta-box">
       <span class="section-label">Start a conversation</span>
       <h2>If observability or search is becoming critical, we can help.</h2>
-      <p>Talk to DinaBridge about Elastic, ClickHouse, and the engineering systems that keep production environments understandable and reliable.</p>
+      <p style="font-size:16px;color:var(--ink-2);line-height:1.8;margin-bottom:1.5rem;">Talk to DinaBridge about Elastic, ClickHouse, and the engineering systems that keep production environments understandable and reliable.</p>
       <a href="./contact.html" class="primary-btn">Start a conversation</a>
     </div>
   </div>
@@ -339,11 +339,11 @@ footer{
 </main>
 
 <footer>
-  <div class="footer-logo">DinaBridge</div>
+  <a class="brand footer-logo" href="./index.html"><span class="brand-mark">D</span><span>DinaBridge</span></a>
   <nav class="footer-nav">
     <a href="./index.html">Home</a>
-    <a href="./elastic-consulting.html">Elastic</a>
-    <a href="./clickhouse-consulting.html">ClickHouse</a>
+    <a href="./elastic-consulting.html">Elastic Consulting</a>
+    <a href="./clickhouse-consulting.html">ClickHouse Consulting</a>
     <a href="./contact.html">Contact</a>
   </nav>
   <p class="footer-legal">© DinaBridge LLC · All rights reserved</p>
