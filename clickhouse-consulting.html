@@ -16,32 +16,22 @@
       --ink-2: #22324a;
       --ink-3: #5c6d86;
       --ink-4: #93a4b8;
-
       --paper: #f5f8fc;
       --paper-2: #ebf2fb;
       --paper-3: #d6e4f3;
       --paper-4: #f9fbfe;
-
       --navy: #102a43;
       --blue: #0b64dd;
       --blue-2: #1d4ed8;
       --blue-soft: #dcecff;
-
       --teal: #008b87;
       --teal-soft: #daf2f0;
-
       --pink: #bc1e70;
       --pink-soft: #f8dceb;
-
       --gold: #c8a96b;
       --gold-soft: #f1e5cf;
-
       --rule: rgba(8, 17, 31, 0.10);
       --rule-strong: rgba(8, 17, 31, 0.18);
-
-      --accent: var(--blue);
-      --accent-2: var(--blue-2);
-
       --serif: 'Playfair Display', Georgia, serif;
       --sans: 'Figtree', system-ui, sans-serif;
       --shadow-sm: 0 6px 18px rgba(15, 39, 66, 0.06);
@@ -66,13 +56,16 @@
     }
 
     a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
 
     .container {
-      width: min(var(--max), calc(100% - 32px));
+      width: 100%;
+      max-width: var(--max);
       margin: 0 auto;
+      padding-left: 24px;
+      padding-right: 24px;
     }
 
+    /* NAV */
     .nav {
       position: sticky;
       top: 0;
@@ -81,7 +74,6 @@
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--rule);
     }
-
     .nav-inner {
       display: flex;
       align-items: center;
@@ -89,7 +81,6 @@
       gap: 24px;
       padding: 16px 0;
     }
-
     .brand {
       display: flex;
       align-items: center;
@@ -97,7 +88,6 @@
       font-weight: 800;
       letter-spacing: -0.02em;
     }
-
     .brand-mark {
       width: 40px;
       height: 40px;
@@ -110,7 +100,6 @@
       background: linear-gradient(135deg, var(--blue) 0%, var(--teal) 100%);
       box-shadow: var(--shadow-sm);
     }
-
     .nav-links {
       display: flex;
       align-items: center;
@@ -119,9 +108,7 @@
       font-size: 14px;
       font-weight: 600;
     }
-
     .nav-links a:hover { color: var(--blue); }
-
     .nav-cta {
       display: inline-flex;
       align-items: center;
@@ -134,25 +121,10 @@
       color: white;
       border: 1px solid var(--blue);
       box-shadow: var(--shadow-sm);
-      transition: 180ms ease;
     }
 
-    .nav-cta:hover {
-      background: var(--blue-2);
-      border-color: var(--blue-2);
-      transform: translateY(-1px);
-    }
-
-    .hero {
-      padding: 76px 0 44px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 28px;
-      align-items: end;
-    }
+    /* HERO */
+    .hero { padding: 60px 0 56px; }
 
     .eyebrow {
       display: inline-block;
@@ -168,20 +140,19 @@
       letter-spacing: 0.08em;
     }
 
-    h1 {
-      max-width: 11ch;
+    .hero h1 {
       font-family: var(--serif);
-      font-size: clamp(46px, 8vw, 80px);
-      line-height: 0.95;
-      letter-spacing: -0.04em;
+      font-size: clamp(40px, 5vw, 68px);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
       margin-bottom: 20px;
       color: var(--navy);
     }
 
     .hero-copy p {
-      max-width: 64ch;
-      font-size: 18px;
+      font-size: 17px;
       color: var(--ink-2);
+      line-height: 1.75;
       margin-bottom: 28px;
     }
 
@@ -201,61 +172,61 @@
       font-weight: 700;
       font-size: 15px;
       border: 1px solid var(--rule-strong);
-      transition: 180ms ease;
     }
-
-    .btn:hover { transform: translateY(-1px); }
-
     .btn-primary {
       background: var(--blue);
       color: #fff;
       border-color: var(--blue);
       box-shadow: var(--shadow-sm);
     }
-
-    .btn-primary:hover {
-      background: var(--blue-2);
-      border-color: var(--blue-2);
-    }
-
     .btn-secondary {
       background: rgba(255,255,255,0.85);
       color: var(--navy);
       border-color: rgba(16,42,67,0.14);
     }
 
-    .btn-secondary:hover {
-      background: white;
-      border-color: rgba(16,42,67,0.24);
-    }
-
     .hero-proof {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      color: var(--ink-2);
       font-size: 14px;
       font-weight: 700;
     }
-
     .hero-proof span {
       padding: 8px 12px;
       border-radius: 999px;
       background: white;
       border: 1px solid rgba(11,100,221,0.12);
       box-shadow: var(--shadow-sm);
+      color: var(--ink-2);
+    }
+
+    .hero-body {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+      align-items: start;
+      margin-top: 32px;
     }
 
     .hero-card {
-      background: linear-gradient(180deg, #f7fbff 0%, #e6f0fb 100%);
-      border: 1px solid rgba(11,100,221,0.16);
+      background: linear-gradient(180deg, #ffffff 0%, #e8f2ff 100%);
+      border: 1px solid rgba(11,100,221,0.30);
       border-radius: var(--radius-lg);
-      padding: 28px;
-      box-shadow: var(--shadow-md);
+      padding: 28px 28px 76px;
+      box-shadow: 0 24px 56px rgba(11,100,221,0.16);
       position: relative;
       overflow: hidden;
+      margin-top: 56px;
+      transform: translateY(-6px);
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+      cursor: default;
     }
-
+    .hero-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 32px 64px rgba(11,100,221,0.22);
+      border-color: rgba(11,100,221,0.42);
+    }
     .hero-card::before {
       content: "";
       position: absolute;
@@ -265,35 +236,23 @@
         radial-gradient(circle at bottom left, rgba(0,139,135,0.10), transparent 18%);
       pointer-events: none;
     }
-
     .hero-card > * { position: relative; z-index: 1; }
-
     .hero-card h2 {
       font-family: var(--serif);
-      font-size: 32px;
-      line-height: 1.02;
-      margin-bottom: 14px;
-      color: var(--navy);
+      font-size: 28px;
+      line-height: 1.1;
+      margin-bottom: 12px;
+      color: var(--blue);
     }
-
-    .hero-card p {
-      color: var(--ink-2);
-      margin-bottom: 18px;
-    }
-
+    .hero-card p { color: var(--ink-2); margin-bottom: 16px; font-size: 15px; }
     .hero-card ul {
       list-style: none;
       display: grid;
-      gap: 12px;
+      gap: 10px;
       color: var(--ink-2);
       font-size: 15px;
     }
-
-    .hero-card li {
-      padding-left: 16px;
-      position: relative;
-    }
-
+    .hero-card li { padding-left: 16px; position: relative; }
     .hero-card li::before {
       content: "";
       width: 7px;
@@ -302,26 +261,15 @@
       background: linear-gradient(135deg, var(--blue), var(--teal));
       position: absolute;
       left: 0;
-      top: 10px;
+      top: 9px;
     }
 
-    .section {
-      padding: 34px 0 76px;
-    }
-
+    /* SECTIONS */
+    .section { padding: 34px 0 76px; }
     .section.alt {
       background: linear-gradient(180deg, rgba(235,242,251,0.65) 0%, rgba(245,248,252,0.15) 100%);
       border-top: 1px solid rgba(8,17,31,0.04);
       border-bottom: 1px solid rgba(8,17,31,0.04);
-    }
-
-    .section-head {
-      display: grid;
-      grid-template-columns: 0.7fr 1.3fr;
-      gap: 28px;
-      margin-bottom: 30px;
-      padding-top: 18px;
-      border-top: 1px solid var(--rule);
     }
 
     .section-label {
@@ -330,29 +278,26 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--teal);
+      display: block;
+      margin-bottom: 1rem;
     }
 
-    .section-head h2 {
+    .section-intro { margin-bottom: 2rem; }
+    .section-intro h2 {
       font-family: var(--serif);
       font-size: clamp(32px, 4vw, 48px);
-      line-height: 1;
+      line-height: 1.05;
       letter-spacing: -0.03em;
       margin-bottom: 10px;
       color: var(--navy);
     }
-
-    .section-head p {
-      max-width: 66ch;
-      color: var(--ink-2);
-      font-size: 17px;
-    }
+    .section-intro p { color: var(--ink-2); font-size: 17px; }
 
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
     }
-
     .split {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -364,11 +309,11 @@
       border: 1px solid rgba(8,17,31,0.08);
       border-radius: var(--radius);
       padding: 24px;
-      min-height: 100%;
       box-shadow: 0 10px 26px rgba(15,39,66,0.05);
       position: relative;
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, background 220ms ease;
+      cursor: default;
     }
-
     .card::before {
       content: "";
       position: absolute;
@@ -380,7 +325,13 @@
       background: linear-gradient(90deg, var(--blue), var(--teal), var(--gold));
       opacity: 0.9;
     }
-
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(11,100,221,0.14);
+      border-color: rgba(11,100,221,0.22);
+      background: #ffffff;
+    }
+    .card:hover h3 { color: var(--blue); }
     .card h3 {
       font-size: 20px;
       line-height: 1.2;
@@ -389,11 +340,7 @@
       color: var(--navy);
       padding-top: 8px;
     }
-
-    .card p {
-      color: var(--ink-2);
-      font-size: 15px;
-    }
+    .card p { color: var(--ink-2); font-size: 15px; }
 
     .list {
       list-style: none;
@@ -401,13 +348,11 @@
       gap: 12px;
       margin-top: 10px;
     }
-
     .list li {
       padding: 14px 0;
       border-bottom: 1px solid var(--rule);
       color: var(--ink-2);
     }
-
     .list strong { color: var(--navy); }
 
     .process {
@@ -415,15 +360,22 @@
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 16px;
     }
-
     .step {
       background: linear-gradient(180deg, #f7fbff 0%, #edf4fc 100%);
       border: 1px solid rgba(8,17,31,0.09);
       border-radius: var(--radius);
       padding: 22px;
       box-shadow: var(--shadow-sm);
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, background 220ms ease;
+      cursor: default;
     }
-
+    .step:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(11,100,221,0.14);
+      border-color: rgba(11,100,221,0.22);
+      background: linear-gradient(180deg, #ffffff 0%, #eef5ff 100%);
+    }
+    .step:hover h3 { color: var(--blue); }
     .step-number {
       display: inline-block;
       margin-bottom: 12px;
@@ -436,26 +388,14 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
     }
-
-    .step h3 {
-      margin-bottom: 8px;
-      font-size: 19px;
-      line-height: 1.2;
-      color: var(--navy);
-    }
-
-    .step p {
-      color: var(--ink-2);
-      font-size: 15px;
-    }
+    .step h3 { margin-bottom: 8px; font-size: 19px; line-height: 1.2; color: var(--navy); }
+    .step p { color: var(--ink-2); font-size: 15px; }
 
     .metrics {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
-      margin-top: 6px;
     }
-
     .metric {
       background: white;
       border: 1px solid rgba(8,17,31,0.08);
@@ -463,7 +403,6 @@
       padding: 22px;
       box-shadow: var(--shadow-sm);
     }
-
     .metric strong {
       display: block;
       font-family: var(--serif);
@@ -472,13 +411,9 @@
       color: var(--navy);
       margin-bottom: 8px;
     }
+    .metric span { color: var(--ink-2); font-size: 15px; font-weight: 600; }
 
-    .metric span {
-      color: var(--ink-2);
-      font-size: 15px;
-      font-weight: 600;
-    }
-
+    /* CTA */
     .cta-panel {
       background: linear-gradient(135deg, #102a43 0%, #15385f 100%);
       color: white;
@@ -493,7 +428,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .cta-panel::before {
       content: "";
       position: absolute;
@@ -503,112 +437,43 @@
         radial-gradient(circle at bottom left, rgba(0,139,135,0.16), transparent 22%);
       pointer-events: none;
     }
-
     .cta-panel > * { position: relative; z-index: 1; }
-
     .cta-panel h2 {
       font-family: var(--serif);
-      font-size: clamp(34px, 4vw, 52px);
-      line-height: 0.98;
+      font-size: clamp(28px, 3.4vw, 44px);
+      line-height: 1.05;
       letter-spacing: -0.03em;
       margin-bottom: 12px;
     }
+    .cta-panel p { color: rgba(255,255,255,0.82); }
+    .cta-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .cta-panel .btn-primary { background: white; color: var(--navy); border-color: white; }
+    .cta-panel .btn-secondary { color: white; border-color: rgba(255,255,255,0.24); background: transparent; }
 
-    .cta-panel p {
-      color: rgba(255,255,255,0.82);
-      max-width: 54ch;
-    }
-
-    .cta-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: flex-start;
-    }
-
-    .cta-panel .btn-primary {
-      background: white;
-      color: var(--navy);
-      border-color: white;
-    }
-
-    .cta-panel .btn-primary:hover {
-      background: #f2f6fb;
-      border-color: #f2f6fb;
-    }
-
-    .cta-panel .btn-secondary {
-      color: white;
-      border-color: rgba(255,255,255,0.24);
-      background: transparent;
-    }
-
-    .cta-panel .btn-secondary:hover {
-      border-color: rgba(255,255,255,0.4);
-      background: rgba(255,255,255,0.06);
-    }
-
+    /* FOOTER */
     footer {
-      padding: 30px 0 56px;
-      color: var(--ink-3);
-      font-size: 14px;
+      background: var(--paper-2);
+      border-top: 1px solid var(--rule-strong);
+      padding: 1.75rem 0;
     }
-
-    .footer-line {
-      border-top: 1px solid var(--rule);
-      padding-top: 22px;
+    .footer-inner {
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 1rem;
       flex-wrap: wrap;
     }
+    .footer-nav { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-nav a, .footer-legal { font-size: 12px; color: var(--ink-3); }
+    .footer-nav a:hover { color: var(--navy); }
 
     @media (max-width: 980px) {
-      .hero-grid,
-      .section-head,
-      .split,
-      .cta-panel {
-        grid-template-columns: 1fr;
-      }
-
-      .grid-3,
-      .process,
-      .metrics {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .nav-links {
-        display: none;
-      }
+      .nav-links { display: none; }
+      .hero-body, .split, .cta-panel { grid-template-columns: 1fr; }
+      .grid-3, .process, .metrics { grid-template-columns: 1fr 1fr; }
     }
-
     @media (max-width: 640px) {
-      .hero { padding-top: 44px; }
-
-      .grid-3,
-      .process,
-      .metrics {
-        grid-template-columns: 1fr;
-      }
-
-      .container {
-        width: min(var(--max), calc(100% - 20px));
-      }
-
-      .hero-card,
-      .cta-panel {
-        padding: 24px;
-      }
-
-      .btn,
-      .nav-cta {
-        width: 100%;
-      }
-
-      .hero-actions,
-      .cta-actions {
-        flex-direction: column;
-      }
+      .grid-3, .process, .metrics { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -619,84 +484,73 @@
         <span class="brand-mark">D</span>
         <span>DinaBridge</span>
       </a>
-
       <nav class="nav-links">
         <a href="./index.html">Home</a>
         <a href="./elastic-consulting.html">Elastic Consulting</a>
         <a href="./clickhouse-consulting.html">ClickHouse Consulting</a>
         <a href="./contact.html">Contact</a>
       </nav>
-
       <a class="nav-cta" href="./contact.html">Start a conversation</a>
     </div>
   </header>
 
   <main>
     <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <span class="eyebrow">ClickHouse Consulting</span>
-          <h1>Senior ClickHouse engineering for real-time analytics at scale.</h1>
-          <p>
-            DinaBridge helps agencies and enterprises design, migrate, tune, and operate ClickHouse for observability, product analytics, event pipelines, and high-concurrency analytical workloads. No juniors. No overhead. No hand-holding.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="./contact.html">Book a scoping call</a>
+      <div class="container">
+        <div class="hero-body">
+          <div class="hero-copy">
+            <span class="eyebrow">ClickHouse Consulting</span>
+            <h1>Senior ClickHouse engineering for real-time analytics at scale.</h1>
+            <p>DinaBridge helps agencies and enterprises design, migrate, tune, and operate ClickHouse for observability, product analytics, event pipelines, and high-concurrency analytical workloads. No juniors. No overhead. No hand-holding.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="./contact.html">Book a scoping call</a>
+            </div>
+            <div class="hero-proof">
+              <span>Real-time analytics</span>
+              <span>Observability</span>
+              <span>Kafka pipelines</span>
+              <span>Migrations</span>
+              <span>Performance tuning</span>
+            </div>
           </div>
 
-          <div class="hero-proof">
-            <span>Real-time analytics</span>
-            <span>Observability</span>
-            <span>Kafka pipelines</span>
-            <span>Migrations</span>
-            <span>Performance tuning</span>
-          </div>
+          <aside class="hero-card">
+            <h2>What we handle</h2>
+            <p>ClickHouse is designed for fast analytical queries at scale, and DinaBridge provides senior engineering to help teams use it well in production.</p>
+            <ul>
+              <li>ClickHouse architecture and cluster design</li>
+              <li>Real-time analytics platform implementation</li>
+              <li>Kafka-to-ClickHouse ingestion pipelines</li>
+              <li>Migration from slower or more expensive analytics stacks</li>
+              <li>Query optimization and schema tuning</li>
+              <li>White-label delivery for agencies</li>
+              <li>Assessment, architecture validation & optimization</li>
+              <li>Cluster upgrade support</li>
+            </ul>
+          </aside>
         </div>
-
-        <aside class="hero-card">
-          <h2>What we handle</h2>
-          <p>
-            ClickHouse is designed for fast analytical queries at scale, and DinaBridge provides senior engineering to help teams use it well in production. 
-          </p>
-          <ul>
-            <li>ClickHouse architecture and cluster design</li>
-            <li>Real-time analytics platform implementation</li>
-            <li>Kafka-to-ClickHouse ingestion pipelines</li>
-            <li>Migration from slower or more expensive analytics stacks</li>
-            <li>Query optimization and schema tuning</li>
-            <li>White-label delivery for agencies</li>
-          </ul>
-        </aside>
       </div>
     </section>
 
     <section class="section alt">
       <div class="container">
-        <div class="section-head">
-          <div class="section-label">Capabilities</div>
-          <div>
-            <h2>Where ClickHouse creates leverage</h2>
-            <p>
-              ClickHouse is widely used for real-time analytics, high-concurrency dashboards, and large fast-moving datasets where low-latency reads matter. Cloudflare and Tesla both publicly describe large-scale ClickHouse usage, and DinaBridge positions its ClickHouse offering around that kind of demanding engineering environment.
-            </p>
-          </div>
+        <div class="section-intro">
+          <span class="section-label">Capabilities</span>
+          <h2>Where ClickHouse creates leverage</h2>
+          <p>ClickHouse is widely used for real-time analytics, high-concurrency dashboards, and large fast-moving datasets where low-latency reads matter.</p>
         </div>
-
         <div class="grid-3">
           <article class="card">
             <h3>Real-time analytics systems</h3>
-            <p>Build user-facing analytics, internal dashboards, and decisioning systems that stay responsive as data volume and concurrency increase. 
+            <p>Build user-facing analytics, internal dashboards, and decisioning systems that stay responsive as data volume and concurrency increase.</p>
           </article>
-
           <article class="card">
             <h3>Observability & event pipelines</h3>
-            <p>Use ClickHouse for telemetry, logs, and streaming event architectures where freshness and speed both matter.
+            <p>Use ClickHouse for telemetry, logs, and streaming event architectures where freshness and speed both matter.</p>
           </article>
-
           <article class="card">
             <h3>Migration & performance tuning</h3>
-            <p>Move from legacy analytics stacks, improve ingestion design, optimize schemas, and reduce query latency under production load.
+            <p>Move from legacy analytics stacks, improve ingestion design, optimize schemas, and reduce query latency under production load.</p>
           </article>
         </div>
       </div>
@@ -704,32 +558,26 @@
 
     <section class="section">
       <div class="container">
-        <div class="section-head">
-          <div class="section-label">Engagement Model</div>
-          <div>
-            <h2>How we work</h2>
-            <p>
-              DinaBridge works with agencies that need a trusted delivery partner and enterprises that need senior engineers on their stack. That same operating model already appears across your main site and transfers directly to ClickHouse work. 
-            </p>
-          </div>
+        <div class="section-intro">
+          <span class="section-label">Engagement Model</span>
+          <h2>How we work</h2>
+          <p>DinaBridge works with agencies that need a trusted delivery partner and enterprises that need senior engineers on their stack.</p>
         </div>
-
         <div class="split">
           <article class="card">
             <h3>For agencies</h3>
             <ul class="list">
-              <li><strong>White-label delivery:</strong> You keep the client relationship; DinaBridge delivers behind your brand. </li>
-              <li><strong>Senior-only execution:</strong> No juniors on client work and no hidden supervision burden. </li>
+              <li><strong>White-label delivery:</strong> You keep the client relationship; DinaBridge delivers behind your brand.</li>
+              <li><strong>Senior-only execution:</strong> No juniors on client work and no hidden supervision burden.</li>
               <li><strong>Confidential by default:</strong> Agency trust and delivery consistency come first.</li>
             </ul>
           </article>
-
           <article class="card">
             <h3>For enterprises</h3>
             <ul class="list">
-              <li><strong>Embedded engineers:</strong> Bring in a senior engineer who works like a hire for 1–12 months. </li>
+              <li><strong>Embedded engineers:</strong> Bring in a senior engineer who works like a hire for 1–12 months.</li>
               <li><strong>Outcome-based projects:</strong> Scope the work, own the delivery, and execute start to finish.</li>
-              <li><strong>Flexible support:</strong> Start hourly when the scope is still evolving. </li>
+              <li><strong>Flexible support:</strong> Start hourly when the scope is still evolving.</li>
             </ul>
           </article>
         </div>
@@ -738,30 +586,23 @@
 
     <section class="section alt">
       <div class="container">
-        <div class="section-head">
-          <div class="section-label">Proof Points</div>
-          <div>
-            <h2>Built for workloads that punish weak systems</h2>
-            <p>
-              Your homepage already points to ClickHouse work involving Kafka ingestion, custom observability dashboards, and daily event volume at massive scale. ClickHouse itself emphasizes real-time analytics, high concurrency, and fast ingest as core strengths. 
-            </p>
-          </div>
+        <div class="section-intro">
+          <span class="section-label">Proof Points</span>
+          <h2>Built for workloads that punish weak systems</h2>
+          <p>The strongest ClickHouse engagements are about speed, scale, and architecture under pressure — not basic database setup.</p>
         </div>
-
         <div class="metrics">
           <article class="metric">
-        <strong>Real-time</strong>
-        <span>ClickHouse is built for real-time analytics, high concurrency, and low-latency queries on fast-moving datasets.</span>
+            <strong>Real-time</strong>
+            <span>ClickHouse is built for real-time analytics, high concurrency, and low-latency queries on fast-moving datasets.</span>
           </article>
-
           <article class="metric">
             <strong>ms</strong>
-            <span>ClickHouse is built for low-latency analytical queries on fresh data at large scale. 
+            <span>ClickHouse is built for low-latency analytical queries on fresh data at large scale.</span>
           </article>
-
           <article class="metric">
             <strong>10 yrs</strong>
-            <span>Cloudflare says it has run on open-source ClickHouse for nearly a decade. 
+            <span>Cloudflare has run on open-source ClickHouse for nearly a decade at production scale.</span>
           </article>
         </div>
       </div>
@@ -769,66 +610,51 @@
 
     <section class="section">
       <div class="container">
-        <div class="section-head">
-          <div class="section-label">Typical Work</div>
-          <div>
-            <h2>Examples of ClickHouse support</h2>
-            <p>
-              The strongest ClickHouse engagements are usually about speed, scale, and architecture under pressure rather than basic database setup. DinaBridge can position itself around those higher-value engineering problems. 
-            </p>
-          </div>
+        <div class="section-intro">
+          <span class="section-label">Typical Work</span>
+          <h2>Examples of ClickHouse support</h2>
+          <p>DinaBridge can support higher-value ClickHouse problems across analytics, pipelines, migrations, and platform modernization.</p>
         </div>
-
         <div class="grid-3">
           <article class="card">
             <h3>Analytics platform modernization</h3>
-            <p>Replace slower analytics infrastructure with a ClickHouse-based stack designed for fresher data, better concurrency, and lower-latency dashboards. 
-              
+            <p>Replace slower analytics infrastructure with a ClickHouse-based stack designed for fresher data, better concurrency, and lower-latency dashboards.</p>
           </article>
-
           <article class="card">
             <h3>Kafka-to-ClickHouse pipelines</h3>
-            <p>Design ingestion pipelines for logs, product events, and observability workloads that need continuous ingest and operational reliability. 
+            <p>Design ingestion pipelines for logs, product events, and observability workloads that need continuous ingest and operational reliability.</p>
           </article>
-
           <article class="card">
             <h3>Schema and query optimization</h3>
-            <p>Improve partitioning, sort keys, materialized views, and query behavior so production workloads stay fast as usage grows.
+            <p>Improve partitioning, sort keys, materialized views, and query behavior so production workloads stay fast as usage grows.</p>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="section alt">
       <div class="container">
-        <div class="section-head">
-          <div class="section-label">Process</div>
-          <div>
-            <h2>Simple, senior-led delivery</h2>
-            <p>
-              DinaBridge’s core promise is that the people who scope the engagement are the people who deliver it, which is especially valuable on complex data and analytics work. 
-            </p>
-          </div>
+        <div class="section-intro">
+          <span class="section-label">Process</span>
+          <h2>Simple, senior-led delivery</h2>
+          <p>DinaBridge's core promise is that the people who scope the engagement are the people who deliver it.</p>
         </div>
-
         <div class="process">
           <article class="step">
             <div class="step-number">Step 01</div>
             <h3>Review the workload</h3>
             <p>Understand the data shape, freshness requirements, concurrency profile, and current bottlenecks.</p>
           </article>
-
-      <article class="step">
-      <div class="step-number">Step 02</div>
-      <h3>Choose the right model</h3>
-      <p>Hourly, fixed-scope, embedded, or white-label delivery based on what the project actually needs.</p>
-      </article>
-
-      <article class="step">
-      <div class="step-number">Step 03</div>
-      <h3>Implement with senior engineers</h3>
-      <p>Design the ingestion, schema, and query strategy with people who have already worked at scale.</p>
-      </article>
-
+          <article class="step">
+            <div class="step-number">Step 02</div>
+            <h3>Choose the right model</h3>
+            <p>Hourly, fixed-scope, embedded, or white-label delivery based on what the project actually needs.</p>
+          </article>
+          <article class="step">
+            <div class="step-number">Step 03</div>
+            <h3>Implement with senior engineers</h3>
+            <p>Design the ingestion, schema, and query strategy with people who have already worked at scale.</p>
+          </article>
           <article class="step">
             <div class="step-number">Step 04</div>
             <h3>Stabilize and scale</h3>
@@ -837,18 +663,14 @@
         </div>
       </div>
     </section>
-    
-    
+
     <section class="section">
       <div class="container">
         <div class="cta-panel">
           <div>
             <h2>If the analytics workload matters, put senior engineers on it.</h2>
-            <p>
-              DinaBridge delivers ClickHouse engineering for agencies and enterprises across the Americas, EMEA, and Asia Pacific, with fast scoping and senior-only execution. 
-            </p>
+            <p>DinaBridge delivers ClickHouse engineering for agencies and enterprises with fast scoping and senior-only execution.</p>
           </div>
-
           <div class="cta-actions">
             <a class="btn btn-primary" href="./contact.html">Talk to DinaBridge</a>
             <a class="btn btn-secondary" href="./index.html">Back to home</a>
@@ -859,9 +681,18 @@
   </main>
 
   <footer>
-    <div class="container footer-line">
-      <div>DinaBridge — Elastic and ClickHouse consulting for agencies and enterprises.</div>
-      <div>Americas, EMEA, and Asia Pacific. </div>
+    <div class="container footer-inner">
+      <a class="brand" href="./index.html">
+        <span class="brand-mark">D</span>
+        <span>DinaBridge</span>
+      </a>
+      <nav class="footer-nav">
+        <a href="./index.html">Home</a>
+        <a href="./elastic-consulting.html">Elastic Consulting</a>
+        <a href="./clickhouse-consulting.html">ClickHouse Consulting</a>
+        <a href="./contact.html">Contact</a>
+      </nav>
+      <p class="footer-legal">© DinaBridge LLC · All rights reserved</p>
     </div>
   </footer>
 </body>
