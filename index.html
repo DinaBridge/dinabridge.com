@@ -1,3 +1,8 @@
+Here’s the corrected full page code, with the alignment fix applied so the section heading and cards share the same container and left edge. 
+
+The updated file is saved as `output/about.html`. 
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,20 +46,14 @@ body{
   text-rendering:optimizeLegibility;
 }
 a{color:inherit;text-decoration:none}
-.container {
-  width: min(var(--max), calc(100% - 32px));
-  margin: 0 auto;
-}
+.container{width:min(var(--max),calc(100% - 32px));margin:0 auto}
 .nav{
   position:sticky;top:0;z-index:100;
   background:rgba(245,248,252,.92);
   backdrop-filter:blur(14px);
   border-bottom:1px solid var(--rule);
 }
-.nav-inner{
-  display:flex;align-items:center;justify-content:space-between;gap:24px;
-  padding:16px 0;
-}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:16px 0}
 .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:-.02em}
 .brand-mark{
   width:40px;height:40px;border-radius:50%;
@@ -71,7 +70,6 @@ a{color:inherit;text-decoration:none}
   font-size:14px;font-weight:700;background:var(--blue);color:#fff;
   border:1px solid var(--blue);box-shadow:var(--shadow-sm);
 }
-
 .section{padding:34px 0 76px}
 .section-label{
   font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--teal)
@@ -81,12 +79,8 @@ a{color:inherit;text-decoration:none}
   line-height:1;letter-spacing:-.03em;margin-bottom:10px;color:var(--navy)
 }
 .section-content p{font-size:16px;color:var(--ink-2);line-height:1.8;max-width:720px}
-
 .hero{padding-top:18px}
-.hero-inner{
-  padding-top:0;
-  border-top:none;
-}
+.hero-inner{padding-top:0;border-top:none}
 .hero h1{
   font-family:var(--serif);
   font-size:clamp(48px,7vw,88px);
@@ -96,17 +90,16 @@ a{color:inherit;text-decoration:none}
 .hero-lead{
   font-size:17px;color:var(--ink-2);max-width:760px;line-height:1.75
 }
-
 .section-head {
   display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
+  grid-template-columns: 220px 1fr;
   gap: 2rem;
   align-items: start;
   margin-bottom: 2rem;
 }
 .section-content {
-  max-width: 720px;
   padding-top: 4px;
+  max-width: none;
 }
 .cards-grid {
   display: grid;
@@ -114,7 +107,6 @@ a{color:inherit;text-decoration:none}
   gap: 18px;
 }
 .cards-grid.two-up{grid-template-columns:repeat(2,minmax(0,1fr))}
-
 .info-card{
   position:relative;overflow:hidden;
   background:linear-gradient(180deg,#fff 0%,var(--paper-2) 100%);
@@ -131,11 +123,9 @@ a{color:inherit;text-decoration:none}
   font-size:1.45rem;line-height:1.15;letter-spacing:-.3px;margin-bottom:.75rem
 }
 .info-card p,.clean-list li{font-size:14px;color:var(--ink-2);line-height:1.75}
-
 .clean-list{list-style:none;display:flex;flex-direction:column;gap:.7rem;margin-top:.25rem}
 .clean-list li{padding-left:1rem;position:relative}
 .clean-list li::before{content:"—";position:absolute;left:0;color:var(--teal)}
-
 .hero-card{
   background:linear-gradient(180deg,#f7fbff 0%,#e6f0fb 100%);
   border:1px solid rgba(37,99,235,.16);
@@ -168,7 +158,6 @@ a{color:inherit;text-decoration:none}
   padding:8px 12px;border-radius:999px;background:#fff;
   border:1px solid rgba(37,99,235,.12);box-shadow:var(--shadow-sm)
 }
-
 .cta-section{border-bottom:none;padding-bottom:6rem}
 .cta-box{
   max-width:980px;margin:0 auto;
@@ -189,7 +178,6 @@ a{color:inherit;text-decoration:none}
   font-size:12px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;
   border-radius:999px;box-shadow:var(--shadow-sm)
 }
-
 footer{
   background:var(--paper-2);
   border-top:1px solid var(--rule-strong);
@@ -200,7 +188,6 @@ footer{
 .footer-nav{display:flex;gap:1.5rem;flex-wrap:wrap}
 .footer-nav a,.footer-legal{font-size:12px;color:var(--ink-3)}
 .footer-nav a:hover{color:var(--navy)}
-
 @media (max-width:980px){
   .nav-links{display:none}
   .nav,.hero,.section{padding-left:1.5rem;padding-right:1.5rem}
@@ -237,15 +224,15 @@ footer{
 </section>
 
 <section class="section split-section alt">
-  <div class="container section-head">
-    <div class="section-label">Our focus</div>
-    <div class="content-wrap section-content">
-      <h2 class="section-h2">Where DinaBridge creates leverage</h2>
-      <p>We focus on observability, search, and modern data systems. That means practical engineering for logs, metrics, traces, relevance, indexing, analytics, and production visibility.</p>
-    </div>
-  </div>
-
   <div class="container">
+    <div class="section-head">
+      <div class="section-label">Our focus</div>
+      <div class="section-content">
+        <h2 class="section-h2">Where DinaBridge creates leverage</h2>
+        <p>We focus on observability, search, and modern data systems. That means practical engineering for logs, metrics, traces, relevance, indexing, analytics, and production visibility.</p>
+      </div>
+    </div>
+
     <div class="cards-grid">
       <article class="info-card">
         <h3>Observability</h3>
@@ -266,7 +253,7 @@ footer{
 <section class="section split-section">
   <div class="container section-head">
     <div class="section-label">How we work</div>
-    <div class="content-wrap section-content">
+    <div class="section-content">
       <h2 class="section-h2">Senior-led delivery, structured for trust.</h2>
       <p>DinaBridge is built for clients who want strong engineering without unnecessary layers. We focus on experienced delivery, direct communication, and work that performs in the real world.</p>
     </div>
