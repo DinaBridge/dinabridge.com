@@ -1,209 +1,64 @@
-from pathlib import Path
-html = '''<section class="section section-contact-blue">
-  <div class="container">
-    <div class="section-head section-head-contact-blue">
-      <div class="section-label">Get in touch</div>
-      <div>
-        <h2 class="section-h2" style="margin-bottom:3rem;">Every engagement starts<br>with a conversation.</h2>
-      </div>
-    </div>
-
-    <div class="contact-grid contact-grid-blue">
-      <form class="contact-form contact-form-blue" onsubmit="submitForm(event)">
-        <div class="field field-blue">
-          <label>Your name</label>
-          <input type="text" placeholder="Jane Smith" required>
-        </div>
-        <div class="field field-blue">
-          <label>Company email</label>
-          <input type="email" placeholder="jane@company.com" required>
-        </div>
-        <div class="field field-blue">
-          <label>I am</label>
-          <select>
-            <option value="">Select your situation</option>
-            <option>A consulting firm looking for a white-label delivery partner</option>
-            <option>An enterprise needing direct Elastic consulting</option>
-            <option>Exploring a staff augmentation engagement</option>
-            <option>Something else</option>
-          </select>
-        </div>
-        <div class="field field-blue">
-          <label>About your project</label>
-          <textarea placeholder="Brief description of what you're working on, your timeline, and what you need from our team."></textarea>
-        </div>
-        <button type="submit" class="submit-btn submit-btn-blue">Send message →</button>
-      </form>
-
-      <div class="contact-aside contact-aside-blue">
-        <div class="aside-block aside-block-blue">
-          <h4>Email</h4>
-          <p><a href="mailto:hello@dinabridge.com">hello@dinabridge.com</a></p>
-        </div>
-        <div class="aside-block aside-block-blue">
-          <h4>Response time</h4>
-          <p>We respond to all inquiries within one business day. Serious engagements get a scoping call within 48 hours.</p>
-        </div>
-        <div class="aside-block aside-block-blue">
-          <h4>What to expect</h4>
-          <p>A 20-minute call. No pitch deck. No sales cycle. We figure out quickly whether we are the right fit — and we will tell you honestly if we are not.</p>
-        </div>
-        <div class="aside-block aside-block-blue">
-          <h4>For agency partners</h4>
-          <p>If you're a consulting or staffing firm exploring a white-label arrangement, mention it in your message. Partner conversations are treated with full confidentiality from the first exchange.</p>
-        </div>
-        <div class="aside-block aside-block-blue">
-          <h4>Entity</h4>
-          <p>DinaBridge LLC · Wyoming Limited Liability Company<br>Federal EIN on file · W-9 available on request</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<style>
-.section-contact-blue {
-  background:
-    radial-gradient(circle at top right, rgba(11,100,221,0.08), transparent 24%),
-    linear-gradient(180deg, #f5f8fc 0%, #edf4fb 100%);
-  border-top: 1px solid rgba(8,17,31,0.06);
-  border-bottom: 1px solid rgba(8,17,31,0.06);
-  padding: 5rem 0 6rem;
-}
-
-.section-head-contact-blue {
-  display: grid;
-  grid-template-columns: 0.65fr 1.35fr;
-  gap: 28px;
-  margin-bottom: 30px;
-  padding-top: 18px;
-  border-top: 1px solid rgba(8,17,31,0.10);
-}
-
-.section-contact-blue .section-label {
-  font-size: 12px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #008b87;
-}
-
-.section-contact-blue .section-h2 {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(32px, 4vw, 48px);
-  line-height: 1;
-  letter-spacing: -0.03em;
-  color: #102a43;
-}
-
-.contact-grid-blue {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 22px;
-  align-items: start;
-}
-
-.contact-form-blue,
-.contact-aside-blue {
-  background: rgba(255,255,255,0.92);
-  border: 1px solid rgba(8,17,31,0.08);
-  border-radius: 26px;
-  box-shadow: 0 14px 34px rgba(15,39,66,0.08);
-}
-
-.contact-form-blue {
-  padding: 28px;
-}
-
-.field-blue label,
-.aside-block-blue h4 {
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #5c6d86;
-}
-
-.field-blue input,
-.field-blue select,
-.field-blue textarea {
-  width: 100%;
-  margin-top: 8px;
-  padding: 14px 16px;
-  border-radius: 14px;
-  border: 1px solid rgba(8,17,31,0.12);
-  background: linear-gradient(180deg, #f7fbff 0%, #edf4fc 100%);
-  color: #08111f;
-  font-family: 'Figtree', system-ui, sans-serif;
-  font-size: 15px;
-  outline: none;
-  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
-}
-
-.field-blue input:focus,
-.field-blue select:focus,
-.field-blue textarea:focus {
-  border-color: rgba(11,100,221,0.45);
-  box-shadow: 0 0 0 4px rgba(11,100,221,0.10);
-}
-
-.field-blue textarea {
-  min-height: 140px;
-  resize: vertical;
-}
-
-.submit-btn-blue {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 6px;
-  padding: 14px 22px;
-  border: 1px solid #0b64dd;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #0b64dd 0%, #1d4ed8 100%);
-  color: #fff;
-  font-size: 14px;
-  font-weight: 800;
-  box-shadow: 0 10px 24px rgba(11,100,221,0.20);
-  transition: transform 180ms ease, filter 180ms ease;
-}
-
-.submit-btn-blue:hover { transform: translateY(-1px); filter: brightness(1.03); }
-
-.contact-aside-blue {
-  padding: 22px;
-}
-
-.aside-block-blue {
-  padding: 18px 0;
-  border-bottom: 1px solid rgba(8,17,31,0.08);
-}
-
-.aside-block-blue:first-child { padding-top: 0; }
-.aside-block-blue:last-child { padding-bottom: 0; border-bottom: none; }
-
-.aside-block-blue p,
-.aside-block-blue a {
-  margin-top: 8px;
-  color: #22324a;
-  font-size: 15px;
-  line-height: 1.7;
-}
-
-.aside-block-blue a {
-  color: #0b64dd;
-  border-bottom: 1px solid rgba(11,100,221,0.18);
-}
-
-@media (max-width: 900px) {
-  .section-head-contact-blue,
-  .contact-grid-blue { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 640px) {
-  .section-contact-blue { padding: 4rem 0 4.5rem; }
-  .contact-form-blue, .contact-aside-blue { padding: 20px; border-radius: 22px; }
-}
-</style>'''
-Path('output/contact-section-blue.html').write_text(html, encoding='utf-8')
-print('saved')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact DinaBridge for Elastic consulting, ClickHouse consulting, staff augmentation, and delivery partner engagements." />
+  <title>Contact | DinaBridge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #08111f;
+      --ink-2: #22324a;
+      --ink-3: #5c6d86;
+      --ink-4: #93a4b8;
+      --paper: #f5f8fc;
+      --paper-2: #ebf2fb;
+      --paper-3: #d6e4f3;
+      --navy: #102a43;
+      --blue: #0b64dd;
+      --blue-2: #1d4ed8;
+      --blue-soft: #dcecff;
+      --teal: #008b87;
+      --rule: rgba(8, 17, 31, 0.10);
+      --rule-strong: rgba(8, 17, 31, 0.18);
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'Figtree', system-ui, sans-serif;
+      --shadow-sm: 0 6px 18px rgba(15, 39, 66, 0.06);
+      --shadow-md: 0 16px 36px rgba(15, 39, 66, 0.10);
+      --radius: 18px;
+      --radius-lg: 26px;
+      --max: 1180px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background:
+        radial-gradient(circle at top right, rgba(11,100,221,0.08), transparent 22%),
+        radial-gradient(circle at top left, rgba(0,139,135,0.05), transparent 18%),
+        var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(245, 248, 252, 0.92); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 16px 0; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: -0.02em; }
+    .brand-mark { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font-family: var(--serif); font-size: 18px; color: white; background: linear-gradient(135deg, var(--blue) 0%, var(--teal) 100%); box-shadow: var(--shadow-sm); }
+    .nav-links { display: flex; align-items: center; gap: 22px; color: var(--ink-2); font-size: 14px; font-weight: 600; }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-cta { display: inline-flex; align-items: center; justify-content: center; padding: 12px 18px; border-radius: 999px; font-size: 14px; font-weight: 700; background: var(--blue); color: white; border: 1px solid var(--blue); box-shadow: var(--shadow-sm); transition: 180ms ease; }
+    .nav-cta:hover { background: var(--blue-2); border-color: var(--blue-2); transform: translateY(-1px); }
+    .section { padding: 34px 0 76px; }
+    .section-head { display: grid; grid-template-columns: 0.7fr 1.3fr; gap: 28px; margin-bottom: 30px; padding-top: 18px; border-top: 1px solid var(--rule); }
+    .section-label { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--teal); }
+    .section-h2 { font-family: var(--serif); font-size: clamp(32px, 4vw, 48px); line-height: 1; letter-spacing: -0.03em; margin-bottom: 10px; color: var(--navy); }
+    .section-head p { max-width: 66ch; color: var(--ink-2); font-size: 17px; }
+    .contact-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 22px; align-items: start; }
+    .contact-form, .contact-aside { background: rgba(255,255,255,0.92); border: 1px solid rgba(8,17,31,0.08); 
