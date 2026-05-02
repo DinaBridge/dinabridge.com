@@ -1,1 +1,101 @@
+<section class="section">
+  <div class="container">
+    <div style="margin-bottom:2rem;">
+      <div class="section-label" style="margin-bottom:1rem;">Insights</div>
+      <h2 class="section-h2">Engineering Search and Observability Systems That Perform in Production</h2>
+      <p style="font-size:16px;color:var(--ink-2);line-height:1.8;max-width:720px;margin-top:.75rem;">
+        Modern data infrastructure has a simple problem: it's easy to build something that works in a demo, and much harder to build something that survives real traffic, real incidents, and real scale. That gap is where DinaBridge fits.
+      </p>
+    </div>
 
+    <div style="max-width:820px;">
+      <article style="background:#fff;border:1px solid var(--rule);border-radius:18px;padding:2.5rem;box-shadow:var(--shadow-sm);">
+        
+        <h3 style="font-family:var(--serif);font-size:1.75rem;color:var(--navy);margin-bottom:1.5rem;line-height:1.2;">What DinaBridge Does</h3>
+        <p style="font-size:16px;color:var(--ink-2);line-height:1.8;margin-bottom:1.5rem;">
+          DinaBridge works where distributed systems become difficult: performance bottlenecks, scaling limits, ingestion pressure, cluster instability, and operational complexity. These are the kinds of problems that show up after a product gains traction or after a platform becomes business-critical.
+        </p>
+        <p style="font-size:16px;color:var(--ink-2);line-height:1.8;margin-bottom:1.5rem;">
+          The company's work typically spans architecture for search and observability platforms, implementation of Elasticsearch and OpenSearch solutions, production support for running systems, tuning for performance, reliability, and cost, and data system design for high-volume, high-availability environments.
+        </p>
+        <p style="font-size:16px;color:var(--ink-2);line-height:1.8;margin-bottom:2rem;">
+          This isn't about slide decks or generic advice. It's about building systems that can be depended on in production.
+        </p>
+
+        <h3 style="font-family:var(--serif);font-size:1.75rem;color:var(--navy);margin-bottom:1.5rem;line-height:1.2;">Why Search Infrastructure Is Hard</h3>
+        <p style="font-size:16px;color:var(--ink-2);line-height:1.8;margin-bottom:1.5rem;">
+          Search platforms are deceptively complex. A team may start with a clean indexing pipeline and a few dashboards, but growth quickly exposes the realities of distributed data systems: shard sizing, mapping design, query efficiency, indexing latency, replication strategy, and recovery planning.
+        </p>
+        <p style="font-size:16px;color:var(--ink-2);line-height:1.8;margin-bottom:1.5rem;">
+          If search is slow, the product feels broken. If logs are delayed, observability loses value. If a cluster is misconfigured, downtime spreads across teams and customers.
+        </p>
+        <p style="font-size:16px;color:var(--ink-2);line-height:1.8;margin-bottom:2rem;">
+          DinaBridge is relevant because these problems require engineering judgment, not just platform familiarity. The value comes from understanding how search and observability behave under load, how to reduce operational risk, and how to keep systems usable as data volume rises.
+        </p>
+
+        <h3 style="font-family:var(--serif);font-size:1.75rem;color:var(--navy);margin-bottom:1.5rem;line-height:1.2;">Observability Beyond Dashboards</h3>
+        <p style="font-size:16px;color:var(--ink-2);line-height:1.8;margin-bottom:1.5rem;">
+          Observability is often sold as a set of tools, but in production it's really a system design problem. Logs, metrics, and traces only help when the ingest path is stable, the data model is sane, the retention policy is aligned with business needs, and the platform can handle spikes without collapsing.
+        </p>
+        <p style="font-size:16px;color:var(--ink-2);line-height:1.8;margin-bottom:1.5rem;">
+          That's where a company like DinaBridge can make a difference. It can help teams build observability pipelines that are actually useful during incidents, not just impressive in a product tour. It can also help with the less glamorous work: storage planning, indexing strategy, query optimization, data lifecycle management, and support when incidents happen at the worst possible time.
+        </p>
+
+        <h3 style="font-family:var(--serif);font-size:1.75rem;color:var(--navy);margin-bottom:1.5rem;line-height:1.2;">Elastic and OpenSearch Expertise</h3>
+        <p style="font-size:16px;color:var(--ink-2);line-height:1.8;margin-bottom:1.5rem;">
+          Elastic and OpenSearch are powerful, but neither one removes the need for expert implementation. Teams still need help with cluster sizing, schema design, ingestion pipelines, upgrade planning, query tuning, and reliability engineering.
+        </p>
+        <p style="font-size:16px;color:var(--ink-2);line-height:1.8;margin-bottom:2rem;">
+          DinaBridge's strength is that it sits in that layer between technology and execution. It helps companies use these platforms effectively in real environments, where requirements are messy and uptime matters. For organizations that want production-ready systems instead of experimental setups, that kind of support is valuable.
+        </p>
+
+        <h3 style="font-family:var(--serif);font-size:1.75rem;color:var(--navy);margin-bottom:1.5rem;line-height:1.2;">Who DinaBridge Is For</h3>
+        <p style="font-size:16px;color:var(--ink-2);line-height:1.8;margin-bottom:1rem;">
+          DinaBridge is a strong fit for companies that:
+        </p>
+        <ul style="list-style:none;margin-left:0;margin-bottom:2rem;">
+          <li style="font-size:16px;color:var(--ink-2);line-height:1.8;padding-left:1.5rem;position:relative;margin-bottom:.5rem;">
+            <span style="position:absolute;left:0;color:var(--teal);">—</span>
+            Run Elasticsearch or OpenSearch in production
+          </li>
+          <li style="font-size:16px;color:var(--ink-2);line-height:1.8;padding-left:1.5rem;position:relative;margin-bottom:.5rem;">
+            <span style="position:absolute;left:0;color:var(--teal);">—</span>
+            Need better observability for logs, metrics, and tracing
+          </li>
+          <li style="font-size:16px;color:var(--ink-2);line-height:1.8;padding-left:1.5rem;position:relative;margin-bottom:.5rem;">
+            <span style="position:absolute;left:0;color:var(--teal);">—</span>
+            Are scaling search or telemetry infrastructure
+          </li>
+          <li style="font-size:16px;color:var(--ink-2);line-height:1.8;padding-left:1.5rem;position:relative;margin-bottom:.5rem;">
+            <span style="position:absolute;left:0;color:var(--teal);">—</span>
+            Need help with architecture and implementation
+          </li>
+          <li style="font-size:16px;color:var(--ink-2);line-height:1.8;padding-left:1.5rem;position:relative;">
+            <span style="position:absolute;left:0;color:var(--teal);">—</span>
+            Want practical production support from engineers who understand distributed systems
+          </li>
+        </ul>
+        <p style="font-size:16px;color:var(--ink-2);line-height:1.8;margin-bottom:2rem;">
+          This makes DinaBridge especially relevant for engineering teams, platform teams, and companies building data-intensive products. It's most valuable when the system is already important and failure is expensive.
+        </p>
+
+        <h3 style="font-family:var(--serif);font-size:1.75rem;color:var(--navy);margin-bottom:1.5rem;line-height:1.2;">A Technical Partner, Not an Agency</h3>
+        <p style="font-size:16px;color:var(--ink-2);line-height:1.8;margin-bottom:1.5rem;">
+          One of the clearest things about DinaBridge is what it is not. It's not a marketing firm, a branding shop, or a broad management consultancy. Its value comes from technical depth and real implementation experience.
+        </p>
+        <p style="font-size:16px;color:var(--ink-2);line-height:1.8;margin-bottom:2rem;">
+          That distinction matters because infrastructure clients don't usually need more opinions. They need engineers who can work through complexity, make tradeoffs, and keep systems stable under real load. DinaBridge is built for that kind of work.
+        </p>
+
+        <h3 style="font-family:var(--serif);font-size:1.75rem;color:var(--navy);margin-bottom:1.5rem;line-height:1.2;">Closing Perspective</h3>
+        <p style="font-size:16px;color:var(--ink-2);line-height:1.8;margin-bottom:1.5rem;">
+          As more products depend on search and observability infrastructure, the need for specialized engineering partners keeps growing. Companies don't just need tools; they need people who can make those tools work reliably at scale.
+        </p>
+        <p style="font-size:16px;color:var(--ink-2);line-height:1.8;">
+          DinaBridge exists in that space. It helps organizations design, build, and operate Elasticsearch, OpenSearch, and observability systems that are ready for production. In a market full of vague consulting promises, that technical focus is a clear advantage.
+        </p>
+
+      </article>
+    </div>
+  </div>
+</section>
