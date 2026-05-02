@@ -1,0 +1,26 @@
+<section class="section">
+  <div class="container">
+    <div class="section-content-focus">
+      <div class="section-label" style="margin-bottom:1rem;">Our Expertise</div>
+      <h2 class="section-h2">The DinaBridge Engineering Collective</h2>
+      <p style="font-size:16px;color:var(--ink-2);line-height:1.8;max-width:720px;margin-top:.75rem;">
+        DinaBridge is composed of senior-level practitioners from within the Elastic and ClickHouse ecosystems. Our team is built on a shared commitment to reliability, performance, and production-grade observability.
+      </p>
+    </div>
+
+    <div class="cards-grid">
+      <article class="info-card">
+        <h3>Partnership Strategy</h3>
+        <p>Expertise in ecosystem alignment and large-scale delivery strategy.</p>
+      </article>
+      <article class="info-card">
+        <h3>Observability & Security</h3>
+        <p>Principal-level engineering for production-scale monitoring and threat detection.</p>
+      </article>
+      <article class="info-card">
+        <h3>Data Systems Operations</h3>
+        <p>Operational stability and high-concurrency analytics architecture.</p>
+      </article>
+    </div>
+  </div>
+</section>
