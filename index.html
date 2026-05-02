@@ -359,16 +359,45 @@ footer{
 </section>
 </main>
 
-/* FAQ headings match site typography */
-.section-content-focus h3 {
-  font-family: var(--serif);
-  color: var(--navy);
-  font-size: 1.45rem;
-  line-height: 1.15;
-  letter-spacing: -0.3px;
-  margin-bottom: 0.75rem;
-  font-weight: 600; /* consistent, not overly bold */
-}
+<section class="section">
+  <div class="container">
+
+    <!-- Section header (matches other sections) -->
+    <div style="margin-bottom:2rem;">
+      <div class="section-label" style="margin-bottom:1rem;">FAQ</div>
+      <h2 class="section-h2">Frequently Asked Questions</h2>
+      <p style="font-size:16px;color:var(--ink-2);line-height:1.8;max-width:720px;margin-top:.75rem;">
+        Common questions about how DinaBridge works and what we support.
+      </p>
+    </div>
+
+    <!-- Cards grid (matches rest of site) -->
+    <div class="cards-grid two-up">
+      
+      <article class="info-card">
+        <h3>What industries do you support?</h3>
+        <p>DinaBridge supports companies across North America, Europe, and beyond, with a focus on industries requiring real-time analytics and high-performance search.</p>
+      </article>
+
+      <article class="info-card">
+        <h3>Do you work with existing teams?</h3>
+        <p>Yes. We integrate directly with internal engineering teams or consulting partners, providing senior-level support without adding unnecessary layers.</p>
+      </article>
+
+      <article class="info-card">
+        <h3>What technologies do you specialize in?</h3>
+        <p>We focus on Elastic, ClickHouse, and modern observability stacks, along with surrounding data and search infrastructure.</p>
+      </article>
+
+      <article class="info-card">
+        <h3>How do engagements typically work?</h3>
+        <p>Engagements are flexible and structured around your needs—ranging from short-term advisory to hands-on delivery in production environments.</p>
+      </article>
+
+    </div>
+
+  </div>
+</section>
       
       <div style="margin-bottom: 2rem;">
         <h3 style="color: var(--navy); margin-bottom: 0.5rem;">What industries do you support?</h3>
