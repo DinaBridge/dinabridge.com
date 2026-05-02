@@ -1,26 +1,76 @@
 <section class="section">
   <div class="container">
-    <div class="section-content-focus">
-      <div class="section-label" style="margin-bottom:1rem;">Our Expertise</div>
-      <h2 class="section-h2">The DinaBridge Engineering Collective</h2>
-      <p style="font-size:16px;color:var(--ink-2);line-height:1.8;max-width:720px;margin-top:.75rem;">
-        DinaBridge is composed of senior-level practitioners from within the Elastic and ClickHouse ecosystems. Our team is built on a shared commitment to reliability, performance, and production-grade observability.
-      </p>
-    </div>
+    <div class="about-hero">
 
-    <div class="cards-grid">
-      <article class="info-card">
-        <h3>Partnership Strategy</h3>
-        <p>Expertise in ecosystem alignment and large-scale delivery strategy.</p>
-      </article>
-      <article class="info-card">
-        <h3>Observability & Security</h3>
-        <p>Principal-level engineering for production-scale monitoring and threat detection.</p>
-      </article>
-      <article class="info-card">
-        <h3>Data Systems Operations</h3>
-        <p>Operational stability and high-concurrency analytics architecture.</p>
-      </article>
+      <!-- LEFT -->
+      <div class="about-left">
+        <h2>
+          Built for production systems.<br>
+          Trusted in partner-led environments.
+        </h2>
+
+        <p>
+          DinaBridge works with enterprises and consulting partners to deliver
+          production-grade observability, search, and data systems.
+        </p>
+
+        <a href="./contact.html" class="primary-btn">Contact Us</a>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="about-grid">
+        <div class="avatar"></div>
+        <div class="avatar"></div>
+        <div class="avatar"></div>
+        <div class="avatar"></div>
+        <div class="avatar"></div>
+        <div class="avatar"></div>
+        <div class="avatar"></div>
+        <div class="avatar"></div>
+      </div>
+
     </div>
   </div>
 </section>
+
+.about-hero {
+  background: linear-gradient(135deg, #b92c2c, #8f1f1f);
+  border-radius: 28px;
+  padding: 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  color: #fff;
+}
+
+.about-left h2 {
+  font-family: var(--serif);
+  font-size: clamp(32px,4vw,44px);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.about-left p {
+  margin-bottom: 1.5rem;
+  color: rgba(255,255,255,0.9);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.avatar {
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.08);
+}
+@media (max-width: 900px) {
+  .about-hero {
+    grid-template-columns: 1fr;
+  }
+}
+background: linear-gradient(135deg, var(--blue), var(--teal));
+
