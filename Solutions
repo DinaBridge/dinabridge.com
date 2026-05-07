@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Senior-led Elastic Observability consulting. We unify logs, metrics, and traces into a single source of truth using the Elastic Stack." />
+<meta name="description" content="DinaBridge engineering solutions for Elastic Observability, Search Relevance, and Enterprise Security." />
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HEWG10CXEK"></script>
 <script>
@@ -19,33 +18,46 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* ENGINEER NOTE: 
-   Paste the CSS block from index.html here to maintain the design system 
-*/
+/* CSS DESIGN SYSTEM MAPPED FROM YOUR HOMEPAGE */
 :root{
-  --navy:#102a43; --ink:#08111f; --ink-2:#22324a; --ink-3:#5c6d86;
-  --paper:#f5f8fc; --paper-2:#ebf2fb; --paper-3:#e3ecf7;
-  --rule:rgba(8,17,31,.10); --blue:#0b64dd; --teal:#008b87;
-  --serif:'Playfair Display',Georgia,serif; --sans:'Figtree',system-ui,sans-serif;
+  --navy:#102a43; --ink:#08111f; --ink-2:#22324a; --paper:#f5f8fc; --paper-2:#ebf2fb;
+  --blue:#0b64dd; --teal:#008b87; --serif:'Playfair Display',serif; --sans:'Figtree',sans-serif;
   --shadow-sm:0 6px 18px rgba(15,39,66,.06); --shadow-md:0 16px 36px rgba(15,39,66,.10);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.6;}
 .container{width:100%;max-width:1180px;margin:0 auto;padding:0 24px;}
-.nav{position:sticky;top:0;z-index:100;background:rgba(245,248,252,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--rule);}
+.nav{position:sticky;top:0;z-index:100;background:rgba(245,248,252,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(8,17,31,.1);}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
-.brand{display:flex;align-items:center;gap:12px;font-weight:800;}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;font-family:var(--sans);}
 .brand-mark{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);background:linear-gradient(135deg,var(--blue),var(--teal));color:#fff;}
-.nav-links{display:flex;gap:22px;font-size:14px;font-weight:600}
 .section{padding:80px 0}
-.section-label{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--teal);margin-bottom:1rem;display:block;}
+.section-label{font-size:12px;font-weight:800;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;display:block;}
 .section-h2{font-family:var(--serif);font-size:clamp(32px,4vw,48px);color:var(--navy);line-height:1.1;margin-bottom:20px;}
+
+/* DASHBOARD VISUALIZATION STYLES */
+.dashboard-container {
+    background: #102a43;
+    border-radius: 18px;
+    padding: 24px;
+    margin: 40px 0;
+    box-shadow: var(--shadow-md);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.db-header { display: flex; justify-content: space-between; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+.db-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+.db-card { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 12px; border-left: 4px solid var(--teal); }
+.db-val { font-size: 24px; font-weight: 700; color: var(--teal); }
+.db-label { font-size: 11px; text-transform: uppercase; opacity: 0.7; }
+.db-status { color: #4ade80; font-size: 12px; margin-top: 5px; }
+
 .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-.info-card{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:18px;padding:2.5rem;box-shadow:var(--shadow-sm);position:relative;overflow:hidden;}
-.info-card::before{content:"";position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--blue),var(--teal));}
-.hero-card{background:linear-gradient(180deg,#fff,#e8f2ff);border:1px solid rgba(11,100,221,.3);border-radius:26px;padding:40px;box-shadow:var(--shadow-md);}
-.primary-btn{display:inline-flex;padding:14px 28px;background:var(--blue);color:#fff;border-radius:999px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:1px;}
-@media (max-width:980px){.cards-grid{grid-template-columns:1fr;}}
+.info-card{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:18px;padding:2rem;box-shadow:var(--shadow-sm);position:relative;}
+.info-card::before{content:"";position:absolute;top:0;left:0;width:100%;height:4px;background:var(--blue);}
+.primary-btn{display:inline-flex;padding:12px 24px;background:var(--blue);color:#fff;border-radius:999px;font-size:12px;font-weight:800;text-transform:uppercase;margin-top:15px;}
+
+@media (max-width:900px){ .cards-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -53,87 +65,71 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-heigh
 <nav class="nav">
   <div class="container nav-inner">
     <a class="brand" href="./index.html"><span class="brand-mark">D</span><span>DinaBridge</span></a>
-    <nav class="nav-links">
+    <nav style="display:flex; gap:20px; font-size:14px; font-weight:600;">
       <a href="./index.html">Home</a>
-      <a href="./elastic-consulting.html">Elastic Consulting</a>
-      <a href="./clickhouse-consulting.html">ClickHouse Consulting</a>
+      <a href="./solutions.html" style="color:var(--blue)">Solutions</a>
       <a href="./contact.html">Contact</a>
     </nav>
   </div>
 </nav>
 
-<main>
-  <section class="section">
-    <div class="container">
-      <span class="section-label">Practice 01</span>
-      <h1 class="section-h2">Elastic Observability:<br>Full-Stack Telemetry in Production.</h1>
-      <p style="font-size:19px; color:var(--ink-2); max-width:800px; line-height:1.8;">
-        DinaBridge provides the senior-led engineering required to turn raw logs into actionable intelligence. We unify logs, metrics, and traces into a single source of truth, enabling your team to respond to incidents in seconds, not hours.
-      </p>
-    </div>
-  </section>
+<main class="container section">
+  <span class="section-label">Engineering Portfolio</span>
+  <h1 class="section-h2">Solutions for the Modern Data Stack</h1>
+  <p style="max-width:700px; color:var(--ink-2); font-size:18px;">We don't just consult; we build. From real-time telemetry dashboards to sub-second search relevance, DinaBridge creates the infrastructure that keeps production environments transparent.</p>
 
-  <section class="section" style="background:var(--paper-2);">
-    <div class="container">
-      <div style="margin-bottom:3rem;">
-        <span class="section-label">Observability vs. Search</span>
-        <h2 class="section-h2">Why move beyond standard Elasticsearch?</h2>
+  <div class="dashboard-container">
+    <div class="db-header">
+      <span style="font-weight:600; font-size:14px;">Cluster Health: production-01</span>
+      <span style="font-size:12px; opacity:0.6;">Last Updated: Just Now</span>
+    </div>
+    <div class="db-grid">
+      <div class="db-card">
+        <div class="db-label">Ingestion Rate</div>
+        <div class="db-val">4.2 GB/s</div>
+        <div class="db-status">● Healthy</div>
       </div>
-      <div class="cards-grid">
-        <article class="info-card">
-          <h3>Unified Visibility</h3>
-          <p>Unlike standalone Elasticsearch, Observability correlates every signal. We link traces to logs automatically so you can see the exact line of code causing an error.</p>
-        </article>
-        <article class="info-card">
-          <h3>Native OTel Support</h3>
-          <p>We implement OpenTelemetry-first architectures, ensuring your instrumentation is vendor-neutral and built on 2026 industry standards.</p>
-        </article>
-        <article class="info-card">
-          <h3>AIOps & AI Assistant</h3>
-          <p>Leverage the Elastic AI Assistant to troubleshoot production outages using natural language, backed by ML-driven anomaly detection.</p>
-        </article>
+      <div class="db-card" style="border-left-color: var(--blue);">
+        <div class="db-label">Search Latency</div>
+        <div class="db-val">12ms</div>
+        <div class="db-status">● Optimized</div>
+      </div>
+      <div class="db-card">
+        <div class="db-label">Active Alerts</div>
+        <div class="db-val">0</div>
+        <div class="db-status">● No Issues</div>
+      </div>
+      <div class="db-card" style="border-left-color: #f59e0b;">
+        <div class="db-label">Data Retention</div>
+        <div class="db-val">90 Days</div>
+        <div class="db-status">● Policy Active</div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <section class="section">
-    <div class="container">
-      <div class="hero-card">
-        <span class="section-label" style="color:var(--blue);">Our Delivery Scope</span>
-        <h2 class="section-h2" style="font-size:36px; margin-top:10px;">Production-grade Observability engineering.</h2>
-        <div class="cards-grid" style="margin-top:30px; background:transparent;">
-          <div style="color:var(--ink-2); font-size:15px;">
-            <p style="font-weight:700; color:var(--navy); margin-bottom:10px;">APM & Tracing</p>
-            <p>Distributed tracing for microservices and cloud-native applications to identify bottlenecks.</p>
-          </div>
-          <div style="color:var(--ink-2); font-size:15px;">
-            <p style="font-weight:700; color:var(--navy); margin-bottom:10px;">Log Pipeline Architecture</p>
-            <p>Efficient ingestion via Logstash and Ingest Pipelines to keep your storage costs low and your queries fast.</p>
-          </div>
-          <div style="color:var(--ink-2); font-size:15px;">
-            <p style="font-weight:700; color:var(--navy); margin-bottom:10px;">Infrastructure Monitoring</p>
-            <p>Real-time visibility into Kubernetes, Cloud (AWS/Azure/GCP), and hybrid environments.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container" style="text-align:center;">
-      <div style="background:var(--paper-3); padding:4rem; border-radius:22px;">
-        <h2 class="section-h2">Ready to strengthen your production visibility?</h2>
-        <p style="margin-bottom:2rem; max-width:600px; margin-left:auto; margin-right:auto;">Talk to our senior engineers about migrating your ELK stack to a modern Observability solution.</p>
-        <a href="./contact.html" class="primary-btn">Start a Conversation</a>
-      </div>
-    </div>
-  </section>
+  <div class="cards-grid">
+    <article class="info-card">
+      <h3>Practice 01: Observability</h3>
+      <p>Full-stack telemetry linking logs, metrics, and traces. We reduce MTTR by providing context-aware dashboards.</p>
+      <a href="./elastic-observability.html" class="primary-btn">View Practice</a>
+    </article>
+    <article class="info-card">
+      <h3>Practice 02: Search</h3>
+      <p>Relevance engineering and performance tuning for production-grade search experiences across Elastic and ClickHouse.</p>
+      <a href="#" class="primary-btn">Coming Soon</a>
+    </article>
+    <article class="info-card">
+      <h3>Practice 03: Security</h3>
+      <p>Modern SIEM deployment and threat hunting workflows built for security teams that need to trust their alerts.</p>
+      <a href="#" class="primary-btn">Coming Soon</a>
+    </article>
+  </div>
 </main>
 
-<footer style="background:var(--paper-2); padding:3rem 0; border-top:1px solid var(--rule);">
+<footer style="padding:40px 0; border-top:1px solid rgba(0,0,0,0.1); margin-top:60px;">
   <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
-    <a class="brand" href="./index.html"><span class="brand-mark">D</span><span>DinaBridge</span></a>
-    <p style="font-size:12px; color:var(--ink-3);">© DinaBridge LLC · Senior Elastic Engineering</p>
+    <p style="font-size:12px; opacity:0.6;">© DinaBridge LLC · Senior Engineering</p>
+    <a href="./contact.html" style="font-size:12px; font-weight:700; color:var(--blue);">Start a conversation →</a>
   </div>
 </footer>
 
