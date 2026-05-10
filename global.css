@@ -1,15 +1,9 @@
 /* ============================================================
    DinaBridge Global Design System — v1.5
    Warm-magenta accent layer added over v1.4 locked foundation.
+   Mobile navigation system added in v1.5 (nav.js + CSS below).
    Magenta behaves as atmospheric lighting — never dominant.
    All structural, spacing, typography tokens unchanged from v1.4.
-   ============================================================
-
-   COLOR SYSTEM (updated)
-   · --magenta:      muted wine-magenta, used for hover energy
-   · --magenta-soft: ambient fill (cards, backgrounds)
-   · --magenta-glow: shadow/glow accent on hover states
-   · All existing tokens preserved and unchanged.
    ============================================================ */
 
 /* ══════════════════════════════════════════════════════════
@@ -123,7 +117,7 @@ img { display: block; max-width: 100%; }
 .nav {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 200;
   background: rgba(245,248,252,.92);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--rule);
@@ -206,6 +200,110 @@ img { display: block; max-width: 100%; }
   box-shadow: 0 4px 18px var(--magenta-glow);
 }
 
+/* ── Hamburger button ── */
+.nav-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: 1px solid var(--rule-strong);
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  transition: border-color 200ms ease, background 200ms ease;
+  z-index: 300;
+}
+.nav-burger:hover {
+  border-color: var(--magenta-mid);
+  background: var(--magenta-soft);
+}
+.burger-bar {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--navy);
+  border-radius: 2px;
+  transition: transform 280ms cubic-bezier(.4,0,.2,1), opacity 200ms ease, background 200ms ease;
+  transform-origin: center;
+}
+.nav-burger.is-open .burger-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-burger.is-open .burger-bar:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-burger.is-open .burger-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.nav-burger.is-open { border-color: var(--magenta-mid); background: var(--magenta-soft); }
+.nav-burger.is-open .burger-bar { background: var(--magenta); }
+
+/* ── Mobile drawer ── */
+.nav-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 150;
+  background: rgba(245,248,252,.97);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--rule-strong);
+  padding: 80px var(--sp-24) var(--sp-32);
+  transform: translateY(-110%);
+  transition: transform 320ms cubic-bezier(.4,0,.2,1);
+  box-shadow: 0 24px 48px rgba(8,17,31,.12);
+}
+.nav-drawer.is-open {
+  transform: translateY(0);
+}
+.drawer-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+.drawer-links a {
+  display: block;
+  padding: var(--sp-12) var(--sp-16);
+  border-radius: var(--radius);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--ink-2);
+  transition: background 180ms ease, color 180ms ease;
+  border: 1px solid transparent;
+}
+.drawer-links a:hover {
+  background: var(--magenta-soft);
+  color: var(--magenta);
+  border-color: var(--magenta-mid);
+}
+.drawer-links a.active {
+  color: var(--magenta);
+  font-weight: 700;
+  background: var(--magenta-soft);
+}
+.drawer-cta {
+  margin-top: var(--sp-16);
+  width: 100%;
+  justify-content: center;
+  font-size: var(--text-sm) !important;
+  padding: var(--sp-16) var(--sp-24) !important;
+}
+
+/* ── Overlay ── */
+.nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(8,17,31,.35);
+  z-index: 140;
+  backdrop-filter: blur(2px);
+  transition: opacity 300ms ease;
+  opacity: 0;
+}
+.nav-overlay.is-visible {
+  display: block;
+  opacity: 1;
+}
+
 /* ══════════════════════════════════════════════════════════
    5. SECTIONS
    ══════════════════════════════════════════════════════════ */
@@ -226,7 +324,6 @@ img { display: block; max-width: 100%; }
   letter-spacing: -.03em;
   margin-bottom: var(--sp-24);
   color: var(--navy);
-  /* Subtle magenta warmth on last word via gradient — enterprise restraint */
   background: linear-gradient(135deg, var(--navy) 60%, var(--magenta) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -897,6 +994,8 @@ footer {
    ══════════════════════════════════════════════════════════ */
 @media (max-width: 980px) {
   .nav-links         { display: none; }
+  .nav-cta           { display: none; }
+  .nav-burger        { display: flex; }
   .grid-2            { grid-template-columns: 1fr; }
   .grid-3            { grid-template-columns: repeat(2,1fr); }
   .grid-4            { grid-template-columns: repeat(2,1fr); }
