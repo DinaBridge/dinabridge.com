@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Elasticsearch index lifecycle management: what most teams get wrong and a practical guide to getting ILM right before your storage bill gets out of hand." />
+<title>Elasticsearch ILM: what most teams get wrong | DinaBridge</title>
+<link rel="canonical" href="https://dinabridge.com/blog/elasticsearch-index-lifecycle-management.html" />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HEWG10CXEK"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-HEWG10CXEK');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/global.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="/"><span class="brand-mark">D</span><span>DinaBridge</span></a>
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="/elastic-consulting.html">Elastic Consulting</a>
+      <a href="/solutions.html">Solutions</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+    <a class="nav-cta" href="/contact.html">Get help with your stack</a>
+  </div>
+</nav>
+
+<main>
+
+  <section class="section-hero">
+    <div class="container">
+      <a href="/blog.html" class="post-back">&#8592; All posts</a>
+      <span class="section-label">Mar 2026 &middot; Search</span>
+      <h1>Elasticsearch index lifecycle management: what most teams get wrong</h1>
+      <p class="hero-lead">ILM is one of the most valuable Elasticsearch features and one of the most commonly misconfigured. Here is a practical guide to getting it right before your storage bill gets out of hand.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <article class="prose-article">
+
+        <h3>Why ILM matters more than most teams think</h3>
+        <p>Index Lifecycle Management is Elasticsearch's built-in system for automatically moving data through phases &mdash; hot, warm, cold, frozen, and delete &mdash; based on age, size, or document count. When configured correctly, ILM dramatically reduces storage costs, keeps cluster performance consistent, and removes the operational burden of manual index cleanup.</p>
+        <p>When configured incorrectly, or not at all, you end up with shards that never move off hot nodes, indices that grow unbounded, and a storage bill that climbs every month regardless of actual data value.</p>
+
+        <h3>The most common mistakes</h3>
+        <p>After auditing ILM configurations across many Elasticsearch environments, the same mistakes appear repeatedly:</p>
+        <ul>
+          <li><strong>No rollover condition set correctly.</strong> Teams set a max_age of 30 days but forget that rollover only triggers when a write request hits the index. If ingestion is sparse, indices never roll over on time.</li>
+          <li><strong>Warm phase misconfigured.</strong> Moving to warm shrinks shards but teams often set the wrong shard count, causing uneven distribution across nodes after migration.</li>
+          <li><strong>Cold tier not enabled.</strong> Many deployments skip cold entirely and jump straight to delete, throwing away data that could be queried cheaply on cold nodes.</li>
+          <li><strong>Policy attached after data was ingested.</strong> ILM policies only apply from the point of attachment. Data already in an index does not retroactively follow new phases.</li>
+        </ul>
+
+        <h3>What a well-designed ILM policy looks like</h3>
+        <p>For a typical observability or log workload, a solid ILM policy has four stages. Hot phase handles active ingestion with rollover at either 50GB or 7 days, whichever comes first. Warm phase triggers 2 days after rollover, shrinks the index to one shard, and enables best_compression. Cold phase triggers 30 days after rollover, using frozen or cold-tier nodes for cheap storage. Delete phase triggers at 90 days unless retention requirements say otherwise.</p>
+        <p>The key is that every condition &mdash; size, age, document count &mdash; should have a fallback. Relying on a single rollover condition is the most common way ILM quietly breaks without anyone noticing.</p>
+
+        <h3>How to audit your current ILM setup</h3>
+        <p>The fastest way to understand the state of your ILM is to run two API calls. First, <code>GET _ilm/policy</code> gives you every policy currently defined. Second, <code>GET _cat/indices?v&h=index,ilm.phase,store.size&s=store.size:desc</code> shows you every index, its current ILM phase, and its size sorted largest first. If you see indices stuck in hot at large sizes, or indices with no ILM phase at all, you have found your problem.</p>
+
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-box">
+        <span class="section-label">Work with us</span>
+        <h2>Is your Elasticsearch storage cost growing faster than your data value?</h2>
+        <p>DinaBridge can audit your index lifecycle configuration, fix your ILM policies, and set up the retention architecture your cluster needs &mdash; scoped clearly, delivered by senior engineers.</p>
+        <a href="/contact.html" class="btn btn-primary">Start a conversation</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <a class="brand" href="/"><span class="brand-mark">D</span><span>DinaBridge</span></a>
+    <nav class="footer-nav">
+      <a href="/">Home</a>
+      <a href="/elastic-consulting.html">Elastic Consulting</a>
+      <a href="/solutions.html">Solutions</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+    <p class="footer-legal">&copy; DinaBridge LLC &middot; All rights reserved</p>
+  </div>
+</footer>
+
+</body>
+</html>
