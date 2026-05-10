@@ -181,7 +181,8 @@ img { display: block; max-width: 100%; }
   border-bottom: 1px solid rgba(8,17,31,.04);
 }
 .section-hero {
-  padding: var(--sp-64) 0;
+  padding-top: var(--sp-64);
+  padding-bottom: var(--sp-32);
 }
 
 /* ── H1: single rule, no inline styles on any page ── */
@@ -403,7 +404,7 @@ img { display: block; max-width: 100%; }
   border-radius: 50%;
   background: linear-gradient(135deg, var(--blue), var(--teal));
   position: absolute;
-  left: 0; top: 8px;
+  left: 0; top: var(--sp-8);
 }
 
 /* Card number badge (gold) */
@@ -636,7 +637,7 @@ img { display: block; max-width: 100%; }
 .db-status { margin-top: var(--sp-8); color: #8cf0a8; font-size: var(--text-xs); font-weight: 600; }
 
 /* ══════════════════════════════════════════════════════════
-   12. SOLUTIONS: HOW WE WORK
+   12. SOLUTIONS: HOW WE ENGAGE
    ══════════════════════════════════════════════════════════ */
 .how { padding: 0 0 var(--sp-96); }
 .how-inner {
@@ -673,29 +674,13 @@ img { display: block; max-width: 100%; }
   font-size: var(--text-sm);
   font-weight: 800;
   color: var(--paper);
-  margin-top: 2px;
+  margin-top: var(--sp-4);
 }
 .how-item strong { display: block; font-size: var(--text-base); font-weight: 700; color: var(--navy); margin-bottom: var(--sp-4); }
 .how-item span   { font-size: var(--text-base); color: var(--ink-2); line-height: 1.75; }
 
 /* ══════════════════════════════════════════════════════════
-   13. SOLUTIONS: PRACTICES SECTION
-   ══════════════════════════════════════════════════════════ */
-.practices       { padding: var(--sp-96) 0; }
-.practices-intro { margin-bottom: var(--sp-48); }
-.practices-intro h2 {
-  font-family: var(--serif);
-  font-size: var(--h2-size);
-  font-weight: 800;
-  color: var(--navy);
-  line-height: 1.05;
-  letter-spacing: -.03em;
-  margin-bottom: var(--sp-16);
-}
-.practices-intro p { font-size: var(--text-base); color: var(--ink-2); line-height: 1.75; }
-
-/* ══════════════════════════════════════════════════════════
-   14. BLOG: PROSE ARTICLE
+   13. BLOG: PROSE ARTICLE
    ══════════════════════════════════════════════════════════ */
 .prose-article {
   background: var(--paper);
@@ -730,6 +715,18 @@ img { display: block; max-width: 100%; }
   margin-bottom: var(--sp-8);
 }
 .prose-article ul li::before { content: "\2014"; position: absolute; left: 0; color: var(--teal); }
+
+/* ══════════════════════════════════════════════════════════
+   14. BLOG: POST BACK LINK
+   ══════════════════════════════════════════════════════════ */
+.post-back {
+  display: inline-block;
+  margin-bottom: var(--sp-16);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--blue);
+}
+.post-back:hover { text-decoration: underline; }
 
 /* ══════════════════════════════════════════════════════════
    15. FOOTER
