@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Five ClickHouse query performance mistakes we see in production and how to fix them without a schema rewrite." />
+<title>ClickHouse query performance: the five mistakes that cost you seconds | DinaBridge</title>
+<link rel="canonical" href="https://dinabridge.com/blog/clickhouse-query-performance.html" />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HEWG10CXEK"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-HEWG10CXEK');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../global.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="../index.html"><span class="brand-mark">D</span><span>DinaBridge</span></a>
+    <nav class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../elastic-consulting.html">Elastic Consulting</a>
+      <a href="../solutions.html">Solutions</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+    <a class="nav-cta" href="../contact.html">Get help with your stack</a>
+  </div>
+</nav>
+
+<main>
+
+  <section class="section-hero">
+    <div class="container">
+      <a href="../blog.html" class="section-label" style="display:inline-flex;align-items:center;gap:var(--sp-4);margin-bottom:var(--sp-16);">&#8592; All posts</a>
+      <span class="section-label">May 2026 &middot; ClickHouse</span>
+      <h1 style="font-family:var(--serif);font-size:var(--h1-size);line-height:1.05;letter-spacing:-.03em;margin-bottom:var(--sp-24);color:var(--navy);">ClickHouse query performance: the five mistakes that cost you seconds</h1>
+      <p class="hero-lead">Most slow ClickHouse queries share the same root causes. Here are the five patterns we see most often in production &mdash; and how to fix them without a schema rewrite.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <article class="prose-article">
+        <h3>1. Wrong sort key for your query patterns</h3>
+        <p>The sort key (ORDER BY in MergeTree) is the single most impactful decision in a ClickHouse schema. It determines which columns ClickHouse can use to skip granules during a query. If your sort key does not match your most common filter predicates, ClickHouse has to scan far more data than necessary.</p>
+        <p>The fix is not always a schema rewrite. In many cases, you can create a projection that defines a secondary sort order for a specific query shape, giving you fast reads on both paths without duplicating the full table.</p>
+
+        <h3>2. Selecting more columns than you need</h3>
+        <p>ClickHouse is a columnar store. Reading a column you do not need has a real cost &mdash; it pulls additional granules off disk and into memory. The most common culprit we see is <code>SELECT *</code> in analytical queries that only need 3&ndash;4 fields out of a 50-column table.</p>
+        <ul>
+          <li>Always name the columns you need explicitly</li>
+          <li>Use <code>EXPLAIN</code> to verify column reads in your query plan</li>
+          <li>Consider materialized views that pre-aggregate common column subsets</li>
+        </ul>
+
+        <h3>3. High-cardinality GROUP BY without pre-aggregation</h3>
+        <p>Aggregating over a column with millions of distinct values at query time is expensive. If you are running the same aggregation repeatedly &mdash; daily active users, event counts by tenant, revenue by SKU &mdash; you should be pre-aggregating with a SummingMergeTree or AggregatingMergeTree and a materialized view that populates it on ingest.</p>
+        <p>This pattern shifts the cost from query time to ingest time, which is almost always the right trade-off for analytical workloads.</p>
+
+        <h3>4. Not using skip indexes for low-selectivity filters</h3>
+        <p>When you filter on a column that is not in your sort key, ClickHouse has no way to skip granules unless you have a skip index defined. A simple <code>minmax</code> skip index on a timestamp or numeric range column can eliminate large portions of a scan for almost zero storage overhead.</p>
+
+        <h3>5. INSERT storms fragmenting parts</h3>
+        <p>ClickHouse merges data parts in the background. If you are inserting too frequently in small batches, you end up with hundreds of small parts that have not merged yet. Queries against fragmented tables are slow because ClickHouse has to read from many parts instead of a few large ones.</p>
+        <p>The fix is to batch inserts: aim for at least 100&ndash;500ms between insert operations, or use the <code>async_insert</code> setting to let ClickHouse handle the batching on the server side. This alone resolves the majority of performance complaints we see on write-heavy deployments.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-box">
+        <span class="section-label">Work with us</span>
+        <h2>Is ClickHouse slower than it should be?</h2>
+        <p>DinaBridge delivers senior ClickHouse engineering for teams that need fast, reliable analytics. We diagnose and fix performance issues at the schema, query, and pipeline level &mdash; clearly scoped and senior-led.</p>
+        <a href="../contact.html" class="btn btn-primary">Start a conversation</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <a class="brand" href="../index.html"><span class="brand-mark">D</span><span>DinaBridge</span></a>
+    <nav class="footer-nav">
+      <a href="../index.html">Home</a>
+      <a href="../elastic-consulting.html">Elastic Consulting</a>
+      <a href="../solutions.html">Solutions</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+    <p class="footer-legal">&copy; DinaBridge LLC &middot; All rights reserved</p>
+  </div>
+</footer>
+
+</body>
+</html>

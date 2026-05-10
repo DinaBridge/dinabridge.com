@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="DinaBridge engineering blog. Insights on Elasticsearch, ClickHouse, observability, and production data engineering." />
+<meta name="description" content="DinaBridge engineering blog. Practical insights on Elasticsearch, ClickHouse, observability, and production data systems." />
 <title>Blog | DinaBridge</title>
 <link rel="canonical" href="https://dinabridge.com/blog.html" />
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HEWG10CXEK"></script>
@@ -40,23 +40,25 @@
 
   <section class="section">
     <div class="container">
-      <article class="prose-article">
-        <h3>Why your Elasticsearch alerts are lying to you</h3>
-        <p>Most teams using Elastic for observability end up in the same place after six months: alert fatigue. The dashboards are full, the Slack channel is noisy, and the on-call engineer has learned to ignore the pager. This is not an Elasticsearch problem &mdash; it is an alert engineering problem.</p>
-        <p>The root cause is almost always the same. Alerts were created reactively, one at a time, as incidents happened. No one sat down and designed the alerting system as a whole. So you end up with thresholds that are either too sensitive or too loose, no grouping logic, and zero correlation between related signals.</p>
-        <h3>What good observability actually looks like</h3>
-        <p>Good observability is not more dashboards. It is fewer, better dashboards. It is alerts that fire when something real is wrong and stay quiet when everything is fine. It is traces that tell you not just that something failed, but where and why.</p>
-        <p>Getting there requires treating your observability stack as a product &mdash; something that needs design, iteration, and ownership. Most engineering teams treat it as infrastructure: set it up once, forget about it.</p>
-        <ul>
-          <li>Define what &ldquo;healthy&rdquo; means for each service before you write a single alert</li>
-          <li>Use composite alerts that correlate multiple signals before firing</li>
-          <li>Review and prune your alert rules quarterly</li>
-          <li>Build dashboards for the on-call engineer, not the executive stakeholder</li>
-        </ul>
-        <h3>Where to start</h3>
-        <p>If your current observability setup is more noise than signal, the fastest fix is to audit your existing alerts. Go through every rule and ask: when was the last time this fired? Was the alert actionable? Did anyone actually respond to it?</p>
-        <p>Most teams discover that 40&ndash;60% of their alerts can be deleted or consolidated. That alone will change how your team relates to the monitoring system.</p>
-      </article>
+      <div class="grid-2">
+
+        <!-- Post 2 — most recent first -->
+        <article class="card-base card">
+          <div class="card-num">May 2026 &middot; ClickHouse</div>
+          <h3>ClickHouse query performance: the five mistakes that cost you seconds</h3>
+          <p>Most slow ClickHouse queries share the same root causes. Here are the five patterns we see most often in production &mdash; and how to fix them without a schema rewrite.</p>
+          <a href="./blog/clickhouse-query-performance.html" class="card-link">Read post</a>
+        </article>
+
+        <!-- Post 1 -->
+        <article class="card-base card">
+          <div class="card-num">Apr 2026 &middot; Observability</div>
+          <h3>Why your Elasticsearch alerts are lying to you</h3>
+          <p>Most teams hit alert fatigue six months into Elastic. The dashboards are full, the Slack channel is noisy, and the on-call engineer has learned to ignore the pager. Here is how to fix it.</p>
+          <a href="./blog/why-elasticsearch-alerts-lie.html" class="card-link">Read post</a>
+        </article>
+
+      </div>
     </div>
   </section>
 

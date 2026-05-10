@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Most teams hit Elasticsearch alert fatigue after six months. Here is why your alerts are lying to you and how to fix it." />
+<title>Why your Elasticsearch alerts are lying to you | DinaBridge</title>
+<link rel="canonical" href="https://dinabridge.com/blog/why-elasticsearch-alerts-lie.html" />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HEWG10CXEK"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-HEWG10CXEK');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../global.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="../index.html"><span class="brand-mark">D</span><span>DinaBridge</span></a>
+    <nav class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../elastic-consulting.html">Elastic Consulting</a>
+      <a href="../solutions.html">Solutions</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+    <a class="nav-cta" href="../contact.html">Get help with your stack</a>
+  </div>
+</nav>
+
+<main>
+
+  <section class="section-hero">
+    <div class="container">
+      <a href="../blog.html" class="section-label" style="display:inline-flex;align-items:center;gap:var(--sp-4);margin-bottom:var(--sp-16);">&#8592; All posts</a>
+      <span class="section-label">Apr 2026 &middot; Observability</span>
+      <h1 style="font-family:var(--serif);font-size:var(--h1-size);line-height:1.05;letter-spacing:-.03em;margin-bottom:var(--sp-24);color:var(--navy);">Why your Elasticsearch alerts are lying to you</h1>
+      <p class="hero-lead">Most teams using Elastic for observability end up in the same place after six months: alert fatigue. Here is what causes it and how to fix it systematically.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <article class="prose-article">
+        <h3>The real cause of alert fatigue</h3>
+        <p>Most teams using Elastic for observability end up in the same place after six months: alert fatigue. The dashboards are full, the Slack channel is noisy, and the on-call engineer has learned to ignore the pager. This is not an Elasticsearch problem &mdash; it is an alert engineering problem.</p>
+        <p>The root cause is almost always the same. Alerts were created reactively, one at a time, as incidents happened. No one sat down and designed the alerting system as a whole. So you end up with thresholds that are either too sensitive or too loose, no grouping logic, and zero correlation between related signals.</p>
+
+        <h3>What good observability actually looks like</h3>
+        <p>Good observability is not more dashboards. It is fewer, better dashboards. It is alerts that fire when something real is wrong and stay quiet when everything is fine. It is traces that tell you not just that something failed, but where and why.</p>
+        <p>Getting there requires treating your observability stack as a product &mdash; something that needs design, iteration, and ownership. Most engineering teams treat it as infrastructure: set it up once, forget about it.</p>
+        <ul>
+          <li>Define what &ldquo;healthy&rdquo; means for each service before you write a single alert</li>
+          <li>Use composite alerts that correlate multiple signals before firing</li>
+          <li>Review and prune your alert rules quarterly</li>
+          <li>Build dashboards for the on-call engineer, not the executive stakeholder</li>
+        </ul>
+
+        <h3>Where to start</h3>
+        <p>If your current observability setup is more noise than signal, the fastest fix is to audit your existing alerts. Go through every rule and ask: when was the last time this fired? Was the alert actionable? Did anyone actually respond to it?</p>
+        <p>Most teams discover that 40&ndash;60% of their alerts can be deleted or consolidated. That alone will change how your team relates to the monitoring system.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-box">
+        <span class="section-label">Work with us</span>
+        <h2>Is your Elastic observability more noise than signal?</h2>
+        <p>DinaBridge specializes in observability engineering on Elastic. We can audit your alert rules, redesign your dashboards, and reduce your MTTR &mdash; scoped clearly, delivered by senior engineers.</p>
+        <a href="../contact.html" class="btn btn-primary">Start a conversation</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <a class="brand" href="../index.html"><span class="brand-mark">D</span><span>DinaBridge</span></a>
+    <nav class="footer-nav">
+      <a href="../index.html">Home</a>
+      <a href="../elastic-consulting.html">Elastic Consulting</a>
+      <a href="../solutions.html">Solutions</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+    <p class="footer-legal">&copy; DinaBridge LLC &middot; All rights reserved</p>
+  </div>
+</footer>
+
+</body>
+</html>
