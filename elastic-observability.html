@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Elastic Observability engineering from DinaBridge. APM, distributed tracing, log pipelines, and incident response for production Elasticsearch environments." />
+<meta name="description" content="Elastic Observability consulting from DinaBridge. APM, distributed tracing, log pipelines, and alert engineering for production Elasticsearch." />
 <title>Elastic Observability | DinaBridge</title>
 <link rel="canonical" href="https://dinabridge.com/elastic-observability.html" />
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HEWG10CXEK"></script>
@@ -18,100 +18,69 @@
 <nav class="nav">
   <div class="container nav-inner">
     <a class="brand" href="/"><span class="brand-mark">D</span><span>DinaBridge</span></a>
-    <nav class="nav-links">
+    <div class="nav-links">
       <a href="/">Home</a>
       <a href="/elastic-consulting.html">Elastic Consulting</a>
       <a href="/solutions.html">Solutions</a>
       <a href="/about.html">About</a>
       <a href="/contact.html">Contact</a>
-    </nav>
+    </div>
     <a class="nav-cta" href="/contact.html">Get help with your stack</a>
   </div>
 </nav>
+<script src="/nav.js"></script>
 
 <main>
 
   <section class="section-hero">
     <div class="container">
       <span class="section-label">Elastic Observability</span>
-      <h1>Full-stack telemetry.<br>Production clarity.</h1>
-      <p class="hero-lead">DinaBridge designs and implements Elastic Observability stacks that give your engineering team clear, actionable signal across logs, metrics, and traces &mdash; so incidents get resolved faster and systems stay readable at scale.</p>
+      <h1>See everything in your production stack &mdash; and act on it.</h1>
+      <p class="hero-lead">APM pipelines, distributed tracing, log ingestion, and alert engineering for teams that need observability to actually work under real load.</p>
+      <div class="hero-actions">
+        <a href="/contact.html" class="btn btn-primary">Start a conversation</a>
+        <a href="/solutions.html" class="btn btn-secondary">See all solutions</a>
+      </div>
     </div>
   </section>
+
+  <hr class="section-divider" />
 
   <section class="section">
     <div class="container">
       <div class="section-intro">
         <span class="section-label">What we deliver</span>
-        <h2>Observability engineering that improves production outcomes.</h2>
-        <p>We build and tune full-stack observability pipelines on Elastic &mdash; from raw telemetry ingestion to the dashboards and alerts your team actually uses.</p>
+        <h2>Full-stack telemetry across logs, metrics, and traces.</h2>
+        <p>We build the observability foundation that lets your team see what is happening, understand why, and fix it faster.</p>
       </div>
       <div class="grid-3">
         <div class="card-base card">
-          <h3>APM &amp; Tracing</h3>
-          <p>Distributed tracing and application performance monitoring designed for complex, multi-service environments.</p>
-          <ul class="clean-list">
-            <li>APM agent deployment and configuration</li>
-            <li>Distributed trace correlation</li>
-            <li>Service map and dependency visibility</li>
-            <li>Latency and error rate baselines</li>
-          </ul>
+          <h3>APM &amp; Distributed Tracing</h3>
+          <p>End-to-end application performance monitoring and distributed trace instrumentation. We instrument your services, tune the APM layer, and build the dashboards that make incidents clear.</p>
         </div>
         <div class="card-base card">
-          <h3>Log Pipeline Design</h3>
-          <p>Structured log ingestion, parsing, and enrichment pipelines that make logs searchable and useful in production.</p>
-          <ul class="clean-list">
-            <li>Ingest pipeline architecture</li>
-            <li>Logstash and Beats configuration</li>
-            <li>Log parsing and field normalization</li>
-            <li>Index lifecycle and retention policy</li>
-          </ul>
+          <h3>Log Pipeline Architecture</h3>
+          <p>Structured log ingestion, Logstash and Beats configuration, parsing pipelines, and retention strategy. We build log infrastructure that scales with your production volume.</p>
         </div>
         <div class="card-base card">
-          <h3>Alerting &amp; Dashboards</h3>
-          <p>Alert rules and dashboards engineered for signal quality &mdash; reducing noise and surfacing real issues.</p>
-          <ul class="clean-list">
-            <li>Alert rule engineering and thresholds</li>
-            <li>Kibana dashboard design</li>
-            <li>Noise reduction and alert fatigue fixes</li>
-            <li>On-call runbook integration</li>
-          </ul>
+          <h3>Alert Engineering</h3>
+          <p>Alert rule design, noise reduction, escalation policy, and runbook integration. We turn alert fatigue into confident signal &mdash; so your team responds to what matters.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="section-intro">
-        <span class="section-label">Typical outcomes</span>
-        <h2>What teams typically see after an engagement.</h2>
-        <p>These benchmarks reflect results across our observability engagements. Actual outcomes depend on your starting environment and scope.</p>
-      </div>
-      <div class="grid-3">
-        <div class="card-base card-compact">
-          <strong class="metric-val">~60%</strong>
-          <span class="metric-label">Reduction in mean time to resolution</span>
-        </div>
-        <div class="card-base card-compact">
-          <strong class="metric-val">3&times;</strong>
-          <span class="metric-label">Improvement in alert signal-to-noise ratio</span>
-        </div>
-        <div class="card-base card-compact">
-          <strong class="metric-val">100%</strong>
-          <span class="metric-label">Trace coverage across critical services by close of engagement</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  <hr class="section-divider" />
 
   <section class="section">
     <div class="container">
       <div class="cta-box">
         <span class="section-label">Work with us</span>
-        <h2>If your Elastic observability stack is not giving you clear signal, we can fix that.</h2>
-        <p>Tell us where your observability breaks down. We will scope a clear engagement and start delivering within days.</p>
-        <a href="/contact.html" class="btn btn-primary">Start a conversation</a>
+        <h2>Observability gaps causing blind spots in production?</h2>
+        <p>Tell us what you can and cannot see today. We will come back with a clear architecture and a named engineer who can build it.</p>
+        <div class="cta-actions">
+          <a href="/contact.html" class="btn btn-primary">Start a conversation</a>
+        </div>
       </div>
     </div>
   </section>
@@ -120,7 +89,10 @@
 
 <footer>
   <div class="container footer-inner">
-    <a class="brand" href="/"><span class="brand-mark">D</span><span>DinaBridge</span></a>
+    <div class="footer-brand-block">
+      <a class="brand" href="/"><span class="brand-mark">D</span><span>DinaBridge</span></a>
+      <p class="footer-tagline">Senior Elasticsearch engineering for observability, search, security, and AI.</p>
+    </div>
     <nav class="footer-nav">
       <a href="/">Home</a>
       <a href="/elastic-consulting.html">Elastic Consulting</a>
@@ -128,7 +100,9 @@
       <a href="/about.html">About</a>
       <a href="/contact.html">Contact</a>
     </nav>
+    <div class="footer-divider"></div>
     <p class="footer-legal">&copy; DinaBridge LLC &middot; All rights reserved</p>
+    <p class="footer-gem">put the gem in the room.</p>
   </div>
 </footer>
 

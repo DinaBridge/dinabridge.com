@@ -1,102 +1,115 @@
-/* DinaBridge Mobile Navigation — v1.0
-   Hamburger toggle + slide-down drawer + overlay
-   Follows global.css design tokens exactly.
+/* DinaBridge Mobile Navigation — v2.0
+   Hamburger toggle + slide-down drawer + overlay.
+   Drawer appended to <body>, not inside sticky nav,
+   so it is never clipped by overflow or stacking context.
    No dependencies. Pure vanilla JS. */
 
 (function () {
   'use strict';
 
   document.addEventListener('DOMContentLoaded', function () {
-    const nav = document.querySelector('nav.nav');
-    if (!nav) return;
+    var navEl = document.querySelector('nav.nav');
+    if (!navEl) return;
 
-    // ── Inject hamburger button ──
-    const burger = document.createElement('button');
+    var navInner = navEl.querySelector('.nav-inner');
+    if (!navInner) return;
+
+    // ── Hamburger button ──
+    var burger = document.createElement('button');
     burger.className = 'nav-burger';
-    burger.setAttribute('aria-label', 'Toggle navigation');
+    burger.setAttribute('aria-label', 'Open navigation menu');
     burger.setAttribute('aria-expanded', 'false');
     burger.setAttribute('type', 'button');
-    burger.innerHTML = `
-      <span class="burger-bar"></span>
-      <span class="burger-bar"></span>
-      <span class="burger-bar"></span>
-    `;
-    nav.querySelector('.nav-inner').appendChild(burger);
+    burger.innerHTML =
+      '<span class="burger-bar"></span>' +
+      '<span class="burger-bar"></span>' +
+      '<span class="burger-bar"></span>';
+    navInner.appendChild(burger);
 
-    // ── Inject mobile drawer ──
-    const drawer = document.createElement('div');
+    // ── Drawer (appended to body, NOT inside nav) ──
+    var drawer = document.createElement('div');
     drawer.className = 'nav-drawer';
+    drawer.setAttribute('role', 'dialog');
+    drawer.setAttribute('aria-modal', 'true');
+    drawer.setAttribute('aria-label', 'Navigation menu');
     drawer.setAttribute('aria-hidden', 'true');
 
-    // Copy links from desktop nav
-    const desktopLinks = nav.querySelector('.nav-links');
-    const drawerLinks = document.createElement('div');
+    // Copy desktop nav links
+    var desktopLinks = navEl.querySelector('.nav-links');
+    var drawerLinks = document.createElement('div');
     drawerLinks.className = 'drawer-links';
     if (desktopLinks) {
-      Array.from(desktopLinks.querySelectorAll('a')).forEach(function (a) {
-        const link = a.cloneNode(true);
-        drawerLinks.appendChild(link);
-      });
+      var anchors = desktopLinks.querySelectorAll('a');
+      for (var i = 0; i < anchors.length; i++) {
+        drawerLinks.appendChild(anchors[i].cloneNode(true));
+      }
     }
 
-    // CTA button in drawer
-    const desktopCta = nav.querySelector('.nav-cta');
+    // CTA in drawer
+    var desktopCta = navEl.querySelector('.nav-cta');
     if (desktopCta) {
-      const ctaClone = desktopCta.cloneNode(true);
+      var ctaClone = desktopCta.cloneNode(true);
       ctaClone.className = 'btn btn-primary drawer-cta';
       drawerLinks.appendChild(ctaClone);
     }
 
     drawer.appendChild(drawerLinks);
-    nav.appendChild(drawer);
+    document.body.appendChild(drawer);
 
-    // ── Inject overlay ──
-    const overlay = document.createElement('div');
+    // ── Overlay ──
+    var overlay = document.createElement('div');
     overlay.className = 'nav-overlay';
     document.body.appendChild(overlay);
 
-    // ── Toggle logic ──
-    let open = false;
+    // ── State ──
+    var isOpen = false;
 
     function openMenu() {
-      open = true;
+      isOpen = true;
       burger.classList.add('is-open');
       burger.setAttribute('aria-expanded', 'true');
+      burger.setAttribute('aria-label', 'Close navigation menu');
       drawer.classList.add('is-open');
       drawer.setAttribute('aria-hidden', 'false');
       overlay.classList.add('is-visible');
       document.body.style.overflow = 'hidden';
+      // Trap focus: move to first link
+      var firstLink = drawer.querySelector('a, button');
+      if (firstLink) firstLink.focus();
     }
 
     function closeMenu() {
-      open = false;
+      isOpen = false;
       burger.classList.remove('is-open');
       burger.setAttribute('aria-expanded', 'false');
+      burger.setAttribute('aria-label', 'Open navigation menu');
       drawer.classList.remove('is-open');
       drawer.setAttribute('aria-hidden', 'true');
       overlay.classList.remove('is-visible');
       document.body.style.overflow = '';
+      burger.focus();
     }
 
     burger.addEventListener('click', function () {
-      open ? closeMenu() : openMenu();
+      isOpen ? closeMenu() : openMenu();
     });
 
     overlay.addEventListener('click', closeMenu);
 
-    // Close on link click
-    drawerLinks.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', closeMenu);
-    });
+    // Close on any drawer link click
+    var drawerAnchors = drawer.querySelectorAll('a');
+    for (var j = 0; j < drawerAnchors.length; j++) {
+      drawerAnchors[j].addEventListener('click', closeMenu);
+    }
 
-    // Close on Escape
+    // Keyboard: Escape closes
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && open) closeMenu();
+      if ((e.key === 'Escape' || e.key === 'Esc') && isOpen) closeMenu();
     });
 
-    // Close if resized to desktop
+    // Close if resized past breakpoint
     window.addEventListener('resize', function () {
-      if (window.innerWidth > 980 && open) closeMenu();
+      if (window.innerWidth > 980 && isOpen) closeMenu();
     });
   });
 }());

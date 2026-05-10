@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Elasticsearch search engineering from DinaBridge. Relevance tuning, index architecture, query performance, and semantic search for production environments." />
-<title>Elastic Search Engineering | DinaBridge</title>
+<meta name="description" content="Elastic search engineering from DinaBridge. Relevance tuning, index architecture, and query performance optimization for production Elasticsearch." />
+<title>Elastic Search | DinaBridge</title>
 <link rel="canonical" href="https://dinabridge.com/elastic-search.html" />
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HEWG10CXEK"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-HEWG10CXEK');</script>
@@ -18,100 +18,69 @@
 <nav class="nav">
   <div class="container nav-inner">
     <a class="brand" href="/"><span class="brand-mark">D</span><span>DinaBridge</span></a>
-    <nav class="nav-links">
+    <div class="nav-links">
       <a href="/">Home</a>
       <a href="/elastic-consulting.html">Elastic Consulting</a>
       <a href="/solutions.html">Solutions</a>
       <a href="/about.html">About</a>
       <a href="/contact.html">Contact</a>
-    </nav>
+    </div>
     <a class="nav-cta" href="/contact.html">Get help with your stack</a>
   </div>
 </nav>
+<script src="/nav.js"></script>
 
 <main>
 
   <section class="section-hero">
     <div class="container">
       <span class="section-label">Elastic Search</span>
-      <h1>Search that finds the right result.<br>Every time.</h1>
-      <p class="hero-lead">DinaBridge engineers production-grade search on Elasticsearch &mdash; from relevance tuning and index architecture to semantic search and query performance at scale.</p>
+      <h1>Search that works the way your users expect.</h1>
+      <p class="hero-lead">Relevance tuning, index architecture, query optimization, and semantic search design &mdash; for teams that need Elasticsearch to actually find the right results.</p>
+      <div class="hero-actions">
+        <a href="/contact.html" class="btn btn-primary">Start a conversation</a>
+        <a href="/solutions.html" class="btn btn-secondary">See all solutions</a>
+      </div>
     </div>
   </section>
+
+  <hr class="section-divider" />
 
   <section class="section">
     <div class="container">
       <div class="section-intro">
         <span class="section-label">What we deliver</span>
-        <h2>Search engineering built for production relevance.</h2>
-        <p>We design and tune Elasticsearch search systems that return accurate, fast, and contextually relevant results &mdash; across keyword, semantic, and hybrid retrieval models.</p>
+        <h2>From index design to production relevance.</h2>
+        <p>We cover the full search engineering lifecycle &mdash; from how your data is indexed to how results are ranked and presented.</p>
       </div>
       <div class="grid-3">
         <div class="card-base card">
           <h3>Relevance Tuning</h3>
-          <p>Field weighting, boosting logic, and ranking models designed around what your users actually need to find.</p>
-          <ul class="clean-list">
-            <li>BM25 and custom scoring configuration</li>
-            <li>Boost and decay function design</li>
-            <li>Query template engineering</li>
-            <li>A/B testing and relevance evaluation</li>
-          </ul>
+          <p>Field boosting, function scoring, custom ranking logic, and A/B testing frameworks. We tune relevance until search results match what your users actually want.</p>
         </div>
         <div class="card-base card">
           <h3>Index Architecture</h3>
-          <p>Index design and shard strategy that keeps search fast and clusters healthy as data grows.</p>
-          <ul class="clean-list">
-            <li>Mapping and analyzer design</li>
-            <li>Shard sizing and allocation strategy</li>
-            <li>Index lifecycle management</li>
-            <li>Rollover and hot-warm-cold architecture</li>
-          </ul>
+          <p>Mapping design, analyzer configuration, shard strategy, and index lifecycle management for production-scale search workloads.</p>
         </div>
         <div class="card-base card">
-          <h3>Semantic &amp; Hybrid Search</h3>
-          <p>Vector search, ELSER, and hybrid retrieval pipelines for teams moving beyond keyword matching.</p>
-          <ul class="clean-list">
-            <li>ELSER deployment and tuning</li>
-            <li>Dense vector index design</li>
-            <li>Hybrid BM25 + vector retrieval</li>
-            <li>Embedding pipeline architecture</li>
-          </ul>
+          <h3>Query Performance</h3>
+          <p>Query profiling, caching strategy, aggregation optimization, and cluster resource tuning to make search fast under real load.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="section-intro">
-        <span class="section-label">Typical outcomes</span>
-        <h2>What search teams typically see after an engagement.</h2>
-        <p>These benchmarks reflect results across our search engineering engagements. Actual outcomes depend on your starting index design and query patterns.</p>
-      </div>
-      <div class="grid-3">
-        <div class="card-base card-compact">
-          <strong class="metric-val">&lt;20ms</strong>
-          <span class="metric-label">Typical p95 search latency after query optimization</span>
-        </div>
-        <div class="card-base card-compact">
-          <strong class="metric-val">~40%</strong>
-          <span class="metric-label">Improvement in top-result relevance score after tuning</span>
-        </div>
-        <div class="card-base card-compact">
-          <strong class="metric-val">100%</strong>
-          <span class="metric-label">Index and mapping coverage reviewed and corrected by close of engagement</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  <hr class="section-divider" />
 
   <section class="section">
     <div class="container">
       <div class="cta-box">
         <span class="section-label">Work with us</span>
-        <h2>If your Elasticsearch results are not good enough, we can fix that.</h2>
-        <p>Tell us about your search environment and what is underperforming. We will scope a clear engagement and start delivering within days.</p>
-        <a href="/contact.html" class="btn btn-primary">Start a conversation</a>
+        <h2>Search not returning the right results?</h2>
+        <p>Tell us about your index, your use case, and what is going wrong. We will come back with a clear diagnosis and a plan.</p>
+        <div class="cta-actions">
+          <a href="/contact.html" class="btn btn-primary">Start a conversation</a>
+        </div>
       </div>
     </div>
   </section>
@@ -120,7 +89,10 @@
 
 <footer>
   <div class="container footer-inner">
-    <a class="brand" href="/"><span class="brand-mark">D</span><span>DinaBridge</span></a>
+    <div class="footer-brand-block">
+      <a class="brand" href="/"><span class="brand-mark">D</span><span>DinaBridge</span></a>
+      <p class="footer-tagline">Senior Elasticsearch engineering for observability, search, security, and AI.</p>
+    </div>
     <nav class="footer-nav">
       <a href="/">Home</a>
       <a href="/elastic-consulting.html">Elastic Consulting</a>
@@ -128,7 +100,9 @@
       <a href="/about.html">About</a>
       <a href="/contact.html">Contact</a>
     </nav>
+    <div class="footer-divider"></div>
     <p class="footer-legal">&copy; DinaBridge LLC &middot; All rights reserved</p>
+    <p class="footer-gem">put the gem in the room.</p>
   </div>
 </footer>
 
