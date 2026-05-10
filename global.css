@@ -205,9 +205,8 @@ img { display: block; max-width: 100%; }
   margin-bottom: var(--sp-16);
 }
 
-/* Section intro block */
+/* Section intro block — no max-width; flows to full container */
 .section-intro {
-  max-width: 680px;
   margin-bottom: var(--sp-48);
 }
 .section-intro h2 {
@@ -233,11 +232,11 @@ img { display: block; max-width: 100%; }
   line-height: 1.75;
   margin-bottom: var(--sp-32);
 }
+/* hero-lead — no max-width; flows to full container width */
 .hero-lead {
   font-size: var(--text-lg);
   color: var(--ink-2);
   line-height: 1.75;
-  max-width: 720px;
   margin-bottom: var(--sp-16);
 }
 .hero-lead + .hero-lead { margin-bottom: var(--sp-32); }
@@ -493,12 +492,12 @@ img { display: block; max-width: 100%; }
   margin-bottom: var(--sp-16);
   color: var(--navy);
 }
+/* cta-box p — no max-width; flows to full box width */
 .cta-box p {
   font-size: var(--text-base);
   color: var(--ink-2);
   line-height: 1.75;
   margin-bottom: var(--sp-24);
-  max-width: 660px;
 }
 
 /* ══════════════════════════════════════════════════════════
@@ -683,7 +682,7 @@ img { display: block; max-width: 100%; }
    13. SOLUTIONS: PRACTICES SECTION
    ══════════════════════════════════════════════════════════ */
 .practices       { padding: var(--sp-96) 0; }
-.practices-intro { max-width: 680px; margin-bottom: var(--sp-48); }
+.practices-intro { margin-bottom: var(--sp-48); }
 .practices-intro h2 {
   font-family: var(--serif);
   font-size: var(--h2-size);
