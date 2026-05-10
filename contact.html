@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Contact DinaBridge for Elastic consulting, staff augmentation, and delivery partner engagements." />
   <title>Contact | DinaBridge</title>
-
-  <!-- Google Analytics -->
+  <link rel="canonical" href="https://dinabridge.com/contact.html">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HEWG10CXEK"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -14,235 +13,90 @@
     gtag('js', new Date());
     gtag('config', 'G-HEWG10CXEK');
   </script>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --ink: #08111f;
-      --ink-2: #22324a;
-      --ink-3: #5c6d86;
-      --ink-4: #93a4b8;
-      --paper: #f5f8fc;
-      --paper-2: #ebf2fb;
-      --navy: #102a43;
-      --blue: #0b64dd;
-      --blue-2: #1d4ed8;
-      --blue-soft: #dcecff;
-      --teal: #008b87;
-      --gold: #c8a96b;
-      --rule: rgba(8, 17, 31, 0.10);
-      --rule-strong: rgba(8, 17, 31, 0.18);
-      --serif: 'Playfair Display', Georgia, serif;
-      --sans: 'Figtree', system-ui, sans-serif;
-      --shadow-sm: 0 6px 18px rgba(15, 39, 66, 0.06);
-      --shadow-md: 0 16px 36px rgba(15, 39, 66, 0.10);
-      --radius: 18px;
-      --radius-lg: 26px;
-      --max: 1180px;
+      --ink:#08111f;--ink-2:#22324a;--ink-3:#5c6d86;--ink-4:#93a4b8;
+      --paper:#f5f8fc;--paper-2:#ebf2fb;--navy:#102a43;
+      --blue:#0b64dd;--blue-2:#1d4ed8;--blue-soft:#dcecff;
+      --teal:#008b87;--gold:#c8a96b;
+      --rule:rgba(8,17,31,0.10);--rule-strong:rgba(8,17,31,0.18);
+      --serif:'Playfair Display',Georgia,serif;--sans:'Figtree',system-ui,sans-serif;
+      --shadow-sm:0 6px 18px rgba(15,39,66,0.06);--shadow-md:0 16px 36px rgba(15,39,66,0.10);
+      --radius:18px;--radius-lg:26px;--max:1180px;
     }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      background:
-        radial-gradient(circle at top right, rgba(11,100,221,0.08), transparent 22%),
-        radial-gradient(circle at top left, rgba(0,139,135,0.05), transparent 18%),
-        var(--paper);
-      color: var(--ink);
-      font-family: var(--sans);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      background:radial-gradient(circle at top right, rgba(11,100,221,0.08), transparent 22%),
+                 radial-gradient(circle at top left, rgba(0,139,135,0.05), transparent 18%),
+                 var(--paper);
+      color:var(--ink);font-family:var(--sans);line-height:1.6;
+      -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
     }
-    a { color: inherit; text-decoration: none; }
-
-    .container {
-      width: 100%;
-      max-width: var(--max);
-      margin: 0 auto;
-      padding-left: 24px;
-      padding-right: 24px;
-    }
-
-    /* NAV */
-    .nav { position: sticky; top: 0; z-index: 100; background: rgba(245, 248, 252, 0.92); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 16px 0; }
-    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: -0.02em; }
-    .brand-mark { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font-family: var(--serif); font-size: 18px; color: white; background: linear-gradient(135deg, var(--blue) 0%, var(--teal) 100%); box-shadow: var(--shadow-sm); }
-    .nav-links { display: flex; align-items: center; gap: 22px; color: var(--ink-2); font-size: 14px; font-weight: 600; }
-    .nav-links a:hover { color: var(--blue); }
-    .nav-cta { display: inline-flex; align-items: center; justify-content: center; padding: 12px 18px; border-radius: 999px; font-size: 14px; font-weight: 700; background: var(--blue); color: white; border: 1px solid var(--blue); box-shadow: var(--shadow-sm); }
-
-    /* HERO */
-    .hero { padding: 60px 0 56px; }
-    .section-label {
-      font-size: 12px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--teal);
-      display: block;
-      margin-bottom: 1rem;
-    }
-    .hero h1 {
-      font-family: var(--serif);
-      font-size: clamp(40px, 5vw, 68px);
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      margin-bottom: 32px;
-      color: var(--navy);
-    }
-
-    /* CONTACT GRID */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 22px;
-      align-items: stretch;
-    }
-
-    .contact-form, .contact-aside {
-      background: rgba(255,255,255,0.92);
-      border: 1px solid rgba(8,17,31,0.08);
-      border-radius: var(--radius-lg);
-      box-shadow: 0 14px 34px rgba(15,39,66,0.08);
-      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
-      display: flex;
-      flex-direction: column;
-    }
-    .contact-form { padding: 28px; }
-    .contact-form:hover, .contact-aside:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 48px rgba(11,100,221,0.12);
-      border-color: rgba(11,100,221,0.18);
-    }
-
-    .field { margin-bottom: 16px; }
-    .field label {
-      display: block;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--ink-3);
-      margin-bottom: 8px;
-    }
-    .field input, .field select, .field textarea {
-      width: 100%;
-      padding: 14px 16px;
-      border-radius: 14px;
-      border: 1px solid rgba(8,17,31,0.12);
-      background: linear-gradient(180deg, #f7fbff 0%, #edf4fc 100%);
-      color: var(--ink);
-      font-family: var(--sans);
-      font-size: 15px;
-      outline: none;
-      transition: border-color 180ms ease, box-shadow 180ms ease;
-    }
-    .field input:focus, .field select:focus, .field textarea:focus {
-      border-color: rgba(11,100,221,0.45);
-      box-shadow: 0 0 0 4px rgba(11,100,221,0.10);
-    }
-    .field textarea { min-height: 140px; resize: vertical; }
-
-    .submit-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 6px;
-      padding: 14px 22px;
-      border: 1px solid var(--blue);
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-2) 100%);
-      color: #fff;
-      font-size: 14px;
-      font-weight: 800;
-      box-shadow: 0 10px 24px rgba(11,100,221,0.20);
-      transition: transform 180ms ease, filter 180ms ease;
-      cursor: pointer;
-    }
-    .submit-btn:hover { transform: translateY(-1px); filter: brightness(1.06); }
-
-    .contact-aside { padding: 22px; }
-
-    .aside-block {
-      padding: 18px 0;
-      border-bottom: 1px solid rgba(8,17,31,0.08);
-    }
-    .aside-block:first-child { padding-top: 0; }
-    .aside-block:last-child { padding-bottom: 0; border-bottom: none; flex: 1; }
-    .aside-block h4 {
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--ink-3);
-      margin-bottom: 8px;
-    }
-    .aside-block p { color: var(--ink-2); font-size: 15px; line-height: 1.7; }
-    .aside-block a { color: var(--blue); border-bottom: 1px solid rgba(11,100,221,0.18); }
-
-    /* FOOTER */
-    footer {
-      background: var(--paper-2);
-      border-top: 1px solid var(--rule-strong);
-      padding: 1.75rem 0;
-    }
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .footer-nav { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-    .footer-nav a, .footer-legal { font-size: 12px; color: var(--ink-3); }
-    .footer-nav a:hover { color: var(--navy); }
-
-    @media (max-width: 980px) {
-      .nav-links { display: none; }
-      .contact-grid { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 640px) {
-      .hero { padding: 40px 0 40px; }
-      .contact-form, .contact-aside { padding: 20px; }
-    }
+    a{color:inherit;text-decoration:none}
+    .container{width:100%;max-width:var(--max);margin:0 auto;padding-left:24px;padding-right:24px;}
+    .nav{position:sticky;top:0;z-index:100;background:rgba(245,248,252,0.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--rule);}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:16px 0;}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:-0.02em;}
+    .brand-mark{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:18px;color:white;background:linear-gradient(135deg,var(--blue) 0%,var(--teal) 100%);box-shadow:var(--shadow-sm);}
+    .nav-links{display:flex;align-items:center;gap:22px;color:var(--ink-2);font-size:14px;font-weight:600;}
+    .nav-links a:hover{color:var(--blue)}
+    .nav-cta{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:999px;font-size:14px;font-weight:700;background:var(--blue);color:white;border:1px solid var(--blue);box-shadow:var(--shadow-sm);}
+    .hero{padding:60px 0 56px;}
+    .section-label{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--teal);display:block;margin-bottom:1rem;}
+    .hero h1{font-family:var(--serif);font-size:clamp(40px,5vw,68px);line-height:1.05;letter-spacing:-0.03em;margin-bottom:32px;color:var(--navy);}
+    .contact-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:22px;align-items:stretch;}
+    .contact-form,.contact-aside{background:rgba(255,255,255,0.92);border:1px solid rgba(8,17,31,0.08);border-radius:var(--radius-lg);box-shadow:0 14px 34px rgba(15,39,66,0.08);transition:transform 220ms ease,box-shadow 220ms ease,border-color 220ms ease;display:flex;flex-direction:column;}
+    .contact-form{padding:28px;}
+    .contact-form:hover,.contact-aside:hover{transform:translateY(-4px);box-shadow:0 20px 48px rgba(11,100,221,0.12);border-color:rgba(11,100,221,0.18);}
+    .field{margin-bottom:16px;}
+    .field label{display:block;font-size:11px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px;}
+    .field input,.field select,.field textarea{width:100%;padding:14px 16px;border-radius:14px;border:1px solid rgba(8,17,31,0.12);background:linear-gradient(180deg,#f7fbff 0%,#edf4fc 100%);color:var(--ink);font-family:var(--sans);font-size:15px;outline:none;transition:border-color 180ms ease,box-shadow 180ms ease;}
+    .field input:focus,.field select:focus,.field textarea:focus{border-color:rgba(11,100,221,0.45);box-shadow:0 0 0 4px rgba(11,100,221,0.10);}
+    .field textarea{min-height:140px;resize:vertical;}
+    .submit-btn{display:inline-flex;align-items:center;justify-content:center;margin-top:6px;padding:14px 22px;border:1px solid var(--blue);border-radius:999px;background:linear-gradient(135deg,var(--blue) 0%,var(--blue-2) 100%);color:#fff;font-size:14px;font-weight:800;box-shadow:0 10px 24px rgba(11,100,221,0.20);transition:transform 180ms ease,filter 180ms ease;cursor:pointer;}
+    .submit-btn:hover{transform:translateY(-1px);filter:brightness(1.06)}
+    .contact-aside{padding:22px;}
+    .aside-block{padding:18px 0;border-bottom:1px solid rgba(8,17,31,0.08);}
+    .aside-block:first-child{padding-top:0}
+    .aside-block:last-child{padding-bottom:0;border-bottom:none;flex:1}
+    .aside-block h4{font-size:11px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px;}
+    .aside-block p{color:var(--ink-2);font-size:15px;line-height:1.7;}
+    .aside-block a{color:var(--blue);border-bottom:1px solid rgba(11,100,221,0.18);}
+    footer{background:var(--paper-2);border-top:1px solid var(--rule-strong);padding:1.75rem 0;}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+    .footer-nav{display:flex;gap:1.5rem;flex-wrap:wrap;}
+    .footer-nav a,.footer-legal{font-size:12px;color:var(--ink-3);}
+    .footer-nav a:hover{color:var(--navy)}
+    @media (max-width:980px){.nav-links{display:none}.contact-grid{grid-template-columns:1fr}}
+    @media (max-width:640px){.hero{padding:40px 0}.contact-form,.contact-aside{padding:20px}}
   </style>
 </head>
 <body>
   <header class="nav">
     <div class="container nav-inner">
-      <a class="brand" href="./index.html">
-        <span class="brand-mark">D</span>
-        <span>DinaBridge</span>
-      </a>
+      <a class="brand" href="./index.html"><span class="brand-mark">D</span><span>DinaBridge</span></a>
       <nav class="nav-links">
         <a href="./index.html">Home</a>
         <a href="./elastic-consulting.html">Elastic Consulting</a>
+        <a href="./solutions.html">Solutions</a>
         <a href="./contact.html">Contact</a>
       </nav>
       <a class="nav-cta" href="./contact.html">Start a conversation</a>
     </div>
   </header>
-
   <main>
     <section class="hero">
       <div class="container">
         <span class="section-label">Get in touch</span>
         <h1>Every engagement starts with a conversation.</h1>
-
         <div class="contact-grid">
           <form class="contact-form" action="https://formspree.io/f/mgornvaw" method="POST">
-            <div class="field">
-              <label>Your name</label>
-              <input type="text" name="name" placeholder="Jane Smith" required>
-            </div>
-            <div class="field">
-              <label>Company email</label>
-              <input type="email" name="email" placeholder="jane@company.com" required>
-            </div>
+            <div class="field"><label>Your name</label><input type="text" name="name" placeholder="Jane Smith" required></div>
+            <div class="field"><label>Company email</label><input type="email" name="email" placeholder="jane@company.com" required></div>
             <div class="field">
               <label>I am</label>
               <select name="situation">
@@ -253,50 +107,30 @@
                 <option>Something else</option>
               </select>
             </div>
-            <div class="field">
-              <label>About your project</label>
-              <textarea name="message" placeholder="Brief description of what you're working on, your timeline, and what you need from our team."></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Send message →</button>
+            <div class="field"><label>About your project</label><textarea name="message" placeholder="Brief description of what you're working on, your timeline, and what you need from our team."></textarea></div>
+            <button type="submit" class="submit-btn">Send message &rarr;</button>
           </form>
-
           <div class="contact-aside">
-            <div class="aside-block">
-              <h4>Email</h4>
-              <p><a href="mailto:hello@dinabridge.com">hello@dinabridge.com</a></p>
-            </div>
-            <div class="aside-block">
-              <h4>Response time</h4>
-              <p>We respond to all inquiries within one business day. Serious engagements get a scoping call within 48 hours.</p>
-            </div>
-            <div class="aside-block">
-              <h4>What to expect</h4>
-              <p>A 20-minute call. No pitch deck. No sales cycle. We figure out quickly whether we are the right fit — and we will tell you honestly if we are not.</p>
-            </div>
-            <div class="aside-block">
-              <h4>For agency partners</h4>
-              <p>If you're a consulting or staffing firm exploring a delivery arrangement, mention it in your message. Partner conversations are treated with full confidentiality from the first exchange.</p>
-            </div>
+            <div class="aside-block"><h4>Email</h4><p><a href="mailto:hello@dinabridge.com">hello@dinabridge.com</a></p></div>
+            <div class="aside-block"><h4>Response time</h4><p>We respond to all inquiries within one business day. Serious engagements get a scoping call within 48 hours.</p></div>
+            <div class="aside-block"><h4>What to expect</h4><p>A 20-minute call. No pitch deck. No sales cycle. We figure out quickly whether we are the right fit &mdash; and we will tell you honestly if we are not.</p></div>
+            <div class="aside-block"><h4>For agency partners</h4><p>If you're a consulting or staffing firm exploring a delivery arrangement, mention it in your message. Partner conversations are treated with full confidentiality from the first exchange.</p></div>
           </div>
         </div>
       </div>
     </section>
   </main>
-
   <footer>
     <div class="container footer-inner">
-      <a class="brand" href="./index.html">
-        <span class="brand-mark">D</span>
-        <span>DinaBridge</span>
-      </a>
+      <a class="brand" href="./index.html"><span class="brand-mark">D</span><span>DinaBridge</span></a>
       <nav class="footer-nav">
         <a href="./index.html">Home</a>
         <a href="./elastic-consulting.html">Elastic Consulting</a>
+        <a href="./solutions.html">Solutions</a>
         <a href="./contact.html">Contact</a>
       </nav>
-      <p class="footer-legal">© DinaBridge LLC · All rights reserved</p>
+      <p class="footer-legal">&copy; DinaBridge LLC &middot; All rights reserved</p>
     </div>
   </footer>
-
 </body>
 </html>

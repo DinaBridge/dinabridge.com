@@ -3,12 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
 <meta name="description" content="DinaBridge supports companies across North America and Europe with engineering expertise in observability, search, and modern data systems." />
 <title>DinaBridge | Elastic & ClickHouse Consulting</title>
-
 <link rel="canonical" href="https://dinabridge.com/">
-<!-- Google Analytics START -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HEWG10CXEK"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -16,30 +13,17 @@
   gtag('js', new Date());
   gtag('config', 'G-HEWG10CXEK');
 </script>
-<!-- Google Analytics END -->
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-  
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#102a43;
-  --ink:#08111f;
-  --ink-2:#22324a;
-  --ink-3:#5c6d86;
-  --paper:#f5f8fc;
-  --paper-2:#ebf2fb;
-  --paper-3:#e3ecf7;
-  --rule:rgba(8,17,31,.10);
-  --rule-strong:rgba(8,17,31,.18);
-  --blue:#0b64dd;
-  --teal:#008b87;
-  --serif:'Playfair Display',Georgia,serif;
-  --sans:'Figtree',system-ui,sans-serif;
-  --shadow-sm:0 6px 18px rgba(15,39,66,.06);
-  --shadow-md:0 16px 36px rgba(15,39,66,.10);
+  --navy:#102a43;--ink:#08111f;--ink-2:#22324a;--ink-3:#5c6d86;
+  --paper:#f5f8fc;--paper-2:#ebf2fb;--paper-3:#e3ecf7;
+  --rule:rgba(8,17,31,.10);--rule-strong:rgba(8,17,31,.18);
+  --blue:#0b64dd;--teal:#008b87;
+  --serif:'Playfair Display',Georgia,serif;--sans:'Figtree',system-ui,sans-serif;
+  --shadow-sm:0 6px 18px rgba(15,39,66,.06);--shadow-md:0 16px 36px rgba(15,39,66,.10);
   --max:1180px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -48,222 +32,65 @@ body{
   background:radial-gradient(circle at top right, rgba(11,100,221,.08), transparent 22%),
              radial-gradient(circle at top left, rgba(0,139,135,.05), transparent 18%),
              var(--paper);
-  color:var(--ink);
-  font-family:var(--sans);
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
+  color:var(--ink);font-family:var(--sans);line-height:1.6;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
 }
 a{color:inherit;text-decoration:none}
-.container{
-  width:100%;
-  max-width:1180px;
-  margin-left:auto;
-  margin-right:auto;
-  padding-left:24px;
-  padding-right:24px;
-}  
-.nav{
-  position:sticky;top:0;z-index:100;
-  background:rgba(245,248,252,.92);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--rule);
-}
+.container{width:100%;max-width:var(--max);margin-left:auto;margin-right:auto;padding-left:24px;padding-right:24px;}
+.nav{position:sticky;top:0;z-index:100;background:rgba(245,248,252,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--rule);}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:16px 0}
 .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:-.02em;font-family:var(--sans)}
-.brand-mark{
-  width:40px;height:40px;border-radius:50%;
-  display:grid;place-items:center;
-  font-family:var(--serif);font-size:18px;color:#fff;
-  background:linear-gradient(135deg,var(--blue) 0%,var(--teal) 100%);
-  box-shadow:var(--shadow-sm);
-}
+.brand-mark{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:18px;color:#fff;background:linear-gradient(135deg,var(--blue) 0%,var(--teal) 100%);box-shadow:var(--shadow-sm);}
 .nav-links{display:flex;align-items:center;gap:22px;color:var(--ink-2);font-size:14px;font-weight:600}
 .nav-links a:hover{color:var(--blue)}
-.nav-cta{
-  display:inline-flex;align-items:center;justify-content:center;
-  padding:12px 18px;border-radius:999px;
-  font-size:14px;font-weight:700;background:var(--blue);color:#fff;
-  border:1px solid var(--blue);box-shadow:var(--shadow-sm);
-}
+.nav-cta{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:999px;font-size:14px;font-weight:700;background:var(--blue);color:#fff;border:1px solid var(--blue);box-shadow:var(--shadow-sm);}
 .section{padding:34px 0 76px}
-.section-label{
-  font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--teal)
-}
-.section-h2{
-  font-family:var(--serif);font-size:clamp(32px,4vw,48px);
-  line-height:1;letter-spacing:-.03em;margin-bottom:10px;color:var(--navy)
-}
+.section-label{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--teal)}
+.section-h2{font-family:var(--serif);font-size:clamp(32px,4vw,48px);line-height:1;letter-spacing:-.03em;margin-bottom:10px;color:var(--navy)}
 .section-content p{font-size:16px;color:var(--ink-2);line-height:1.8;max-width:720px}
 .hero{padding-top:18px}
 .hero-inner{padding-top:0;border-top:none}
-.hero h1{
-  font-family:var(--serif);
-  font-size:clamp(40px,5vw,68px);
-  line-height:1.05;letter-spacing:-1px;color:var(--navy);
-  margin:1rem 0 1.25rem
-}
-.hero-lead{
-  font-size:17px;color:var(--ink-2);line-height:1.75
-}
-  
-.section-head{
-  display:grid;
-  grid-template-columns:220px 1fr;
-  gap:2rem;
-  align-items:start;
-  margin-bottom:2rem;
-}
-.section-head-focus{
-  grid-template-columns:220px minmax(0,1fr);
-}
-.section-content{
-  padding-top:4px;
-  max-width:none;
-}
-.section-content-focus{
-  max-width:720px;
-  justify-self:start;
-}
-.section-content-focus .section-h2,
-.section-content-focus p{
-  text-align:left;
-}
-
-.section-cards-offset{
-  display:grid;
-  grid-template-columns:220px 1fr;
-  gap:2rem;
-}
-.section-cards-offset > .cards-grid{
-  grid-column:2;
-}
-.cards-grid{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:18px;
-}
+.hero h1{font-family:var(--serif);font-size:clamp(40px,5vw,68px);line-height:1.05;letter-spacing:-1px;color:var(--navy);margin:1rem 0 1.25rem}
+.hero-lead{font-size:17px;color:var(--ink-2);line-height:1.75}
+.section-head{display:grid;grid-template-columns:220px 1fr;gap:2rem;align-items:start;margin-bottom:2rem;}
+.section-cards-offset{display:grid;grid-template-columns:220px 1fr;gap:2rem;}
+.section-cards-offset > .cards-grid{grid-column:2}
+.cards-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;}
 .cards-grid.two-up{grid-template-columns:repeat(2,minmax(0,1fr))}
-
-.info-card{
-  position:relative;overflow:hidden;
-  background:linear-gradient(180deg,#fff 0%,var(--paper-2) 100%);
-  border:1px solid rgba(0,0,0,.06);
-  border-radius:18px;padding:2rem 1.8rem;
-  box-shadow:0 10px 24px rgba(16,42,67,.08);
-  transition:transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, background 220ms ease;
-  cursor:default;
-}
-.info-card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 20px 48px rgba(11,100,221,.14);
-  border-color:rgba(11,100,221,.22);
-  background:linear-gradient(180deg,#fff 0%,#eef5ff 100%);
-}
+.info-card{position:relative;overflow:hidden;background:linear-gradient(180deg,#fff 0%,var(--paper-2) 100%);border:1px solid rgba(0,0,0,.06);border-radius:18px;padding:2rem 1.8rem;box-shadow:0 10px 24px rgba(16,42,67,.08);transition:transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, background 220ms ease;cursor:default;}
+.info-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(11,100,221,.14);border-color:rgba(11,100,221,.22);background:linear-gradient(180deg,#fff 0%,#eef5ff 100%);}
 .info-card:hover h3{color:var(--blue)}
-.info-card::before{
-  content:"";position:absolute;left:0;top:0;height:4px;width:100%;
-  background:linear-gradient(90deg,var(--blue),var(--teal));opacity:.98
-}
+.info-card::before{content:"";position:absolute;left:0;top:0;height:4px;width:100%;background:linear-gradient(90deg,var(--blue),var(--teal));opacity:.98}
 .info-card h3,.hero-card h2,.cta-box h2{font-family:var(--serif);color:var(--navy)}
-.info-card h3{
-  font-size:1.45rem;line-height:1.15;letter-spacing:-.3px;margin-bottom:.75rem
-}
+.info-card h3{font-size:1.45rem;line-height:1.15;letter-spacing:-.3px;margin-bottom:.75rem}
 .info-card p,.clean-list li{font-size:14px;color:var(--ink-2);line-height:1.75}
-
 .clean-list{list-style:none;display:flex;flex-direction:column;gap:.7rem;margin-top:.25rem}
 .clean-list li{padding-left:1rem;position:relative}
-.clean-list li::before{content:"—";position:absolute;left:0;color:var(--teal)}
-
-.hero-card{
-  background:linear-gradient(180deg,#ffffff 0%,#e8f2ff 100%);
-  border:1px solid rgba(11,100,221,.30);
-  border-radius:26px;padding:34px;
-  box-shadow:0 24px 56px rgba(11,100,221,.16);
-  position:relative;overflow:hidden;
-  transform:translateY(-6px);
-  transition:transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
-  cursor:default;
-}
-.hero-card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 32px 64px rgba(11,100,221,.22);
-  border-color:rgba(11,100,221,.42);
-}
-.hero-card::before{
-  content:"";position:absolute;inset:0;
-  background:radial-gradient(circle at top right, rgba(188,30,112,.08), transparent 22%),
-             radial-gradient(circle at bottom left, rgba(0,139,135,.10), transparent 18%);
-  pointer-events:none
-}
+.clean-list li::before{content:"\2014";position:absolute;left:0;color:var(--teal)}
+.hero-card{background:linear-gradient(180deg,#ffffff 0%,#e8f2ff 100%);border:1px solid rgba(11,100,221,.30);border-radius:26px;padding:34px;box-shadow:0 24px 56px rgba(11,100,221,.16);position:relative;overflow:hidden;transform:translateY(-6px);transition:transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;cursor:default;}
+.hero-card:hover{transform:translateY(-10px);box-shadow:0 32px 64px rgba(11,100,221,.22);border-color:rgba(11,100,221,.42);}
+.hero-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at top right, rgba(188,30,112,.08), transparent 22%),radial-gradient(circle at bottom left, rgba(0,139,135,.10), transparent 18%);pointer-events:none}
 .hero-card > *{position:relative;z-index:1}
 .hero-card h2{font-size:36px;line-height:1.02;margin-bottom:16px}
 .hero-card p{color:var(--ink-2);margin-bottom:18px}
-.hero-card ul{
-  list-style:none;display:grid;gap:12px;color:var(--ink-2);font-size:15px
-}
+.hero-card ul{list-style:none;display:grid;gap:12px;color:var(--ink-2);font-size:15px}
 .hero-card li{padding-left:16px;position:relative}
-.hero-card li::before{
-  content:"";width:7px;height:7px;border-radius:50%;
-  background:linear-gradient(135deg,var(--blue),var(--teal));
-  position:absolute;left:0;top:10px
-}
-.hero-proof{
-  display:flex;flex-wrap:wrap;gap:10px;color:var(--ink-2);
-  font-size:14px;font-weight:700;margin-bottom:1.25rem
-}
-.hero-proof span{
-  padding:8px 12px;border-radius:999px;background:#fff;
-  border:1px solid rgba(37,99,235,.12);box-shadow:var(--shadow-sm)
-}
+.hero-card li::before{content:"";width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--teal));position:absolute;left:0;top:10px}
+.hero-proof{display:flex;flex-wrap:wrap;gap:10px;color:var(--ink-2);font-size:14px;font-weight:700;margin-bottom:1.25rem}
+.hero-proof span{padding:8px 12px;border-radius:999px;background:#fff;border:1px solid rgba(37,99,235,.12);box-shadow:var(--shadow-sm)}
 .cta-section{border-bottom:none;padding-bottom:6rem}
-.cta-box{
-  background:linear-gradient(180deg,#eef4fb 0%,#e4eefb 100%);
-  border:1px solid rgba(37,99,235,.18);
-  border-radius:22px;
-  padding:3rem;
-  box-shadow:0 12px 28px rgba(24,46,80,.08);
-  text-align:left;
-}
-.cta-box .section-label{
-  display:block;
-  margin-bottom:1rem;
-}
-.cta-box h2{
-  font-size:clamp(28px,3.4vw,48px);margin-bottom:1rem
-}
-.cta-box p{
-  font-size:16px;color:var(--ink-2);line-height:1.8;margin-bottom:1.5rem
-}
-.primary-btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  padding:14px 24px;background:var(--blue);color:#fff;
-  font-size:12px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;
-  border-radius:999px;box-shadow:var(--shadow-sm)
-}
-  
-footer{
-  background:var(--paper-2);
-  border-top:1px solid var(--rule-strong);
-  padding:1.75rem 0;
-}
-.footer-inner{
-  display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap
-}
-.footer-logo{font-family:var(--sans);font-size:16px;font-weight:800;letter-spacing:-.02em;color:var(--navy)}
+.cta-box{background:linear-gradient(180deg,#eef4fb 0%,#e4eefb 100%);border:1px solid rgba(37,99,235,.18);border-radius:22px;padding:3rem;box-shadow:0 12px 28px rgba(24,46,80,.08);text-align:left;}
+.cta-box .section-label{display:block;margin-bottom:1rem;}
+.cta-box h2{font-size:clamp(28px,3.4vw,48px);margin-bottom:1rem}
+.cta-box p{font-size:16px;color:var(--ink-2);line-height:1.8;margin-bottom:1.5rem}
+.primary-btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 24px;background:var(--blue);color:#fff;font-size:12px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;border-radius:999px;box-shadow:var(--shadow-sm)}
+footer{background:var(--paper-2);border-top:1px solid var(--rule-strong);padding:1.75rem 0;}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 .footer-nav{display:flex;gap:1.5rem;flex-wrap:wrap}
 .footer-nav a,.footer-legal{font-size:12px;color:var(--ink-3)}
 .footer-nav a:hover{color:var(--navy)}
-@media (max-width:980px){
-  .nav-links{display:none}
-  .nav,.hero,.section{padding-left:1.5rem;padding-right:1.5rem}
-  .section-head,.section-cards-offset,.cards-grid,.cards-grid.two-up{grid-template-columns:1fr}
-  .cta-box{padding:2rem}
-}
-@media (max-width:520px){
-  .hero h1{font-size:clamp(40px,14vw,56px)}
-  .hero-lead,.section-content p,.cta-box p{font-size:16px}
-}
+@media (max-width:980px){.nav-links{display:none}.section-head,.section-cards-offset,.cards-grid,.cards-grid.two-up{grid-template-columns:1fr}.cta-box{padding:2rem}}
+@media (max-width:520px){.hero h1{font-size:clamp(40px,14vw,56px)}.hero-lead,.section-content p,.cta-box p{font-size:16px}}
 </style>
 </head>
 <body>
@@ -279,7 +106,6 @@ footer{
     <a class="nav-cta" href="./contact.html">Get help with your stack</a>
   </div>
 </nav>
-
 <main id="main">
 <section class="hero section">
   <div class="hero-inner container">
@@ -288,7 +114,6 @@ footer{
     <p class="hero-lead">DinaBridge supports companies across North America and Europe with engineering expertise in observability, search, and modern data systems. Our distributed team spans the USA, France, Spain, India, the UAE, and Brazil, allowing us to deliver with range, responsiveness, and an international perspective.</p>
   </div>
 </section>
-
 <section class="section split-section alt">
   <div class="container">
     <div style="margin-bottom:2rem;">
@@ -296,7 +121,6 @@ footer{
       <h2 class="section-h2">Where DinaBridge creates leverage</h2>
       <p style="font-size:16px;color:var(--ink-2);line-height:1.8;max-width:720px;margin-top:.75rem;">We focus on observability, search, and modern data systems. That means practical engineering for logs, metrics, traces, relevance, indexing, analytics, and production visibility.</p>
     </div>
-
     <div class="cards-grid">
       <article class="info-card">
         <h3>Observability</h3>
@@ -313,23 +137,21 @@ footer{
     </div>
   </div>
 </section>
-
 <section class="section split-section">
   <div class="container" style="margin-bottom:2rem;">
     <div class="section-label" style="margin-bottom:1rem;">How we work</div>
     <h2 class="section-h2">Senior-led delivery, structured for trust.</h2>
     <p style="font-size:16px;color:var(--ink-2);line-height:1.8;margin-top:.75rem;">DinaBridge is built for clients who want strong engineering without unnecessary layers. We focus on experienced delivery, direct communication, and work that performs in the real world.</p>
   </div>
-
   <div class="container">
     <div class="cards-grid two-up">
       <article class="info-card">
         <h3>For consulting partners</h3>
         <ul class="clean-list">
-        <li>Delivery support when discretion matters</li>
-         <li>Senior execution without disrupting client relationships</li>
-        <li>Experience working alongside partner-led engagements</li>
-        <li>Trusted support across Elastic and observability projects</li>
+          <li>Delivery support when discretion matters</li>
+          <li>Senior execution without disrupting client relationships</li>
+          <li>Experience working alongside partner-led engagements</li>
+          <li>Trusted support across Elastic and observability projects</li>
         </ul>
       </article>
       <article class="info-card">
@@ -343,7 +165,6 @@ footer{
     </div>
   </div>
 </section>
-
 <section class="section">
   <div class="container" style="margin-bottom:2rem;">
     <div class="section-label" style="margin-bottom:1rem;">Why this matters</div>
@@ -361,7 +182,6 @@ footer{
     </div>
   </div>
 </section>
-
 <section class="section cta-section">
   <div class="container">
     <div class="cta-box">
@@ -373,48 +193,33 @@ footer{
   </div>
 </section>
 </main>
-
 <section class="section">
   <div class="container">
-
-    <!-- Section header (matches other sections) -->
     <div style="margin-bottom:2rem;">
       <div class="section-label" style="margin-bottom:1rem;">FAQ</div>
       <h2 class="section-h2">Frequently Asked Questions</h2>
-      <p style="font-size:16px;color:var(--ink-2);line-height:1.8;max-width:720px;margin-top:.75rem;">
-        Common questions about how DinaBridge works and what we support.
-      </p>
+      <p style="font-size:16px;color:var(--ink-2);line-height:1.8;max-width:720px;margin-top:.75rem;">Common questions about how DinaBridge works and what we support.</p>
     </div>
-
-    <!-- Cards grid (matches rest of site) -->
     <div class="cards-grid two-up">
-      
       <article class="info-card">
         <h3>What industries do you support?</h3>
         <p>DinaBridge supports companies across North America, Europe, and beyond, with a focus on industries requiring real-time analytics and high-performance search.</p>
       </article>
-
       <article class="info-card">
         <h3>Do you work with existing teams?</h3>
         <p>Yes. We integrate directly with internal engineering teams or consulting partners, providing senior-level support without adding unnecessary layers.</p>
       </article>
-
       <article class="info-card">
         <h3>What technologies do you specialize in?</h3>
         <p>We focus on Elastic, ClickHouse, and modern observability stacks, along with surrounding data and search infrastructure.</p>
       </article>
-
       <article class="info-card">
         <h3>How do engagements typically work?</h3>
-        <p>Engagements are flexible and structured around your needs—ranging from short-term advisory to hands-on delivery in production environments.</p>
+        <p>Engagements are flexible and structured around your needs&mdash;ranging from short-term advisory to hands-on delivery in production environments.</p>
       </article>
-
     </div>
-
   </div>
 </section>
-      
-  
 <footer>
   <div class="container footer-inner">
     <a class="brand" href="./index.html"><span class="brand-mark">D</span><span>DinaBridge</span></a>
@@ -424,7 +229,7 @@ footer{
       <a href="./solutions.html">Solutions</a>
       <a href="./contact.html">Contact</a>
     </nav>
-    <p class="footer-legal">© DinaBridge LLC · All rights reserved</p>
+    <p class="footer-legal">&copy; DinaBridge LLC &middot; All rights reserved</p>
   </div>
 </footer>
 </body>
