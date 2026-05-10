@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Senior ClickHouse consulting for real-time analytics, observability, migrations, performance tuning, and high-scale data platforms." />
+<meta name="description" content="ClickHouse consulting and engineering services from DinaBridge. Schema design, ingestion pipelines, query optimization, and production ClickHouse delivery." />
 <title>ClickHouse Consulting | DinaBridge</title>
 <link rel="canonical" href="https://dinabridge.com/clickhouse-consulting.html" />
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HEWG10CXEK"></script>
@@ -24,68 +24,79 @@
       <a href="./solutions.html">Solutions</a>
       <a href="./contact.html">Contact</a>
     </nav>
-    <a class="nav-cta" href="./contact.html">Start a conversation</a>
+    <a class="nav-cta" href="./contact.html">Get help with your stack</a>
   </div>
 </nav>
 
 <main>
 
-  <section class="hero">
+  <section class="section-hero">
     <div class="container">
       <div class="hero-body">
         <div class="hero-copy">
           <span class="eyebrow">ClickHouse Consulting</span>
-          <h1>Senior ClickHouse engineering for real-time analytics at scale.</h1>
-          <p>DinaBridge helps agencies and enterprises design, migrate, tune, and operate ClickHouse for observability, product analytics, event pipelines, and high-concurrency analytical workloads. No juniors. No overhead. No hand-holding.</p>
+          <h1>ClickHouse engineering for analytics at scale.</h1>
+          <p class="hero-lead">DinaBridge delivers senior ClickHouse engineering for teams that need fast, reliable analytics pipelines &mdash; from schema design to production-grade query optimization.</p>
           <div class="hero-actions">
-            <a class="primary-btn" href="./contact.html">Book a scoping call</a>
+            <a href="./contact.html" class="btn btn-primary">Start a conversation</a>
+            <a href="./solutions.html" class="btn btn-secondary">See all solutions</a>
           </div>
           <div class="hero-proof">
-            <span>Real-time analytics</span>
-            <span>Observability</span>
-            <span>Kafka pipelines</span>
-            <span>Migrations</span>
-            <span>Performance tuning</span>
+            <span>ClickHouse Partner</span>
+            <span>Production analytics</span>
+            <span>Senior engineers only</span>
           </div>
         </div>
-        <aside class="hero-card">
-          <h2>What we handle</h2>
-          <p>ClickHouse is designed for fast analytical queries at scale, and DinaBridge provides senior engineering to help teams use it well in production.</p>
+        <div class="card-base card-highlight">
+          <h2>What we cover</h2>
+          <p>End-to-end ClickHouse engineering from raw ingestion to sub-second query performance.</p>
           <ul>
-            <li>ClickHouse architecture and cluster design</li>
-            <li>Real-time analytics platform implementation</li>
-            <li>Kafka-to-ClickHouse ingestion pipelines</li>
-            <li>Migration from slower or more expensive analytics stacks</li>
-            <li>Query optimization and schema tuning</li>
-            <li>White-label delivery for agencies</li>
-            <li>Assessment, architecture validation &amp; optimization</li>
-            <li>Cluster upgrade support</li>
+            <li>Schema and table engine design</li>
+            <li>Ingestion pipeline architecture</li>
+            <li>Query optimization and profiling</li>
+            <li>Cluster scaling and replication</li>
+            <li>ClickHouse Cloud migration</li>
           </ul>
-        </aside>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section alt">
+  <section class="section-alt">
     <div class="container">
       <div class="section-intro">
-        <span class="section-label">Capabilities</span>
-        <h2>Where ClickHouse creates leverage</h2>
-        <p>ClickHouse is widely used for real-time analytics, high-concurrency dashboards, and large fast-moving datasets where low-latency reads matter.</p>
+        <span class="section-label">Core services</span>
+        <h2>ClickHouse engineering across every layer.</h2>
+        <p>We work at the schema, pipeline, and query layer &mdash; wherever ClickHouse needs to perform.</p>
       </div>
-      <div class="cards-grid">
-        <article class="info-card">
-          <h3>Real-time analytics systems</h3>
-          <p>Build user-facing analytics, internal dashboards, and decisioning systems that stay responsive as data volume and concurrency increase.</p>
-        </article>
-        <article class="info-card">
-          <h3>Observability &amp; event pipelines</h3>
-          <p>Use ClickHouse for telemetry, logs, and streaming event architectures where freshness and speed both matter.</p>
-        </article>
-        <article class="info-card">
-          <h3>Migration &amp; performance tuning</h3>
-          <p>Move from legacy analytics stacks, improve ingestion design, optimize schemas, and reduce query latency under production load.</p>
-        </article>
+      <div class="grid-3">
+        <div class="card-base card">
+          <h3>Schema Design</h3>
+          <p>Table engine selection, sort key strategy, and partition design for maximum query performance and storage efficiency.</p>
+          <ul class="clean-list">
+            <li>MergeTree family selection</li>
+            <li>Sort key and partition optimization</li>
+            <li>Materialized view architecture</li>
+          </ul>
+        </div>
+        <div class="card-base card">
+          <h3>Ingestion Pipelines</h3>
+          <p>High-throughput ingestion from Kafka, S3, and application sources with guaranteed delivery and schema evolution.</p>
+          <ul class="clean-list">
+            <li>Kafka and S3 integration</li>
+            <li>Buffer and async insert tuning</li>
+            <li>Schema migration strategy</li>
+          </ul>
+        </div>
+        <div class="card-base card">
+          <h3>Query Optimization</h3>
+          <p>Query profiling, index tuning, and rewrite strategies that take queries from seconds to milliseconds.</p>
+          <ul class="clean-list">
+            <li>EXPLAIN and trace analysis</li>
+            <li>Projection and skip index design</li>
+            <li>Query rewrite and refactor</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -93,121 +104,42 @@
   <section class="section">
     <div class="container">
       <div class="section-intro">
-        <span class="section-label">Engagement Model</span>
-        <h2>How we work</h2>
-        <p>DinaBridge works with agencies that need a trusted delivery partner and enterprises that need senior engineers on their stack.</p>
+        <span class="section-label">How we engage</span>
+        <h2>Flexible delivery built around your actual need.</h2>
+        <p>We scope engagements to match your situation &mdash; from advisory to hands-on production delivery.</p>
       </div>
-      <div class="cards-grid two-up">
-        <article class="info-card">
-          <h3>For agencies</h3>
-          <ul class="clean-list">
-            <li><strong>White-label delivery:</strong> You keep the client relationship; DinaBridge delivers behind your brand.</li>
-            <li><strong>Senior-only execution:</strong> No juniors on client work and no hidden supervision burden.</li>
-            <li><strong>Confidential by default:</strong> Agency trust and delivery consistency come first.</li>
-          </ul>
-        </article>
-        <article class="info-card">
-          <h3>For enterprises</h3>
-          <ul class="clean-list">
-            <li><strong>Embedded engineers:</strong> Bring in a senior engineer who works like a hire for 1&ndash;12 months.</li>
-            <li><strong>Outcome-based projects:</strong> Scope the work, own the delivery, and execute start to finish.</li>
-            <li><strong>Flexible support:</strong> Start hourly when the scope is still evolving.</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section alt">
-    <div class="container">
-      <div class="section-intro">
-        <span class="section-label">Proof Points</span>
-        <h2>Built for workloads that punish weak systems</h2>
-        <p>The strongest ClickHouse engagements are about speed, scale, and architecture under pressure &mdash; not basic database setup.</p>
-      </div>
-      <div class="metrics">
-        <article class="metric">
-          <strong>Real-time</strong>
-          <span>ClickHouse is built for real-time analytics, high concurrency, and low-latency queries on fast-moving datasets.</span>
-        </article>
-        <article class="metric">
-          <strong>ms</strong>
-          <span>ClickHouse is built for low-latency analytical queries on fresh data at large scale.</span>
-        </article>
-        <article class="metric">
-          <strong>10 yrs</strong>
-          <span>Cloudflare has run on open-source ClickHouse for nearly a decade at production scale.</span>
-        </article>
+      <div class="grid-4">
+        <div class="card-base card">
+          <div class="step-number">Step 1</div>
+          <h3>Discovery</h3>
+          <p>We review your current ClickHouse setup and identify where performance or reliability is breaking down.</p>
+        </div>
+        <div class="card-base card">
+          <div class="step-number">Step 2</div>
+          <h3>Scoping</h3>
+          <p>We define a clear engagement with specific outcomes &mdash; no open-ended retainers unless you want one.</p>
+        </div>
+        <div class="card-base card">
+          <div class="step-number">Step 3</div>
+          <h3>Delivery</h3>
+          <p>Senior engineers work directly in your environment with full visibility throughout.</p>
+        </div>
+        <div class="card-base card">
+          <div class="step-number">Step 4</div>
+          <h3>Handoff</h3>
+          <p>Clear documentation, knowledge transfer, and optional ongoing support so your team stays confident.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="section">
-    <div class="container">
-      <div class="section-intro">
-        <span class="section-label">Typical Work</span>
-        <h2>Examples of ClickHouse support</h2>
-        <p>DinaBridge can support higher-value ClickHouse problems across analytics, pipelines, migrations, and platform modernization.</p>
-      </div>
-      <div class="cards-grid">
-        <article class="info-card">
-          <h3>Analytics platform modernization</h3>
-          <p>Replace slower analytics infrastructure with a ClickHouse-based stack designed for fresher data, better concurrency, and lower-latency dashboards.</p>
-        </article>
-        <article class="info-card">
-          <h3>Kafka-to-ClickHouse pipelines</h3>
-          <p>Design ingestion pipelines for logs, product events, and observability workloads that need continuous ingest and operational reliability.</p>
-        </article>
-        <article class="info-card">
-          <h3>Schema and query optimization</h3>
-          <p>Improve partitioning, sort keys, materialized views, and query behavior so production workloads stay fast as usage grows.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section alt">
-    <div class="container">
-      <div class="section-intro">
-        <span class="section-label">Process</span>
-        <h2>Simple, senior-led delivery</h2>
-        <p>DinaBridge&rsquo;s core promise is that the people who scope the engagement are the people who deliver it.</p>
-      </div>
-      <div class="process">
-        <article class="step">
-          <div class="step-number">Step 01</div>
-          <h3>Review the workload</h3>
-          <p>Understand the data shape, freshness requirements, concurrency profile, and current bottlenecks.</p>
-        </article>
-        <article class="step">
-          <div class="step-number">Step 02</div>
-          <h3>Choose the right model</h3>
-          <p>Hourly, fixed-scope, embedded, or white-label delivery based on what the project actually needs.</p>
-        </article>
-        <article class="step">
-          <div class="step-number">Step 03</div>
-          <h3>Implement with senior engineers</h3>
-          <p>Design the ingestion, schema, and query strategy with people who have already worked at scale.</p>
-        </article>
-        <article class="step">
-          <div class="step-number">Step 04</div>
-          <h3>Stabilize and scale</h3>
-          <p>Reduce latency, improve resilience, and leave the client with an architecture that performs under growth.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section cta-section">
     <div class="container">
       <div class="cta-box">
-        <span class="section-label">Start a conversation</span>
-        <h2>If the analytics workload matters, put senior engineers on it.</h2>
-        <p>DinaBridge delivers ClickHouse engineering for agencies and enterprises with fast scoping and senior-only execution.</p>
-        <div class="cta-actions">
-          <a class="primary-btn" href="./contact.html">Talk to DinaBridge</a>
-          <a class="secondary-btn" href="./index.html">Back to home</a>
-        </div>
+        <span class="section-label">Get started</span>
+        <h2>Tell us what is slowing down your ClickHouse stack.</h2>
+        <p>We will respond within one business day with a clear assessment and proposed next steps.</p>
+        <a href="./contact.html" class="btn btn-primary">Start a conversation</a>
       </div>
     </div>
   </section>

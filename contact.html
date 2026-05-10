@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Contact DinaBridge for Elastic consulting, staff augmentation, and delivery partner engagements." />
+<meta name="description" content="Contact DinaBridge to discuss Elasticsearch or ClickHouse engineering. We respond within one business day." />
 <title>Contact | DinaBridge</title>
 <link rel="canonical" href="https://dinabridge.com/contact.html" />
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HEWG10CXEK"></script>
@@ -24,41 +24,79 @@
       <a href="./solutions.html">Solutions</a>
       <a href="./contact.html" class="active">Contact</a>
     </nav>
-    <a class="nav-cta" href="./contact.html">Start a conversation</a>
+    <a class="nav-cta" href="./contact.html">Get help with your stack</a>
   </div>
 </nav>
 
 <main>
-  <section class="hero">
+
+  <section class="section-hero">
     <div class="container">
       <span class="section-label">Get in touch</span>
-      <h1>Every engagement starts with a conversation.</h1>
+      <h1 style="font-family:var(--serif);font-size:var(--h1-size);line-height:1.05;letter-spacing:-.03em;margin-bottom:var(--sp-24);color:var(--navy);">Let&rsquo;s talk about your stack.</h1>
+      <p class="hero-lead">Tell us what you are working on. We will respond within one business day with a clear assessment and proposed next steps.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
       <div class="contact-grid">
-        <form class="contact-form" action="https://formspree.io/f/mgornvaw" method="POST">
-          <div class="field"><label>Your name</label><input type="text" name="name" placeholder="Jane Smith" required></div>
-          <div class="field"><label>Company email</label><input type="email" name="email" placeholder="jane@company.com" required></div>
-          <div class="field">
-            <label>I am</label>
-            <select name="situation">
-              <option value="">Select your situation</option>
-              <option>A consulting firm looking for a delivery partner</option>
-              <option>Exploring a staff augmentation engagement</option>
-              <option>An enterprise needing direct Elastic consulting</option>
-              <option>Something else</option>
-            </select>
-          </div>
-          <div class="field"><label>About your project</label><textarea name="message" placeholder="Brief description of what you're working on, your timeline, and what you need from our team."></textarea></div>
-          <button type="submit" class="submit-btn">Send message &rarr;</button>
-        </form>
+        <div class="contact-form">
+          <form action="https://formspree.io/f/xpwzgkze" method="POST">
+            <div class="field">
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+            </div>
+            <div class="field">
+              <label for="email">Work email</label>
+              <input type="email" id="email" name="email" placeholder="jane@company.com" required />
+            </div>
+            <div class="field">
+              <label for="company">Company</label>
+              <input type="text" id="company" name="company" placeholder="Acme Corp" />
+            </div>
+            <div class="field">
+              <label for="service">What do you need help with?</label>
+              <select id="service" name="service">
+                <option value="">Select a service area</option>
+                <option>Elasticsearch &mdash; Search</option>
+                <option>Elasticsearch &mdash; Observability</option>
+                <option>Elasticsearch &mdash; Security / SIEM</option>
+                <option>Elasticsearch &mdash; AI / ELSER</option>
+                <option>ClickHouse &mdash; Analytics</option>
+                <option>ClickHouse &mdash; Ingestion pipelines</option>
+                <option>Not sure yet &mdash; just exploring</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="message">Tell us more</label>
+              <textarea id="message" name="message" placeholder="Describe your situation, what is broken, or what you want to build..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send message</button>
+          </form>
+        </div>
         <div class="contact-aside">
-          <div class="aside-block"><h4>Email</h4><p><a href="mailto:hello@dinabridge.com">hello@dinabridge.com</a></p></div>
-          <div class="aside-block"><h4>Response time</h4><p>We respond to all inquiries within one business day. Serious engagements get a scoping call within 48 hours.</p></div>
-          <div class="aside-block"><h4>What to expect</h4><p>A 20-minute call. No pitch deck. No sales cycle. We figure out quickly whether we are the right fit &mdash; and we will tell you honestly if we are not.</p></div>
-          <div class="aside-block"><h4>For agency partners</h4><p>If you&rsquo;re a consulting or staffing firm exploring a delivery arrangement, mention it in your message. Partner conversations are treated with full confidentiality from the first exchange.</p></div>
+          <div class="aside-block">
+            <h4>Response time</h4>
+            <p>We respond to every enquiry within one business day. Usually faster.</p>
+          </div>
+          <div class="aside-block">
+            <h4>What happens next</h4>
+            <p>We review your situation, ask any clarifying questions, and come back with a clear assessment &mdash; no sales pitch.</p>
+          </div>
+          <div class="aside-block">
+            <h4>Email us directly</h4>
+            <p><a href="mailto:hello@dinabridge.com">hello@dinabridge.com</a></p>
+          </div>
+          <div class="aside-block">
+            <h4>Based in</h4>
+            <p>Chicago, IL &mdash; working with clients globally.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
+
 </main>
 
 <footer>

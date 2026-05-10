@@ -30,12 +30,12 @@
 
 <main>
 
-  <section class="hero">
+  <section class="section-hero">
     <div class="container">
       <span class="section-label">What we do</span>
-      <h1>Four practices.<br>All Elastic. All senior.</h1>
-      <p style="font-size:17px;color:var(--ink-2);line-height:1.75;max-width:720px;margin-bottom:12px;">DinaBridge is a specialized engineering consultancy for Elastic-powered systems. We focus exclusively on observability, search, security, and AI &mdash; and that focus is the point.</p>
-      <p style="font-size:17px;color:var(--ink-2);line-height:1.75;max-width:720px;margin-bottom:28px;">No generalist support. No unnecessary layers. Just clear engineering for production environments that have to perform.</p>
+      <h1 style="font-family:var(--serif);font-size:var(--h1-size);line-height:1.05;letter-spacing:-.03em;margin-bottom:var(--sp-24);color:var(--navy);">Four practices.<br>All Elastic. All senior.</h1>
+      <p class="hero-lead">DinaBridge is a specialized engineering consultancy for Elastic-powered systems. We focus exclusively on observability, search, security, and AI &mdash; and that focus is the point.</p>
+      <p class="hero-lead">No generalist support. No unnecessary layers. Just clear engineering for production environments that have to perform.</p>
       <div class="hero-proof">
         <span>Elastic Certified</span>
         <span>Observability</span>
@@ -46,9 +46,9 @@
       <div class="dashboard-container">
         <div class="db-header">
           <div class="db-header-title">Production Cluster: dina-prod-01 <span class="db-live">LIVE</span></div>
-          <span style="font-size:12px;opacity:.6;">Last updated just now</span>
+          <span class="db-header-sub">Last updated just now</span>
         </div>
-        <div class="db-grid">
+        <div class="grid-4">
           <div class="db-card"><div class="db-label">Ingestion Rate</div><div class="db-val">4.2 GB/s</div><div class="db-status">&#9679; Healthy</div></div>
           <div class="db-card blue"><div class="db-label">Search Latency</div><div class="db-val">12ms</div><div class="db-status">&#9679; Optimized</div></div>
           <div class="db-card gold"><div class="db-label">Active Alerts</div><div class="db-val">0</div><div class="db-status">&#9679; No Issues</div></div>
@@ -65,12 +65,12 @@
         <h2>The full Elastic stack.<br>Senior-led delivery.</h2>
         <p>We focus on the four certified Elastic practice areas. Every engagement is senior-led, directly communicated, and built around production outcomes &mdash; not hours billed.</p>
       </div>
-      <div class="cards-grid two-up">
-        <article class="info-card">
+      <div class="grid-2">
+        <article class="card-base card">
           <div class="card-num">01</div>
           <h3>Observability</h3>
           <p>Full-stack telemetry linking logs, metrics, and traces. We shorten incident response and make production environments readable.</p>
-          <ul class="clean-list" style="margin-top:12px;">
+          <ul class="clean-list">
             <li>APM and distributed tracing</li>
             <li>Log pipeline design and tuning</li>
             <li>Dashboard and alert engineering</li>
@@ -78,11 +78,11 @@
           </ul>
           <a href="./elastic-observability.html" class="card-link">View Practice</a>
         </article>
-        <article class="info-card">
+        <article class="card-base card">
           <div class="card-num">02</div>
           <h3>Search</h3>
           <p>Relevance engineering and performance tuning for production-grade search built entirely on Elastic.</p>
-          <ul class="clean-list" style="margin-top:12px;">
+          <ul class="clean-list">
             <li>Relevance tuning and ranking logic</li>
             <li>Index architecture and query performance</li>
             <li>Search troubleshooting at scale</li>
@@ -90,11 +90,11 @@
           </ul>
           <a href="./elastic-consulting.html" class="card-link">View Practice</a>
         </article>
-        <article class="info-card">
+        <article class="card-base card">
           <div class="card-num">03</div>
           <h3>Security</h3>
           <p>Modern SIEM deployment and detection engineering for security teams that need alerts they can actually trust.</p>
-          <ul class="clean-list" style="margin-top:12px;">
+          <ul class="clean-list">
             <li>Detection rule engineering</li>
             <li>SIEM architecture and deployment</li>
             <li>Threat hunting workflows</li>
@@ -102,11 +102,11 @@
           </ul>
           <a href="./contact.html" class="card-link">Discuss Security</a>
         </article>
-        <article class="info-card">
+        <article class="card-base card">
           <div class="card-num">04</div>
           <h3>AI</h3>
           <p>Elastic AI engineering for teams building intelligent search, recommendations, and production-grade AI pipelines.</p>
-          <ul class="clean-list" style="margin-top:12px;">
+          <ul class="clean-list">
             <li>ELSER and semantic search deployment</li>
             <li>Vector search and embedding pipelines</li>
             <li>AI assistant and RAG architecture</li>
@@ -136,13 +136,13 @@
     </div>
   </div>
 
-  <section class="section cta-section">
+  <section class="section">
     <div class="container">
       <div class="cta-box">
         <span class="section-label">Start a conversation</span>
         <h2>If Elastic is becoming critical infrastructure, we can help.</h2>
         <p>Talk to DinaBridge about observability, search, security, or AI engineering on Elastic. Senior delivery, clear communication, and real production outcomes.</p>
-        <a href="./contact.html" class="primary-btn">Start a conversation</a>
+        <a href="./contact.html" class="btn btn-primary">Start a conversation</a>
       </div>
     </div>
   </section>
