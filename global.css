@@ -1,7 +1,10 @@
 /* ============================================================
-   DinaBridge Global Design System — v2.3
-   Accent pass: Blue = primary action/trust. Pink = highlight/emphasis.
-   No new colors. No layout changes. Existing token system only.
+   DinaBridge Global Design System — v2.4
+   Color Placement Map:
+   BLUE   = structure + action (buttons, nav, links, labels)
+   PINK   = emphasis + depth (glows, badges, step markers, accents)
+   NEUTRAL = calm base (body, cards, backgrounds, most text)
+   No new colors. Token system unchanged.
    ============================================================ */
 
 /* ══════════════════════════════════════════════════════════════
@@ -29,6 +32,11 @@
   --magenta-mid:  rgba(139,50,101,.15);
   --magenta-soft: rgba(139,50,101,.055);
   --magenta-glow: rgba(139,50,101,.20);
+
+  /* — Pink glow (right-edge depth, never solid) — */
+  --pink-glow:    rgba(188,30,112,.12);
+  --pink-glow-lg: rgba(188,30,112,.18);
+  --pink-edge:    rgba(188,30,112,.08);
 
   /* — Ambient glows — */
   --blue-glow:    rgba(11,100,221,.10);
@@ -70,7 +78,10 @@
   --shadow-md:   0 2px 4px rgba(0,0,0,.05), 0 12px 28px rgba(15,39,66,.09);
   --shadow-lg:   0 4px 8px rgba(0,0,0,.06), 0 20px 48px rgba(11,100,221,.13);
   --card-shadow-rest:  0 1px 2px rgba(0,0,0,.04), 0 6px 16px rgba(16,42,67,.07), 0 16px 32px rgba(16,42,67,.04);
-  --card-shadow-hover: 0 2px 4px rgba(0,0,0,.05), 0 16px 40px var(--magenta-glow), 0 32px 64px rgba(139,50,101,.08);
+  /* hover shadow: neutral dark, no color cast at rest */
+  --card-shadow-hover: 0 2px 4px rgba(0,0,0,.06), 0 16px 40px rgba(16,42,67,.12), 0 32px 64px rgba(16,42,67,.07);
+  /* featured card hover: pink glow */
+  --card-shadow-featured: 0 2px 4px rgba(0,0,0,.05), 0 16px 40px var(--pink-glow-lg), 0 32px 64px var(--pink-glow);
 
   /* — Radii — */
   --radius:    20px;
@@ -95,10 +106,11 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
+  /* ↳ Body bg: blue dominant, teal mid-left, very faint pink lower-right for depth */
   background:
-    radial-gradient(ellipse 120% 60% at 100% 0%,   rgba(11,100,221,.065),      transparent 55%),
+    radial-gradient(ellipse 120% 60% at 100% 0%,   rgba(11,100,221,.070),      transparent 55%),
     radial-gradient(ellipse 80%  50% at 0%   20%,  rgba(0,139,135,.045),       transparent 50%),
-    radial-gradient(ellipse 60%  40% at 75%  70%,  rgba(139,50,101,.04),       transparent 45%),
+    radial-gradient(ellipse 60%  40% at 80%  80%,  rgba(188,30,112,.035),      transparent 45%),
     var(--paper);
   color: var(--ink);
   font-family: var(--sans);
@@ -165,6 +177,7 @@ img { display: block; max-width: 100%; }
   letter-spacing: -.02em;
   font-family: var(--sans);
 }
+/* ↳ Brand mark: blue→teal gradient (engineering / system) */
 .brand-mark {
   width: 40px;
   height: 40px;
@@ -191,7 +204,7 @@ img { display: block; max-width: 100%; }
   font-size: var(--text-sm);
   font-weight: 600;
 }
-/* ↳ Nav links: blue on hover/active (trust color) */
+/* ↳ Nav links: BLUE hover/active = what user can do */
 .nav-links a {
   transition: color var(--t-base) var(--ease);
   position: relative;
@@ -210,7 +223,7 @@ img { display: block; max-width: 100%; }
 .nav-links a:hover::after { width: 100%; }
 .nav-links a.active       { color: var(--blue); }
 .nav-links a.active::after { width: 100%; background: var(--blue); }
-/* ↳ Nav CTA: blue primary */
+/* ↳ Nav CTA: BLUE primary action button */
 .nav-cta {
   display: inline-flex;
   align-items: center;
@@ -229,7 +242,7 @@ img { display: block; max-width: 100%; }
 .nav-cta:hover {
   background: #0a58c7;
   border-color: #0a58c7;
-  box-shadow: 0 4px 20px rgba(11,100,221,.30);
+  box-shadow: 0 4px 20px rgba(11,100,221,.32);
   transform: translateY(-1px);
 }
 .nav-burger {
@@ -288,7 +301,6 @@ img { display: block; max-width: 100%; }
   transition: background var(--t-base) var(--ease), color var(--t-base) var(--ease);
   border: 1px solid transparent;
 }
-/* ↳ Drawer links: blue hover */
 .drawer-links a:hover { background: rgba(11,100,221,.06); color: var(--blue); border-color: var(--blue-mid); }
 .drawer-links a.active { color: var(--blue); font-weight: 700; background: rgba(11,100,221,.06); }
 .drawer-cta { margin-top: var(--sp-16); width: 100%; justify-content: center; font-size: var(--text-sm) !important; padding: var(--sp-16) var(--sp-24) !important; }
@@ -311,23 +323,25 @@ img { display: block; max-width: 100%; }
 .section-alt  { padding: var(--sp-80) 0; background: linear-gradient(180deg, rgba(235,242,251,.6) 0%, rgba(245,248,252,0) 100%); position: relative; }
 .section-alt::before {
   content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(11,100,221,.10) 30%, rgba(188,30,112,.09) 70%, transparent);
+  /* ↳ section-alt rule: blue dominant, faint pink at 70% for depth without distraction */
+  background: linear-gradient(90deg, transparent, rgba(11,100,221,.10) 30%, rgba(188,30,112,.08) 70%, transparent);
   pointer-events: none;
 }
-/* ↳ Section divider: stronger pink/blue gradient for more energy */
+/* ↳ Section divider: blue flanks, pink center beat — rhythm marker, not action */
 .section-divider {
   height: 1px;
   border: none;
   background: linear-gradient(90deg,
     transparent 0%,
-    rgba(11,100,221,.14) 20%,
-    rgba(188,30,112,.22) 50%,
-    rgba(11,100,221,.14) 80%,
+    rgba(11,100,221,.12) 25%,
+    rgba(188,30,112,.20) 50%,
+    rgba(11,100,221,.12) 75%,
     transparent 100%);
   margin: 0;
   opacity: 1;
 }
-/* ↳ Hero h1: gradient now anchors at blue for stronger read */
+
+/* ↳ Hero h1: navy → blue → pink tail — reads deep, then precise, then energised */
 .section-hero h1 {
   font-family: var(--serif);
   font-size: var(--h1-size);
@@ -335,20 +349,20 @@ img { display: block; max-width: 100%; }
   letter-spacing: -.035em;
   margin-bottom: var(--sp-32);
   color: var(--navy);
-  background: linear-gradient(135deg, var(--navy) 45%, var(--blue) 75%, var(--pink) 100%);
+  background: linear-gradient(135deg, var(--navy) 40%, var(--blue) 72%, var(--pink) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   width: 100%;
 }
 
-/* ↳ Section label: blue (trust/authority signal) */
+/* ↳ Section label: TEAL — structural identifier, not an action call */
 .section-label {
   font-size: var(--text-xs);
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: .10em;
-  color: var(--blue);
+  color: var(--teal);
   display: block;
   margin-bottom: var(--sp-24);
 }
@@ -384,14 +398,14 @@ img { display: block; max-width: 100%; }
   width: 100%;
 }
 .hero-lead + .hero-lead { margin-bottom: var(--sp-48); }
-/* ↳ Eyebrow badge: blue pill (trust/action) */
+/* ↳ Eyebrow: BLUE — action / system context badge */
 .eyebrow {
   display: inline-block;
   margin-bottom: var(--sp-24);
   padding: var(--sp-8) var(--sp-16);
   border: 1px solid rgba(11,100,221,.20);
   border-radius: 999px;
-  background: rgba(11,100,221,.08);
+  background: rgba(11,100,221,.07);
   color: var(--blue);
   font-size: var(--text-xs);
   font-weight: 800;
@@ -399,7 +413,7 @@ img { display: block; max-width: 100%; }
   letter-spacing: .08em;
 }
 .hero-actions { display: flex; flex-wrap: wrap; gap: var(--sp-16); margin-bottom: var(--sp-32); }
-/* ↳ Hero proof pills: pink highlight on hover */
+/* ↳ Hero proof pills: NEUTRAL at rest — only draw attention on hover with pink */
 .hero-proof {
   display: flex;
   flex-wrap: wrap;
@@ -423,12 +437,47 @@ img { display: block; max-width: 100%; }
     transform var(--t-base) var(--ease-out);
   will-change: transform;
 }
+/* ↳ On hover: PINK emphasis — these are attention labels, not actions */
 .hero-proof span:hover {
-  border-color: rgba(188,30,112,.25);
+  border-color: rgba(188,30,112,.22);
   color: var(--pink);
   background: var(--pink-soft);
-  box-shadow: 0 4px 16px rgba(188,30,112,.10);
+  box-shadow: 0 4px 14px var(--pink-glow);
   transform: translateY(-2px);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   6b. MICRO-BADGES (attention labels — PINK emphasis)
+   ══════════════════════════════════════════════════════════════ */
+/* Add class="badge-pink" to inline spans for "Senior-led", "Production-ready" etc. */
+.badge-pink {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--sp-4) var(--sp-12);
+  border-radius: 999px;
+  background: var(--pink-soft);
+  border: 1px solid rgba(188,30,112,.18);
+  color: var(--pink);
+  font-size: var(--text-xs);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  line-height: 1;
+}
+/* Add class="badge-blue" to inline spans for Elastic, Kibana, Stack references */
+.badge-blue {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--sp-4) var(--sp-12);
+  border-radius: 999px;
+  background: rgba(11,100,221,.07);
+  border: 1px solid rgba(11,100,221,.16);
+  color: var(--blue);
+  font-size: var(--text-xs);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  line-height: 1;
 }
 
 /* ══════════════════════════════════════════════════════════════
@@ -454,7 +503,7 @@ img { display: block; max-width: 100%; }
   cursor: pointer;
   will-change: transform;
 }
-/* ↳ Primary button: blue, stays blue on hover (stronger blue) */
+/* ↳ Primary: BLUE — "what the user can do" */
 .btn-primary {
   background: var(--blue);
   color: var(--paper);
@@ -467,7 +516,7 @@ img { display: block; max-width: 100%; }
   box-shadow: 0 4px 12px rgba(11,100,221,.30), 0 12px 36px rgba(11,100,221,.18);
   transform: translateY(-2px);
 }
-/* ↳ Secondary button: neutral base, pink highlight on hover */
+/* ↳ Secondary: NEUTRAL base — pink only as text emphasis on hover, never as CTA bg */
 .btn-secondary {
   background: rgba(255,255,255,.88);
   color: var(--navy);
@@ -475,9 +524,10 @@ img { display: block; max-width: 100%; }
   box-shadow: 0 1px 3px rgba(0,0,0,.05), 0 4px 12px rgba(16,42,67,.06);
 }
 .btn-secondary:hover {
-  border-color: rgba(188,30,112,.22);
+  background: rgba(255,255,255,.96);
+  border-color: rgba(188,30,112,.20);
   color: var(--pink);
-  box-shadow: 0 4px 16px rgba(188,30,112,.10);
+  box-shadow: 0 4px 14px var(--pink-glow);
   transform: translateY(-2px);
 }
 .cta-actions { display: flex; flex-wrap: wrap; gap: var(--sp-16); margin-top: var(--sp-32); }
@@ -485,6 +535,7 @@ img { display: block; max-width: 100%; }
 /* ══════════════════════════════════════════════════════════════
    8. CARDS
    ══════════════════════════════════════════════════════════════ */
+/* ↳ Base card: NEUTRAL. No pink at rest. Calm enterprise foundation. */
 .card-base {
   position: relative;
   overflow: hidden;
@@ -496,7 +547,7 @@ img { display: block; max-width: 100%; }
   outline: 1px solid rgba(255,255,255,.7);
   outline-offset: -1px;
 }
-/* ↳ Card top bar: blue→teal at rest */
+/* ↳ Card top bar at rest: BLUE→teal (structural, system feel) */
 .card-base::before {
   content: "";
   position: absolute;
@@ -506,6 +557,7 @@ img { display: block; max-width: 100%; }
   opacity: 1;
   transition: background var(--t-slow) var(--ease), opacity var(--t-slow) var(--ease);
 }
+/* ↳ Standard card hover: neutral lift, PINK top bar spark, blue h3 */
 .card {
   padding: var(--sp-48);
   display: flex;
@@ -520,11 +572,41 @@ img { display: block; max-width: 100%; }
 .card:hover {
   transform: translate3d(0, -10px, 0);
   box-shadow: var(--card-shadow-hover);
-  border-color: rgba(188,30,112,.12);
+  border-color: rgba(8,17,31,.12);
 }
-/* ↳ Card top bar hover: pink→blue (pink accent spark) */
-.card:hover::before { background: linear-gradient(90deg, var(--pink) 0%, var(--blue) 60%, rgba(11,100,221,.3) 100%); }
+.card:hover::before { background: linear-gradient(90deg, var(--pink) 0%, var(--blue) 55%, rgba(11,100,221,.3) 100%); }
 .card:hover h3 { color: var(--blue); }
+
+/* ══════════════════════════════════════════════════════════════
+   8b. FEATURED CARD (pink right-edge glow — selected cards only)
+   Add class="card-featured" alongside .card on key capability cards.
+   Solutions cards, consulting cards, contact info aside.
+   ══════════════════════════════════════════════════════════════ */
+.card-featured {
+  /* ↳ Subtle pink light source on right edge — depth, not distraction */
+  background: rgba(255,255,255,.88);
+}
+.card-featured::after {
+  content: "";
+  position: absolute;
+  top: 0; right: 0;
+  width: 55%; height: 100%;
+  background: radial-gradient(ellipse 80% 70% at 100% 50%, var(--pink-edge), transparent 70%);
+  pointer-events: none;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  transition: opacity var(--t-slow) var(--ease);
+  opacity: 1;
+}
+.card-featured:hover::after {
+  opacity: 1.0;
+  background: radial-gradient(ellipse 80% 70% at 100% 50%, var(--pink-glow), transparent 70%);
+}
+.card-featured:hover {
+  box-shadow: var(--card-shadow-featured);
+  border-color: rgba(188,30,112,.10);
+}
+
+/* ↳ Highlight card variant */
 .card-highlight {
   padding: var(--sp-48);
   border-color: rgba(11,100,221,.16);
@@ -551,11 +633,8 @@ img { display: block; max-width: 100%; }
 }
 .card-highlight:hover {
   transform: translate3d(0, -10px, 0);
-  box-shadow:
-    0 2px 4px rgba(0,0,0,.05),
-    0 16px 40px var(--magenta-glow),
-    0 40px 80px rgba(139,50,101,.08);
-  border-color: rgba(188,30,112,.14);
+  box-shadow: var(--card-shadow-featured);
+  border-color: rgba(188,30,112,.10);
 }
 .card-highlight:hover::after { background: linear-gradient(90deg, var(--pink) 0%, var(--blue) 100%); opacity: 1; }
 .card-compact { padding: var(--sp-32); }
@@ -596,7 +675,7 @@ img { display: block; max-width: 100%; }
   position: relative;
   line-height: 1.8;
 }
-/* ↳ List bullet dots: blue→teal */
+/* ↳ List bullet dots: BLUE→teal (system / structured) */
 .card ul li::before, .card-highlight ul li::before {
   content: "";
   width: 7px; height: 7px;
@@ -605,9 +684,16 @@ img { display: block; max-width: 100%; }
   position: absolute;
   left: 0; top: .5em;
 }
-/* ↳ Card number badge: pink (emphasis/highlight) */
-.card-num { font-size: var(--text-xs); font-weight: 800; letter-spacing: .14em; color: var(--pink); margin-bottom: var(--sp-16); text-transform: uppercase; }
-/* ↳ Card link: blue (action color) */
+/* ↳ Card number badge: PINK — step/sequence emphasis, not action */
+.card-num {
+  font-size: var(--text-xs);
+  font-weight: 800;
+  letter-spacing: .14em;
+  color: var(--pink);
+  margin-bottom: var(--sp-16);
+  text-transform: uppercase;
+}
+/* ↳ Card action link: BLUE — this IS an action */
 .card-link {
   display: inline-flex;
   align-items: center;
@@ -620,25 +706,39 @@ img { display: block; max-width: 100%; }
   gap: var(--sp-4);
   transition: gap var(--t-slow) var(--ease-out), color var(--t-base) var(--ease);
 }
+/* ↳ Card link hover: PINK draws the eye on hover after user is already engaged */
 .card-link:hover  { gap: var(--sp-12); color: var(--pink); }
 .card-link::after { content: "\2192"; }
 .clean-list { list-style: none; display: flex; flex-direction: column; gap: var(--sp-8); margin-top: var(--sp-16); }
 .clean-list li { padding-left: var(--sp-16); position: relative; font-size: var(--text-base); color: var(--ink-2); line-height: 1.8; }
+/* ↳ Clean list dashes: BLUE (structured enumeration) */
 .clean-list li::before { content: "\2014"; position: absolute; left: 0; color: var(--blue); opacity: .65; }
-/* ↳ Step number badge: pink pill (visual emphasis marker) */
-.step-number { display: inline-block; margin-bottom: var(--sp-16); padding: var(--sp-4) var(--sp-12); border-radius: 999px; background: var(--pink-soft); color: var(--pink); font-size: var(--text-xs); font-weight: 800; text-transform: uppercase; letter-spacing: .08em; border: 1px solid rgba(188,30,112,.15); }
+/* ↳ Step number pill: PINK — emphasis marker, adds rhythm to process blocks */
+.step-number {
+  display: inline-block;
+  margin-bottom: var(--sp-16);
+  padding: var(--sp-4) var(--sp-12);
+  border-radius: 999px;
+  background: var(--pink-soft);
+  border: 1px solid rgba(188,30,112,.18);
+  color: var(--pink);
+  font-size: var(--text-xs);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
 .metric-val { display: block; font-family: var(--serif); font-size: 2.25rem; line-height: 1; color: var(--navy); margin-bottom: var(--sp-8); margin-top: var(--sp-4); }
 .metric-label { color: var(--ink-2); font-size: var(--text-base); font-weight: 600; }
 
 /* ══════════════════════════════════════════════════════════════
    9. CTA BOX
    ══════════════════════════════════════════════════════════════ */
-/* ↳ CTA box: stronger blue border for clarity */
+/* ↳ CTA box: BLUE border (action context) + PINK right-edge depth glow */
 .cta-box {
   background: linear-gradient(135deg,
-    rgba(255,255,255,.92) 0%,
-    rgba(235,242,251,.97) 55%,
-    rgba(188,30,112,.03) 100%);
+    rgba(255,255,255,.93) 0%,
+    rgba(235,242,251,.97) 52%,
+    rgba(255,255,255,.90) 100%);
   backdrop-filter: blur(14px);
   border: 1px solid rgba(11,100,221,.18);
   border-radius: var(--radius-xl);
@@ -650,12 +750,22 @@ img { display: block; max-width: 100%; }
   position: relative;
   overflow: hidden;
 }
+/* ↳ Pink glow: subtle radial at bottom-right — depth, never solid, never blocking content */
 .cta-box::before {
   content: "";
   position: absolute;
-  bottom: 0; right: 0;
-  width: 300px; height: 200px;
-  background: radial-gradient(ellipse at 100% 100%, rgba(188,30,112,.07), transparent 70%);
+  bottom: -20px; right: -20px;
+  width: 380px; height: 280px;
+  background: radial-gradient(ellipse at 100% 100%, var(--pink-glow), transparent 65%);
+  pointer-events: none;
+}
+/* ↳ Blue accent line at top of CTA box */
+.cta-box::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--blue) 30%, rgba(11,100,221,.4) 70%, transparent);
   pointer-events: none;
 }
 .cta-box .section-label { display: block; margin-bottom: var(--sp-24); }
@@ -704,10 +814,21 @@ img { display: block; max-width: 100%; }
     border-color var(--t-slow) var(--ease);
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow: hidden;
 }
 .contact-form { padding: var(--sp-48); }
 .contact-aside { padding: var(--sp-32); }
-/* ↳ Contact panels: blue hover glow (trust) */
+/* ↳ Contact aside: faint pink right-edge glow (accent light source, no solid fill) */
+.contact-aside::after {
+  content: "";
+  position: absolute;
+  top: 0; right: 0;
+  width: 60%; height: 100%;
+  background: radial-gradient(ellipse 90% 80% at 100% 40%, var(--pink-edge), transparent 70%);
+  pointer-events: none;
+}
+/* ↳ Contact panels hover: BLUE glow (trust / action) */
 .contact-form:hover,
 .contact-aside:hover {
   transform: translate3d(0, -6px, 0);
@@ -734,7 +855,7 @@ img { display: block; max-width: 100%; }
   box-shadow: 0 1px 3px rgba(0,0,0,.03);
   transition: border-color var(--t-base) var(--ease), box-shadow var(--t-base) var(--ease);
 }
-/* ↳ Form focus: blue ring */
+/* ↳ Form focus: BLUE ring — interaction signal */
 .field input:focus,
 .field select:focus,
 .field textarea:focus { border-color: rgba(11,100,221,.35); box-shadow: 0 0 0 4px rgba(11,100,221,.08), 0 1px 3px rgba(0,0,0,.04); }
@@ -744,6 +865,7 @@ img { display: block; max-width: 100%; }
 .aside-block:last-child  { padding-bottom: 0; border-bottom: none; flex: 1; }
 .aside-block h4 { font-size: var(--h4-size); font-weight: 800; letter-spacing: .09em; text-transform: uppercase; color: var(--ink-3); margin-bottom: var(--sp-8); }
 .aside-block p { color: var(--ink-2); font-size: var(--text-base); line-height: 1.8; }
+/* ↳ Aside links: BLUE (actionable links) */
 .aside-block a { color: var(--blue); border-bottom: 1px solid rgba(11,100,221,.18); transition: color var(--t-base) var(--ease), border-color var(--t-base) var(--ease); }
 .aside-block a:hover { color: var(--pink); border-bottom-color: rgba(188,30,112,.22); }
 
@@ -805,27 +927,46 @@ img { display: block; max-width: 100%; }
   grid-template-columns: 1fr 1fr;
   gap: var(--sp-64);
   align-items: center;
+  position: relative;
+  overflow: hidden;
   will-change: transform;
   transition: transform var(--t-slow) var(--ease-out), box-shadow var(--t-slow) var(--ease), border-color var(--t-slow) var(--ease);
 }
-/* ↳ How panel hover: blue glow (trust) */
+/* ↳ How panel: subtle pink right-edge glow on the steps side */
+.how-inner::after {
+  content: "";
+  position: absolute;
+  top: 0; right: 0;
+  width: 50%; height: 100%;
+  background: radial-gradient(ellipse 80% 60% at 100% 50%, var(--pink-edge), transparent 70%);
+  pointer-events: none;
+  transition: opacity var(--t-slow) var(--ease);
+}
+/* ↳ How panel hover: BLUE border (trust / process) */
 .how-inner:hover { transform: translate3d(0, -4px, 0); box-shadow: 0 2px 4px rgba(0,0,0,.05), 0 16px 40px rgba(11,100,221,.10), 0 32px 64px rgba(11,100,221,.06); border-color: rgba(11,100,221,.14); }
 .how-left h2 { font-family: var(--serif); font-size: var(--h2-size); font-weight: 800; color: var(--navy); line-height: 1.06; letter-spacing: -.035em; margin-bottom: var(--sp-24); }
 .how-left p  { font-size: var(--text-base); color: var(--ink-2); line-height: 1.8; }
-.how-right   { display: flex; flex-direction: column; gap: var(--sp-24); }
+.how-right   { display: flex; flex-direction: column; gap: var(--sp-24); position: relative; z-index: 1; }
 .how-item    { display: flex; align-items: flex-start; gap: var(--sp-16); cursor: default; }
-/* ↳ Step dots: blue at rest, pink on hover (hierarchy marker → highlight) */
+/* ↳ Step dots: BLUE at rest (system / structured process) */
 .how-dot {
   width: 36px; height: 36px; border-radius: 50%;
   background: linear-gradient(135deg, var(--blue), var(--teal));
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0; font-size: var(--text-sm); font-weight: 800; color: var(--paper);
-  margin-top: var(--sp-4); box-shadow: 0 2px 8px rgba(11,100,221,.20);
+  margin-top: var(--sp-4);
+  box-shadow: 0 2px 8px rgba(11,100,221,.20);
   transition: background var(--t-slow) var(--ease), box-shadow var(--t-slow) var(--ease), transform var(--t-base) var(--ease-out);
   will-change: transform;
 }
-.how-item:hover .how-dot { background: linear-gradient(135deg, var(--pink), var(--blue)); box-shadow: 0 4px 16px rgba(188,30,112,.22); transform: scale(1.08); }
+/* ↳ Step dot hover: PINK spark — emphasis at the point of engagement */
+.how-item:hover .how-dot {
+  background: linear-gradient(135deg, var(--pink), var(--blue));
+  box-shadow: 0 4px 16px var(--pink-glow-lg);
+  transform: scale(1.08);
+}
 .how-item strong { display: block; font-size: var(--text-base); font-weight: 700; color: var(--navy); margin-bottom: var(--sp-4); transition: color var(--t-base) var(--ease); }
+/* ↳ Step title hover: BLUE (structured action context) */
 .how-item:hover strong { color: var(--blue); }
 .how-item span { font-size: var(--text-base); color: var(--ink-2); line-height: 1.8; }
 
@@ -847,18 +988,22 @@ img { display: block; max-width: 100%; }
   will-change: transform;
   transition: transform var(--t-slow) var(--ease-out), box-shadow var(--t-slow) var(--ease), border-color var(--t-slow) var(--ease);
 }
-/* ↳ Team card top bar: blue→teal at rest */
+/* ↳ Team card top bar: BLUE→teal at rest */
 .team-card::before {
   content: ""; position: absolute; left: 0; top: 0; height: 3px; width: 100%;
   background: linear-gradient(90deg, var(--blue) 0%, var(--teal) 100%);
   opacity: 1;
   transition: background var(--t-slow) var(--ease);
 }
-.team-card:hover { transform: translate3d(0, -10px, 0); box-shadow: var(--card-shadow-hover); border-color: rgba(188,30,112,.10); }
-/* ↳ Team card top bar hover: pink spark */
+/* ↳ Team card: neutral hover shadow, PINK bar spark — the gem reveal */
+.team-card:hover {
+  transform: translate3d(0, -10px, 0);
+  box-shadow: var(--card-shadow-featured);
+  border-color: rgba(188,30,112,.10);
+}
 .team-card:hover::before { background: linear-gradient(90deg, var(--pink) 0%, var(--blue) 100%); }
 .team-card-header { display: flex; align-items: center; gap: var(--sp-16); }
-/* ↳ Team avatars: blue→teal at rest */
+/* ↳ Team avatar: BLUE→teal at rest */
 .team-avatar {
   width: 52px; height: 52px; border-radius: 50%;
   background: linear-gradient(135deg, var(--blue) 0%, var(--teal) 100%);
@@ -869,15 +1014,19 @@ img { display: block; max-width: 100%; }
   transition: box-shadow var(--t-slow) var(--ease), background var(--t-slow) var(--ease), transform var(--t-base) var(--ease-out);
   will-change: transform;
 }
-/* ↳ Team avatar hover: pink spark */
-.team-card:hover .team-avatar { background: linear-gradient(135deg, var(--pink) 0%, var(--blue) 100%); box-shadow: 0 4px 14px rgba(188,30,112,.24), 0 8px 24px rgba(188,30,112,.12); transform: scale(1.06); }
+/* ↳ Team avatar hover: PINK spark — the gem moment */
+.team-card:hover .team-avatar {
+  background: linear-gradient(135deg, var(--pink) 0%, var(--blue) 100%);
+  box-shadow: 0 4px 14px var(--pink-glow-lg), 0 8px 24px var(--pink-glow);
+  transform: scale(1.06);
+}
 .team-name { font-family: var(--serif); font-size: var(--h3-size); font-weight: 800; color: var(--navy); line-height: 1.15; margin: 0; transition: color var(--t-base) var(--ease); }
-/* ↳ Team name hover: blue */
+/* ↳ Team name hover: BLUE (recognition, not excitement) */
 .team-card:hover .team-name { color: var(--blue); }
-/* ↳ Team role label: blue (authority signal) */
-.team-role { display: block; font-size: var(--text-xs); font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--blue); margin-top: var(--sp-4); }
+/* ↳ Team role: TEAL — structural label (same register as section-label) */
+.team-role { display: block; font-size: var(--text-xs); font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--teal); margin-top: var(--sp-4); }
 .team-bio { font-size: var(--text-base); color: var(--ink-2); line-height: 1.8; flex: 1; }
-/* ↳ LinkedIn link: blue, pink on hover */
+/* ↳ LinkedIn: BLUE (it's an action — go somewhere) */
 .team-linkedin { display: inline-flex; align-items: center; font-size: var(--text-xs); font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--blue); gap: var(--sp-4); transition: gap var(--t-slow) var(--ease-out), color var(--t-base) var(--ease); margin-top: auto; padding-top: var(--sp-8); }
 .team-linkedin:hover { gap: var(--sp-12); color: var(--pink); }
 
@@ -911,10 +1060,12 @@ footer {
   position: relative;
   overflow: hidden;
 }
+/* ↳ Footer ambient: blue top glow, faint pink lower-right corner depth */
 footer::before {
   content: ""; position: absolute; inset: 0;
-  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(11,100,221,.05), transparent 60%),
-              radial-gradient(ellipse 60% 80% at 100% 100%, rgba(188,30,112,.03), transparent 50%);
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(11,100,221,.055), transparent 60%),
+    radial-gradient(ellipse 50% 60% at 100% 100%, var(--pink-edge), transparent 55%);
   pointer-events: none;
 }
 .footer-inner {
@@ -930,13 +1081,13 @@ footer::before {
   line-height: 1.7;
 }
 .footer-nav { display: flex; gap: var(--sp-32); flex-wrap: wrap; justify-content: center; }
-/* ↳ Footer nav: blue on hover */
+/* ↳ Footer nav: BLUE hover (navigation = action) */
 .footer-nav a { font-size: var(--text-sm); font-weight: 600; color: var(--ink-3); transition: color var(--t-base) var(--ease); letter-spacing: .01em; }
 .footer-nav a:hover { color: var(--blue); }
 .footer-divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, var(--rule-strong), transparent); }
 .footer-legal { font-size: var(--text-xs); color: var(--ink-3); opacity: .65; letter-spacing: .03em; }
-/* ↳ Footer gem: pink (signature accent) */
-.footer-gem { font-family: var(--serif); font-size: var(--text-xs); color: var(--pink); opacity: .65; letter-spacing: .08em; font-style: italic; }
+/* ↳ Footer gem: PINK — the one signature emotional moment. Never functional. */
+.footer-gem { font-family: var(--serif); font-size: var(--text-xs); color: var(--pink); opacity: .70; letter-spacing: .08em; font-style: italic; }
 
 /* ══════════════════════════════════════════════════════════════
    16. RESPONSIVE
