@@ -1,264 +1,120 @@
-# DinaBridge Unified Design + Messaging System
-## Version 1.2 — LOCKED
-**Last updated:** May 2026
-**Enforced in:** `global.css` v1.2
-**Authority:** This document governs all present and future work on dinabridge.com.
-No page, component, or content change may contradict any rule in this file.
+# DinaBridge Design System — Frozen Constitution
+> **Version:** 2.7.2 · **Status:** LOCKED
+> This file defines the immutable core of the DinaBridge visual system.
+> No AI prompt, CSS patch, or refactor may alter Layer A without an explicit `SYSTEM REDESIGN` instruction.
 
 ---
 
-## 0. Core Principle (ABSOLUTE RULE)
+## LAYER A — Design System (NEVER changes without explicit redesign instruction)
 
-> **Every page = same system, different content.**
-
-- Nothing is redesigned per page. Only composed.
-- No new styles, wording patterns, or layout behaviors may be invented per page.
-- `global.css` is the only CSS file. No page-level styles. No inline styles. No `<style>` blocks.
-
----
-
-## 1. Design System — Structure Layer
-
-### 1.1 Container System
-
-| Property | Value |
-|---|---|
-| Max width | `--max: 1180px` |
-| Horizontal padding | `--sp-24` (collapses to `--sp-16` below 520px) |
-| Centering | `margin-left: auto; margin-right: auto` |
-
-❌ No section may define its own width independently.
-❌ No "compact" or "wide" container variants.
-❌ No page-specific container overrides.
-
----
-
-### 1.2 Typography System
-
-**Type scale — tokens only:**
-
+### Color Tokens
 | Token | Value | Role |
 |---|---|---|
-| `--h1-size` | `clamp(2.5rem, 5vw, 4.25rem)` | Page title — one per page |
-| `--h2-size` | `clamp(2rem, 4vw, 3rem)` | Section headings |
-| `--h3-size` | `1.35rem` | Card and component titles |
-| `--h4-size` | `0.75rem` | Form labels, aside subheadings |
-| `--text-lg` | `1.125rem` | Hero leads, section intro paragraphs |
-| `--text-base` | `1rem` | All body text — universal default |
-| `--text-sm` | `0.875rem` | Nav links, secondary UI text |
-| `--text-xs` | `0.75rem` | Labels, badges, buttons, captions |
+| `--navy` | `#102a43` | Primary text, headings |
+| `--ink` | `#08111f` | Body text |
+| `--ink-2` | `#22324a` | Secondary text |
+| `--ink-3` | `#5c6d86` | Muted text, labels |
+| `--paper` | `#f5f8fc` | Page background |
+| `--blue` | `#0b64dd` | Primary action, links, nav |
+| `--teal` | `#008b87` | Section labels, role tags |
+| `--pink` | `#bc1e70` | Emphasis, badge accents |
+| `--gold` | `#c6922d` | Security practice icon |
+| `--magenta` | `#8b3265` | Atmospheric depth only |
 
-**Rules:**
-- ❌ No `px` or raw `rem` font sizes on any page
-- ❌ No per-page typography overrides
-- ❌ No custom `clamp()` expressions outside `global.css`
-- ❌ No exceptions per section
-- ✅ `body` font size = `--text-base`, `line-height: 1.75` — no exceptions
-- ✅ All `h1` elements live inside `.section-hero` and are styled by `.section-hero h1` in `global.css`
+### Pink Glow System — 5 Approved Use Sites Only
+> RULE: Pink is depth/emphasis ONLY. Never solid. Always gradients, shadows, or `::after` pseudo-elements.
+1. `.card-featured::after` — right-edge light source
+2. `.how-inner::after` — steps panel right edge
+3. `.contact-aside::after` — info panel right edge
+4. `.cta-box::before` — bottom-right corner depth
+5. `footer::before` — lower-right ambient corner
 
-**Hierarchy rule:**
-```
-H1  → page title only (one per page, inside .section-hero)
-H2  → section titles (inside .section-intro, .cta-box, .how-left, etc.)
-H3  → card / component titles
-H4  → labels only (.aside-block h4, .field label context)
-```
-
----
-
-### 1.3 Spacing System
-
-**Permitted spacing tokens:**
-
-| Token | Value |
-|---|---|
-| `--sp-4` | `0.25rem` |
-| `--sp-8` | `0.5rem` |
-| `--sp-12` | `0.75rem` |
-| `--sp-16` | `1rem` |
-| `--sp-24` | `1.5rem` |
-| `--sp-32` | `2rem` |
-| `--sp-48` | `3rem` |
-| `--sp-64` | `4rem` |
-| `--sp-96` | `6rem` |
-
-**Rules:**
-- ❌ No raw pixel or rem margin/padding values on any page
-- ❌ No per-page spacing adjustments
-- ❌ No manual margin tuning between sections
-- ✅ All `.section`, `.section-alt`, `.section-hero` use `padding: var(--sp-64) 0`
-
----
-
-### 1.4 Layout System
-
-**Permitted grid classes:**
-
-| Class | Columns | Use |
+### Typography
+| Role | Font | Weight |
 |---|---|---|
-| `.grid-1` | 1 | Single-column stacks |
-| `.grid-2` | 2 equal | Default content layout |
-| `.grid-3` | 3 equal | Feature/card sets |
-| `.grid-4` | 4 equal | Step sequences, dashboard |
+| Headings / pull quotes | `Playfair Display` (serif) | 700, 800 |
+| Body / UI | `Figtree` (sans) | 300–700 |
 
-**Rules:**
-- ❌ No custom `grid-template-columns` on any page
-- ❌ No ad-hoc `display: flex` replacing grid for content layout
-- ❌ No orphan items in grid rows (content count must divide evenly)
-- ✅ All multi-column content must use one of the four grid classes above
-- ✅ `.contact-grid` (1.1fr / 0.9fr) is the only permitted exception — contact page only
+### Type Scale
+```
+--text-xs:   0.75rem
+--text-sm:   0.875rem
+--text-base: 1rem
+--text-lg:   1.125rem
+--h1-size:   clamp(2.6rem, 5vw, 4.5rem)
+--h2-size:   clamp(2rem, 3.5vw, 3rem)
+--h3-size:   1.25rem
+--h4-size:   0.72rem
+```
 
----
+### Spacing Scale (8px grid — strict)
+```
+--sp-4 through --sp-128 (never invent new spacing values)
+```
+Section vertical padding: `56px` standard · Hero top: `64px` · Tight: `40px` · Card: `32px`
 
-## 2. Component System
-
-### Cards
-
-| Component | Class combination | Use |
-|---|---|---|
-| Standard card | `.card-base .card` | Feature cards, service items |
-| Highlighted card | `.card-base .card-highlight` | Hero service block, featured content |
-| Compact/data card | `.card-base .card-compact` | Metrics, dense data |
-
-❌ No new card variants per page.
-❌ No per-page card padding or radius overrides.
-✅ All cards must include `.card-base` as the base class.
-
-### Buttons
-
-| Class | Use |
+### Grid System
+| Class | Columns |
 |---|---|
-| `.btn .btn-primary` | Primary action (blue filled) |
-| `.btn .btn-secondary` | Secondary action (white outlined) |
+| `.grid-1` | 1 col |
+| `.grid-2` | 2 col |
+| `.grid-3` | 3 col |
+| `.grid-4` | 4 col → 2 col at 1024px → 1 col at 768px |
+| `.team-grid` | `auto-fill minmax(260px, 1fr)` |
 
-❌ No new button styles.
-❌ No per-page button variants.
-❌ No inline button styling.
-
-### Section Structure Pattern
-
-Every content section must follow this hierarchy:
-```html
-<section class="section"> <!-- or section-alt or section-hero -->
-  <div class="container">
-    <!-- optional: .section-label eyebrow -->
-    <!-- optional: .section-intro block (h2 + p) -->
-    <!-- content: .grid-N with .card-base cards -->
-    <!-- optional: .cta-box at section end -->
-  </div>
-</section>
+### Shadow System
+```
+--shadow-sm   = resting small cards
+--shadow-md   = hover state escalation
+--shadow-lg   = blue-tinted deep elevation
+--card-shadow-rest  = standard card at rest
+--card-shadow-hover = standard card on hover
 ```
 
----
+### Radius System
+```
+--radius:    16px  (cards, inputs)
+--radius-lg: 22px  (team cards, trust bar)
+--radius-xl: 28px  (cta-box, identity-block, how-inner)
+```
 
-## 3. Brand Message System (LOCKED)
-
-### 3.1 Master Statement — DO NOT CHANGE
-
-> **"DinaBridge delivers senior Elasticsearch engineering for observability, search, security, and AI — without the layers of a large agency."**
-
-This sentence is locked. It may not be rewritten, shortened, expanded, or paraphrased.
-
-### 3.2 Placement Rules
-
-| Page | Placement | Format |
-|---|---|---|
-| Home (`index.html`) | Hero lead paragraph | `.hero-lead` |
-| Solutions (`solutions.html`) | Section intro paragraph | `.section-intro p` |
-| Contact (`contact.html`) | Supporting reinforcement | `.hero-lead` |
-| All other pages | Optional reinforcement only | `.hero-lead` or `.section-intro p` |
-
-### 3.3 Anti-Drift Rules
-
-AI and contributors must NOT:
-- ❌ Rephrase the master statement
-- ❌ Shorten the master statement
-- ❌ Expand the master statement
-- ❌ Replace "Elasticsearch" with generic terms ("data platform," "modern stack," etc.)
-- ❌ Create variations or alternatives to the sentence
-- ❌ Move it to a position other than those listed in 3.2
-
-### 3.4 Secondary Proof Badges
-
-The following badges appear in `.hero-proof` spans across hero sections:
-- `Elastic Certified`
-- `Senior engineers only`
-- `White-label delivery`
-
-These labels are fixed. No new badges without explicit approval.
+### Component Inventory (must always exist in global.css)
+- `.nav` + `.nav-inner` + `.nav-links` + `.nav-cta` + `.nav-burger` + `.nav-drawer`
+- `.btn-primary` + `.btn-secondary`
+- `.section` + `.section-alt` + `.section-hero` + `.section-divider`
+- `.card-featured` + `.practice-card` + `.team-card` + `.trust-card`
+- `.how-inner` + `.cta-box` + `.diff-stack`
+- `.trust-bar` + `.trust-stat`
+- `footer` + `.footer-inner` + `.footer-brand-block` + `.footer-nav` + `.footer-gem`
+- `.eyebrow` + `.badge-pink` + `.badge-blue` + `.section-label`
 
 ---
 
-## 4. Alignment System
+## LAYER B — Page Content (can change freely)
+- Text, headings, paragraphs, section copy
+- Team bios, names, titles
+- CTA button labels
+- Blog posts and case studies
+- Meta descriptions and page titles
 
-- All text is left-aligned within `.container`
-- No `text-align: center` on body content (only decorative labels if needed)
-- No mixed alignment within a single section
-- No section-specific alignment overrides on any page
-
----
-
-## 5. Page Compliance Checklist
-
-Every page (present and future) must satisfy all of the following:
-
-- [ ] No `style=""` attributes on any element
-- [ ] No `<style>` block in `<head>` or `<body>`
-- [ ] No CSS file other than `./global.css` linked
-- [ ] One `<h1>` per page, inside `.section-hero`
-- [ ] All font sizes use design tokens only
-- [ ] All spacing uses `--sp-*` tokens only
-- [ ] All layout uses `.grid-1/2/3/4` or named page components
-- [ ] Master statement present in correct position
-- [ ] Hero opens with `.section-hero > .container > (optional .section-label or .eyebrow) > h1`
-- [ ] Footer uses standard markup unchanged
+## LAYER C — Page Behavior Rules (controlled updates only)
+- CTA hover states
+- Responsive breakpoints
+- Animation timing
+- Scroll behavior
 
 ---
 
-## 6. Forbidden (Complete List)
+## Page Structure Inventory (baseline — must be preserved)
 
-| Forbidden | Reason |
+| Page | Required Sections |
 |---|---|
-| Inline `style=""` attributes | Bypasses design system |
-| Page-specific `<style>` blocks | Creates untracked overrides |
-| Raw `px`/`rem` font sizes on pages | Breaks type scale consistency |
-| Raw `px`/`rem` spacing on pages | Breaks spacing scale consistency |
-| Custom grid columns on pages | Breaks layout consistency |
-| New button variants | Creates component sprawl |
-| New card variants | Creates component sprawl |
-| Rewriting master statement | Breaks brand positioning |
-| Generic terms replacing "Elasticsearch" | Dilutes domain positioning |
-| Per-page color overrides | Breaks color system |
-| Visual "optimization" per page | Violates "same system" principle |
+| `index.html` | Hero · Trust bar · Practice cards · How section · Diff stack · Trust cards · CTA |
+| `elastic-consulting.html` | Hero · Practice areas · How section · CTA |
+| `solutions.html` | Hero · Solution cards · How section · CTA |
+| `about.html` | Hero · Founder section · Team grid (Leadership + Specialists) · More engineers block · Identity block · CTA |
+| `contact.html` | Hero · Contact form · Contact aside · CTA |
 
 ---
 
-## 7. System Intent
-
-DinaBridge.com is a **single system applied consistently across multiple pages.**
-
-Pages are not designs — they are structured compositions of the same system.
-
-```
-One system   →  global.css
-One message  →  master statement
-One font     →  Figtree (sans) + Playfair Display (serif)
-One palette  →  color tokens in :root
-Many pages   →  HTML compositions using system classes only
-Zero drift   →  enforced by this document
-```
-
----
-
-## 8. Allowed Additions (Future Extensions)
-
-New components or tokens may only be added to `global.css` when:
-1. The pattern appears on 2+ pages (not page-specific)
-2. It reuses existing tokens exclusively
-3. It follows the naming convention of existing components
-4. It is documented in this file before being used
-
-New pages may only be added when:
-1. They follow the Page Compliance Checklist (Section 5) completely
-2. They include the master statement in the correct position
-3. No new CSS is written — only existing system classes are used
+*Maintained by DinaBridge Engineering. Any change to this file requires explicit `SYSTEM REDESIGN` instruction.*
