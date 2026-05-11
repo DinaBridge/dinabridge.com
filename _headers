@@ -1,0 +1,28 @@
+# CSS — long-term cache (1 year), immutable
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+# JS — long-term cache (1 year), immutable
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML — always revalidate
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Root index
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Sitemap + robots — short cache
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+/robots.txt
+  Cache-Control: public, max-age=3600
+
+# Security headers — applied to all pages
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
