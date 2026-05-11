@@ -15,8 +15,14 @@
 <style>
 
 /* ==========================================================
-   CONTACT PAGE — v2.7.4 (height alignment pass)
+   CONTACT PAGE — v2.7.5 (accent layer + breathe animation)
    ========================================================== */
+
+@keyframes aside-breathe {
+  0%   { background-position: 100% 0%;   }
+  50%  { background-position: 97%  3%;   }
+  100% { background-position: 100% 0%;  }
+}
 
 .contact-grid {
   display: grid;
@@ -116,6 +122,8 @@
   margin-top: var(--sp-8);
   position: relative; z-index: 1;
 }
+
+/* --- Aside card: persistent accent layer system --- */
 .contact-aside {
   display: flex;
   flex-direction: column;
@@ -128,22 +136,39 @@
   box-shadow: var(--card-shadow-rest);
   position: relative;
   overflow: hidden;
-  transition: box-shadow var(--t-slow) var(--ease);
+  transition:
+    box-shadow 500ms var(--ease),
+    border-color 500ms var(--ease);
 }
-.contact-aside::after {
+
+/* Layer 1: persistent magenta accent — always visible, slow breathe */
+.contact-aside::before {
   content: "";
-  position: absolute; inset: 0; pointer-events: none;
-  background: var(--pg-radial-edge);
-  opacity: .55;
-  transition: var(--pg-transition);
-}
-.contact-aside:hover {
-  box-shadow: var(--card-shadow-hover);
-}
-.contact-aside:hover::after {
-  background: var(--pg-radial-hover);
+  position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background: radial-gradient(ellipse 55% 40% at 100% 0%, rgba(139,50,101,.07), transparent 65%);
+  background-size: 200% 200%;
+  animation: aside-breathe 6s ease-in-out infinite;
   opacity: 1;
 }
+
+/* Layer 2: hover enhancement — stacked above, never replaces layer 1 */
+.contact-aside::after {
+  content: "";
+  position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 45% at 100% 0%, rgba(139,50,101,.10), transparent 60%),
+    radial-gradient(ellipse 50% 60% at 0% 100%, rgba(11,100,221,.04), transparent 55%);
+  opacity: 0;
+  transition: opacity 500ms var(--ease);
+}
+.contact-aside:hover {
+  box-shadow: var(--card-shadow-hover), 0 0 0 1px rgba(139,50,101,.10);
+  border-color: rgba(139,50,101,.18);
+}
+.contact-aside:hover::after {
+  opacity: 1;
+}
+
 .aside-block {
   display: flex;
   flex-direction: column;
@@ -182,6 +207,7 @@
   .contact-grid { grid-template-columns: 1fr; gap: var(--sp-32); align-items: start; }
   .contact-aside { padding: var(--sp-32); justify-content: flex-start; }
   .aside-block { flex: none; }
+  .contact-aside::before { animation: none; }
 }
 @media (max-width: 768px) {
   .contact-form  { padding: var(--sp-32); }
@@ -200,7 +226,7 @@
   "url": "https://dinabridge.com",
   "description": "Senior Elasticsearch engineering consultancy for observability, search, security, and AI. White-label delivery, senior engineers only.",
   "address": {
-    "@type": PostalAddress",
+    "@type": "PostalAddress",
     "addressLocality": "Colorado",
     "addressRegion": "CO",
     "addressCountry": "USA"
