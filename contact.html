@@ -15,14 +15,14 @@
 <style>
 
 /* ==========================================================
-   CONTACT PAGE — Visual Restoration Pass v2.7.3
+   CONTACT PAGE — v2.7.4 (height alignment pass)
    ========================================================== */
 
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 360px;
   gap: var(--sp-48);
-  align-items: start;
+  align-items: stretch;
 }
 .contact-form {
   display: flex;
@@ -119,6 +119,7 @@
 .contact-aside {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 0;
   background: rgba(255,255,255,.72);
   border: 1px solid var(--rule-strong);
@@ -150,6 +151,7 @@
   padding: var(--sp-24) 0;
   border-bottom: 1px solid var(--rule);
   position: relative; z-index: 1;
+  flex: 1;
 }
 .aside-block:first-child { padding-top: 0; }
 .aside-block:last-child  { border-bottom: none; padding-bottom: 0; }
@@ -177,8 +179,9 @@
   text-decoration: underline;
 }
 @media (max-width: 1024px) {
-  .contact-grid { grid-template-columns: 1fr; gap: var(--sp-32); }
-  .contact-aside { padding: var(--sp-32); }
+  .contact-grid { grid-template-columns: 1fr; gap: var(--sp-32); align-items: start; }
+  .contact-aside { padding: var(--sp-32); justify-content: flex-start; }
+  .aside-block { flex: none; }
 }
 @media (max-width: 768px) {
   .contact-form  { padding: var(--sp-32); }
@@ -197,7 +200,7 @@
   "url": "https://dinabridge.com",
   "description": "Senior Elasticsearch engineering consultancy for observability, search, security, and AI. White-label delivery, senior engineers only.",
   "address": {
-    "@type": "PostalAddress",
+    "@type": PostalAddress",
     "addressLocality": "Colorado",
     "addressRegion": "CO",
     "addressCountry": "USA"
