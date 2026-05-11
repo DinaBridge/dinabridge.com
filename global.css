@@ -1,5 +1,5 @@
 /* ============================================================
-   DinaBridge Global Design System — v2.6.0
+   DinaBridge Global Design System — v2.6.1
    Color Placement Map:
    BLUE    = structure + action (buttons, nav, links, labels)
    PINK    = emphasis + depth (glows, badges, step markers, accents)
@@ -10,7 +10,11 @@
    Hero top: 64px (sp-64). Tight sections: 40px (sp-40).
    Card padding: 32px (sp-32). How-inner: 48px (sp-48).
    Pink Glow System: canonical tokens + 5 approved use sites only.
+   v2.6.1: Card visual hierarchy patch imported (card-hierarchy.css)
    ============================================================ */
+
+/* Card visual hierarchy patch — applied globally */
+@import url('/card-hierarchy.css');
 
 /* ══════════════════════════════════════════════════════════════
    1. TOKENS
@@ -356,4 +360,235 @@ img { display: block; max-width: 100%; }
 .badge-pink {
   display: inline-flex; align-items: center;
   padding: var(--sp-4) var(--sp-12); border-radius: 999px;
-  background: var(--pink-soft); border: 1px
+  background: var(--pink-soft); border: 1px solid rgba(188,30,112,.18);
+  color: var(--pink); font-size: var(--text-xs); font-weight: 700;
+  letter-spacing: .04em;
+}
+.badge-blue {
+  display: inline-flex; align-items: center;
+  padding: var(--sp-4) var(--sp-12); border-radius: 999px;
+  background: rgba(11,100,221,.08); border: 1px solid rgba(11,100,221,.18);
+  color: var(--blue); font-size: var(--text-xs); font-weight: 700;
+  letter-spacing: .04em;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   7. BUTTONS
+   ══════════════════════════════════════════════════════════════ */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: var(--sp-12) var(--sp-24); border-radius: 999px;
+  font-family: var(--sans); font-size: var(--text-sm); font-weight: 700;
+  border: 1px solid transparent; cursor: pointer; white-space: nowrap;
+  transition: background var(--t-slow) var(--ease), border-color var(--t-slow) var(--ease),
+    box-shadow var(--t-slow) var(--ease), transform var(--t-base) var(--ease-out), color var(--t-slow) var(--ease);
+  will-change: transform;
+}
+.btn-primary {
+  background: var(--blue); color: var(--paper); border-color: var(--blue);
+  box-shadow: 0 2px 8px rgba(11,100,221,.22), 0 4px 16px rgba(11,100,221,.12);
+}
+.btn-primary:hover {
+  background: #0a58c7; border-color: #0a58c7;
+  box-shadow: 0 4px 20px rgba(11,100,221,.32); transform: translateY(-2px);
+}
+.btn-secondary {
+  background: rgba(255,255,255,.80); color: var(--ink-2);
+  border-color: var(--rule-strong);
+  box-shadow: var(--shadow-sm);
+}
+.btn-secondary:hover {
+  background: rgba(255,255,255,.96); border-color: rgba(11,100,221,.22);
+  color: var(--blue); box-shadow: var(--shadow-md); transform: translateY(-2px);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   8. CTA BOX
+   ══════════════════════════════════════════════════════════════ */
+.cta-box {
+  background: rgba(255,255,255,.72);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-xl);
+  padding: var(--sp-48) var(--sp-56);
+  position: relative; overflow: hidden;
+  box-shadow: var(--card-shadow-rest);
+}
+.cta-box::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: var(--pg-radial-corner); opacity: 1;
+  transition: var(--pg-transition);
+}
+.cta-box:hover::before { background: var(--pg-radial-corner-hover); }
+.cta-box .section-label { margin-bottom: var(--sp-12); }
+.cta-box h2 {
+  font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.6rem);
+  letter-spacing: -.03em; color: var(--navy); margin-bottom: var(--sp-12);
+}
+.cta-box p { font-size: var(--text-lg); color: var(--ink-2); margin-bottom: var(--sp-32); line-height: 1.75; }
+.cta-actions { display: flex; flex-wrap: wrap; gap: var(--sp-12); }
+
+/* ══════════════════════════════════════════════════════════════
+   9. FOOTER
+   ══════════════════════════════════════════════════════════════ */
+footer {
+  border-top: 1px solid var(--rule-strong);
+  padding: var(--sp-56) 0 var(--sp-40);
+  position: relative; overflow: hidden;
+}
+footer::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 60% 80% at 100% 100%, var(--pg-rest), transparent 58%);
+  opacity: .55;
+}
+.footer-inner {
+  display: flex; flex-direction: column; gap: var(--sp-24); position: relative; z-index: 1;
+}
+.footer-brand-block { display: flex; flex-direction: column; gap: var(--sp-8); }
+.footer-tagline { font-size: var(--text-sm); color: var(--ink-3); }
+.footer-nav {
+  display: flex; flex-wrap: wrap; gap: var(--sp-16);
+  font-size: var(--text-sm); font-weight: 600; color: var(--ink-3);
+}
+.footer-nav a { transition: color var(--t-base) var(--ease); }
+.footer-nav a:hover { color: var(--blue); }
+.footer-divider { height: 1px; background: var(--rule); width: 100%; }
+.footer-legal { font-size: var(--text-xs); color: var(--ink-3); }
+.footer-gem {
+  font-size: var(--text-xs); color: var(--ink-3); opacity: .55;
+  font-style: italic; letter-spacing: .02em;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   10. CONTACT PAGE
+   ══════════════════════════════════════════════════════════════ */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: var(--sp-40);
+  align-items: start;
+}
+.contact-form { display: flex; flex-direction: column; gap: var(--sp-20); }
+.field { display: flex; flex-direction: column; gap: var(--sp-8); }
+.field label {
+  font-size: var(--text-sm); font-weight: 700; color: var(--ink-2);
+  letter-spacing: .01em;
+}
+.field input,
+.field select,
+.field textarea {
+  padding: var(--sp-12) var(--sp-16);
+  border: 1px solid var(--rule-strong); border-radius: var(--radius);
+  background: rgba(255,255,255,.85);
+  font-family: var(--sans); font-size: var(--text-base); color: var(--ink);
+  transition: border-color var(--t-base) var(--ease), box-shadow var(--t-base) var(--ease), background var(--t-base) var(--ease);
+  outline: none; width: 100%;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(11,100,221,.12);
+  background: rgba(255,255,255,.98);
+}
+.field textarea { resize: vertical; min-height: 120px; line-height: 1.7; }
+.field select { cursor: pointer; }
+.contact-aside {
+  display: flex; flex-direction: column; gap: var(--sp-24);
+  position: relative; overflow: hidden;
+}
+.contact-aside::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: var(--pg-radial-edge); opacity: .6;
+  transition: var(--pg-transition);
+}
+.contact-aside:hover::after { background: var(--pg-radial-hover); opacity: 1; }
+.aside-block { display: flex; flex-direction: column; gap: var(--sp-8); }
+.aside-block h4 {
+  font-size: var(--h4-size); font-weight: 800; text-transform: uppercase;
+  letter-spacing: .10em; color: var(--teal);
+}
+.aside-block p { font-size: var(--text-sm); color: var(--ink-2); line-height: 1.70; }
+.aside-block a { color: var(--blue); font-weight: 600; }
+.aside-block a:hover { text-decoration: underline; }
+
+/* ══════════════════════════════════════════════════════════════
+   11. CARD-NUM (Solutions numbered cards)
+   ══════════════════════════════════════════════════════════════ */
+.card-num {
+  font-size: var(--text-xs); font-weight: 800; text-transform: uppercase;
+  letter-spacing: .10em; color: var(--teal); display: block;
+  margin-bottom: var(--sp-12);
+}
+.card-link {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: var(--text-sm); font-weight: 700; color: var(--blue);
+  margin-top: var(--sp-16);
+  transition: gap var(--t-base) var(--ease), opacity var(--t-base) var(--ease);
+}
+.card-link:hover { gap: 8px; opacity: .80; }
+
+/* ══════════════════════════════════════════════════════════════
+   12. STEP NUMBER
+   ══════════════════════════════════════════════════════════════ */
+.step-number {
+  font-size: var(--text-xs); font-weight: 800; text-transform: uppercase;
+  letter-spacing: .10em; color: var(--teal); margin-bottom: var(--sp-8);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   13. HOW SECTION (elastic-consulting steps panel)
+   ══════════════════════════════════════════════════════════════ */
+.how-inner {
+  position: relative; overflow: hidden;
+  background: rgba(255,255,255,.72);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-xl);
+  padding: var(--sp-48);
+  box-shadow: var(--card-shadow-rest);
+}
+.how-inner::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: var(--pg-radial-edge); opacity: .55;
+  transition: var(--pg-transition);
+}
+.how-inner:hover::after { background: var(--pg-radial-hover); opacity: 1; }
+
+/* ══════════════════════════════════════════════════════════════
+   14. CARD-FEATURED (Solutions page — pink glow approved)
+   ══════════════════════════════════════════════════════════════ */
+.card-featured {
+  position: relative; overflow: hidden;
+}
+.card-featured::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: var(--pg-radial-edge); opacity: 1;
+  transition: var(--pg-transition);
+}
+.card-featured:hover::after { background: var(--pg-radial-hover); }
+.card-featured h3 {
+  font-family: var(--serif); font-size: 1.45rem;
+  letter-spacing: -.025em; color: var(--navy);
+  margin-bottom: var(--sp-12);
+}
+.card-featured p { color: var(--ink-2); font-size: var(--text-base); line-height: 1.75; margin-bottom: var(--sp-16); }
+.card-featured .clean-list { margin-top: 0; }
+
+/* ══════════════════════════════════════════════════════════════
+   15. RESPONSIVE
+   ══════════════════════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid { grid-template-columns: 1fr; }
+  .cta-box { padding: var(--sp-40); }
+  .how-inner { padding: var(--sp-40); }
+}
+@media (max-width: 768px) {
+  .container { padding-left: var(--sp-20); padding-right: var(--sp-20); }
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .section-hero { padding: var(--sp-48) 0 var(--sp-40); }
+  .section { padding: var(--sp-40) 0; }
+  .cta-box { padding: var(--sp-32); }
+  .nav-links, .nav-cta { display: none; }
+  .nav-burger { display: flex; }
+  .how-inner { padding: var(--sp-32); }
+}
