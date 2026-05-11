@@ -10,8 +10,51 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-HEWG10CXEK');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/global.css">
+<style>
+
+/* ==========================================================
+   HOME PAGE — Scoped spacing fix v2.7.6
+   Scope: card-highlight paragraph→list gap + list indent only.
+   Rule: NO structural changes. NO global CSS changes.
+   ========================================================== */
+
+/* Tighten gap between paragraph and bullet list */
+.card-highlight > p {
+  margin-bottom: var(--sp-16);
+}
+
+/* Align list indent under paragraph text (not browser 40px default) */
+.card-highlight > ul {
+  padding-left: 1.25rem;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-8);
+  list-style: none;
+}
+
+.card-highlight > ul li {
+  position: relative;
+  padding-left: var(--sp-20);
+  font-size: var(--text-sm);
+  color: var(--ink-2);
+  line-height: 1.75;
+}
+
+/* Custom bullet — teal diamond, aligned to text baseline */
+.card-highlight > ul li::before {
+  content: "\25C6"; /* ◆ filled diamond */
+  position: absolute;
+  left: 0;
+  top: .35em;
+  font-size: 6px;
+  color: var(--teal);
+  line-height: 1;
+}
+
+</style>
 </head>
 <body>
 
@@ -65,7 +108,7 @@
         <div class="trust-divider"></div>
         <div class="trust-stat">
           <span class="trust-num">100%</span>
-          <span class="trust-label">Senior engineers — no juniors</span>
+          <span class="trust-label">Senior engineers &mdash; no juniors</span>
         </div>
         <div class="trust-divider"></div>
         <div class="trust-stat">
@@ -134,7 +177,7 @@
         <div class="card-base card-highlight">
           <h2>The engineer you speak to<br>is the engineer doing the work.</h2>
           <p>No account managers. No hand-off. No junior layer underneath. You work directly with the senior engineer from day one &mdash; the same person scopes it, builds it, and hands it off.</p>
-          <ul class="clean-list">
+          <ul>
             <li>Senior engineers only &mdash; every engagement, every time</li>
             <li>Direct communication &mdash; no account managers in the way</li>
             <li>Outcomes measured by incidents reduced and performance gained</li>
