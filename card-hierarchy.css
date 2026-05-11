@@ -1,5 +1,5 @@
 /* ============================================================
-   DinaBridge — Card Visual Hierarchy Patch  v2.6.1
+   DinaBridge — Card Visual Hierarchy Patch  v2.7.9c
    RULE: All cards must feel equally intentional regardless
    of text length. Short-statement cards must anchor visually.
 
@@ -9,7 +9,39 @@
    — .card-base.card      → standard content card (stronger border)
    — .card-base h3        → card headline weight
    — .card-base p (solo)  → standalone paragraph prominence
+   — .clean-list          → global bullet list (all containers)
    ============================================================ */
+
+/* ──────────────────────────────────────────────────────────────
+   CLEAN LIST — GLOBAL
+   Covers ALL containers: .card-base, .card-featured,
+   .consulting-left, .consulting-right, and any future use.
+   Rule: teal dot bullet, correct spacing, no browser defaults.
+   ────────────────────────────────────────────────────────────── */
+.clean-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--sp-16) 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-8);
+}
+.clean-list li {
+  font-size: var(--text-sm);
+  color: var(--ink-2);
+  line-height: 1.6;
+  padding-left: var(--sp-16);
+  position: relative;
+}
+.clean-list li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.55em;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--teal);
+  opacity: .70;
+}
 
 /* ──────────────────────────────────────────────────────────────
    CARD-BASE: Universal baseline elevation
@@ -202,32 +234,12 @@
 }
 
 /* ──────────────────────────────────────────────────────────────
-   CLEAN LIST inside cards
-   Consistent list item weight across all card types.
+   CLEAN LIST inside .card-base — scoped reinforcement
+   Global .clean-list handles all containers above.
+   This rule is kept for specificity consistency only.
    ────────────────────────────────────────────────────────────── */
 .card-base .clean-list {
-  list-style: none;
-  padding: 0;
-  margin: var(--sp-16) 0 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-8);
-}
-.card-base .clean-list li {
-  font-size: var(--text-sm);
-  color: var(--ink-2);
-  line-height: 1.6;
-  padding-left: var(--sp-16);
-  position: relative;
-}
-.card-base .clean-list li::before {
-  content: "";
-  position: absolute;
-  left: 0; top: 0.55em;
-  width: 5px; height: 5px;
-  border-radius: 50%;
-  background: var(--teal);
-  opacity: .70;
+  margin-top: var(--sp-16);
 }
 
 /* ──────────────────────────────────────────────────────────────
