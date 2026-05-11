@@ -1,5 +1,5 @@
 /* ============================================================
-   DinaBridge Global Design System — v2.7.1
+   DinaBridge Global Design System — v2.7.7
    Color Placement Map:
    BLUE    = structure + action (buttons, nav, links, labels)
    PINK    = emphasis + depth (glows, badges, step markers, accents)
@@ -15,6 +15,7 @@
            diff-stack, trust-card grid, hover depth system.
    v2.7.1: Footer centered + highlighted — brand block, nav row,
            gem signature restored as premium closing statement.
+   v2.7.7: --text-sm bumped 14px → 15px for premium card body weight.
    ============================================================ */
 
 /* Card visual hierarchy patch — applied globally */
@@ -56,10 +57,10 @@
   --sans:  'Figtree', system-ui, sans-serif;
 
   /* — Type scale — */
-  --text-xs:   0.75rem;
-  --text-sm:   0.875rem;
-  --text-base: 1rem;
-  --text-lg:   1.125rem;
+  --text-xs:   0.75rem;    /* 12px — labels, eyebrows, metadata */
+  --text-sm:   0.9375rem;  /* 15px — card body, nav, buttons, bios (was 14px) */
+  --text-base: 1rem;       /* 16px — body copy */
+  --text-lg:   1.125rem;   /* 18px — hero leads, section intros */
 
   /* — Heading scale — */
   --h1-size: clamp(2.6rem, 5vw, 4.5rem);
@@ -74,6 +75,7 @@
   --sp-16:  1rem;
   --sp-20:  1.25rem;
   --sp-24:  1.5rem;
+  --sp-28:  1.75rem;
   --sp-32:  2rem;
   --sp-40:  2.5rem;
   --sp-48:  3rem;
@@ -436,13 +438,12 @@ footer::before {
 .footer-inner {
   display: flex;
   flex-direction: column;
-  align-items: center;          /* ← centered */
-  text-align: center;           /* ← centered */
+  align-items: center;
+  text-align: center;
   gap: var(--sp-24);
   position: relative; z-index: 1;
 }
 
-/* Brand block — elevated serif treatment */
 .footer-brand-block {
   display: flex;
   flex-direction: column;
@@ -473,7 +474,6 @@ footer::before {
   line-height: 1.65;
 }
 
-/* Nav row — centered, spaced */
 .footer-nav {
   display: flex;
   flex-wrap: wrap;
@@ -490,7 +490,6 @@ footer::before {
 }
 .footer-nav a:hover { color: var(--blue); }
 
-/* Divider — centered, full width */
 .footer-divider {
   height: 1px;
   background: linear-gradient(
@@ -503,13 +502,11 @@ footer::before {
   width: 100%;
 }
 
-/* Legal line */
 .footer-legal {
   font-size: var(--text-xs);
   color: var(--ink-3);
 }
 
-/* Gem signature — premium closing statement */
 .footer-gem {
   font-family: var(--serif);
   font-style: italic;
