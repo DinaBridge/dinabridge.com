@@ -1,5 +1,5 @@
 /* ============================================================
-   DinaBridge Global Design System — v2.7.7
+   DinaBridge Global Design System — v2.7.8
    Color Placement Map:
    BLUE    = structure + action (buttons, nav, links, labels)
    PINK    = emphasis + depth (glows, badges, step markers, accents)
@@ -16,6 +16,7 @@
    v2.7.1: Footer centered + highlighted — brand block, nav row,
            gem signature restored as premium closing statement.
    v2.7.7: --text-sm bumped 14px → 15px for premium card body weight.
+   v2.7.8: trust-label typography aligned to site design system.
    ============================================================ */
 
 /* Card visual hierarchy patch — applied globally */
@@ -650,7 +651,7 @@ footer::before {
 .card-featured .clean-list { margin-top: 0; }
 
 /* ══════════════════════════════════════════════════════════════
-   14. TRUST BAR  (v2.7.0)
+   14. TRUST BAR  (v2.7.8)
    ══════════════════════════════════════════════════════════════ */
 .trust-bar {
   display: flex;
@@ -681,12 +682,10 @@ footer::before {
   line-height: 1;
 }
 .trust-label {
-  font-size: var(--text-xs);
-  font-weight: 600;
-  color: var(--ink-3);
-  text-transform: uppercase;
-  letter-spacing: .06em;
-  line-height: 1.4;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--ink-2);
+  line-height: 1.5;
 }
 .trust-divider {
   width: 1px;
