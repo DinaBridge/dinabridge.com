@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="/global.css">
 <script src="/shared.js"></script>
 <style>
-/* Why DinaBridge — dark surface — v2.9.5 */
+/* Why DinaBridge — dark surface — v3.0.0 */
 
 .section-dark {
   background: #010508;
@@ -22,19 +22,61 @@
   position: relative;
   overflow: hidden;
 }
+
+/* Richer ambient background — blue left, pink right, teal top-center */
 .section-dark::before {
   content: "";
   position: absolute; inset: 0; pointer-events: none;
   background:
-    radial-gradient(ellipse 70% 50% at 0% 50%, rgba(11,100,221,.07), transparent 55%),
-    radial-gradient(ellipse 50% 40% at 100% 0%, rgba(139,50,101,.05), transparent 50%);
+    radial-gradient(ellipse 60% 55% at 0% 40%,   rgba(11,100,221,.10),  transparent 55%),
+    radial-gradient(ellipse 45% 40% at 100% 10%,  rgba(188,30,112,.08),  transparent 50%),
+    radial-gradient(ellipse 40% 30% at 50% 0%,    rgba(0,139,135,.06),   transparent 55%);
 }
 
-.section-dark .section-label { color: rgba(0,220,210,1); font-weight: 800; }
-.section-dark .section-intro h2 { color: #ffffff; font-family: var(--serif); }
-.section-dark .section-intro p { color: #ffffff; }
+/* ── Section intro label ── */
+.section-dark .section-label {
+  display: inline-block;
+  color: #00e8d8;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+  position: relative;
+  padding-bottom: 6px;
+}
+/* Glowing underline beneath the label */
+.section-dark .section-label::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 1px;
+  background: linear-gradient(90deg, #00e8d8 0%, rgba(0,232,216,0) 100%);
+  border-radius: 1px;
+}
 
-/* LEFT CARD */
+/* ── h2 — gradient text blue → teal ── */
+.section-dark .section-intro h2 {
+  font-family: var(--serif);
+  font-weight: 800;
+  background: linear-gradient(105deg, #ffffff 0%, #7dd8ff 40%, #00e8d8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.12;
+  letter-spacing: -.025em;
+}
+
+/* ── Intro paragraph — teal-tinted with left accent bar ── */
+.section-dark .section-intro p {
+  color: rgba(200,240,255,.82);
+  font-size: var(--text-base);
+  line-height: 1.80;
+  border-left: 2px solid rgba(0,200,188,.35);
+  padding-left: var(--sp-16);
+  margin-top: var(--sp-4);
+}
+
+/* ── LEFT CARD ── */
 .why-statement {
   background: rgba(255,255,255,.11);
   border: 1px solid rgba(255,255,255,.18);
@@ -68,7 +110,7 @@
 }
 .why-statement-cta:hover { gap: 9px; opacity: .75; }
 
-/* RIGHT CARD */
+/* ── RIGHT CARD ── */
 .why-diff {
   background: rgba(255,255,255,.09);
   border: 1px solid rgba(255,255,255,.18);
@@ -81,8 +123,7 @@
   border-bottom: 1px solid rgba(255,255,255,.10);
   display: flex; flex-direction: column; gap: var(--sp-6);
   position: relative;
-  transition:
-    transform var(--t-base) var(--ease-out);
+  transition: transform var(--t-base) var(--ease-out);
   cursor: default;
 }
 .why-diff-item:last-child { border-bottom: none; }
