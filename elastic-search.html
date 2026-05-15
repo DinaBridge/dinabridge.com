@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Elastic Search engineering from DinaBridge. Relevance tuning, cluster performance, and search architecture for enterprise Elasticsearch deployments." />
-<title>Elastic Search Engineering | Relevance & Performance | DinaBridge</title>
+<meta name="description" content="Elasticsearch search consulting from DinaBridge. Relevance tuning, performance engineering, and search architecture for enterprise deployments." />
+<title>Elastic Search | DinaBridge</title>
 <link rel="canonical" href="https://dinabridge.com/elastic-search.html" />
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HEWG10CXEK"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-HEWG10CXEK');</script>
@@ -12,62 +12,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/global.css">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "DinaBridge",
-  "url": "https://dinabridge.com",
-  "description": "Senior Elasticsearch engineering consultancy for observability, search, security, and AI. White-label delivery, senior engineers only.",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Colorado",
-    "addressRegion": "CO",
-    "addressCountry": "USA"
-  },
-  "areaServed": {
-    "@type": "Country",
-    "name": "United States"
-  },
-  "priceRange": "$$",
-  "serviceType": [
-    "Elasticsearch Consulting",
-    "Managed Services",
-    "Migration Projects",
-    "Kibana Dashboard Customization",
-    "Observability Implementation",
-    "Security SIEM",
-    "AI Search"
-  ],
-  "knowsAbout": [
-    "Elasticsearch",
-    "Kibana",
-    "Logstash",
-    "Elastic Stack",
-    "Observability",
-    "APM",
-    "SIEM",
-    "Vector Search",
-    "ELSER"
-  ]
-}
-</script>
+<script src="/shared.js"></script>
 </head>
 <body>
 
-<nav class="nav">
-  <div class="container nav-inner">
-    <a class="brand" href="/"><span class="brand-mark">D</span><span>DinaBridge</span></a>
-    <nav class="nav-links">
-      <a href="/">Home</a>
-      <a href="/elastic-consulting.html">Elastic Consulting</a>
-      <a href="/solutions.html">Solutions</a>
-      <a href="/about.html">About</a>
-      <a href="/contact.html">Contact</a>
-    </nav>
-    <a class="nav-cta" href="/contact.html">Get help with your stack</a>
-  </div>
-</nav>
+<nav class="nav"></nav>
 <script src="/nav.js"></script>
 
 <main>
@@ -75,16 +24,17 @@
   <section class="section-hero">
     <div class="container">
       <span class="eyebrow">Elastic Search</span>
-      <h1>Elasticsearch that returns<br>the right results, fast.</h1>
-      <p class="hero-lead">Relevance tuning, performance engineering, and search architecture for enterprise Elasticsearch &mdash; built by engineers who have done it in production.</p>
+      <h1>Search that works.<br>At production scale.</h1>
+      <p class="hero-lead">Relevance tuning, performance engineering, and search architecture for enterprise Elasticsearch deployments &mdash; built by engineers who do this in production every day.</p>
       <div class="hero-actions">
         <a href="/contact.html" class="btn btn-primary">Start a conversation</a>
-        <a href="/solutions.html" class="btn btn-secondary">All solutions</a>
+        <a href="/solutions.html" class="btn btn-secondary">View all solutions</a>
       </div>
       <div class="hero-proof">
-        <span>Elastic Specialists</span>
-        <span>Senior engineers only</span>
-        <span>Production-focused</span>
+        <span>Relevance tuning</span>
+        <span>Index architecture</span>
+        <span>Query optimization</span>
+        <span>Migration planning</span>
       </div>
     </div>
   </section>
@@ -95,33 +45,49 @@
     <div class="container">
       <div class="section-intro">
         <span class="section-label">What we deliver</span>
-        <h2>Search that performs under real conditions.</h2>
-        <p>Relevance is hard. Performance at scale is harder. We fix both.</p>
+        <h2>Search engineering across the full stack.</h2>
+        <p>From index design to application-level query performance, we close the gap between &ldquo;we have Elasticsearch&rdquo; and &ldquo;search users actually trust.&rdquo;</p>
       </div>
       <div class="grid-3">
         <div class="card-base card">
-          <h3>Query optimization</h3>
-          <p>Slow queries, poor recall, irrelevant results. We diagnose and fix query logic, scoring functions, and field mappings for measurable improvement.</p>
+          <div class="step-number">Relevance</div>
+          <h3>Query optimization and relevance scoring</h3>
+          <p>We tune BM25 scoring, custom field boosting, and function score queries to surface the right results for your users &mdash; not just the technically matching ones.</p>
+          <ul class="clean-list"><li>Query analysis and scoring audit</li><li>Custom relevance tuning for domain-specific data</li><li>A/B testing framework for ranking changes</li></ul>
         </div>
         <div class="card-base card">
-          <h3>Relevance tuning</h3>
-          <p>BM25 tuning, function score configuration, and learning-to-rank integration. We build relevance models that match how your users actually search.</p>
+          <div class="step-number">Architecture</div>
+          <h3>Index strategy and shard architecture</h3>
+          <p>We design index mappings, shard configurations, and rollover policies that keep your cluster healthy as data volumes grow.</p>
+          <ul class="clean-list"><li>Mapping design for search performance</li><li>Shard count optimization and rollover strategy</li><li>ILM policy design for data retention</li></ul>
         </div>
         <div class="card-base card">
-          <h3>Index architecture</h3>
-          <p>Mapping design, shard strategy, rollover policies, and ILM configuration for indices that scale without degrading performance.</p>
+          <div class="step-number">Performance</div>
+          <h3>Cluster performance tuning</h3>
+          <p>We identify and fix the heap pressure, merge storms, and slow query patterns that degrade search performance in production environments.</p>
+          <ul class="clean-list"><li>JVM heap and GC tuning</li><li>Slow query log analysis</li><li>Caching strategy and circuit breaker configuration</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-intro">
+        <span class="section-label">Migration and upgrades</span>
+        <h2>Upgrade without the risk.</h2>
+        <p>Elasticsearch major version upgrades and cross-cluster migrations require careful planning. We handle the complexity so your team does not have to.</p>
+      </div>
+      <div class="grid-2">
+        <div class="card-base card">
+          <h3>Major version migrations</h3>
+          <p>We plan and execute upgrades from legacy Elasticsearch versions, handling breaking API changes, mapping incompatibilities, and zero-downtime cutover strategies.</p>
         </div>
         <div class="card-base card">
-          <h3>Cluster performance</h3>
-          <p>JVM tuning, hardware sizing, caching strategy, and thread pool configuration. We find and fix the bottlenecks that limit your cluster throughput.</p>
-        </div>
-        <div class="card-base card">
-          <h3>Migration &amp; upgrades</h3>
-          <p>Version upgrades, index reindexing, and cross-cluster migration planning. We manage the risk so your search stays available through the transition.</p>
-        </div>
-        <div class="card-base card">
-          <h3>Search architecture review</h3>
-          <p>A structured audit of your Elasticsearch deployment &mdash; mappings, queries, cluster config &mdash; with written findings and prioritized recommendations.</p>
+          <h3>OpenSearch to Elasticsearch</h3>
+          <p>For teams migrating back from OpenSearch or consolidating to the Elastic stack, we handle the data migration, mapping translation, and client library updates.</p>
         </div>
       </div>
     </div>
@@ -133,11 +99,11 @@
     <div class="container">
       <div class="cta-box">
         <span class="section-label">Work with us</span>
-        <h2>Let&rsquo;s improve your search.</h2>
-        <p>Tell us what you are working on. We will respond within one business day.</p>
+        <h2>Let&rsquo;s fix your search.</h2>
+        <p>Tell us what you are working on. We will respond within one business day with a clear assessment &mdash; no sales pitch.</p>
         <div class="cta-actions">
           <a href="/contact.html" class="btn btn-primary">Start a conversation</a>
-          <a href="/elastic-consulting.html" class="btn btn-secondary">How we engage</a>
+          <a href="/solutions.html" class="btn btn-secondary">View all solutions</a>
         </div>
       </div>
     </div>
@@ -145,24 +111,7 @@
 
 </main>
 
-<footer>
-  <div class="container footer-inner">
-    <div class="footer-brand-block">
-      <a class="brand" href="/"><span class="brand-mark">D</span><span>DinaBridge</span></a>
-      <p class="footer-tagline">Senior Elasticsearch engineering for observability, search, security, and AI.</p>
-    </div>
-    <nav class="footer-nav">
-      <a href="/">Home</a>
-      <a href="/elastic-consulting.html">Elastic Consulting</a>
-      <a href="/solutions.html">Solutions</a>
-      <a href="/about.html">About</a>
-      <a href="/contact.html">Contact</a>
-    </nav>
-    <div class="footer-divider"></div>
-    <p class="footer-legal">&copy; DinaBridge LLC &middot; All rights reserved</p>
-    <p class="footer-gem">put the gem in the room.</p>
-  </div>
-</footer>
+<footer></footer>
 
 </body>
 </html>

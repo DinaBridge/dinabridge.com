@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Elastic Observability engineering from DinaBridge. APM, log pipelines, distributed tracing, and infrastructure monitoring for production Elastic environments." />
-<title>Elastic Observability | APM, Logs & Tracing | DinaBridge</title>
+<meta name="description" content="Elasticsearch observability consulting from DinaBridge. APM, distributed tracing, log pipelines, and infrastructure monitoring for production Elastic environments." />
+<title>Elastic Observability | DinaBridge</title>
 <link rel="canonical" href="https://dinabridge.com/elastic-observability.html" />
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HEWG10CXEK"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-HEWG10CXEK');</script>
@@ -12,62 +12,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/global.css">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "DinaBridge",
-  "url": "https://dinabridge.com",
-  "description": "Senior Elasticsearch engineering consultancy for observability, search, security, and AI. White-label delivery, senior engineers only.",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Colorado",
-    "addressRegion": "CO",
-    "addressCountry": "USA"
-  },
-  "areaServed": {
-    "@type": "Country",
-    "name": "United States"
-  },
-  "priceRange": "$$",
-  "serviceType": [
-    "Elasticsearch Consulting",
-    "Managed Services",
-    "Migration Projects",
-    "Kibana Dashboard Customization",
-    "Observability Implementation",
-    "Security SIEM",
-    "AI Search"
-  ],
-  "knowsAbout": [
-    "Elasticsearch",
-    "Kibana",
-    "Logstash",
-    "Elastic Stack",
-    "Observability",
-    "APM",
-    "SIEM",
-    "Vector Search",
-    "ELSER"
-  ]
-}
-</script>
+<script src="/shared.js"></script>
 </head>
 <body>
 
-<nav class="nav">
-  <div class="container nav-inner">
-    <a class="brand" href="/"><span class="brand-mark">D</span><span>DinaBridge</span></a>
-    <nav class="nav-links">
-      <a href="/">Home</a>
-      <a href="/elastic-consulting.html">Elastic Consulting</a>
-      <a href="/solutions.html">Solutions</a>
-      <a href="/about.html">About</a>
-      <a href="/contact.html">Contact</a>
-    </nav>
-    <a class="nav-cta" href="/contact.html">Get help with your stack</a>
-  </div>
-</nav>
+<nav class="nav"></nav>
 <script src="/nav.js"></script>
 
 <main>
@@ -75,16 +24,17 @@
   <section class="section-hero">
     <div class="container">
       <span class="eyebrow">Elastic Observability</span>
-      <h1>Production observability,<br>engineered for Elastic.</h1>
-      <p class="hero-lead">APM instrumentation, log pipeline architecture, distributed tracing, and infrastructure monitoring &mdash; built for real production scale.</p>
+      <h1>Full-stack visibility.<br>Built on Elastic.</h1>
+      <p class="hero-lead">APM, distributed tracing, log pipelines, and infrastructure monitoring &mdash; engineered for production-scale Elastic environments by senior engineers.</p>
       <div class="hero-actions">
         <a href="/contact.html" class="btn btn-primary">Start a conversation</a>
-        <a href="/solutions.html" class="btn btn-secondary">All solutions</a>
+        <a href="/solutions.html" class="btn btn-secondary">View all solutions</a>
       </div>
       <div class="hero-proof">
-        <span>Elastic Specialists</span>
-        <span>Senior engineers only</span>
-        <span>Production-focused</span>
+        <span>Elastic APM</span>
+        <span>OpenTelemetry</span>
+        <span>Log pipelines</span>
+        <span>Kibana dashboards</span>
       </div>
     </div>
   </section>
@@ -95,33 +45,49 @@
     <div class="container">
       <div class="section-intro">
         <span class="section-label">What we deliver</span>
-        <h2>Observability that actually works in production.</h2>
-        <p>Most observability implementations break under real load or drown teams in noise. We build systems that surface the signals that matter.</p>
+        <h2>Observability engineering for production Elastic.</h2>
+        <p>We build the observability layer your team needs to understand what is happening in production &mdash; and respond to it faster.</p>
       </div>
       <div class="grid-3">
         <div class="card-base card">
-          <h3>Elastic APM</h3>
-          <p>Instrumentation, configuration, and tuning of Elastic APM across distributed services. Latency analysis, error tracking, and performance baselines.</p>
+          <div class="step-number">APM</div>
+          <h3>Application performance monitoring</h3>
+          <p>Elastic APM instrumentation, agent configuration, and tuning for distributed applications. Traces, spans, and error tracking that surface real production issues.</p>
+          <ul class="clean-list"><li>APM agent setup and configuration</li><li>Custom instrumentation for critical paths</li><li>Trace correlation with logs and metrics</li></ul>
         </div>
         <div class="card-base card">
-          <h3>Log pipeline architecture</h3>
-          <p>Ingest pipeline design with Logstash, Fleet, and Beats. Parsing, enrichment, routing, and retention &mdash; built for scale and operational simplicity.</p>
+          <div class="step-number">Pipelines</div>
+          <h3>Ingest pipeline architecture</h3>
+          <p>Logstash, Fleet, and Beats pipelines designed for scale. We architect the ingestion layer so data arrives clean, structured, and queryable from day one.</p>
+          <ul class="clean-list"><li>Logstash pipeline design and optimization</li><li>Fleet and Elastic Agent policy management</li><li>Structured log normalization and enrichment</li></ul>
         </div>
         <div class="card-base card">
-          <h3>Distributed tracing</h3>
-          <p>Trace correlation across services and infrastructure. We configure sampling strategies and trace context propagation for production environments.</p>
-        </div>
-        <div class="card-base card">
-          <h3>Infrastructure monitoring</h3>
-          <p>Host, container, and Kubernetes monitoring via Elastic Agent. Metric collection, anomaly detection, and SLO-based alerting.</p>
-        </div>
-        <div class="card-base card">
-          <h3>Kibana dashboards</h3>
-          <p>Purpose-built dashboards for SLO/SLA tracking, service health, and incident response. We build for operators, not demos.</p>
-        </div>
-        <div class="card-base card">
+          <div class="step-number">Alerting</div>
           <h3>Alert fatigue reduction</h3>
-          <p>Threshold engineering, deduplication, and routing to reduce alert noise. We tune your alerting to surface incidents, not noise.</p>
+          <p>We tune alerting thresholds, build SLO/SLA dashboards in Kibana, and reduce the noise that pulls engineers into false alarms at 3am.</p>
+          <ul class="clean-list"><li>SLO and SLA dashboard engineering</li><li>Threshold tuning and alert consolidation</li><li>Runbook integration and escalation flows</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-intro">
+        <span class="section-label">OpenTelemetry</span>
+        <h2>OTel-native or Elastic-native. Both.</h2>
+        <p>We work with teams migrating to OpenTelemetry and those staying on native Elastic APM agents. Either way, the outcome is the same: full visibility.</p>
+      </div>
+      <div class="grid-2">
+        <div class="card-base card">
+          <h3>OpenTelemetry migration</h3>
+          <p>Planning and executing migrations from vendor-native agents to OpenTelemetry collectors, with Elastic as the backend. We handle the collector configuration, data mapping, and zero-downtime cutover.</p>
+        </div>
+        <div class="card-base card">
+          <h3>Elastic APM at scale</h3>
+          <p>For teams running native Elastic APM agents, we tune sampling rates, storage policies, and index lifecycle management to keep costs predictable as data volumes grow.</p>
         </div>
       </div>
     </div>
@@ -134,10 +100,10 @@
       <div class="cta-box">
         <span class="section-label">Work with us</span>
         <h2>Let&rsquo;s fix your observability stack.</h2>
-        <p>Tell us what you are working on. We will respond within one business day.</p>
+        <p>Tell us what you are working on. We will respond within one business day with a clear assessment &mdash; no sales pitch.</p>
         <div class="cta-actions">
           <a href="/contact.html" class="btn btn-primary">Start a conversation</a>
-          <a href="/elastic-consulting.html" class="btn btn-secondary">How we engage</a>
+          <a href="/solutions.html" class="btn btn-secondary">View all solutions</a>
         </div>
       </div>
     </div>
@@ -145,24 +111,7 @@
 
 </main>
 
-<footer>
-  <div class="container footer-inner">
-    <div class="footer-brand-block">
-      <a class="brand" href="/"><span class="brand-mark">D</span><span>DinaBridge</span></a>
-      <p class="footer-tagline">Senior Elasticsearch engineering for observability, search, security, and AI.</p>
-    </div>
-    <nav class="footer-nav">
-      <a href="/">Home</a>
-      <a href="/elastic-consulting.html">Elastic Consulting</a>
-      <a href="/solutions.html">Solutions</a>
-      <a href="/about.html">About</a>
-      <a href="/contact.html">Contact</a>
-    </nav>
-    <div class="footer-divider"></div>
-    <p class="footer-legal">&copy; DinaBridge LLC &middot; All rights reserved</p>
-    <p class="footer-gem">put the gem in the room.</p>
-  </div>
-</footer>
+<footer></footer>
 
 </body>
 </html>
