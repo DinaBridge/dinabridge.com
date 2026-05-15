@@ -58,7 +58,7 @@
 }
 .why-box-intro p { font-size: var(--text-lg); color: var(--ink-2); line-height: 1.75; }
 
-/* ── Hero card — premium dark tint, primary thesis ── */
+/* ── Hero card — premium dark tint */
 .why-hero-card {
   background: var(--navy);
   border: 1px solid rgba(11,100,221,.28);
@@ -68,12 +68,10 @@
   position: relative; overflow: hidden;
   box-shadow: 0 2px 8px rgba(0,0,0,.12), 0 16px 40px rgba(8,17,31,.18);
 }
-/* Subtle blue glow top-left */
 .why-hero-card::before {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background: radial-gradient(ellipse 70% 55% at 0% 0%, rgba(11,100,221,.18), transparent 60%);
 }
-
 .why-hero-card-title {
   font-family: var(--serif);
   font-size: clamp(1.15rem, 1.7vw, 1.45rem);
@@ -96,7 +94,7 @@
 }
 .why-hero-card-cta:hover { gap: 9px; opacity: .75; }
 
-/* ── Micro-diagram ── */
+/* ── Pipeline micro-diagram ── */
 .pipeline {
   display: flex; flex-direction: column; gap: var(--sp-12);
   position: relative; z-index: 1;
@@ -109,8 +107,6 @@
   font-size: 0.68rem; font-weight: 800; text-transform: uppercase;
   letter-spacing: .09em; margin-bottom: var(--sp-4); display: block;
 }
-
-/* Traditional row — muted, struck-through feel */
 .pipeline-row--old .pipeline-label { color: rgba(255,255,255,.30); }
 .pipeline-node--old {
   padding: 3px 9px; border-radius: 6px;
@@ -122,8 +118,6 @@
   white-space: nowrap;
 }
 .pipeline-arrow--old { color: rgba(255,255,255,.18); font-size: 0.7rem; }
-
-/* DinaBridge row — vivid, confident */
 .pipeline-row--new .pipeline-label { color: rgba(100,190,255,.90); }
 .pipeline-node--you {
   padding: 3px 9px; border-radius: 6px;
@@ -148,12 +142,56 @@
 }
 .pipeline-arrow--new { color: rgba(100,180,255,.70); font-size: 0.7rem; }
 .pipeline-check { color: rgba(100,230,160,1); font-size: 0.85rem; margin-left: 2px; }
-
-/* Divider between the two rows */
 .pipeline-divider {
   height: 1px;
   background: rgba(255,255,255,.08);
   margin: var(--sp-4) 0;
+}
+
+/* ── Speed comparison table ── */
+.speed-table {
+  width: 100%;
+  border-collapse: collapse;
+  position: relative; z-index: 1;
+  font-size: 0.8rem;
+}
+.speed-table thead tr {
+  border-bottom: 1px solid rgba(255,255,255,.10);
+}
+.speed-table th {
+  padding: var(--sp-8) var(--sp-12);
+  font-size: 0.68rem; font-weight: 800;
+  text-transform: uppercase; letter-spacing: .09em;
+  text-align: left;
+}
+.speed-table th:first-child { color: rgba(255,255,255,.30); }
+.speed-table th:last-child  { color: rgba(100,190,255,.90); }
+.speed-table td {
+  padding: var(--sp-8) var(--sp-12);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  vertical-align: middle; line-height: 1.4;
+}
+.speed-table tr:last-child td { border-bottom: none; }
+/* Row label */
+.speed-table td:first-child:not(.speed-row-label) {
+  color: rgba(255,255,255,.35);
+  text-decoration: line-through;
+  text-decoration-color: rgba(255,255,255,.18);
+  font-weight: 500;
+}
+.speed-row-label {
+  color: rgba(255,255,255,.40);
+  font-weight: 700;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  padding-left: 0 !important;
+  width: 30%;
+}
+/* DinaBridge values — vivid */
+.speed-table td.speed-val-new {
+  color: rgba(120,240,180,1);
+  font-weight: 700;
 }
 </style>
 </head>
@@ -242,9 +280,8 @@
             <p class="why-hero-card-title">The engineer you speak to is the engineer doing the work.</p>
             <p>No account managers. No hand-off. No junior layer underneath. You work directly with the senior engineer from day one &mdash; the same person who scopes it, builds it, and hands it off.</p>
 
-            <!-- Micro-diagram -->
+            <!-- Pipeline micro-diagram -->
             <div class="pipeline">
-
               <div class="pipeline-row pipeline-row--old">
                 <span class="pipeline-label">Typical agency</span>
                 <span class="pipeline-node--old">You</span>
@@ -255,9 +292,7 @@
                 <span class="pipeline-arrow--old">&rarr;</span>
                 <span class="pipeline-node--old">Junior Dev</span>
               </div>
-
               <div class="pipeline-divider"></div>
-
               <div class="pipeline-row pipeline-row--new">
                 <span class="pipeline-label">DinaBridge</span>
                 <span class="pipeline-node--you">You</span>
@@ -267,8 +302,30 @@
                 <span class="pipeline-node--done">Production Deploy</span>
                 <span class="pipeline-check">&#10003;</span>
               </div>
-
             </div>
+
+            <!-- Speed comparison table -->
+            <table class="speed-table">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Traditional Agency</th>
+                  <th>DinaBridge</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="speed-row-label">Discovery</td>
+                  <td>3 Weeks of Discovery Theatre</td>
+                  <td class="speed-val-new">Advisory in Days</td>
+                </tr>
+                <tr>
+                  <td class="speed-row-label">Deploy</td>
+                  <td>Months to Deploy</td>
+                  <td class="speed-val-new">Delivery in Weeks</td>
+                </tr>
+              </tbody>
+            </table>
 
             <a href="/elastic-consulting.html" class="why-hero-card-cta">How we engage &rarr;</a>
           </div>
