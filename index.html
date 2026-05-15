@@ -31,31 +31,47 @@
     0 1px 4px rgba(0,0,0,.08);
   transform: translateY(-3px);
 }
-.trust-card:hover .trust-card-icon {
-  color: var(--blue);
-  transition: color var(--t-slow) var(--ease);
-}
-.trust-card:hover h3 {
-  color: #1a7aff;
-  transition: color var(--t-slow) var(--ease);
-}
+.trust-card:hover .trust-card-icon { color: var(--blue); transition: color var(--t-slow) var(--ease); }
+.trust-card:hover h3               { color: #1a7aff;     transition: color var(--t-slow) var(--ease); }
 
-/* Why DinaBridge — statement card */
-.why-statement {
-  display: flex; flex-direction: column; gap: var(--sp-16);
+/* Why DinaBridge — wrapping box, mirrors .cta-box */
+.why-box {
+  background: rgba(255,255,255,.72);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-xl);
+  padding: var(--sp-48) var(--sp-56);
+  position: relative; overflow: hidden;
+  box-shadow: var(--card-shadow-rest);
 }
+.why-box::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: var(--pg-radial-corner); opacity: 1;
+  transition: var(--pg-transition);
+}
+.why-box:hover::before { background: var(--pg-radial-corner-hover); }
+
+/* Intro text inside the box */
+.why-box-intro { margin-bottom: var(--sp-32); }
+.why-box-intro h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  letter-spacing: -.03em; color: var(--navy); margin-bottom: var(--sp-12);
+}
+.why-box-intro p { font-size: var(--text-lg); color: var(--ink-2); line-height: 1.75; }
+
+/* Statement card title */
 .why-statement-title {
   font-family: var(--serif);
-  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
   line-height: 1.22; letter-spacing: -.025em;
-  color: rgba(255,255,255,.95); font-weight: 700;
+  color: var(--navy); font-weight: 700;
+  margin-bottom: var(--sp-12);
 }
 .why-statement-cta {
   display: inline-flex; align-items: center; gap: 5px;
-  font-size: var(--text-sm); font-weight: 700;
-  color: rgba(120,180,255,1);
+  font-size: var(--text-sm); font-weight: 700; color: var(--blue);
+  margin-top: var(--sp-16);
   transition: gap var(--t-base) var(--ease), opacity var(--t-base) var(--ease);
-  margin-top: var(--sp-8);
 }
 .why-statement-cta:hover { gap: 9px; opacity: .75; }
 </style>
@@ -127,45 +143,49 @@
 
   <hr class="section-divider" />
 
-  <!-- 3. WHY DINABRIDGE — dark -->
-  <section class="section-dark">
+  <!-- 3. WHY DINABRIDGE — light surface, mirrors Work with us -->
+  <section class="section">
     <div class="container">
-      <div class="section-intro">
-        <span class="section-label">Why DinaBridge</span>
-        <h2>Depth is the only thing that moves production clusters.</h2>
-        <p>Not a generalist agency. Every engagement is senior-led, directly communicated, and measured by outcomes.</p>
-      </div>
-      <div class="grid-2">
+      <div class="why-box">
 
-        <!-- Left: statement card -->
-        <div class="card-base why-statement">
-          <p class="why-statement-title">The engineer you speak to is the engineer doing the work.</p>
-          <p>No account managers. No hand-off. No junior layer underneath. You work directly with the senior engineer from day one &mdash; the same person who scopes it, builds it, and hands it off.</p>
-          <a href="/elastic-consulting.html" class="why-statement-cta">How we engage &rarr;</a>
+        <div class="why-box-intro">
+          <span class="section-label">Why DinaBridge</span>
+          <h2>Depth is the only thing that moves production clusters.</h2>
+          <p>Not a generalist agency. Every engagement is senior-led, directly communicated, and measured by outcomes.</p>
         </div>
 
-        <!-- Right: diff stack -->
-        <div class="card-base">
-          <div class="diff-stack">
-            <div class="diff-item">
-              <span class="diff-label">Technical depth</span>
-              <p>Production Elasticsearch &mdash; clusters, pipelines, relevance, security, AI. Not surface-level configuration or certification-based advice.</p>
-            </div>
-            <div class="diff-item">
-              <span class="diff-label">Scoped delivery</span>
-              <p>Every engagement has a defined scope, named engineer, and measurable outcome. No open-ended retainers, no ambiguous statements of work.</p>
-            </div>
-            <div class="diff-item">
-              <span class="diff-label">Genuine speed</span>
-              <p>Advisory in days. Delivery in weeks. Assessment within one business day &mdash; no calendar gymnastics, no discovery call theatre.</p>
-            </div>
-            <div class="diff-item">
-              <span class="diff-label">Knowledge transfer</span>
-              <p>Every engagement ends with documentation your team can use. We build capability, not dependency. Handoff is part of every scope.</p>
+        <div class="grid-2">
+
+          <!-- Left: statement card -->
+          <div class="card-base card">
+            <p class="why-statement-title">The engineer you speak to is the engineer doing the work.</p>
+            <p>No account managers. No hand-off. No junior layer underneath. You work directly with the senior engineer from day one &mdash; the same person who scopes it, builds it, and hands it off.</p>
+            <a href="/elastic-consulting.html" class="why-statement-cta">How we engage &rarr;</a>
+          </div>
+
+          <!-- Right: diff stack -->
+          <div class="card-base card">
+            <div class="diff-stack">
+              <div class="diff-item">
+                <span class="diff-label">Technical depth</span>
+                <p>Production Elasticsearch &mdash; clusters, pipelines, relevance, security, AI. Not surface-level configuration or certification-based advice.</p>
+              </div>
+              <div class="diff-item">
+                <span class="diff-label">Scoped delivery</span>
+                <p>Every engagement has a defined scope, named engineer, and measurable outcome. No open-ended retainers, no ambiguous statements of work.</p>
+              </div>
+              <div class="diff-item">
+                <span class="diff-label">Genuine speed</span>
+                <p>Advisory in days. Delivery in weeks. Assessment within one business day &mdash; no calendar gymnastics, no discovery call theatre.</p>
+              </div>
+              <div class="diff-item">
+                <span class="diff-label">Knowledge transfer</span>
+                <p>Every engagement ends with documentation your team can use. We build capability, not dependency. Handoff is part of every scope.</p>
+              </div>
             </div>
           </div>
-        </div>
 
+        </div>
       </div>
     </div>
   </section>
