@@ -14,7 +14,32 @@
 <link rel="stylesheet" href="/global.css">
 <script src="/shared.js"></script>
 <style>
-/* Why DinaBridge — dark surface — v2.8.4 */
+/* Why DinaBridge — dark surface — v2.8.5 */
+
+/* SECTION BACKGROUND — deep midnight navy */
+.section-dark {
+  background: #09111a;
+  padding: var(--sp-56) 0;
+  position: relative;
+  overflow: hidden;
+}
+.section-dark::before {
+  content: "";
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 50% at 0% 50%, rgba(11,100,221,.08), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 100% 0%, rgba(139,50,101,.06), transparent 50%);
+}
+
+/* SECTION-INTRO on dark surface */
+.section-dark .section-label { color: rgba(0,200,190,.88); }
+.section-dark .section-intro h2 {
+  color: #ffffff;
+  font-family: var(--serif);
+}
+.section-dark .section-intro p {
+  color: rgba(245,248,252,.68);
+}
 
 /* LEFT CARD — statement */
 .why-statement {
@@ -51,7 +76,6 @@
   position: relative; z-index: 1;
   margin: 0;
 }
-/* FIX 2: CTA link — light blue for dark surface, WCAG AA ~5.8:1 */
 .why-statement-cta {
   display: inline-flex; align-items: center; gap: 5px;
   font-size: var(--text-sm); font-weight: 700;
@@ -109,10 +133,8 @@
   text-transform: uppercase; letter-spacing: .09em;
 }
 .why-diff-item--depth   .why-diff-label { color: rgba(0,200,190,.88); }
-/* FIX 4: Scoped label bumped to rgba(120,180,255,.92) — ratio 5.2:1 */
 .why-diff-item--scoped  .why-diff-label { color: rgba(120,180,255,.92); }
 .why-diff-item--speed   .why-diff-label { color: rgba(220,175,80,.90); }
-/* FIX 3: Pink label replaced — rgba(240,100,160,1) — ratio ~4.65:1 */
 .why-diff-item--transfer .why-diff-label { color: rgba(240,100,160,1); }
 
 .why-diff-item p {
