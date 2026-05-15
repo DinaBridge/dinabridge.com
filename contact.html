@@ -14,17 +14,6 @@
 <link rel="stylesheet" href="/global.css">
 <script src="/shared.js"></script>
 <style>
-/* ══════════════════════════════════════════════════════════════
-   CONTACT PAGE — v3.1.1
-   Change: grid-template-columns shifted ~10%
-   Before: 1fr 340px  (form ~74%, sidebar ~26%)
-   After:  9fr 11fr   (form ~45%, sidebar ~55% of remaining)
-   Practical effect at 1120px container:
-     Before: form ≈ 748px, sidebar = 340px
-     After:  form ≈ 672px, sidebar = 374px
-   Everything else unchanged from v3.1.0.
-   ══════════════════════════════════════════════════════════════ */
-
 @keyframes aside-breathe{
   0%  { background-position: 100% 0%   }
   50% { background-position:  97% 3%   }
@@ -35,10 +24,9 @@
   padding: var(--sp-48) 0 var(--sp-56);
 }
 
-/* ── [CHANGED] column ratio ── */
 .contact-layout {
   display: grid;
-  grid-template-columns: 1fr 374px;   /* sidebar widened ~10%: 340 → 374px */
+  grid-template-columns: 1fr 374px;
   gap: var(--sp-48);
   align-items: stretch;
 }
@@ -232,10 +220,10 @@
   opacity: .75;
 }
 .aside-block h4 {
-  font-size: 0.8125rem;
+  font-size: 1.0625rem;   /* was 0.8125rem (13px), now 17px — ~4px / ~1 notch bigger */
   font-weight: 700;
   color: var(--navy);
-  letter-spacing: .005em;
+  letter-spacing: -.01em;
   text-transform: none;
   line-height: 1.3;
   margin: 0;
