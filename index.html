@@ -176,6 +176,32 @@
 .why-diff-item p {
   font-size: var(--text-sm); color: #ffffff; line-height: 1.72; margin: 0;
 }
+
+/* ── Built on Elastic — trust card blue hover ── */
+.trust-card {
+  transition:
+    background var(--t-slow) var(--ease),
+    border-color var(--t-slow) var(--ease),
+    box-shadow var(--t-slow) var(--ease),
+    transform var(--t-base) var(--ease-out);
+}
+.trust-card:hover {
+  background: rgba(11,100,221,.07);
+  border-color: rgba(11,100,221,.40);
+  box-shadow:
+    inset 0 0 40px rgba(11,100,221,.06),
+    0 4px 24px rgba(11,100,221,.14),
+    0 1px 4px rgba(0,0,0,.08);
+  transform: translateY(-3px);
+}
+.trust-card:hover .trust-card-icon {
+  color: var(--blue);
+  transition: color var(--t-slow) var(--ease);
+}
+.trust-card:hover h3 {
+  color: #1a7aff;
+  transition: color var(--t-slow) var(--ease);
+}
 </style>
 </head>
 <body>
