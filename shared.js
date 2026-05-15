@@ -1,4 +1,4 @@
-/* DinaBridge Shared Components — v1.3.1
+/* DinaBridge Shared Components — v1.3.0
    Single source of truth for:
    - Global nav (header)
    - Global footer
@@ -43,9 +43,12 @@
   document.head.appendChild(schemaTag);
 
   var NAV_LINKS = [
-    { href: '/',             label: 'Home' },
-    { href: '/about.html',   label: 'About' },
-    { href: '/contact.html', label: 'Contact' }
+    { href: '/',                        label: 'Home' },
+    { href: '/elastic-consulting.html', label: 'Elastic Consulting' },
+    { href: '/solutions.html',          label: 'Solutions' },
+    { href: '/about.html',              label: 'About' },
+    { href: '/company.html',            label: 'Company' },
+    { href: '/contact.html',            label: 'Contact' }
   ];
 
   var path = window.location.pathname;
