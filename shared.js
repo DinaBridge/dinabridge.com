@@ -1,22 +1,19 @@
-/* DinaBridge Shared Components — v1.2.0
+/* DinaBridge Shared Components — v1.3.0
    Single source of truth for:
    - Global nav (header)
    - Global footer
    - JSON-LD schema (ProfessionalService)
-   Usage: <script src="/shared.js"></script> in every page <head>.
-   The script detects the current page path and applies .active to the matching nav link.
 */
 
 (function () {
   'use strict';
 
-  /* ── Schema ───────────────────────────────────────────── */
   var schema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "DinaBridge",
     "url": "https://dinabridge.com",
-    "description": "Senior Elasticsearch engineering consultancy for observability, search, security, and AI. White-label delivery, senior engineers only.",
+    "description": "Senior Elasticsearch engineering consultancy for observability, search, security, and AI. Production-focused, senior engineers only.",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Colorado",
@@ -45,7 +42,6 @@
   schemaTag.text = JSON.stringify(schema, null, 2);
   document.head.appendChild(schemaTag);
 
-  /* ── Nav links config ─────────────────────────────────── */
   var NAV_LINKS = [
     { href: '/',                        label: 'Home' },
     { href: '/elastic-consulting.html', label: 'Elastic Consulting' },
@@ -55,9 +51,7 @@
     { href: '/contact.html',            label: 'Contact' }
   ];
 
-  /* ── Active detection ────────────────────────────────── */
   var path = window.location.pathname;
-  // Normalise: /index.html and / both match Home
   if (path === '/index.html') path = '/';
 
   function isActive(href) {
@@ -65,7 +59,6 @@
     return path === href || path.indexOf(href) === 0;
   }
 
-  /* ── Build nav HTML ──────────────────────────────────── */
   function buildNavLinks() {
     return NAV_LINKS.map(function (l) {
       var cls = isActive(l.href) ? ' class="active"' : '';
@@ -79,10 +72,8 @@
     }).join('\n      ');
   }
 
-  /* ── Inject nav ──────────────────────────────────────── */
   document.addEventListener('DOMContentLoaded', function () {
 
-    /* Header nav */
     var navEl = document.querySelector('nav.nav');
     if (navEl) {
       navEl.innerHTML =
@@ -95,7 +86,6 @@
         '</div>';
     }
 
-    /* Footer */
     var footerEl = document.querySelector('footer');
     if (footerEl) {
       footerEl.innerHTML =
