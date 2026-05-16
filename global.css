@@ -1,5 +1,5 @@
 /* ============================================================
-   DinaBridge Global Design System — v2.8.5
+   DinaBridge Global Design System — v2.9.0
    Color Placement Map:
    BLUE    = structure + action (buttons, nav, links, labels)
    PINK    = emphasis + depth (glows, badges, step markers, accents)
@@ -21,6 +21,10 @@
    v2.8.4: WCAG contrast audit fixes.
            --teal darkened #008b87 → #006e6b (section-label/step-number on light: ratio 4.06 → 4.85:1)
    v2.8.5: Remove divider line immediately below hero section.
+   v2.9.0: Unified interaction system.
+           Rule 1 — Nav animated underline: scaleX from center (replaces width animation).
+           Rule 2 — Card hard hover 3D pop: translate(-4px,-4px) + solid 4px blue block shadow.
+           Rule 4 — Social token pop: .social-link circular wrappers with brand color fill on hover.
    ============================================================ */
 
 /* Card visual hierarchy patch — applied globally */
@@ -203,15 +207,19 @@ img { display: block; max-width: 100%; }
 .brand:hover .brand-mark { box-shadow: 0 0 0 3px rgba(11,100,221,.20), var(--shadow-sm); transform: scale(1.05); }
 .nav-links { display: flex; align-items: center; gap: 20px; color: var(--ink-2); font-size: var(--text-sm); font-weight: 600; }
 .nav-links a { transition: color var(--t-base) var(--ease); position: relative; padding-bottom: 2px; }
+
+/* ── Rule 1: Animated Underline — scaleX from center ── */
 .nav-links a::after {
-  content: ""; position: absolute; bottom: -2px; left: 0;
-  width: 0; height: 1.5px; background: var(--blue);
-  transition: width var(--t-slow) var(--ease-out); border-radius: 2px;
+  content: ""; position: absolute; bottom: -4px; left: 0;
+  width: 100%; height: 1.5px; background: var(--blue);
+  transform: scaleX(0); transform-origin: center;
+  transition: transform 0.25s ease; border-radius: 2px;
 }
 .nav-links a:hover        { color: var(--blue); }
-.nav-links a:hover::after { width: 100%; }
+.nav-links a:hover::after { transform: scaleX(1); }
 .nav-links a.active       { color: var(--blue); }
-.nav-links a.active::after { width: 100%; background: var(--blue); }
+.nav-links a.active::after { transform: scaleX(1); background: var(--blue); }
+
 .nav-cta {
   display: inline-flex; align-items: center; justify-content: center;
   padding: var(--sp-8) 18px; border-radius: 999px;
@@ -767,6 +775,23 @@ footer::before {
 .trust-card p  { font-size: var(--text-sm); color: var(--ink-2); line-height: 1.75; }
 
 /* ══════════════════════════════════════════════════════════════
+   17b. INTERACTION SYSTEM — Rule 2: Hard Hover 3D Pop
+   Target: .card-base.card (all standard card instances sitewide)
+   ══════════════════════════════════════════════════════════════ */
+.card-base.card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  will-change: transform;
+}
+.card-base.card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 4px 4px 0 0 var(--blue);
+}
+/* Dark surface variant — swap blue block shadow to pink token */
+.section-dark .card-base.card:hover {
+  box-shadow: 4px 4px 0 0 var(--pink);
+}
+
+/* ══════════════════════════════════════════════════════════════
    18. TEAM GRID
    ══════════════════════════════════════════════════════════════ */
 .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--sp-24); }
@@ -825,4 +850,33 @@ footer::before {
   .trust-stat { flex-direction: row; align-items: baseline; gap: var(--sp-8); }
   .trust-num { font-size: 1.5rem; }
   .footer-gem { font-size: 0.95rem; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   20. INTERACTION SYSTEM — Rule 4: Social Token Pop
+   Target: .social-link wrappers in footer and contact sidebar
+   ══════════════════════════════════════════════════════════════ */
+.social-link {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(8,17,31,.07);
+  color: var(--ink-3);
+  transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+  flex-shrink: 0;
+}
+.social-link svg {
+  width: 17px; height: 17px;
+  fill: currentColor;
+  transition: fill 0.15s ease;
+}
+.social-link:hover {
+  transform: translateY(-3px);
+}
+.social-link--linkedin:hover {
+  background: #0a66c2;
+  color: #ffffff;
+}
+.social-link--github:hover {
+  background: #24292f;
+  color: #ffffff;
 }
