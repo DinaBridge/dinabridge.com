@@ -1,5 +1,5 @@
 /* ============================================================
-   DinaBridge Global Design System — v2.8.4
+   DinaBridge Global Design System — v2.8.5
    Color Placement Map:
    BLUE    = structure + action (buttons, nav, links, labels)
    PINK    = emphasis + depth (glows, badges, step markers, accents)
@@ -20,6 +20,7 @@
            index.html banded: paper → tinted → paper → dark → paper → tinted → paper → tinted → paper
    v2.8.4: WCAG contrast audit fixes.
            --teal darkened #008b87 → #006e6b (section-label/step-number on light: ratio 4.06 → 4.85:1)
+   v2.8.5: Remove divider line immediately below hero section.
    ============================================================ */
 
 /* Card visual hierarchy patch — applied globally */
@@ -384,6 +385,11 @@ img { display: block; max-width: 100%; }
     rgba(11,100,221,.12) 75%,
     transparent 100%);
   margin: 0; opacity: 1;
+}
+
+/* ── Hide the divider that sits immediately after the hero ── */
+.section-hero + .section-divider {
+  display: none;
 }
 
 /* Divider between dark and light — stronger contrast edge */
