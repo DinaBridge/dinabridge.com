@@ -15,17 +15,12 @@
 <script src="/shared.js"></script>
 <style>
 /* ═══════════════════════════════════════════════
-   INDEX.HTML — v3.4.0
-   Design system unification pass:
-   0. btn + nav-cta: border-radius unified to var(--radius) [16px]
-   A. practice-card: flex-column, card-link anchored via margin-top:auto
-   B. practice-icon circles: stronger gradient tint backgrounds
-   C. practices-label: navy Title Case + vibrant gradient accent line
-   D. practice-card hover: translateY(-4px) + wider softer shadow
-   E. hero-actions removed
+   INDEX.HTML — v3.5.0
+   Practice cards: alive, premium, layered
+   All other sections unchanged from v3.4.0
    ═══════════════════════════════════════════════ */
 
-/* ── [0] Unify action button border-radius to match Contact page inputs/Send button ── */
+/* ── [0] Unify action button border-radius ── */
 .btn,
 .nav-cta {
   border-radius: var(--radius) !important;
@@ -44,35 +39,97 @@
 .trust-card:hover .trust-card-icon{color:var(--blue);transition:color var(--t-slow) var(--ease);}
 .trust-card:hover h3{color:#1a7aff;transition:color var(--t-slow) var(--ease);}
 
-/* ── [A+D] Practice cards: flex column + anchored link + premium hover ── */
+/* ══════════════════════════════════════════════
+   PRACTICE CARDS — v3.5.0 enhanced
+   ══════════════════════════════════════════════ */
+
+/* ── Stagger entrance keyframe ── */
+@keyframes practiceCardIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Base card: surface depth + transition ── */
 .practice-card {
   display: flex !important;
   flex-direction: column !important;
+  position: relative;
+  /* ultra-faint top-to-bottom surface depth */
+  background-image: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.055) 0%,
+    rgba(255,255,255,0) 100%
+  ) !important;
   transition:
     background var(--t-slow) var(--ease),
-    border-color var(--t-slow) var(--ease),
-    box-shadow 0.3s ease,
-    transform 0.3s ease !important;
+    border-color 0.28s ease,
+    box-shadow 0.28s ease,
+    transform 0.28s cubic-bezier(0.22, 0.61, 0.36, 1) !important;
+  /* stagger entrance — JS will set --card-delay custom prop */
+  animation: practiceCardIn 0.52s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  animation-delay: var(--card-delay, 0ms);
 }
+
+/* ── Hover: elevation + per-card border tint ── */
 .practice-card:hover {
-  transform: translateY(-4px) !important;
+  transform: translateY(-5px) !important;
   box-shadow:
-    0 8px 32px rgba(11,100,221,.14),
-    0 2px 8px rgba(0,0,0,.06),
-    0 0 0 1px rgba(11,100,221,.12) !important;
-  border-color: rgba(11,100,221,.28) !important;
+    0 12px 36px rgba(0,0,0,.09),
+    0 3px 10px rgba(0,0,0,.06) !important;
 }
 .practice-card:hover h3 {
   color: var(--blue);
   transition: color var(--t-slow) var(--ease);
 }
-/* Anchor "Learn more" to card bottom */
+
+/* Per-card hover border tints */
+.practice-card--obs:hover  { border-color: rgba(11,100,221,.32) !important; box-shadow: 0 12px 36px rgba(11,100,221,.10), 0 3px 10px rgba(0,0,0,.05) !important; }
+.practice-card--search:hover { border-color: rgba(79,70,229,.30) !important; box-shadow: 0 12px 36px rgba(79,70,229,.09), 0 3px 10px rgba(0,0,0,.05) !important; }
+.practice-card--sec:hover   { border-color: rgba(139,50,101,.28) !important; box-shadow: 0 12px 36px rgba(139,50,101,.09), 0 3px 10px rgba(0,0,0,.05) !important; }
+.practice-card--ai:hover    { border-color: rgba(0,180,160,.28) !important;  box-shadow: 0 12px 36px rgba(0,180,160,.09),  0 3px 10px rgba(0,0,0,.05) !important; }
+
+/* ── "Learn more" arrow shift ── */
 .practice-card .card-link {
   margin-top: auto;
   padding-top: var(--sp-16);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: gap 0.22s ease, color 0.22s ease;
+}
+.practice-card:hover .card-link {
+  gap: 9px;
+  color: var(--blue);
 }
 
-/* ── [B] Practice icon circle: vivid gradient focal points ── */
+/* ── Icon: wrapper positions the ambient glow ── */
+.practice-icon-wrap {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  margin-bottom: var(--sp-16);
+  flex-shrink: 0;
+}
+/* The glow layer — hidden at rest, revealed on card hover */
+.practice-icon-wrap::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.40s ease;
+  pointer-events: none;
+  filter: blur(10px);
+}
+.practice-card:hover .practice-icon-wrap::before { opacity: 1; }
+
+/* Per-category glow colors */
+.practice-icon-wrap--obs::before    { background: radial-gradient(circle, rgba(11,100,221,.40) 0%, transparent 70%); }
+.practice-icon-wrap--search::before { background: radial-gradient(circle, rgba(79,70,229,.38) 0%, transparent 70%); }
+.practice-icon-wrap--sec::before    { background: radial-gradient(circle, rgba(139,50,101,.36) 0%, transparent 70%); }
+.practice-icon-wrap--ai::before     { background: radial-gradient(circle, rgba(0,180,160,.36) 0%, transparent 70%); }
+
+/* ── Icon circle: subtle scale on hover ── */
 .practice-icon {
   width: 44px;
   height: 44px;
@@ -80,13 +137,13 @@
   display: grid;
   place-items: center;
   font-size: 1.15rem;
-  margin-bottom: var(--sp-16);
   flex-shrink: 0;
-  transition: transform var(--t-base) var(--ease-out), box-shadow var(--t-slow) var(--ease);
+  position: relative;
+  z-index: 1;
+  transition: transform 0.26s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.28s ease;
 }
 .practice-card:hover .practice-icon {
-  transform: scale(1.10);
-  box-shadow: 0 4px 16px rgba(11,100,221,.22);
+  transform: scale(1.05);
 }
 .practice-icon--obs {
   background: linear-gradient(135deg, rgba(11,100,221,.18) 0%, rgba(0,180,160,.14) 100%);
@@ -94,9 +151,9 @@
   color: var(--blue);
 }
 .practice-icon--search {
-  background: linear-gradient(135deg, rgba(11,100,221,.20) 0%, rgba(139,50,101,.14) 100%);
-  border: 1px solid rgba(11,100,221,.22);
-  color: var(--blue);
+  background: linear-gradient(135deg, rgba(79,70,229,.18) 0%, rgba(11,100,221,.14) 100%);
+  border: 1px solid rgba(79,70,229,.22);
+  color: #4f46e5;
 }
 .practice-icon--sec {
   background: linear-gradient(135deg, rgba(139,50,101,.16) 0%, rgba(11,100,221,.14) 100%);
@@ -109,7 +166,29 @@
   color: var(--teal);
 }
 
-/* ── [C] Practices label: navy Title Case + gradient accent line ── */
+/* ── Paragraph text: slightly softer ── */
+.practice-card p {
+  color: var(--ink-2);
+  opacity: 0.90;
+}
+
+/* ── Practices section background: faint radial warmth ── */
+.practices-section {
+  position: relative;
+}
+.practices-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 55% at 15% 50%, rgba(11,100,221,.028) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 45% at 85% 50%, rgba(0,180,160,.022) 0%, transparent 60%);
+}
+.practices-section > .container { position: relative; z-index: 1; }
+
+/* ── Practices label ── */
 .practices-label-wrap {
   display: inline-flex;
   align-items: center;
@@ -134,7 +213,7 @@
   margin-bottom: 0;
 }
 
-/* ── [1] Engagement section headline gradient ── */
+/* ── Engagement section headline gradient ── */
 .engage-headline-gradient {
   background: linear-gradient(105deg, var(--blue) 0%, var(--magenta) 100%);
   -webkit-background-clip: text;
@@ -456,7 +535,7 @@
   .timeline{grid-template-columns:1fr;}
 }
 
-/* ── How It Works — heading + subtitle glow (vibe only, nothing else changes) ── */
+/* ── How It Works — heading + subtitle glow ── */
 .hiw-heading {
   transition: color 0.35s ease, text-shadow 0.35s ease;
 }
@@ -494,7 +573,7 @@
   <hr class="section-divider" />
 
   <!-- 2. FOUR PRACTICES -->
-  <section class="section">
+  <section class="section practices-section">
     <div class="container">
       <div class="section-intro">
         <div class="practices-label-wrap">
@@ -505,26 +584,34 @@
         <p>Specialized engineering across the full Elastic stack &mdash; production-ready, clearly scoped, senior-led from first conversation to final handoff.</p>
       </div>
       <div class="grid-4">
-        <a href="/elastic-observability.html" class="card-base card practice-card">
-          <div class="practice-icon practice-icon--obs">&#9780;</div>
+        <a href="/elastic-observability.html" class="card-base card practice-card practice-card--obs" style="--card-delay:0ms">
+          <div class="practice-icon-wrap practice-icon-wrap--obs">
+            <div class="practice-icon practice-icon--obs">&#9780;</div>
+          </div>
           <h3>Observability</h3>
           <p>APM instrumentation, distributed tracing, log pipeline architecture, and Kibana dashboards engineered for production-scale Elastic environments.</p>
           <span class="card-link">Learn more &rarr;</span>
         </a>
-        <a href="/elastic-search.html" class="card-base card practice-card">
-          <div class="practice-icon practice-icon--search">&#9740;</div>
+        <a href="/elastic-search.html" class="card-base card practice-card practice-card--search" style="--card-delay:80ms">
+          <div class="practice-icon-wrap practice-icon-wrap--search">
+            <div class="practice-icon practice-icon--search">&#9740;</div>
+          </div>
           <h3>Search</h3>
           <p>Relevance tuning, index architecture, cluster performance engineering, and migration planning for enterprise Elasticsearch deployments.</p>
           <span class="card-link">Learn more &rarr;</span>
         </a>
-        <a href="/elastic-security.html" class="card-base card practice-card">
-          <div class="practice-icon practice-icon--sec">&#9673;</div>
+        <a href="/elastic-security.html" class="card-base card practice-card practice-card--sec" style="--card-delay:160ms">
+          <div class="practice-icon-wrap practice-icon-wrap--sec">
+            <div class="practice-icon practice-icon--sec">&#9673;</div>
+          </div>
           <h3>Security</h3>
           <p>SIEM deployment, custom detection rule engineering, and Elastic Security implementation for compliance and production threat detection.</p>
           <span class="card-link">Learn more &rarr;</span>
         </a>
-        <a href="/elastic-ai.html" class="card-base card practice-card">
-          <div class="practice-icon practice-icon--ai">&#9670;</div>
+        <a href="/elastic-ai.html" class="card-base card practice-card practice-card--ai" style="--card-delay:240ms">
+          <div class="practice-icon-wrap practice-icon-wrap--ai">
+            <div class="practice-icon practice-icon--ai">&#9670;</div>
+          </div>
           <h3>AI Search</h3>
           <p>Semantic search, dense vector indexing, ELSER setup, and RAG pipeline architecture built on Elastic for production AI applications.</p>
           <span class="card-link">Learn more &rarr;</span>
