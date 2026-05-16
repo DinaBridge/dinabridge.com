@@ -15,14 +15,8 @@
 <script src="/shared.js"></script>
 <style>
 /* ═══════════════════════════════════════════════
-   INDEX.HTML — v3.4.0
-   Design system unification pass:
-   0. btn + nav-cta: border-radius unified to var(--radius) [16px]
-   A. practice-card: flex-column, card-link anchored via margin-top:auto
-   B. practice-icon circles: stronger gradient tint backgrounds
-   C. practices-label: navy Title Case + vibrant gradient accent line
-   D. practice-card hover: translateY(-4px) + wider softer shadow
-   E. hero-actions removed
+   INDEX.HTML — v3.5.0
+   Four Practices section moved to elastic-consulting.html
    ═══════════════════════════════════════════════ */
 
 /* ── [0] Unify action button border-radius to match Contact page inputs/Send button ── */
@@ -43,96 +37,6 @@
 }
 .trust-card:hover .trust-card-icon{color:var(--blue);transition:color var(--t-slow) var(--ease);}
 .trust-card:hover h3{color:#1a7aff;transition:color var(--t-slow) var(--ease);}
-
-/* ── [A+D] Practice cards: flex column + anchored link + premium hover ── */
-.practice-card {
-  display: flex !important;
-  flex-direction: column !important;
-  transition:
-    background var(--t-slow) var(--ease),
-    border-color var(--t-slow) var(--ease),
-    box-shadow 0.3s ease,
-    transform 0.3s ease !important;
-}
-.practice-card:hover {
-  transform: translateY(-4px) !important;
-  box-shadow:
-    0 8px 32px rgba(11,100,221,.14),
-    0 2px 8px rgba(0,0,0,.06),
-    0 0 0 1px rgba(11,100,221,.12) !important;
-  border-color: rgba(11,100,221,.28) !important;
-}
-.practice-card:hover h3 {
-  color: var(--blue);
-  transition: color var(--t-slow) var(--ease);
-}
-/* Anchor "Learn more" to card bottom */
-.practice-card .card-link {
-  margin-top: auto;
-  padding-top: var(--sp-16);
-}
-
-/* ── [B] Practice icon circle: vivid gradient focal points ── */
-.practice-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-size: 1.15rem;
-  margin-bottom: var(--sp-16);
-  flex-shrink: 0;
-  transition: transform var(--t-base) var(--ease-out), box-shadow var(--t-slow) var(--ease);
-}
-.practice-card:hover .practice-icon {
-  transform: scale(1.10);
-  box-shadow: 0 4px 16px rgba(11,100,221,.22);
-}
-.practice-icon--obs {
-  background: linear-gradient(135deg, rgba(11,100,221,.18) 0%, rgba(0,180,160,.14) 100%);
-  border: 1px solid rgba(11,100,221,.22);
-  color: var(--blue);
-}
-.practice-icon--search {
-  background: linear-gradient(135deg, rgba(11,100,221,.20) 0%, rgba(139,50,101,.14) 100%);
-  border: 1px solid rgba(11,100,221,.22);
-  color: var(--blue);
-}
-.practice-icon--sec {
-  background: linear-gradient(135deg, rgba(139,50,101,.16) 0%, rgba(11,100,221,.14) 100%);
-  border: 1px solid rgba(139,50,101,.20);
-  color: var(--magenta);
-}
-.practice-icon--ai {
-  background: linear-gradient(135deg, rgba(0,180,160,.16) 0%, rgba(11,100,221,.14) 100%);
-  border: 1px solid rgba(0,180,160,.22);
-  color: var(--teal);
-}
-
-/* ── [C] Practices label: navy Title Case + gradient accent line ── */
-.practices-label-wrap {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--sp-12);
-  margin-bottom: var(--sp-12);
-}
-.practices-label-accent {
-  flex-shrink: 0;
-  width: 3px;
-  height: 20px;
-  border-radius: 2px;
-  background: linear-gradient(180deg, var(--blue) 0%, var(--magenta) 100%);
-  opacity: .75;
-}
-.practices-label {
-  display: inline-block;
-  font-size: var(--text-xs);
-  font-weight: 800;
-  letter-spacing: 0.09em;
-  text-transform: none;
-  color: var(--navy);
-  margin-bottom: 0;
-}
 
 /* ── [1] Engagement section headline gradient ── */
 .engage-headline-gradient {
@@ -493,49 +397,7 @@
 
   <hr class="section-divider" />
 
-  <!-- 2. FOUR PRACTICES -->
-  <section class="section">
-    <div class="container">
-      <div class="section-intro">
-        <div class="practices-label-wrap">
-          <span class="practices-label-accent" aria-hidden="true"></span>
-          <span class="practices-label">What We Deliver</span>
-        </div>
-        <h2>Four practices. All senior. All Elastic.</h2>
-        <p>Specialized engineering across the full Elastic stack &mdash; production-ready, clearly scoped, senior-led from first conversation to final handoff.</p>
-      </div>
-      <div class="grid-4">
-        <a href="/elastic-observability.html" class="card-base card practice-card">
-          <div class="practice-icon practice-icon--obs">&#9780;</div>
-          <h3>Observability</h3>
-          <p>APM instrumentation, distributed tracing, log pipeline architecture, and Kibana dashboards engineered for production-scale Elastic environments.</p>
-          <span class="card-link">Learn more &rarr;</span>
-        </a>
-        <a href="/elastic-search.html" class="card-base card practice-card">
-          <div class="practice-icon practice-icon--search">&#9740;</div>
-          <h3>Search</h3>
-          <p>Relevance tuning, index architecture, cluster performance engineering, and migration planning for enterprise Elasticsearch deployments.</p>
-          <span class="card-link">Learn more &rarr;</span>
-        </a>
-        <a href="/elastic-security.html" class="card-base card practice-card">
-          <div class="practice-icon practice-icon--sec">&#9673;</div>
-          <h3>Security</h3>
-          <p>SIEM deployment, custom detection rule engineering, and Elastic Security implementation for compliance and production threat detection.</p>
-          <span class="card-link">Learn more &rarr;</span>
-        </a>
-        <a href="/elastic-ai.html" class="card-base card practice-card">
-          <div class="practice-icon practice-icon--ai">&#9670;</div>
-          <h3>AI Search</h3>
-          <p>Semantic search, dense vector indexing, ELSER setup, and RAG pipeline architecture built on Elastic for production AI applications.</p>
-          <span class="card-link">Learn more &rarr;</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <hr class="section-divider" />
-
-  <!-- 3. HOW WE ENGAGE — tab switcher -->
+  <!-- 2. HOW WE ENGAGE — tab switcher -->
   <section class="section">
     <div class="container">
       <div class="section-intro">
@@ -602,7 +464,7 @@
 
   <hr class="section-divider" />
 
-  <!-- 4. HOW IT WORKS — horizontal timeline, tinted -->
+  <!-- 3. HOW IT WORKS — horizontal timeline, tinted -->
   <section class="section-tinted">
     <div class="container">
       <div class="section-intro">
@@ -637,7 +499,7 @@
 
   <hr class="section-divider" />
 
-  <!-- 5. WHY DINABRIDGE -->
+  <!-- 4. WHY DINABRIDGE -->
   <section class="section">
     <div class="container">
       <div class="why-box">
@@ -748,7 +610,7 @@
 
   <hr class="section-divider" />
 
-  <!-- 6. SIGNATURE CTA -->
+  <!-- 5. SIGNATURE CTA -->
   <section class="section">
     <div class="container">
       <div class="cta-box">
