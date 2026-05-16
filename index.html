@@ -15,13 +15,20 @@
 <script src="/shared.js"></script>
 <style>
 /* ═══════════════════════════════════════════════
-   INDEX.HTML — v3.2.0
-   Four Practices UX audit upgrades:
+   INDEX.HTML — v3.3.0
+   Design system unification pass:
+   0. btn + nav-cta: border-radius unified to var(--radius) [16px]
    A. practice-card: flex-column, card-link anchored via margin-top:auto
    B. practice-icon circles: stronger gradient tint backgrounds
-   C. section-label in this section: vibrant brand blue
+   C. practices-label: navy Title Case + vibrant gradient accent line
    D. practice-card hover: translateY(-4px) + wider softer shadow
    ═══════════════════════════════════════════════ */
+
+/* ── [0] Unify action button border-radius to match Contact page inputs/Send button ── */
+.btn,
+.nav-cta {
+  border-radius: var(--radius) !important;
+}
 
 /* ── Trust card hover ── */
 .trust-card{
@@ -43,8 +50,8 @@
   transition:
     background var(--t-slow) var(--ease),
     border-color var(--t-slow) var(--ease),
-    box-shadow var(--t-slow) var(--ease),
-    transform var(--t-base) var(--ease-out) !important;
+    box-shadow 0.3s ease,
+    transform 0.3s ease !important;
 }
 .practice-card:hover {
   transform: translateY(-4px) !important;
@@ -101,15 +108,29 @@
   color: var(--teal);
 }
 
-/* ── [C] Section label override for Four Practices only ── */
+/* ── [C] Practices label: navy Title Case + gradient accent line ── */
+.practices-label-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-12);
+  margin-bottom: var(--sp-12);
+}
+.practices-label-accent {
+  flex-shrink: 0;
+  width: 3px;
+  height: 20px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, var(--blue) 0%, var(--magenta) 100%);
+  opacity: .75;
+}
 .practices-label {
   display: inline-block;
   font-size: var(--text-xs);
   font-weight: 800;
   letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: var(--blue);
-  margin-bottom: var(--sp-12);
+  text-transform: none;
+  color: var(--navy);
+  margin-bottom: 0;
 }
 
 /* ── [1] Engagement section headline gradient ── */
@@ -460,8 +481,11 @@
   <section class="section">
     <div class="container">
       <div class="section-intro">
-        <!-- [C] Vibrant blue label replacing flat teal -->
-        <span class="practices-label">What we deliver</span>
+        <!-- [C] Navy Title Case label with gradient accent line -->
+        <div class="practices-label-wrap">
+          <span class="practices-label-accent" aria-hidden="true"></span>
+          <span class="practices-label">What We Deliver</span>
+        </div>
         <h2>Four practices. All senior. All Elastic.</h2>
         <p>Specialized engineering across the full Elastic stack &mdash; production-ready, clearly scoped, senior-led from first conversation to final handoff.</p>
       </div>
