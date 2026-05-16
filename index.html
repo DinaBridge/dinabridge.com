@@ -15,13 +15,14 @@
 <script src="/shared.js"></script>
 <style>
 /* ═══════════════════════════════════════════════
-   INDEX.HTML — v3.3.0
+   INDEX.HTML — v3.4.0
    Design system unification pass:
    0. btn + nav-cta: border-radius unified to var(--radius) [16px]
    A. practice-card: flex-column, card-link anchored via margin-top:auto
    B. practice-icon circles: stronger gradient tint backgrounds
    C. practices-label: navy Title Case + vibrant gradient accent line
    D. practice-card hover: translateY(-4px) + wider softer shadow
+   E. hero-actions removed
    ═══════════════════════════════════════════════ */
 
 /* ── [0] Unify action button border-radius to match Contact page inputs/Send button ── */
@@ -468,10 +469,6 @@
     <div class="container">
       <h1>We make Elasticsearch work.<br>End to end.</h1>
       <p class="hero-lead">Senior engineers only. Real production environments. No layers between you and the person doing the work.</p>
-      <div class="hero-actions">
-        <a href="/contact.html" class="btn btn-primary">Start a conversation</a>
-        <a href="/solutions.html" class="btn btn-secondary">View our solutions</a>
-      </div>
     </div>
   </section>
 
@@ -481,7 +478,6 @@
   <section class="section">
     <div class="container">
       <div class="section-intro">
-        <!-- [C] Navy Title Case label with gradient accent line -->
         <div class="practices-label-wrap">
           <span class="practices-label-accent" aria-hidden="true"></span>
           <span class="practices-label">What We Deliver</span>
@@ -489,14 +485,11 @@
         <h2>Four practices. All senior. All Elastic.</h2>
         <p>Specialized engineering across the full Elastic stack &mdash; production-ready, clearly scoped, senior-led from first conversation to final handoff.</p>
       </div>
-      <!-- [A] grid-4 cards are now flex-column via .practice-card -->
       <div class="grid-4">
         <a href="/elastic-observability.html" class="card-base card practice-card">
-          <!-- [B] Vivid gradient icon circle -->
           <div class="practice-icon practice-icon--obs">&#9780;</div>
           <h3>Observability</h3>
           <p>APM instrumentation, distributed tracing, log pipeline architecture, and Kibana dashboards engineered for production-scale Elastic environments.</p>
-          <!-- [A] card-link anchored to bottom -->
           <span class="card-link">Learn more &rarr;</span>
         </a>
         <a href="/elastic-search.html" class="card-base card practice-card">
