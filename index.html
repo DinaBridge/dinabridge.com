@@ -15,9 +15,8 @@
 <script src="/shared.js"></script>
 <style>
 /* ═══════════════════════════════════════════════
-   INDEX.HTML — v3.5.0
-   Practice cards: alive, premium, layered
-   All other sections unchanged from v3.4.0
+   INDEX.HTML — v3.6.0
+   Why DinaBridge section removed — placeholder below
    ═══════════════════════════════════════════════ */
 
 /* ── [0] Unify action button border-radius ── */
@@ -43,18 +42,15 @@
    PRACTICE CARDS — v3.5.0 enhanced
    ══════════════════════════════════════════════ */
 
-/* ── Stagger entrance keyframe ── */
 @keyframes practiceCardIn {
   from { opacity: 0; transform: translateY(14px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Base card: surface depth + transition ── */
 .practice-card {
   display: flex !important;
   flex-direction: column !important;
   position: relative;
-  /* ultra-faint top-to-bottom surface depth */
   background-image: linear-gradient(
     180deg,
     rgba(255,255,255,0.055) 0%,
@@ -65,12 +61,10 @@
     border-color 0.28s ease,
     box-shadow 0.28s ease,
     transform 0.28s cubic-bezier(0.22, 0.61, 0.36, 1) !important;
-  /* stagger entrance — JS will set --card-delay custom prop */
   animation: practiceCardIn 0.52s cubic-bezier(0.22, 0.61, 0.36, 1) both;
   animation-delay: var(--card-delay, 0ms);
 }
 
-/* ── Hover: elevation + per-card border tint ── */
 .practice-card:hover {
   transform: translateY(-5px) !important;
   box-shadow:
@@ -82,13 +76,11 @@
   transition: color var(--t-slow) var(--ease);
 }
 
-/* Per-card hover border tints */
 .practice-card--obs:hover  { border-color: rgba(11,100,221,.32) !important; box-shadow: 0 12px 36px rgba(11,100,221,.10), 0 3px 10px rgba(0,0,0,.05) !important; }
 .practice-card--search:hover { border-color: rgba(79,70,229,.30) !important; box-shadow: 0 12px 36px rgba(79,70,229,.09), 0 3px 10px rgba(0,0,0,.05) !important; }
 .practice-card--sec:hover   { border-color: rgba(139,50,101,.28) !important; box-shadow: 0 12px 36px rgba(139,50,101,.09), 0 3px 10px rgba(0,0,0,.05) !important; }
 .practice-card--ai:hover    { border-color: rgba(0,180,160,.28) !important;  box-shadow: 0 12px 36px rgba(0,180,160,.09),  0 3px 10px rgba(0,0,0,.05) !important; }
 
-/* ── "Learn more" arrow shift ── */
 .practice-card .card-link {
   margin-top: auto;
   padding-top: var(--sp-16);
@@ -102,7 +94,6 @@
   color: var(--blue);
 }
 
-/* ── Icon: wrapper positions the ambient glow ── */
 .practice-icon-wrap {
   position: relative;
   width: 44px;
@@ -110,7 +101,6 @@
   margin-bottom: var(--sp-16);
   flex-shrink: 0;
 }
-/* The glow layer — hidden at rest, revealed on card hover */
 .practice-icon-wrap::before {
   content: "";
   position: absolute;
@@ -123,13 +113,11 @@
 }
 .practice-card:hover .practice-icon-wrap::before { opacity: 1; }
 
-/* Per-category glow colors */
 .practice-icon-wrap--obs::before    { background: radial-gradient(circle, rgba(11,100,221,.40) 0%, transparent 70%); }
 .practice-icon-wrap--search::before { background: radial-gradient(circle, rgba(79,70,229,.38) 0%, transparent 70%); }
 .practice-icon-wrap--sec::before    { background: radial-gradient(circle, rgba(139,50,101,.36) 0%, transparent 70%); }
 .practice-icon-wrap--ai::before     { background: radial-gradient(circle, rgba(0,180,160,.36) 0%, transparent 70%); }
 
-/* ── Icon circle: subtle scale on hover ── */
 .practice-icon {
   width: 44px;
   height: 44px;
@@ -166,13 +154,11 @@
   color: var(--teal);
 }
 
-/* ── Paragraph text: slightly softer ── */
 .practice-card p {
   color: var(--ink-2);
   opacity: 0.90;
 }
 
-/* ── Practices section background: faint radial warmth ── */
 .practices-section {
   position: relative;
 }
@@ -188,7 +174,6 @@
 }
 .practices-section > .container { position: relative; z-index: 1; }
 
-/* ── Practices label ── */
 .practices-label-wrap {
   display: inline-flex;
   align-items: center;
@@ -213,147 +198,12 @@
   margin-bottom: 0;
 }
 
-/* ── Engagement section headline gradient ── */
 .engage-headline-gradient {
   background: linear-gradient(105deg, var(--blue) 0%, var(--magenta) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-
-/* ── Why box ── */
-.why-box{
-  background:rgba(255,255,255,.72);
-  border:1px solid var(--rule-strong);
-  border-radius:var(--radius-xl);
-  padding:var(--sp-48) var(--sp-56);
-  position:relative;overflow:hidden;
-  box-shadow:var(--card-shadow-rest);
-}
-.why-box::before{
-  content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
-  background:var(--pg-radial-corner);opacity:1;
-  transition:var(--pg-transition);
-}
-.why-box:hover::before{background:var(--pg-radial-corner-hover);}
-.why-box::after{
-  content:"";
-  position:absolute;inset:0;pointer-events:none;z-index:0;
-  opacity:0.045;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='320' viewBox='0 0 520 320'%3E%3Cg stroke='%230b64dd' stroke-width='1' fill='none'%3E%3Ccircle cx='60' cy='60' r='3.5' fill='%230b64dd'/%3E%3Ccircle cx='180' cy='40' r='3' fill='%230b64dd'/%3E%3Ccircle cx='320' cy='80' r='3.5' fill='%230b64dd'/%3E%3Ccircle cx='460' cy='50' r='3' fill='%230b64dd'/%3E%3Ccircle cx='100' cy='160' r='3' fill='%230b64dd'/%3E%3Ccircle cx='240' cy='140' r='4' fill='%230b64dd'/%3E%3Ccircle cx='390' cy='170' r='3' fill='%230b64dd'/%3E%3Ccircle cx='500' cy='140' r='2.5' fill='%230b64dd'/%3E%3Ccircle cx='40' cy='260' r='3' fill='%230b64dd'/%3E%3Ccircle cx='160' cy='280' r='3.5' fill='%230b64dd'/%3E%3Ccircle cx='300' cy='260' r='3' fill='%230b64dd'/%3E%3Ccircle cx='440' cy='290' r='3' fill='%230b64dd'/%3E%3Cline x1='60' y1='60' x2='180' y2='40'/%3E%3Cline x1='180' y1='40' x2='320' y2='80'/%3E%3Cline x1='320' y1='80' x2='460' y2='50'/%3E%3Cline x1='60' y1='60' x2='100' y2='160'/%3E%3Cline x1='180' y1='40' x2='240' y2='140'/%3E%3Cline x1='320' y1='80' x2='390' y2='170'/%3E%3Cline x1='460' y1='50' x2='500' y2='140'/%3E%3Cline x1='100' y1='160' x2='240' y2='140'/%3E%3Cline x1='240' y1='140' x2='390' y2='170'/%3E%3Cline x1='390' y1='170' x2='500' y2='140'/%3E%3Cline x1='100' y1='160' x2='40' y2='260'/%3E%3Cline x1='240' y1='140' x2='160' y2='280'/%3E%3Cline x1='390' y1='170' x2='300' y2='260'/%3E%3Cline x1='500' y1='140' x2='440' y2='290'/%3E%3Cline x1='40' y1='260' x2='160' y2='280'/%3E%3Cline x1='160' y1='280' x2='300' y2='260'/%3E%3Cline x1='300' y1='260' x2='440' y2='290'/%3E%3C/g%3E%3C/svg%3E");
-  background-repeat:no-repeat;
-  background-position:right bottom;
-  background-size:520px 320px;
-}
-.why-box > *{position:relative;z-index:1;}
-.why-box-intro{margin-bottom:var(--sp-32);}
-.why-box-intro h2{
-  font-family:var(--serif);
-  font-size:clamp(1.8rem,3vw,2.6rem);
-  letter-spacing:-.03em;color:var(--navy);margin-bottom:var(--sp-12);font-weight:800;
-}
-.why-headline-depth{
-  background:linear-gradient(105deg,var(--navy) 0%,var(--blue) 55%,var(--teal) 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-}
-.why-box-intro p{font-size:var(--text-lg);color:var(--ink-2);line-height:1.75;}
-
-/* ── Why hero card ── */
-.why-hero-card{
-  background:var(--navy);border:1px solid rgba(11,100,221,.28);
-  border-radius:var(--radius-lg);padding:var(--sp-32);
-  display:flex;flex-direction:column;gap:var(--sp-24);
-  position:relative;overflow:hidden;
-  box-shadow:0 2px 8px rgba(0,0,0,.12),0 16px 40px rgba(8,17,31,.18);
-}
-.why-hero-card::before{
-  content:"";position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(ellipse 70% 55% at 0% 0%,rgba(11,100,221,.18),transparent 60%);
-}
-.why-hero-card-title{
-  font-family:var(--serif);font-size:clamp(1.15rem,1.7vw,1.45rem);
-  line-height:1.22;letter-spacing:-.025em;color:#ffffff;font-weight:700;
-  position:relative;z-index:1;
-}
-.why-hero-card > p{
-  font-size:var(--text-sm);color:#e2e8f0;
-  line-height:1.80;margin:0;position:relative;z-index:1;
-}
-.why-hero-card > p strong{color:#ffffff;font-weight:700;}
-.why-hero-card-cta{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:8px 18px;border-radius:999px;
-  font-size:var(--text-sm);font-weight:700;
-  color:rgba(255,255,255,.92);
-  background:rgba(11,100,221,.22);
-  border:1px solid rgba(11,100,221,.45);
-  position:relative;z-index:1;
-  width:fit-content;
-  transition:background var(--t-slow) var(--ease),border-color var(--t-slow) var(--ease),
-    box-shadow var(--t-slow) var(--ease),transform var(--t-base) var(--ease-out);
-}
-.why-hero-card-cta:hover{
-  background:rgba(11,100,221,.38);border-color:rgba(11,100,221,.70);
-  box-shadow:0 0 0 3px rgba(11,100,221,.18),0 4px 16px rgba(11,100,221,.22);
-  transform:translateY(-1px);
-}
-.why-hero-card-cta .cta-arrow{display:inline-block;transition:transform var(--t-base) var(--ease-out);}
-.why-hero-card-cta:hover .cta-arrow{transform:translateX(4px);}
-
-/* ── Pipeline ── */
-.pipeline{display:flex;flex-direction:column;gap:var(--sp-12);position:relative;z-index:1;}
-.pipeline-row{display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:0.78rem;font-weight:600;line-height:1.3;}
-.pipeline-label{font-size:0.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.09em;margin-bottom:var(--sp-4);display:block;}
-.pipeline-row--old .pipeline-label{color:rgba(255,255,255,.55);}
-.pipeline-node--old{padding:3px 9px;border-radius:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.70);text-decoration:line-through;text-decoration-color:rgba(255,255,255,.40);white-space:nowrap;}
-.pipeline-arrow--old{color:rgba(255,255,255,.45);font-size:0.7rem;}
-.pipeline-row--new .pipeline-label{color:rgba(100,190,255,.90);}
-.pipeline-node--you{padding:3px 9px;border-radius:6px;background:rgba(11,100,221,.22);border:1px solid rgba(11,100,221,.45);color:rgba(180,220,255,1);font-weight:700;white-space:nowrap;}
-.pipeline-node--eng{padding:3px 9px;border-radius:6px;background:rgba(11,100,221,.30);border:1px solid rgba(11,100,221,.55);color:#ffffff;font-weight:700;white-space:nowrap;}
-.pipeline-node--done{padding:3px 9px;border-radius:6px;background:rgba(0,160,100,.22);border:1px solid rgba(0,190,120,.40);color:rgba(120,240,180,1);font-weight:700;white-space:nowrap;}
-.pipeline-arrow--new{color:rgba(100,180,255,.70);font-size:0.7rem;}
-.pipeline-check{color:rgba(100,230,160,1);font-size:0.85rem;margin-left:2px;}
-.pipeline-divider{height:1px;background:rgba(255,255,255,.12);margin:var(--sp-4) 0;}
-
-/* ── Speed table ── */
-.speed-table{width:100%;border-collapse:collapse;position:relative;z-index:1;font-size:0.8rem;}
-.speed-table thead tr{border-bottom:1px solid rgba(255,255,255,.14);}
-.speed-table th{padding:var(--sp-8) var(--sp-12);font-size:0.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.09em;text-align:left;}
-.speed-table th:first-child{color:rgba(255,255,255,.50);}
-.speed-table th:nth-child(2){color:#94a3b8;}
-.speed-table th:last-child{color:rgba(100,190,255,.90);}
-.speed-table td{padding:var(--sp-8) var(--sp-12);border-bottom:1px solid rgba(255,255,255,.06);vertical-align:middle;line-height:1.4;}
-.speed-table tr:last-child td{border-bottom:none;}
-.speed-row-label{color:rgba(255,255,255,.50);font-weight:700;font-size:0.72rem;text-transform:uppercase;letter-spacing:.06em;padding-left:0 !important;width:22%;}
-.speed-table td:not(.speed-row-label):not(.speed-val-new){color:#e2e8f0;text-decoration:line-through;text-decoration-color:rgba(226,232,240,.45);font-weight:500;}
-.speed-val-new{color:rgba(120,240,180,1);font-weight:700;}
-
-/* ── 2×2 bento grid ── */
-.bento-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:var(--sp-16);height:100%;}
-.bento-cell{
-  background:rgba(255,255,255,.60);
-  border:1px solid var(--rule-strong);
-  border-radius:var(--radius);
-  padding:var(--sp-24);
-  display:flex;flex-direction:column;gap:var(--sp-8);
-  position:relative;overflow:hidden;
-  transition:box-shadow var(--t-slow) var(--ease),transform var(--t-base) var(--ease-out),border-color var(--t-slow) var(--ease);
-}
-.bento-cell:hover{box-shadow:var(--card-shadow-hover);transform:translateY(-2px);border-color:rgba(11,100,221,.30);}
-.bento-cell-icon{font-size:1.1rem;margin-bottom:var(--sp-4);color:var(--teal);}
-.bento-cell h4{font-family:var(--sans);font-size:0.85rem;font-weight:800;letter-spacing:-.01em;color:var(--navy);text-transform:none;margin:0;}
-.bento-cell p{font-size:0.8rem;color:var(--ink-2);line-height:1.65;margin:0;}
-.bento-cell p strong{color:var(--navy);font-weight:700;}
-.bento-cell-tag{
-  display:inline-flex;align-items:center;gap:4px;
-  margin-top:auto;padding-top:var(--sp-8);
-  font-size:0.68rem;font-weight:800;
-  text-transform:uppercase;letter-spacing:.08em;
-  color:var(--teal);
-  border-top:1px solid var(--rule);
-  width:100%;
-}
-.bento-cell-tag svg{flex-shrink:0;}
 
 /* ══ ENGAGEMENT TAB SWITCHER ══ */
 .engage-tabs{
@@ -535,7 +385,6 @@
   .timeline{grid-template-columns:1fr;}
 }
 
-/* ── How It Works — heading + subtitle glow ── */
 .hiw-heading {
   transition: color 0.35s ease, text-shadow 0.35s ease;
 }
@@ -724,114 +573,8 @@
 
   <hr class="section-divider" />
 
-  <!-- 5. WHY DINABRIDGE -->
-  <section class="section">
-    <div class="container">
-      <div class="why-box">
-        <div class="why-box-intro">
-          <span class="section-label">Why DinaBridge</span>
-          <h2><span class="why-headline-depth">Depth</span> is the only thing that moves production clusters.</h2>
-          <p>Not a generalist agency. Every engagement is senior-led, directly communicated, and measured by outcomes &mdash; across the full technical surface of the Elastic stack.</p>
-        </div>
-        <div class="grid-2">
-          <div class="why-hero-card">
-            <p class="why-hero-card-title">The engineer you speak to is the engineer doing the work.</p>
-            <p><strong>No account managers.</strong> No hand-off. No junior layer underneath. You work directly with the senior engineer from day one &mdash; the same person who scopes it, builds it, and hands it off.</p>
-            <div class="pipeline">
-              <div class="pipeline-row pipeline-row--old">
-                <span class="pipeline-label">Typical agency</span>
-                <span class="pipeline-node--old">You</span>
-                <span class="pipeline-arrow--old">&rarr;</span>
-                <span class="pipeline-node--old">Account Mgr</span>
-                <span class="pipeline-arrow--old">&rarr;</span>
-                <span class="pipeline-node--old">Project Mgr</span>
-                <span class="pipeline-arrow--old">&rarr;</span>
-                <span class="pipeline-node--old">Junior Dev</span>
-              </div>
-              <div class="pipeline-divider"></div>
-              <div class="pipeline-row pipeline-row--new">
-                <span class="pipeline-label">DinaBridge</span>
-                <span class="pipeline-node--you">You</span>
-                <span class="pipeline-arrow--new">&rarr;</span>
-                <span class="pipeline-node--eng">Senior Elasticsearch Engineer</span>
-                <span class="pipeline-arrow--new">&rarr;</span>
-                <span class="pipeline-node--done">Production Deploy</span>
-                <span class="pipeline-check">&#10003;</span>
-              </div>
-            </div>
-            <table class="speed-table">
-              <thead>
-                <tr><th></th><th>Traditional Agency</th><th>DinaBridge</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="speed-row-label">Discovery</td>
-                  <td>3 Weeks of Discovery Theatre</td>
-                  <td class="speed-val-new">Advisory in Days</td>
-                </tr>
-                <tr>
-                  <td class="speed-row-label">Deploy</td>
-                  <td>Months to Deploy</td>
-                  <td class="speed-val-new">Delivery in Weeks</td>
-                </tr>
-              </tbody>
-            </table>
-            <a href="/elastic-consulting.html" class="why-hero-card-cta">
-              How we engage
-              <span class="cta-arrow">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <path d="M2.5 7h9M8 3.5 11.5 7 8 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </span>
-            </a>
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto;gap:var(--sp-16);">
-            <div class="bento-cell">
-              <div class="bento-cell-icon">&#9670;</div>
-              <h4>We Only Work in Production</h4>
-              <p>Staging environments hide the real problems. <strong>Every engagement runs against your live cluster</strong> &mdash; actual load, actual data, actual failure modes. That is the only place the work matters.</p>
-            </div>
-            <div class="bento-cell">
-              <div class="bento-cell-icon">&#9670;</div>
-              <h4>Scope Before a Single Hour Ships</h4>
-              <p>Open-ended retainers are how budgets disappear without outcomes. <strong>Every engagement has a named deliverable, a fixed timeline,</strong> and a definition of done agreed before work begins.</p>
-            </div>
-            <div class="bento-cell">
-              <div class="bento-cell-icon">&#9670;</div>
-              <h4>Fast Because We Skip the Theatre</h4>
-              <p>No intake forms. No three-week proposals. No committee reviews. <strong>A senior engineer reads your situation and responds within one business day</strong> &mdash; with a real technical assessment, not a sales deck.</p>
-            </div>
-            <div class="bento-cell">
-              <div class="bento-cell-icon">&#9670;</div>
-              <h4>Elastic Is the Whole Practice</h4>
-              <p>We do not pick up Elastic work between React projects. <strong>The entire firm runs on the Elastic stack</strong> &mdash; clusters, pipelines, detection, search, AI. That focus is what produces depth, and depth is what moves production.</p>
-            </div>
-            <div class="bento-cell" style="grid-column:1/-1;">
-              <div class="bento-cell-icon">
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <rect x="1" y="2" width="16" height="14" rx="2.5" stroke="currentColor" stroke-width="1.4"/>
-                  <path d="M1 6h16" stroke="currentColor" stroke-width="1.4"/>
-                  <circle cx="4" cy="4" r="0.9" fill="currentColor"/>
-                  <circle cx="6.8" cy="4" r="0.9" fill="currentColor"/>
-                  <circle cx="9.6" cy="4" r="0.9" fill="currentColor"/>
-                  <path d="M5 10l2 2-2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M10 14h3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <h4>You Leave with the Knowledge, Not Just the Output</h4>
-              <p>Every engagement closes with documentation your team can operate from &mdash; architecture decisions, configuration rationale, runbooks, and handoff notes written for the engineers inheriting the work. <strong>We build capability into your team, not dependency on ours.</strong></p>
-              <span class="bento-cell-tag">
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-                </svg>
-                Your stack stays yours
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- 5. WHY DINABRIDGE — PLACEHOLDER -->
+  <!-- paste your replacement code here -->
 
   <hr class="section-divider" />
 
