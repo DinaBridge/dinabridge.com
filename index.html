@@ -15,7 +15,12 @@
 <script src="/shared.js"></script>
 <style>
 /* ═══════════════════════════════════════════════
-   INDEX.HTML — v3.0.1
+   INDEX.HTML — v3.1.0
+   Engagement section vibe upgrades:
+   1. Gradient headline span on "Both scoped."
+   2. Premium active/hover tab states
+   3. Vibrant gradient diamond icons in engage-meta
+   4. Dark navy "Best For" right-hand card (Option B)
    ═══════════════════════════════════════════════ */
 
 /* ── Trust card hover ── */
@@ -30,6 +35,14 @@
 }
 .trust-card:hover .trust-card-icon{color:var(--blue);transition:color var(--t-slow) var(--ease);}
 .trust-card:hover h3{color:#1a7aff;transition:color var(--t-slow) var(--ease);}
+
+/* ── [1] Engagement section headline gradient ── */
+.engage-headline-gradient {
+  background: linear-gradient(105deg, var(--blue) 0%, var(--magenta) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
 /* ── Why box ── */
 .why-box{
@@ -176,6 +189,7 @@
   margin-bottom:var(--sp-32);
   box-shadow:var(--shadow-sm);
 }
+/* [2] Premium tab states */
 .engage-tab{
   padding:var(--sp-8) var(--sp-24);
   border-radius:var(--radius);
@@ -184,15 +198,22 @@
   background:transparent;
   border:1px solid transparent;
   cursor:pointer;
-  transition:background var(--t-base) var(--ease),color var(--t-base) var(--ease),
-    border-color var(--t-base) var(--ease),box-shadow var(--t-base) var(--ease);
+  transition:background var(--t-slow) var(--ease),color var(--t-slow) var(--ease),
+    border-color var(--t-slow) var(--ease),box-shadow var(--t-slow) var(--ease),
+    transform var(--t-base) var(--ease-out);
 }
-.engage-tab:hover{color:var(--blue);background:rgba(11,100,221,.06);}
+.engage-tab:hover{
+  color:var(--blue);
+  background:rgba(11,100,221,.08);
+  border-color:rgba(11,100,221,.18);
+  transform:translateY(-1px);
+}
 .engage-tab.is-active{
-  background:#ffffff;
-  color:var(--navy);
-  border-color:var(--rule-strong);
-  box-shadow:var(--shadow-sm);
+  background: linear-gradient(135deg, rgba(11,100,221,.10) 0%, rgba(139,50,101,.08) 100%);
+  color:var(--blue);
+  border-color:rgba(11,100,221,.30);
+  box-shadow: 0 0 0 1px rgba(11,100,221,.12), var(--shadow-sm),
+              0 0 16px rgba(11,100,221,.10);
 }
 .engage-panel{display:none;}
 .engage-panel.is-active{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-24);}
@@ -209,6 +230,8 @@
   color:var(--navy);letter-spacing:-.02em;margin-bottom:var(--sp-12);
 }
 .engage-detail > p{font-size:var(--text-base);color:var(--ink-2);line-height:1.78;margin-bottom:var(--sp-20);}
+
+/* [3] Vibrant gradient icon bubbles */
 .engage-meta{
   display:flex;flex-direction:column;gap:var(--sp-12);
   padding:var(--sp-20);border-radius:var(--radius);
@@ -217,12 +240,59 @@
 .engage-meta-row{display:flex;align-items:flex-start;gap:var(--sp-12);}
 .engage-meta-icon{
   width:28px;height:28px;flex-shrink:0;
-  border-radius:50%;background:rgba(11,100,221,.10);
+  border-radius:50%;
+  background: linear-gradient(135deg, var(--blue) 0%, var(--magenta) 100%);
   display:grid;place-items:center;
-  font-size:0.7rem;color:var(--blue);
+  font-size:0.62rem;
+  color:#ffffff;
+  font-weight:900;
+  box-shadow: 0 2px 8px rgba(11,100,221,.25);
 }
 .engage-meta-text{font-size:var(--text-sm);color:var(--ink-2);line-height:1.6;}
 .engage-meta-text strong{color:var(--navy);font-weight:700;}
+
+/* [4] Dark navy Best For card */
+.engage-detail--dark {
+  background: var(--navy) !important;
+  border-color: rgba(11,100,221,.30) !important;
+  position: relative;
+  overflow: hidden;
+}
+.engage-detail--dark::before {
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 65% 50% at 100% 0%, rgba(139,50,101,.22), transparent 60%),
+    radial-gradient(ellipse 55% 60% at 0% 100%, rgba(11,100,221,.15), transparent 55%);
+}
+.engage-detail--dark > * { position: relative; z-index: 1; }
+.engage-detail--dark h3 {
+  color: rgba(255,255,255,.55) !important;
+  font-size: 0.75rem !important;
+  font-family: var(--sans) !important;
+  font-weight: 800 !important;
+  letter-spacing: .09em !important;
+  text-transform: uppercase !important;
+}
+.engage-detail--dark p {
+  color: #cbd5e1 !important;
+  margin-bottom: var(--sp-16);
+}
+.engage-detail--dark ul.clean-list li {
+  color: #e2e8f0;
+}
+.engage-detail--dark ul.clean-list li::before {
+  color: var(--blue) !important;
+  opacity: 1;
+}
+.engage-detail--dark .btn-primary {
+  box-shadow: 0 0 0 1px rgba(11,100,221,.50), 0 4px 20px rgba(11,100,221,.35) !important;
+}
+.engage-detail--dark .btn-primary:hover {
+  box-shadow: 0 0 0 1px rgba(11,100,221,.70), 0 6px 28px rgba(11,100,221,.50) !important;
+}
+
 @media(max-width:768px){
   .engage-panel.is-active{grid-template-columns:1fr;}
   .engage-tabs{width:100%;}
@@ -364,14 +434,20 @@
     <div class="container">
       <div class="section-intro">
         <span class="section-label">How we engage</span>
-        <h2>Two engagement types. Both scoped.</h2>
+        <!-- [1] Gradient applied to "Both scoped." -->
+        <h2>Two engagement types. <span class="engage-headline-gradient">Both scoped.</span></h2>
         <p>Every project starts with a defined scope, a named senior engineer, and a measurable delivery milestone. We do not start work until the outcome is agreed.</p>
       </div>
+
+      <!-- [2] Premium tab toggle -->
       <div class="engage-tabs" role="tablist" aria-label="Engagement types">
         <button class="engage-tab is-active" role="tab" aria-selected="true"  aria-controls="panel-advisory" id="tab-advisory">Advisory</button>
         <button class="engage-tab"            role="tab" aria-selected="false" aria-controls="panel-delivery"  id="tab-delivery">Delivery</button>
       </div>
+
+      <!-- Advisory panel -->
       <div class="engage-panel is-active" id="panel-advisory" role="tabpanel" aria-labelledby="tab-advisory">
+        <!-- Left: feature list with [3] vibrant icons -->
         <div class="engage-detail">
           <h3>Short-term diagnostic review</h3>
           <p>A focused review of your Elasticsearch environment. We identify what is underperforming, why it is happening, and what it takes to fix it &mdash; delivered in days, not weeks.</p>
@@ -382,9 +458,10 @@
             <div class="engage-meta-row"><div class="engage-meta-icon">&#9670;</div><p class="engage-meta-text"><strong>Fixed scope, fixed timeline,</strong> senior engineer from day one.</p></div>
           </div>
         </div>
-        <div class="engage-detail" style="background:rgba(11,100,221,.035);border-color:rgba(11,100,221,.14);">
-          <h3 style="color:var(--ink-3);font-size:0.95rem;font-family:var(--sans);font-weight:700;letter-spacing:.01em;">Best for</h3>
-          <p style="margin-bottom:var(--sp-16);">Teams that need clarity before committing to a build. If you are unsure whether your cluster is the problem &mdash; or what the problem actually is &mdash; start here.</p>
+        <!-- Right: [4] dark navy Best For card -->
+        <div class="engage-detail engage-detail--dark">
+          <h3>Best for</h3>
+          <p>Teams that need clarity before committing to a build. If you are unsure whether your cluster is the problem &mdash; or what the problem actually is &mdash; start here.</p>
           <ul class="clean-list">
             <li>Underperforming or unstable production clusters</li>
             <li>Pre-migration architecture validation</li>
@@ -396,6 +473,8 @@
           </div>
         </div>
       </div>
+
+      <!-- Delivery panel -->
       <div class="engage-panel" id="panel-delivery" role="tabpanel" aria-labelledby="tab-delivery">
         <div class="engage-detail">
           <h3>Hands-on engineering engagement</h3>
@@ -407,9 +486,9 @@
             <div class="engage-meta-row"><div class="engage-meta-icon">&#9670;</div><p class="engage-meta-text"><strong>Full documentation</strong> and team handoff at project close.</p></div>
           </div>
         </div>
-        <div class="engage-detail" style="background:rgba(11,100,221,.035);border-color:rgba(11,100,221,.14);">
-          <h3 style="color:var(--ink-3);font-size:0.95rem;font-family:var(--sans);font-weight:700;letter-spacing:.01em;">Best for</h3>
-          <p style="margin-bottom:var(--sp-16);">Teams that know what they need built. Whether you are standing up a new Elastic environment or extending an existing one, Delivery puts senior hands directly in your stack.</p>
+        <div class="engage-detail engage-detail--dark">
+          <h3>Best for</h3>
+          <p>Teams that know what they need built. Whether you are standing up a new Elastic environment or extending an existing one, Delivery puts senior hands directly in your stack.</p>
           <ul class="clean-list">
             <li>Greenfield Elastic stack implementations</li>
             <li>Observability, SIEM, or AI search deployments</li>
@@ -421,6 +500,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
