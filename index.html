@@ -15,7 +15,7 @@
 <script src="/shared.js"></script>
 <style>
 /* ═══════════════════════════════════════════════
-   INDEX.HTML — v3.0.0
+   INDEX.HTML — v3.0.1
    ═══════════════════════════════════════════════ */
 
 /* ── Trust card hover ── */
@@ -236,11 +236,10 @@
   gap:0;
   position:relative;
 }
-/* connecting line behind steps */
 .timeline::before{
   content:"";
   position:absolute;
-  top:22px; /* centre of the step-dot */
+  top:22px;
   left:calc(12.5% + 12px);
   right:calc(12.5% + 12px);
   height:1px;
@@ -316,12 +315,6 @@
         <a href="/contact.html" class="btn btn-primary">Start a conversation</a>
         <a href="/solutions.html" class="btn btn-secondary">View our solutions</a>
       </div>
-      <div class="hero-proof">
-        <span>Elastic Specialists</span>
-        <span>Production-focused</span>
-        <span>Scoped delivery</span>
-        <span>Zero vendor lock-in</span>
-      </div>
     </div>
   </section>
 
@@ -374,14 +367,10 @@
         <h2>Two engagement types. Both scoped.</h2>
         <p>Every project starts with a defined scope, a named senior engineer, and a measurable delivery milestone. We do not start work until the outcome is agreed.</p>
       </div>
-
-      <!-- Tab controls -->
       <div class="engage-tabs" role="tablist" aria-label="Engagement types">
         <button class="engage-tab is-active" role="tab" aria-selected="true"  aria-controls="panel-advisory" id="tab-advisory">Advisory</button>
         <button class="engage-tab"            role="tab" aria-selected="false" aria-controls="panel-delivery"  id="tab-delivery">Delivery</button>
       </div>
-
-      <!-- Advisory panel -->
       <div class="engage-panel is-active" id="panel-advisory" role="tabpanel" aria-labelledby="tab-advisory">
         <div class="engage-detail">
           <h3>Short-term diagnostic review</h3>
@@ -407,8 +396,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Delivery panel -->
       <div class="engage-panel" id="panel-delivery" role="tabpanel" aria-labelledby="tab-delivery">
         <div class="engage-detail">
           <h3>Hands-on engineering engagement</h3>
@@ -434,7 +421,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -475,24 +461,19 @@
 
   <hr class="section-divider" />
 
-  <!-- 5. WHY DINABRIDGE + BUILT ON ELASTIC (merged) -->
+  <!-- 5. WHY DINABRIDGE -->
   <section class="section">
     <div class="container">
       <div class="why-box">
-
         <div class="why-box-intro">
           <span class="section-label">Why DinaBridge</span>
           <h2><span class="why-headline-depth">Depth</span> is the only thing that moves production clusters.</h2>
           <p>Not a generalist agency. Every engagement is senior-led, directly communicated, and measured by outcomes &mdash; across the full technical surface of the Elastic stack.</p>
         </div>
-
         <div class="grid-2">
-
-          <!-- Left: hero thesis card -->
           <div class="why-hero-card">
             <p class="why-hero-card-title">The engineer you speak to is the engineer doing the work.</p>
             <p><strong>No account managers.</strong> No hand-off. No junior layer underneath. You work directly with the senior engineer from day one &mdash; the same person who scopes it, builds it, and hands it off.</p>
-
             <div class="pipeline">
               <div class="pipeline-row pipeline-row--old">
                 <span class="pipeline-label">Typical agency</span>
@@ -515,7 +496,6 @@
                 <span class="pipeline-check">&#10003;</span>
               </div>
             </div>
-
             <table class="speed-table">
               <thead>
                 <tr><th></th><th>Traditional Agency</th><th>DinaBridge</th></tr>
@@ -533,7 +513,6 @@
                 </tr>
               </tbody>
             </table>
-
             <a href="/elastic-consulting.html" class="why-hero-card-cta">
               How we engage
               <span class="cta-arrow">
@@ -543,34 +522,27 @@
               </span>
             </a>
           </div>
-
-          <!-- Right: 2×3 bento (was 2×2, now includes Elastic-native) -->
           <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto;gap:var(--sp-16);">
-
             <div class="bento-cell">
               <div class="bento-cell-icon">&#9670;</div>
               <h4>Technical Depth</h4>
               <p><strong>Production Elasticsearch</strong> &mdash; clusters, pipelines, relevance, security, AI. Not surface-level config.</p>
             </div>
-
             <div class="bento-cell">
               <div class="bento-cell-icon">&#9670;</div>
               <h4>Scoped Delivery</h4>
               <p>Every engagement has a <strong>defined scope, named engineer,</strong> and measurable outcome. No open-ended retainers.</p>
             </div>
-
             <div class="bento-cell">
               <div class="bento-cell-icon">&#9670;</div>
               <h4>Genuine Speed</h4>
               <p><strong>Advisory in days. Delivery in weeks.</strong> Assessment within one business day &mdash; no theatre.</p>
             </div>
-
             <div class="bento-cell">
               <div class="bento-cell-icon">&#9670;</div>
               <h4>Elastic-Native</h4>
               <p>We work <strong>exclusively on the Elastic stack.</strong> Not a generalist agency. Depth is the product.</p>
             </div>
-
             <div class="bento-cell" style="grid-column:1/-1;">
               <div class="bento-cell-icon">
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -592,9 +564,7 @@
                 Your stack stays yours
               </span>
             </div>
-
           </div>
-
         </div>
       </div>
     </div>
@@ -622,7 +592,6 @@
 <footer></footer>
 
 <script>
-/* ── Engagement tab switcher ── */
 (function(){
   var tabs   = document.querySelectorAll('.engage-tab');
   var panels = document.querySelectorAll('.engage-panel');
