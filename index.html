@@ -15,8 +15,8 @@
 <script src="/shared.js"></script>
 <style>
 /* ═══════════════════════════════════════════════
-   INDEX.HTML — v3.7.0
-   Why DinaBridge: gem section added
+   INDEX.HTML — v3.8.0
+   Gem section: new copy + 3-card layout
    ═══════════════════════════════════════════════ */
 
 /* ── [0] Unify action button border-radius ── */
@@ -511,6 +511,7 @@
   margin-bottom: 22px;
   background: linear-gradient(135deg, #1f7bff, #8e5cff);
   box-shadow: 0 0 35px rgba(80,120,255,.4);
+  font-size: 1.5rem;
 }
 
 .gem-card h3 {
@@ -702,55 +703,52 @@
 
   <!-- 5. WHY DINABRIDGE — gem section -->
   <div class="container">
-    <div class="gem-section">
-      <span class="gem-label">Why DinaBridge</span>
-      <h2 class="gem-title">Depth is the only thing that moves production clusters.</h2>
-      <p class="gem-description">Not a generalist agency. Every engagement is senior-led, directly communicated, and measured by outcomes &mdash; across the full technical surface of the Elastic stack.</p>
+    <section class="gem-section">
+
+      <div class="gem-label">WHAT MAKES A GEM</div>
+
+      <h2 class="gem-title">
+        Technical depth is the baseline.<br>
+        Not the goal.
+      </h2>
+
+      <p class="gem-description">
+        Every DinaBridge engineer clears a second bar &mdash;
+        one most consulting firms never think to apply.
+      </p>
+
       <div class="gem-grid">
+
         <div class="gem-card">
-          <div class="gem-card-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <h3>The engineer you speak to is the engineer doing the work.</h3>
-          <p>No account managers. No hand-off. No junior layer underneath. You work directly with the senior engineer from day one &mdash; the same person who scopes it, builds it, and hands it off.</p>
+          <div class="gem-card-icon">&#x1F4AC;</div>
+          <h3>They read the room</h3>
+          <p>
+            They translate production incidents into
+            calm, clear conversations.
+          </p>
         </div>
+
         <div class="gem-card">
-          <div class="gem-card-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          </div>
-          <h3>We Only Work in Production</h3>
-          <p>Staging environments hide the real problems. Every engagement runs against your live cluster &mdash; actual load, actual data, actual failure modes. That is the only place the work matters.</p>
+          <div class="gem-card-icon">&#x1F465;</div>
+          <h3>They lead, not wait</h3>
+          <p>
+            They identify the real problem and own
+            outcomes without hand-holding.
+          </p>
         </div>
+
         <div class="gem-card">
-          <div class="gem-card-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          </div>
-          <h3>Scope Before a Single Hour Ships</h3>
-          <p>Open-ended retainers are how budgets disappear without outcomes. Every engagement has a named deliverable, a fixed timeline, and a definition of done agreed before work begins.</p>
+          <div class="gem-card-icon">&#x2713;</div>
+          <h3>They do not overcomplicate</h3>
+          <p>
+            Simplicity is treated as clarity,
+            not lack of sophistication.
+          </p>
         </div>
-        <div class="gem-card">
-          <div class="gem-card-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <h3>Fast Because We Skip the Theatre</h3>
-          <p>No intake forms. No three-week proposals. No committee reviews. A senior engineer reads your situation and responds within one business day &mdash; with a real technical assessment, not a sales deck.</p>
-        </div>
-        <div class="gem-card">
-          <div class="gem-card-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-          </div>
-          <h3>Elastic Is the Whole Practice</h3>
-          <p>We do not pick up Elastic work between React projects. The entire firm runs on the Elastic stack &mdash; clusters, pipelines, detection, search, AI. That focus is what produces depth.</p>
-        </div>
-        <div class="gem-card">
-          <div class="gem-card-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-          </div>
-          <h3>You Leave with the Knowledge, Not Just the Output</h3>
-          <p>Every engagement closes with documentation your team can operate from. We build capability into your team, not dependency on ours. Your stack stays yours.</p>
-        </div>
+
       </div>
-    </div>
+
+    </section>
   </div>
 
   <hr class="section-divider" />
