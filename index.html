@@ -15,12 +15,12 @@
 <script src="/shared.js"></script>
 <style>
 /* ═══════════════════════════════════════════════
-   INDEX.HTML — v3.1.0
-   Engagement section vibe upgrades:
-   1. Gradient headline span on "Both scoped."
-   2. Premium active/hover tab states
-   3. Vibrant gradient diamond icons in engage-meta
-   4. Dark navy "Best For" right-hand card (Option B)
+   INDEX.HTML — v3.2.0
+   Four Practices UX audit upgrades:
+   A. practice-card: flex-column, card-link anchored via margin-top:auto
+   B. practice-icon circles: stronger gradient tint backgrounds
+   C. section-label in this section: vibrant brand blue
+   D. practice-card hover: translateY(-4px) + wider softer shadow
    ═══════════════════════════════════════════════ */
 
 /* ── Trust card hover ── */
@@ -35,6 +35,82 @@
 }
 .trust-card:hover .trust-card-icon{color:var(--blue);transition:color var(--t-slow) var(--ease);}
 .trust-card:hover h3{color:#1a7aff;transition:color var(--t-slow) var(--ease);}
+
+/* ── [A+D] Practice cards: flex column + anchored link + premium hover ── */
+.practice-card {
+  display: flex !important;
+  flex-direction: column !important;
+  transition:
+    background var(--t-slow) var(--ease),
+    border-color var(--t-slow) var(--ease),
+    box-shadow var(--t-slow) var(--ease),
+    transform var(--t-base) var(--ease-out) !important;
+}
+.practice-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow:
+    0 8px 32px rgba(11,100,221,.14),
+    0 2px 8px rgba(0,0,0,.06),
+    0 0 0 1px rgba(11,100,221,.12) !important;
+  border-color: rgba(11,100,221,.28) !important;
+}
+.practice-card:hover h3 {
+  color: var(--blue);
+  transition: color var(--t-slow) var(--ease);
+}
+/* Anchor "Learn more" to card bottom */
+.practice-card .card-link {
+  margin-top: auto;
+  padding-top: var(--sp-16);
+}
+
+/* ── [B] Practice icon circle: vivid gradient focal points ── */
+.practice-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1.15rem;
+  margin-bottom: var(--sp-16);
+  flex-shrink: 0;
+  transition: transform var(--t-base) var(--ease-out), box-shadow var(--t-slow) var(--ease);
+}
+.practice-card:hover .practice-icon {
+  transform: scale(1.10);
+  box-shadow: 0 4px 16px rgba(11,100,221,.22);
+}
+.practice-icon--obs {
+  background: linear-gradient(135deg, rgba(11,100,221,.18) 0%, rgba(0,180,160,.14) 100%);
+  border: 1px solid rgba(11,100,221,.22);
+  color: var(--blue);
+}
+.practice-icon--search {
+  background: linear-gradient(135deg, rgba(11,100,221,.20) 0%, rgba(139,50,101,.14) 100%);
+  border: 1px solid rgba(11,100,221,.22);
+  color: var(--blue);
+}
+.practice-icon--sec {
+  background: linear-gradient(135deg, rgba(139,50,101,.16) 0%, rgba(11,100,221,.14) 100%);
+  border: 1px solid rgba(139,50,101,.20);
+  color: var(--magenta);
+}
+.practice-icon--ai {
+  background: linear-gradient(135deg, rgba(0,180,160,.16) 0%, rgba(11,100,221,.14) 100%);
+  border: 1px solid rgba(0,180,160,.22);
+  color: var(--teal);
+}
+
+/* ── [C] Section label override for Four Practices only ── */
+.practices-label {
+  display: inline-block;
+  font-size: var(--text-xs);
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: var(--sp-12);
+}
 
 /* ── [1] Engagement section headline gradient ── */
 .engage-headline-gradient {
@@ -189,7 +265,6 @@
   margin-bottom:var(--sp-32);
   box-shadow:var(--shadow-sm);
 }
-/* [2] Premium tab states */
 .engage-tab{
   padding:var(--sp-8) var(--sp-24);
   border-radius:var(--radius);
@@ -230,8 +305,6 @@
   color:var(--navy);letter-spacing:-.02em;margin-bottom:var(--sp-12);
 }
 .engage-detail > p{font-size:var(--text-base);color:var(--ink-2);line-height:1.78;margin-bottom:var(--sp-20);}
-
-/* [3] Vibrant gradient icon bubbles */
 .engage-meta{
   display:flex;flex-direction:column;gap:var(--sp-12);
   padding:var(--sp-20);border-radius:var(--radius);
@@ -250,8 +323,6 @@
 }
 .engage-meta-text{font-size:var(--text-sm);color:var(--ink-2);line-height:1.6;}
 .engage-meta-text strong{color:var(--navy);font-weight:700;}
-
-/* [4] Dark navy Best For card */
 .engage-detail--dark {
   background: var(--navy) !important;
   border-color: rgba(11,100,221,.30) !important;
@@ -279,13 +350,8 @@
   color: #cbd5e1 !important;
   margin-bottom: var(--sp-16);
 }
-.engage-detail--dark ul.clean-list li {
-  color: #e2e8f0;
-}
-.engage-detail--dark ul.clean-list li::before {
-  color: var(--blue) !important;
-  opacity: 1;
-}
+.engage-detail--dark ul.clean-list li { color: #e2e8f0; }
+.engage-detail--dark ul.clean-list li::before { color: var(--blue) !important; opacity: 1; }
 .engage-detail--dark .btn-primary {
   box-shadow: 0 0 0 1px rgba(11,100,221,.50), 0 4px 20px rgba(11,100,221,.35) !important;
 }
@@ -394,15 +460,19 @@
   <section class="section">
     <div class="container">
       <div class="section-intro">
-        <span class="section-label">What we deliver</span>
+        <!-- [C] Vibrant blue label replacing flat teal -->
+        <span class="practices-label">What we deliver</span>
         <h2>Four practices. All senior. All Elastic.</h2>
         <p>Specialized engineering across the full Elastic stack &mdash; production-ready, clearly scoped, senior-led from first conversation to final handoff.</p>
       </div>
+      <!-- [A] grid-4 cards are now flex-column via .practice-card -->
       <div class="grid-4">
         <a href="/elastic-observability.html" class="card-base card practice-card">
+          <!-- [B] Vivid gradient icon circle -->
           <div class="practice-icon practice-icon--obs">&#9780;</div>
           <h3>Observability</h3>
           <p>APM instrumentation, distributed tracing, log pipeline architecture, and Kibana dashboards engineered for production-scale Elastic environments.</p>
+          <!-- [A] card-link anchored to bottom -->
           <span class="card-link">Learn more &rarr;</span>
         </a>
         <a href="/elastic-search.html" class="card-base card practice-card">
@@ -434,20 +504,14 @@
     <div class="container">
       <div class="section-intro">
         <span class="section-label">How we engage</span>
-        <!-- [1] Gradient applied to "Both scoped." -->
         <h2>Two engagement types. <span class="engage-headline-gradient">Both scoped.</span></h2>
         <p>Every project starts with a defined scope, a named senior engineer, and a measurable delivery milestone. We do not start work until the outcome is agreed.</p>
       </div>
-
-      <!-- [2] Premium tab toggle -->
       <div class="engage-tabs" role="tablist" aria-label="Engagement types">
         <button class="engage-tab is-active" role="tab" aria-selected="true"  aria-controls="panel-advisory" id="tab-advisory">Advisory</button>
         <button class="engage-tab"            role="tab" aria-selected="false" aria-controls="panel-delivery"  id="tab-delivery">Delivery</button>
       </div>
-
-      <!-- Advisory panel -->
       <div class="engage-panel is-active" id="panel-advisory" role="tabpanel" aria-labelledby="tab-advisory">
-        <!-- Left: feature list with [3] vibrant icons -->
         <div class="engage-detail">
           <h3>Short-term diagnostic review</h3>
           <p>A focused review of your Elasticsearch environment. We identify what is underperforming, why it is happening, and what it takes to fix it &mdash; delivered in days, not weeks.</p>
@@ -458,7 +522,6 @@
             <div class="engage-meta-row"><div class="engage-meta-icon">&#9670;</div><p class="engage-meta-text"><strong>Fixed scope, fixed timeline,</strong> senior engineer from day one.</p></div>
           </div>
         </div>
-        <!-- Right: [4] dark navy Best For card -->
         <div class="engage-detail engage-detail--dark">
           <h3>Best for</h3>
           <p>Teams that need clarity before committing to a build. If you are unsure whether your cluster is the problem &mdash; or what the problem actually is &mdash; start here.</p>
@@ -473,8 +536,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Delivery panel -->
       <div class="engage-panel" id="panel-delivery" role="tabpanel" aria-labelledby="tab-delivery">
         <div class="engage-detail">
           <h3>Hands-on engineering engagement</h3>
@@ -500,7 +561,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
